@@ -1,0 +1,157 @@
+* {
+    box-sizing: border-box;
+    outline: none;
+    /* font-family: 'Noto Sans KR', sans-serif; */
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  html, body, div, span, h1, h3, p, img, ul, li, form, button, input, aside {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    color: #212121;
+    vertical-align: baseline;
+  }
+
+  .modal-header, .modal-body {
+    width: 100%;
+  }
+
+  /* 필요한 곳에 따로 넣기 */
+  /* input {
+    width: 700px;
+    height: 40px;
+    font-size: 25px;
+    border: none;
+    background: transparent;
+  } */  
+  
+
+  input:focus {
+    outline: none;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+  }
+
+  @media (hover: hover) {
+    button.jsx-3375816330:hover {
+      background-color: rgba(0, 0, 0, 0.03);
+      color: rgb(102, 102, 102);
+      font-weight: normal;
+    }
+  }
+
+  button.jsx-3375816330 {
+    font-size: 14px;
+    padding: 0px;
+    width: 135px;
+    min-width: 135px;
+    height: 42px;
+    line-height: 40px;
+    border-radius: 26px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(33, 33, 33);
+    border: 1px solid rgb(223, 223, 223);
+    transition: background-color 0.3s ease 0s;
+  }
+
+  button.jsx-1662442796 {
+      font-size: 12px;
+      padding: 0px;
+      width: 100px;
+      min-width: 100px;
+      height: 32px;
+      line-height: 30px;
+      border-radius: 26px;
+      background-color: rgba(0, 0, 0, 0);
+      color: rgb(33, 33, 33);
+      border: 1px solid rgb(223, 223, 223);
+      transition: background-color 0.3s ease 0s;
+  }
+
+  .btn-add-teacher.jsx-786344230 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .btn-add-teacher.jsx-786344230 span.jsx-786344230 {
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+    margin-bottom: 10px;
+  }
+
+  .btn-add-teacher.jsx-786344230 img.jsx-786344230 {
+    vertical-align: -3px;
+    margin-right: 4px;
+  }
+
+  .modal_title {
+    margin-top: 30px;
+    /* font-size: 60px; */
+    font-weight: bold;
+  }
+
+  a {
+    color: #47b2e4;
+  }
+
+  a, a:hover, a:active, a:visited, a:focus {
+    text-decoration: none;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  .input.jsx-409808672 {
+    position: relative;
+    width: 100%;
+
+  }
+
+  .content.jsx-722889332 {
+    position: relative;
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 1240px;
+    min-height: 532px;
+    padding: 0px 20px;
+    margin: 32px auto 64px;
+  }
+
+  img {
+    border-style: none;
+  }
+
+ section>div, .search-box, form {
+    /* border: 1px solid black; */
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+}
+
+.modal-header, .modal-body {
+  width: 100%;
+}
+
+
+h1 {
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.modal_title {
+  margin: 30px;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="QnADAO">
+  	<select id="getQnAList" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO">
+  		SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
+  		  FROM question q, category c
+ 		 WHERE q.category_id = c.category_id
+ 		 ORDER BY q.question_id DESC
+  	</select>
+  	
+  	<select id="chkPwd" parameterType="qna" resultType="qna">
+  		SELECT * 
+  		  FROM question 
+  		 WHERE userId = #{userId} AND password = #{password}
+  	</select>
+  	
+  	<select id="getQnABoard" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO">
+<!--   		SELECT q.question_id, c.category_id, c.category_name, q.content, q.title, q.name, b.bootcamp_id, b.bootcamp_name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt -->
+<!--   		  FROM question q, category c, bootcamp b -->
+<!--  		 WHERE q.category_id = c.category_id AND q.bootcamp_id = b.bootcamp_id AND q.question_id = #{question_id} -->
+<!--  		 ORDER BY q.question_id DESC -->
+	  		SELECT q.question_id, c.category_id, c.category_name, q.content, q.title, q.name, m.academy, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
+	  		  FROM question q INNER JOIN category c 
+	  		  						  ON q.category_id = c.category_id
+	  		  				  INNER JOIN member m 
+	  		  						  ON q.USERID = m.USERID
+	 		 WHERE q.question_id = #{question_id}
+	 		 ORDER BY q.question_id DESC
+<!--   		SELECT q.question_id, c.category_id, c.category_name, q.title, q.content, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt -->
+<!-- 	      FROM question q INNER JOIN category c ON q.category_id = c.category_id -->
+<!-- 	     WHERE q.question_id = #{question_id} -->
+<!-- 	     ORDER BY q.question_id DESC -->
+  	</select>
+  	
+  	<insert id="insertQnABoard" parameterType="qna">
+  		INSERT INTO QUESTION (QUESTION_ID, CATEGORY_ID, USERID, ACADEMY, TITLE, NAME, CONTENT, CREATED_AT, PASSWORD, VIEW_CNT)
+		VALUES (seq_question_question_id.NEXTVAL, #{category_id}, #{userId}, #{academy}, #{title}, #{name}, #{content}, SYSDATE, #{password}, 0)
+<!-- 		  CASE -->
+<!-- 				WHEN #{category_name} = '강사' THEN 1 -->
+<!-- 				WHEN #{category_name} = '강좌' THEN 2 -->
+<!-- 	      		WHEN #{category_name} = '기타' THEN 3 -->
+<!-- 		  END as CATEGORY_ID, -->
+<!-- 		#{userId}, #{academy}, #{title}, #{name}, #{content}, SYSDATE, #{password}, 0, 'N'); -->
+				
+  	</insert>
+  	
+  </mapper>
+  
+
+
+<!-- question_id, category_name, title, name, created_at, view_cnt, answer_state -->

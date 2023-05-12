@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="AnswerDAO">
+  	<select id="getAnswer" parameterType="answer" resultType="answer">
+  		SELECT *
+  		  FROM answer
+  		 WHERE question_id = #{question_id}
+  	</select>
+  	
+  	<insert id="writingAnswer" parameterType="answer">
+  		INSERT INTO ANSWER (ANSWER_ID, QUESTION_ID, BOOTCAMP_ID, CONTENT, BOOTCAMP_NAME, CREATED_AT)
+		VALUES (seq_answer_answer_id.NEXTVAL, #{question_id}, #{bootcamp_id}, #{content}, #{bootcamp_name}, SYSDATE)
+  		
+  	</insert>
+  	
+  	<select id="getAnswerList" parameterType="answer" resultType="answer">
+  		SELECT COUNT(*) 
+  		  FROM answer 
+  		 WHERE question_id = #{question_id}
+  	</select>
+  	
+  </mapper>
+  
+
+
