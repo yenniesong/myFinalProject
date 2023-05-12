@@ -1,5 +1,16 @@
 package com.human.java.domain;
 
-public class BootcampVO {
+import lombok.Data;
 
+@Data
+public class BootcampVO {
+	private int bootcamp_id;
+	private String userId;
+	private String password;
+	private String bootcamp_name;
+	private String representative;
+	private String bootcamp_Manager;
+	private String bootcamp_add;
+	private String bootcamp_site;
+	private String manager_email;
 }

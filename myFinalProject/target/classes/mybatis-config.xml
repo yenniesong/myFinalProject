@@ -8,6 +8,7 @@
 		<typeAlias type="com.human.java.domain.QnAVO" alias="qna"/>
 		<typeAlias type="com.human.java.domain.AnswerVO" alias="answer"/>
 		<typeAlias type="com.human.java.domain.MemberVO" alias="member"/>
+		<typeAlias type="com.human.java.domain.BootcampVO" alias="bootcamp"/>
   	</typeAliases>
   </configuration>
   

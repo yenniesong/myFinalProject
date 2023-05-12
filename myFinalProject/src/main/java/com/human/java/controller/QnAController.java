@@ -69,6 +69,17 @@ public class QnAController {
 			out.println("</script>");
 			out.close();
 			
+		} else if (result.getUserId() == null) {
+			response.setCharacterEncoding("UTF-8");
+
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+
+			out.println("<script language='javascript'>");
+			out.println("alert('본인이 아닙니다.);");
+			out.println("location.href='/qnaBoard/getQnAList.do';");
+			out.println("</script>");
+			out.close();
 		}
 		
 		return "redirect:/qnaBoard/getQnABoard.do?question_id="+vo.getQuestion_id();	
