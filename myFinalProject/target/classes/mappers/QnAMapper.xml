@@ -11,6 +11,13 @@
  		 ORDER BY q.question_id DESC
   	</select>
   	
+  	<select id="getQnAList" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO">
+  		SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
+  		  FROM question q, category c
+ 		 WHERE q.category_id = c.category_id
+ 		 ORDER BY q.question_id DESC
+  	</select>
+  	
   	<select id="chkPwd" parameterType="qna" resultType="qna">
   		SELECT * 
   		  FROM question 

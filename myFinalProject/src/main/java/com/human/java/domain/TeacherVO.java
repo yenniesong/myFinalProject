@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class TeacherVO {
 	private int teacher_id;		
+	private int bootcamp_id;
 	private String teacher_name;
 	private String bootcamp_name;
 	private String course_name;
