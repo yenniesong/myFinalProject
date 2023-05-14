@@ -29,7 +29,7 @@ public class QnAController {
 	private AnswerService answerService;
 	
 	@RequestMapping("{url}.do")
-	public String userViewPage(@PathVariable String url) {
+	public String viewPage(@PathVariable String url) {
 		System.out.println("## QnA Controller 진입 ## " + url);
 		
 		return "/qnaBoard/" + url;
