@@ -3,8 +3,17 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-  <mapper namespace="QnADAO">
+  <mapper namespace="TeacherDAO">
+  	<select id="getTeacherList" parameterType="teacher" resultType="teacher">
+  		SELECT * 
+  		  FROM teacher
+  	</select>
   	
+  	<select id="getTeacher" parameterType="teacher" resultType="teacher">
+  		SELECT * 
+  		  FROM teacher
+  		 WHERE teacher_id = #{teacher_id}
+  	</select>
   	
   </mapper>
   

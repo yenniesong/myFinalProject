@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 
 <!DOCTYPE html>
@@ -475,10 +477,13 @@
 	              </div>
 	
 	              <div class="jsx-485996613 sort-number">
-	                <span class="jsx-485996613 total-number">총 18개</span>
-	                <div class="jsx-485996613 select-wrap talk fix-position">
-	                  <button type="button" class="jsx-3066370919 btn-writing">글쓰기</button>
-	                </div>
+	              <c:set var="total" value="${fn:length(qnaList)}" />
+	                <span class="jsx-485996613 total-number">총 ${total}개</span>
+	                <c:if test="${loginFg eq 's'}">
+		                <div class="jsx-485996613 select-wrap talk fix-position">
+			                  <button type="button" class="jsx-3066370919 btn-writing">글쓰기</button>
+		                </div>
+		            </c:if>
 	              </div>
 	              <div class="jsx-1779968077 board-list-box">
 	                <ul class="jsx-1779968077 list-header">
@@ -563,7 +568,7 @@
 		        <p style="text-align: center;">비밀번호 입력</p>
 		        <input type="password" name="password" title="비밀번호 입력" placeholder="비밀번호를 입력해 주세요." class="jsx-599077571 password" value="" style="width: 300px;">
 		        <input type="hidden" name="question_id" id='hidden_question_id'>
-		        <input type="hidden" name="userId" id='hidden_userId'>
+		        <input type="hidden" name="userId" value="${qna.userId}" id='hidden_userId'>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="submit" class="btn btn-primary">확인</button>
@@ -677,6 +682,7 @@
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
+	  console.log($('#hidden_userId').val());
   $(document).ready(function() {
     $('div.jsx-989812570.col-title > a').click(function() {
       q_id = $(this).parent().prev().prev().text();

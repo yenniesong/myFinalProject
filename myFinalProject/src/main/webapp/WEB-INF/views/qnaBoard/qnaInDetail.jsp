@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%! String bootName = "휴먼교육센터"; int boot_id = 3;  %>
 <!DOCTYPE html>
@@ -435,65 +436,73 @@
                                     <form action="writingAnswer.do" method="post">
                                     <input type="hidden" name="question_id" value="${qna.question_id }">
                                     <input type="hidden" name="bootcamp_id" value="<%=boot_id %>"><!-- 세션으로 로그인 한 사람의 bootcamp_id와 name 가져오기 -->
-	                                    <div class="jsx-4129687755 write-comment-box">
-	                                        
-	                                        <!-- 답글이 없을 경우 -->
-	                                        <div class="jsx-394409708 write-comment-wrap noAnswer">
-	                                            <div class="jsx-394409708 write-comment" style="height: 130px;">
-	                                                 <div class="jsx-394409708 profile-box" style="margin-top: 20px; display: block;">
-	                                                    <div class="jsx-394409708 profile" style="display: inline-block;">
-	                                                        
-	                                                        <h5>아직 답글이 없어요</h5>
-	                                                        <span class="jsx-394409708 btnWritingAnswer" style="color: #719a60; cursor: pointer;">답글 작성하기</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
-	                                                    </div>
-	                                                </div>
-	                                            </div>
-	                                        </div>
-	                                        
-	                                        <!-- 작성하기 버튼이 활성화 될때 켜지는 부분 -->
-	                                        <div class="jsx-394409708 write-comment-wrap writingArea on">
-	                                            <div class="jsx-394409708 write-comment">
-	                                                 <div class="jsx-394409708 profile-box">
-	                                                    <div class="jsx-394409708 profile">
-	                                                        <div class="jsx-2363903998 avatar">
-	                                                            <div class="jsx-2363903998 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot;);"></div>
-	                                                        </div>
-	                                                        <span class="jsx-394409708"><input type="text" id="bootcamp_name" value="<%=bootName %>" name="bootcamp_name"></span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
-	                                                    </div>
-	                                                </div>
-	                                                <label class="jsx-4265535288 textarea">
-	                                                    <textarea name="content" class="jsx-4265535288 " placeholder="댓글을 달아주세요"></textarea>
-	                                                </label>
-	                                                <div class="jsx-394409708 buttons">
-	                                                    <button class="jsx-3240274678 button--post" type="submit">등록</button>
-	                                                </div>
-	                                            </div>
-	                                        </div> 
-	                                    </div>
-	                                    <button type="button" class="jsx-4064263859 hide-on-desktop btn-move-comment writing_ok on">
-	                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 4px;">
-	                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
-	                                        </svg>
-	                                       	 댓글쓰기
-	                                    </button>
 	                                    
-	                                    <!-- 답글이 있을 경우 -->
-                                        <div class="jsx-394409708 write-comment-wrap">
-                                            <div class="jsx-394409708 write-comment" style="height: 130px;">
-                                                 <div class="jsx-394409708 profile-box">
-                                                    <div class="jsx-394409708 profile">
-                                                        <div class="jsx-2363903998 avatar">
-                                                            <div class="jsx-2363903998 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot;);"></div>
-                                                        </div>
-                                                        <span class="jsx-394409708"><input type="text" id="bootcamp_name" value="<%=bootName %>" name="bootcamp_name"></span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
-                                                    </div>
-                                                </div>
-                                                <label class="jsx-4265535288 textarea">
-                                                    <textarea name="content" class="jsx-4265535288 " placeholder="댓글을 달아주세요"></textarea>
-                                                </label>
-                                            </div>
-                                        </div> 
+	                                    <c:choose>
+	                                        <c:when test="${empty aList}">
+		                                    <!-- 답글이 없을 경우 -->
+		                                    <div class="jsx-4129687755 write-comment-box">
+		                                        <div class="jsx-394409708 write-comment-wrap noAnswer">
+		                                            <div class="jsx-394409708 write-comment" style="height: 130px;">
+		                                                 <div class="jsx-394409708 profile-box" style="margin-top: 20px; display: block;">
+		                                                    <div class="jsx-394409708 profile" style="display: inline-block;">
+		                                                        
+		                                                        <h5>아직 답글이 없어요</h5>
+		                                                       	<!-- <c:if test="loginFg eq '학원플래그'"></c:if> loginFg가 학원 이라면 아래 버튼 살리기 -->
+		                                                        <span class="jsx-394409708 btnWritingAnswer" style="color: #719a60; cursor: pointer;">답글 작성하기</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
+		                                                    </div>
+		                                                </div>
+		                                            </div>
+		                                        </div>
+		                                        
+		                                        <!-- 작성하기 버튼이 활성화 될때 켜지는 부분 -->
+		                                        <div class="jsx-394409708 write-comment-wrap writingArea on">
+		                                            <div class="jsx-394409708 write-comment">
+		                                                 <div class="jsx-394409708 profile-box">
+		                                                    <div class="jsx-394409708 profile">
+		                                                        <div class="jsx-2363903998 avatar">
+		                                                            <div class="jsx-2363903998 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot;);"></div>
+		                                                        </div>
+		                                                        <span class="jsx-394409708"><input type="text" id="bootcamp_name" value="<%=bootName %>" name="bootcamp_name"></span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
+		                                                    </div>
+		                                                </div>
+		                                                <label class="jsx-4265535288 textarea">
+		                                                    <textarea name="content" class="jsx-4265535288 " placeholder="댓글을 달아주세요"></textarea>
+		                                                </label>
+		                                                <div class="jsx-394409708 buttons">
+		                                                    <button class="jsx-3240274678 button--post" type="submit">등록</button>
+		                                                </div>
+		                                            </div>
+		                                        </div> 
+		                                    </div>
+		                                    <button type="button" class="jsx-4064263859 hide-on-desktop btn-move-comment writing_ok on">
+		                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 4px;">
+		                                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+		                                        </svg>
+		                                       	 댓글쓰기
+		                                    </button>
+	                                        </c:when>
 	                                    
+	                                    	<c:otherwise>
+		                                    <!-- 답글이 있을 경우 -->
+												<c:forEach items="${aList }" var="answerList"> 
+		                                        <div class="jsx-394409708 write-comment-wrap">
+		                                            <div class="jsx-394409708 write-comment" style="height: 130px;">
+		                                                 <div class="jsx-394409708 profile-box">
+		                                                    <div class="jsx-394409708 profile">
+		                                                        <div class="jsx-2363903998 avatar">
+		                                                            <div class="jsx-2363903998 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot;);"></div>
+		                                                        </div>
+		                                                        <span class="jsx-394409708">${answerList.bootcamp_name }</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
+		                                                    </div>
+		                                                </div>
+		                                                <label class="jsx-4265535288 textarea">
+		                                                    <textarea name="content" class="jsx-4265535288 " placeholder="댓글을 달아주세요" readonly="readonly">${answerList.content }</textarea>
+		                                                </label>
+		                                            </div>
+		                                        </div> 
+	                                    		</c:forEach>
+                                        	</c:otherwise>
+	                                    </c:choose>
                                     </form>
                                     
                                 </div>

@@ -417,6 +417,7 @@
 												
 												<input type="hidden" value="<%=userId %>" name="userId">
 												<input type="hidden" value="<%=name %>" name="name">
+												<input type="hidden" value="<%=academy %>" name="academy">
 	                                            <span class="jsx-401750031"><%=nickName %></span><!-- 우선 쓰는걸로 하지만 나중에 아이디나 닉네임 불러오는걸로 변경 -->
 	                                            <span class="jsx-401750031 division-line"></span>
 	                                            <span class="jsx-401750031 bootcamp-name" style="margin: 0px; color: #90d487;"><%=academy %></span>

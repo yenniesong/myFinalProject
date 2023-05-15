@@ -29,7 +29,7 @@ public class QnAController {
 	private AnswerService answerService;
 	
 	@RequestMapping("{url}.do")
-	public String userViewPage(@PathVariable String url) {
+	public String viewPage(@PathVariable String url) {
 		System.out.println("## QnA Controller 진입 ## " + url);
 		
 		return "/qnaBoard/" + url;
@@ -39,17 +39,26 @@ public class QnAController {
 	public String getQnAList(QnAVO vo, Model model) {
 		System.out.println("## getQnAList.do 진입 ##");
 		
+//		int pageNum = 2;
+		// pageNum에 의해서 보여줄 리스트를 추출
+		// 보여줄리스트의 갯수 : 내가 정한 갯수, 한페이지당 보여줄 리스트의 갯수, 10
+//		vo.setStartPage(11);
+//		vo.setEndPage(20);
+		
+		
 		List<QnAVO> qnaList = qnaService.getQnAList(vo);
 				
 		model.addAttribute("qnaList", qnaList);
+		 // 지워질코드
 		
 		return "/qnaBoard/qnaList";
 	}
 	
 //	@ResponseBody
 	@RequestMapping("chkPwd.do")
-	public String chkPwd(QnAVO vo, HttpServletResponse response) throws IOException  {
+	public String chkPwd(QnAVO vo, HttpServletResponse response, HttpSession session) throws IOException  {
 		System.out.println("## chkPwd.do 진입 ##");
+		vo.setUserId((String)session.getAttribute("userId"));
 		System.out.println("## 클릭한 Question_id : " + vo.getQuestion_id());
 		System.out.println("## 클릭한 userId : " + vo.getUserId());
 		System.out.println("## 입력한 Password : " + vo.getPassword());
@@ -69,6 +78,17 @@ public class QnAController {
 			out.println("</script>");
 			out.close();
 			
+		} else if (result.getUserId() == null) {
+			response.setCharacterEncoding("UTF-8");
+
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter out = response.getWriter();
+
+			out.println("<script language='javascript'>");
+			out.println("alert('본인이 아닙니다.);");
+			out.println("location.href='/qnaBoard/getQnAList.do';");
+			out.println("</script>");
+			out.close();
 		}
 		
 		return "redirect:/qnaBoard/getQnABoard.do?question_id="+vo.getQuestion_id();	
@@ -110,13 +130,17 @@ public class QnAController {
 		
 		qnaService.insertQnABoard(vo);
 		vo.setName((String)session.getAttribute("nickName"));
-//		session.getAttribute("loginFg"); // ABC 
+		// 나중에 지울것
+		session.setAttribute("loginFg","s"); // ABC
+		
+		session.getAttribute("loginFg"); // ABC 
 		System.out.println("====> name : " + vo.getName());
 		
 		return "redirect:/qnaBoard/getQnAList.do";
 	}
 	
 	@RequestMapping("writingAnswer.do")
+	
 	public String writingReply(AnswerVO vo) {
 		System.out.println("## writingAnswer.do 진입 ##");
 

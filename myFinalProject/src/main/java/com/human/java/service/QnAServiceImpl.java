@@ -13,6 +13,7 @@ public class QnAServiceImpl implements QnAService {
 
 	@Autowired
 	private QnADAO qnaDAO;
+	private int countPerPage = 10;
 	
 	@Override
 	public void insertQnABoard(QnAVO vo) {
@@ -31,6 +32,22 @@ public class QnAServiceImpl implements QnAService {
 	@Override
 	public List<QnAVO> getQnAList(QnAVO vo) {
 		System.out.println("## getQnAList service 진입 ##");
+
+		// DAO 접근 , 전체 리스트 갯수를 가져오는 함수, DAO, MAPPER 생성
+		
+		int countList = 15;
+		int countPage = countList/countPerPage;
+		if ( countList%countPerPage != 0 ) countPage++;
+		
+		
+		//int pageNum = vo.getPageNum();
+		int pageNum = 1; // 나중에 지울코드
+		int startPage = (pageNum-1)*countPerPage+1;
+		int endPage = pageNum*countPerPage;
+		
+		vo.setStartPage(startPage);
+		vo.setEndPage(endPage);
+		
 		return qnaDAO.getQnAList(vo);
 	}
 

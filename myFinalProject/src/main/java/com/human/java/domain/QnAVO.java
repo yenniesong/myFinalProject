@@ -16,4 +16,8 @@ public class QnAVO {
 	private String password;
 	private int view_cnt;
 	private String answer_state;
+	
+	private int pageNum;
+	private int startPage;
+	private int endPage;
 }

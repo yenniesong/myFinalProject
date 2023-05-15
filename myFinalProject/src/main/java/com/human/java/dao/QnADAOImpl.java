@@ -33,8 +33,7 @@ public class QnADAOImpl implements QnADAO {
 	@Override
 	public List<QnAVO> getQnAList(QnAVO vo) {
 		System.out.println("## getQnAList dao 진입 ##");
-
-		return mybatis.selectList("QnADAO.getQnAList");
+		return mybatis.selectList("QnADAO.getQnAList",vo);
 	}
 
 	@Override
