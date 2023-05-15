@@ -1678,13 +1678,13 @@
 	                <div class="jsx-283961174 section section--search">
 	
 	                  <div class="jsx-283961174 title">
-	                    <h2 class="jsx-283961174">TUTORS&nbsp;</h2>
+	                    <h2 class="jsx-283961174">TEACHER&nbsp;</h2>
 	                  </div>
 	
 					<!-- 학원에서만 보이는 버튼 -->
 	                  <div class="jsx-786344230 btn-add-teacher mb-3">
 	                    <span class="jsx-786344230">새로운 선생님을 등록하실 건가요?</span>
-	                    <button type="button" class="jsx-3375816330 addTeacher">
+	                    <button type="button" class="jsx-3375816330 addTeacher" style="width: 140px;">
 	                      <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">선생님 추가하기
 	                    </button>
 	                  </div>

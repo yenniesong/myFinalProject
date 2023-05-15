@@ -448,7 +448,9 @@
 		                                                        
 		                                                        <h5>아직 답글이 없어요</h5>
 		                                                       	<!-- <c:if test="loginFg eq '학원플래그'"></c:if> loginFg가 학원 이라면 아래 버튼 살리기 -->
-		                                                        <span class="jsx-394409708 btnWritingAnswer" style="color: #719a60; cursor: pointer;">답글 작성하기</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
+		                                                       	<c:if test="${loginFg eq 'b'}">
+		                                                        	<span class="jsx-394409708 btnWritingAnswer" style="color: #719a60; cursor: pointer;">답글 작성하기</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
+		                                                   		</c:if>
 		                                                    </div>
 		                                                </div>
 		                                            </div>
@@ -502,6 +504,7 @@
 		                                        </div> 
 	                                    		</c:forEach>
                                         	</c:otherwise>
+                                        	
 	                                    </c:choose>
                                     </form>
                                     

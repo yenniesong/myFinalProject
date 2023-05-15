@@ -89,9 +89,9 @@
 
                 <ol>
                 <li><a href="index.html">Home</a></li>
-                <li>Q&A</li>
+                <li>Teacher</li>
                 </ol>
-                <h2>Q & A</h2>
+                <h2>Teacher</h2>
 
             </div>
         </section><!-- End Breadcrumbs -->
@@ -109,109 +109,113 @@
                                     </p>
                                 </div>
 
-                                <div class="jsx-401750031 board-header">
-
-                                    <div class="jsx-216214598 content">
-                                        <div class="jsx-216214598 flex-left">
-                                            <div class="jsx-216214598 profile">
-                                                <img id="preview" src="#" alt="미리보기" style="width: 300px;"> 
-                                                <input type="file" id="fileloads" name="fileloads" style="display: block;" accept="image/*" onchange="previewImage(event);" required="required"> 
-                                            </div>
-                                            <div class="jsx-216214598 btn-box">
-                                                <input type="hidden"><!-- value 여기에 해당 선생님의 id 적어주기  -->
-                                                <button class="jsx-3857673807 btn-follow" type="button">
-                                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
-                                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-                                                  </svg>
-                                                  <span class="jsx-216214598">대표학원명</span>
-                                                  <span class="jsx-216214598"></span>
-                                                </button>
-                                            </div>
-                          
-                                        </div>
-                          
-                                        <div class="jsx-216214598 flex-right">
-                                            <div class="jsx-2255129348 real-time-evaluation">
-                                                <div class="jsx-2255129348 scroll-box">
-                                                    <ul class="jsx-2255129348">
-                                                        <li class="jsx-2255129348">
-                                                            <h4 class="jsx-2255129348">선생님의 이름</h4>
-                                                        </li>
-                                                        <li class="jsx-3839070939 tutor">
-                                                            <div class="jsx-3839070939 board-item">
-                                                                <div class="jsx-3839070939 title">
-                                                                <h4 class="jsx-3839070939">이름 작성란</h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="jsx-3839070939 sub">
-                                                                <span class="jsx-3839070939 tags">#best 강사리뷰</span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="jsx-2255129348 horizontal-rule"></li>
-                                                        <li class="jsx-2255129348">
-                                                            <h4 class="jsx-2255129348">선생님의 한마디</h4>
-                                                        </li>
-                                                        <li class="jsx-3839070939 tutor">
-                                                            <div class="jsx-3839070939 board-item">
-                                                                <div class="jsx-3839070939 title">
-                                                                <h4 class="jsx-3839070939">좌우명 혹은 뭐 그런거 작성</h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="jsx-3839070939 sub">
-                                                                <span class="jsx-3839070939 tags">#best 강사리뷰</span>
-                                                            </div>
-                                                        </li>
-                                                        <li class="jsx-2255129348 horizontal-rule"></li>
-                                                        <li class="jsx-2255129348">
-                                                            <h4 class="jsx-2255129348">강의 명</h4>
-                                                        </li>
-                                                        <li class="jsx-1434886323 ">
-                                                            <div class="jsx-1434886323 board-item">
-                                                                <div class="jsx-1434886323 title">
-                                                                <h4 class="jsx-1434886323">강의명 작성란</h4>
-                                                                </div>
-                                                            </div>
-                                                            <div class="jsx-1434886323 sub">
-                                                                <span class="jsx-1434886323 tags">#강사리뷰</span>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                
-                                <div class="jsx-4064263859 comment">
-                                    
-                                    <div class="jsx-4129687755 write-comment-box">
-                                        <div class="jsx-394409708 write-comment-wrap">
-                                            <div class="jsx-394409708 write-comment">
-                                                <label class="jsx-4265535288 textarea">
-                                                    <textarea class="jsx-4265535288 " placeholder="간단한 강의 설명" style="height: 200px;"></textarea>
-                                                </label>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="jsx-394409708 buttons">
-                                        <button type="button" class="jsx-654986024 btn-view-list">
-                                            <span class="jsx-654986024 hide-on-mobile">목록보기</span>
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
-                                                <line x1="8" y1="6" x2="21" y2="6"></line>
-                                                <line x1="8" y1="12" x2="21" y2="12"></line>
-                                                <line x1="8" y1="18" x2="21" y2="18"></line>
-                                                <line x1="3" y1="6" x2="3" y2="6"></line>
-                                                <line x1="3" y1="12" x2="3" y2="12"></line>
-                                                <line x1="3" y1="18" x2="3" y2="18"></line>
-                                            </svg>
-                                        </button>
-                                        <button class="jsx-3240274678 button--post" type="button">
-                                            <span class="jsx-654986024">등록</span>
-                                        </button>
-                                    </div>
-                                </div>
+								<form action="updateTeacher.do">
+	                                <div class="jsx-401750031 board-header">
+	
+	                                    <div class="jsx-216214598 content">
+	                                        <div class="jsx-216214598 flex-left">
+	                                            <div class="jsx-216214598 profile">
+	                                                <img id="preview" src="#" alt="미리보기" style="width: 300px;"> 
+	                                                <input type="file" id="fileloads" name="fileloads" style="display: block;" accept="image/*" onchange="previewImage(event);" required="required"> 
+	                                            </div>
+	                                            <div class="jsx-216214598 btn-box">
+	                                                <input type="hidden" value="${teacher.teacher_id }"><!-- value 여기에 해당 선생님의 id 적어주기  -->
+	                                                <input type="hidden" value="${teacher.bootcamp_id }">
+	                                                <input type="hidden" value="${teacher.teacher_id }">
+	                                                <button class="jsx-3857673807 btn-follow" type="button">
+	                                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+	                                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+	                                                  </svg>
+	                                                  <span class="jsx-216214598">${teacher.bootcamp_name }</span>
+	                                                  <span class="jsx-216214598"></span>
+	                                                </button>
+	                                            </div>
+	                          
+	                                        </div>
+	                          
+	                                        <div class="jsx-216214598 flex-right">
+	                                            <div class="jsx-2255129348 real-time-evaluation">
+	                                                <div class="jsx-2255129348 scroll-box">
+	                                                    <ul class="jsx-2255129348">
+	                                                        <li class="jsx-2255129348">
+	                                                            <h4 class="jsx-2255129348">${teacher.teacher_name }</h4>
+	                                                        </li>
+	                                                        <li class="jsx-3839070939 tutor">
+	                                                            <div class="jsx-3839070939 board-item">
+	                                                                <div class="jsx-3839070939 title">
+	                                                                <h4 class="jsx-3839070939">이름 작성란</h4>
+	                                                                </div>
+	                                                            </div>
+	                                                            <div class="jsx-3839070939 sub">
+	                                                                <span class="jsx-3839070939 tags">#best 강사리뷰</span>
+	                                                            </div>
+	                                                        </li>
+	                                                        <li class="jsx-2255129348 horizontal-rule"></li>
+	                                                        <li class="jsx-2255129348">
+	                                                            <h4 class="jsx-2255129348">선생님의 한마디</h4>
+	                                                        </li>
+	                                                        <li class="jsx-3839070939 tutor">
+	                                                            <div class="jsx-3839070939 board-item">
+	                                                                <div class="jsx-3839070939 title">
+	                                                                <h4 class="jsx-3839070939">좌우명 혹은 뭐 그런거 작성</h4>
+	                                                                </div>
+	                                                            </div>
+	                                                            <div class="jsx-3839070939 sub">
+	                                                                <span class="jsx-3839070939 tags">#best 강사리뷰</span>
+	                                                            </div>
+	                                                        </li>
+	                                                        <li class="jsx-2255129348 horizontal-rule"></li>
+	                                                        <li class="jsx-2255129348">
+	                                                            <h4 class="jsx-2255129348">강의 명</h4>
+	                                                        </li>
+	                                                        <li class="jsx-1434886323 ">
+	                                                            <div class="jsx-1434886323 board-item">
+	                                                                <div class="jsx-1434886323 title">
+	                                                                <h4 class="jsx-1434886323">강의명 작성란</h4>
+	                                                                </div>
+	                                                            </div>
+	                                                            <div class="jsx-1434886323 sub">
+	                                                                <span class="jsx-1434886323 tags">#강사리뷰</span>
+	                                                            </div>
+	                                                        </li>
+	                                                    </ul>
+	                                                </div>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	
+	                                </div>
+	                                
+	                                <div class="jsx-4064263859 comment">
+	                                    
+	                                    <div class="jsx-4129687755 write-comment-box">
+	                                        <div class="jsx-394409708 write-comment-wrap">
+	                                            <div class="jsx-394409708 write-comment">
+	                                                <label class="jsx-4265535288 textarea">
+	                                                    <textarea class="jsx-4265535288 " placeholder="간단한 강의 설명" style="height: 200px;"></textarea>
+	                                                </label>
+	                                                
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="jsx-394409708 buttons">
+	                                        <button type="button" class="jsx-654986024 btn-view-list">
+	                                            <span class="jsx-654986024 hide-on-mobile">목록보기</span>
+	                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+	                                                <line x1="8" y1="6" x2="21" y2="6"></line>
+	                                                <line x1="8" y1="12" x2="21" y2="12"></line>
+	                                                <line x1="8" y1="18" x2="21" y2="18"></line>
+	                                                <line x1="3" y1="6" x2="3" y2="6"></line>
+	                                                <line x1="3" y1="12" x2="3" y2="12"></line>
+	                                                <line x1="3" y1="18" x2="3" y2="18"></line>
+	                                            </svg>
+	                                        </button>
+	                                        <button class="jsx-3240274678 button--post" type="submit">
+	                                            <span class="jsx-654986024">등록</span>
+	                                        </button>
+	                                    </div>
+	                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>

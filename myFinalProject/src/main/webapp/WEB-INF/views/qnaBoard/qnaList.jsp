@@ -490,11 +490,11 @@
 	                  <li class="jsx-1779968077">
 	                    <div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 	                    <div class="jsx-1779968077" style="max-width: 120px;">분류</div>
-	                    <div class="jsx-1779968077" style="max-width: 344px;">제목</div>
+	                    <div class="jsx-1779968077" style="max-width: 400px;">제목</div>
 	                    <div class="jsx-1779968077" style="max-width: 100px;">작성자</div>
 	                    <div class="jsx-1779968077" style="max-width: 100px;">등록일</div>
-	                    <div class="jsx-1779968077" style="max-width: 60px;">조회</div>
-	                    <div class="jsx-1779968077" style="max-width: 60px;">답변상태</div>
+<!-- 	                    <div class="jsx-1779968077" style="max-width: 60px;">조회</div> -->
+	                    <div class="jsx-1779968077" style="max-width: 100px;">답변상태</div>
 	                  </li>
 	                </ul>
 	                
@@ -503,7 +503,7 @@
 	                  <li tabindex="0" class="jsx-989812570 ">
 	                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
 	                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
-	                    <div class="jsx-989812570 col-title" style="max-width: 344px;">
+	                    <div class="jsx-989812570 col-title" style="max-width: 400px;">
 <%-- 	                      <a class="jsx-989812570" href="getQnABoard.do?question_id=${qna.question_id }" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a> --%>
 	                      <a class="jsx-989812570" href="#" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a>
 	                      <span class="jsx-989812570 comment-number hide-on-desktop">0
@@ -512,14 +512,14 @@
 	                    </div>
 	                    <div class="jsx-989812570 col-nickname" style="max-width: 100px;">${qna.name }</div>
 	                    <div class="jsx-989812570 col-created" style="max-width: 100px;">${qna.created_at }</div>
-	                    <div class="jsx-989812570 read_count hide-on-mobile" style="max-width: 60px;">${qna.view_cnt }</div>
+<%-- 	                    <div class="jsx-989812570 read_count hide-on-mobile" style="max-width: 60px;">${qna.view_cnt }</div> --%>
 	                    <div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
 	                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
 	                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
 	                        <circle cx="12" cy="12" r="3"></circle>
 	                      </svg>
 	                    </div>
-	                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 60px;">?</div>
+	                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 100px;">?</div>
 	                    <!-- <div class="jsx-989812570 like_count hide-on-desktop" style="max-width: 60px;">
 	                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
 	                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
