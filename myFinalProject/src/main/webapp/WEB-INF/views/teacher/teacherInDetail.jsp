@@ -39,97 +39,95 @@
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
 
 <style>
-  .content.jsx-245464177 {
-      width: 924px;
-  }
-  .review-tab.jsx-4149508951 {
-      display: flex;
-      flex-direction: column;
-      background-color: rgb(255, 255, 255);
-      border: 1px solid rgb(223, 223, 223);
-  }
-  .review-box.jsx-4149508951 {
-      position: relative;
-      display: flex;
-      overflow: hidden;
-  }
-  .auth-popup.jsx-4149508951 {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-  }
-  
-  .badges-box.jsx-3913025517 {
-      display: flex;
-  }
-  .box.border-primary.jsx-3913025517 {
-      background-color: rgb(255, 255, 255);
-      border: 1px solid rgb(93, 126, 233);
-      color: rgb(93, 126, 233);
-      font-weight: 700;
-  }
-  h4.jsx-644785032 {
-      display: flex;
-      width: 100%;
-      font-size: 17px;
-      margin-top: 12px;
-  }
-  h4.jsx-644785032 > span.jsx-644785032 {
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      overflow: hidden;
-      padding: 0px 5px;
-  }
-  .avatar.jsx-1397353033 {
-      position: relative;
-      width: 24px;
-      height: 24px;
-      margin: 0px auto;
-  }
-  .circle.jsx-1397353033 {
-      position: relative;
-      clear: both;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      overflow: hidden;
-      background-size: cover;
-      background-color: rgb(238, 239, 244);
-      background-position: center center;
-      background-repeat: no-repeat;
-  }
-  button.jsx-520855050 {
-      font-size: 14px;
-      padding: 0px;
-      width: 120px;
-      min-width: 120px;
-      height: 42px;
-      line-height: 40px;
-      border-radius: 26px;
-      background-color: rgba(0, 0, 0, 0);
-      color: rgb(33, 33, 33);
-      border: 1px solid rgb(223, 223, 223);
-      transition: background-color 0.3s ease 0s;
-  }
-  button.jsx-1487464557 {
-      font-size: 14px;
-      padding: 0px;
-      width: 120px;
-      min-width: 120px;
-      height: 42px;
-      line-height: 40px;
-      border-radius: 26px;
-      background-color: rgb(63, 96, 204);
-      color: rgb(255, 255, 255);
-      border: none;
-      transition: background-color 0.3s ease 0s;
-  }
-  
-  .on {
-  	display: none;
-  }
-</style>  
+    .content.jsx-245464177 {
+        width: 924px;
+    }
+    .review-tab.jsx-4149508951 {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(223, 223, 223);
+    }
+    .review-box.jsx-4149508951 {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+    }
+    .auth-popup.jsx-4149508951 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .avatar.jsx-1397353033 {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin: 0px auto;
+    }
+    .circle.jsx-1397353033 {
+        position: relative;
+        clear: both;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background-size: cover;
+        background-color: rgb(238, 239, 244);
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    button.jsx-520855050 {
+        font-size: 14px;
+        padding: 0px;
+        width: 120px;
+        min-width: 120px;
+        height: 42px;
+        line-height: 40px;
+        border-radius: 26px;
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(33, 33, 33);
+        border: 1px solid rgb(223, 223, 223);
+        transition: background-color 0.3s ease 0s;
+    }
+    button.jsx-1487464557 {
+        font-size: 14px;
+        padding: 0px;
+        width: 120px;
+        min-width: 120px;
+        height: 42px;
+        line-height: 40px;
+        border-radius: 26px;
+        background-color: rgb(63, 96, 204);
+        color: rgb(255, 255, 255);
+        border: none;
+        transition: background-color 0.3s ease 0s;
+    }
+
+    .board-box.jsx-3810764099 {
+        position: relative;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+    .content-box.jsx-2656936329 {
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .card-box.jsx-2656936329 {
+        position: relative;
+        padding: 48px 94px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(223, 223, 223);
+    }
+    .popup_on {
+    	display: none;
+    }
+</style>
 <style id="__jsx-1629185219">
     .search-result.jsx-1629185219 {
         margin-top: 8px;
@@ -159,11 +157,6 @@
         overflow: hidden;
     }
 
-    .result-text.jsx-1629185219, .result-none.jsx-1629185219 {
-        padding: 48px 0px 32px;
-        text-align: center;
-    }
-
     ul.header--tab.jsx-1629185219 li.on.jsx-1629185219 {
         background-color: rgb(255, 255, 255);
     }
@@ -189,7 +182,14 @@
         -webkit-box-align: center;
         align-items: center;
     }
-
+    .title.jsx-1629185219 {
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgb(102, 102, 102);
+    }
 </style>
 <style id="__jsx-2704879397">
     .star-2.jsx-2704879397 {
@@ -396,25 +396,6 @@
       background-color: rgb(238, 239, 244);
       margin-bottom: 16px;
   }
-  .rank.jsx-216214598 {
-      position: absolute;
-      display: flex;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      justify-content: center;
-      font-size: 14px;
-      color: rgb(255, 255, 255);
-      font-weight: 700;
-      border-radius: 50%;
-      background-color: rgb(102, 102, 102);
-  }
-  .top-rank.jsx-216214598, .rank.jsx-216214598 {
-      width: 64px;
-      height: 64px;
-      top: 16px;
-      right: 12px;
-  }
   .tutor-image.jsx-216214598 {
       width: 100%;
       height: 100%;
@@ -464,23 +445,6 @@
       background-color: rgb(223, 223, 223);
       margin: 12px 0px;
   }
-  .btn-more-box.jsx-2255129348 {
-      display: flex;
-      margin-top: 16px;
-  }
-  .btn-more-box.jsx-2255129348 a.jsx-2255129348 {
-      font-size: 14px;
-      height: 42px;
-      border: 1px solid rgb(223, 223, 223);
-      border-radius: 4px;
-      width: 100%;
-      margin-right: 8px;
-      text-align: center;
-      line-height: 40px;
-  }
-  .btn-more-box.jsx-2255129348 a.jsx-2255129348:last-child {
-      margin-right: 0px;
-  }
 </style>
 <style id="__jsx-3839070939">
   .board-item.jsx-3839070939 {
@@ -509,9 +473,6 @@
       justify-content: space-between;
       margin-top: 5px;
   }
-  li.tutor.jsx-3839070939 .tags.jsx-3839070939 {
-      color: rgb(255, 51, 102);
-  }
   li.jsx-3839070939 {
       position: relative;
       background-color: rgb(255, 255, 255);
@@ -519,16 +480,6 @@
       margin-bottom: 8px;
       padding: 12px;
       cursor: pointer;
-  }
-  .tags.jsx-3839070939 {
-      font-size: 13px;
-      color: rgb(63, 96, 204);
-  }
-  .emotion-img.jsx-3839070939 {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 40px;
   }
 </style>
 <style id="__jsx-1434886323">
@@ -568,16 +519,6 @@
       -webkit-box-pack: justify;
       justify-content: space-between;
       margin-top: 5px;
-  }
-  .tags.jsx-1434886323 {
-      font-size: 13px;
-      color: rgb(63, 96, 204);
-  }
-  .emotion-img.jsx-1434886323 {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      width: 40px;
   }
 </style>
 <style id="__jsx-1546215327">
@@ -619,86 +560,100 @@
   }
 </style>
 <style id="__jsx-644785032">
-    .info.jsx-644785032 {
-        display: flex;
-        -webkit-box-align: center;
-        align-items: center;
-        padding: 8px 0px;
-        font-size: 14px;
-        border-bottom: 1px solid rgb(236, 236, 236);
-    }
-    .info.jsx-644785032 .nickname.jsx-644785032 {
-        color: rgb(33, 33, 33);
-        margin-left: 8px;
-    }
-    .info.jsx-644785032 span.jsx-644785032 {
-        color: rgb(102, 102, 102);
-    }
-    .info.jsx-644785032 .sub.jsx-644785032 {
-        margin-left: auto;
-    }
-    .info.jsx-644785032 span.jsx-644785032 {
-        color: rgb(102, 102, 102);
-    }
-    .content.jsx-644785032 {
-        padding: 24px 0px;
-    }
-    .rating-btn-box.jsx-644785032 {
-    display: flex;
-}
-.star-box.jsx-644785032 {
-    display: flex;
-    align-items: flex-end;
-    margin-right: auto;
-    padding-bottom: 8px;
-}
-.star-box.jsx-644785032 > span.jsx-644785032 {
-    font-size: 28px;
-    font-weight: 700;
-    margin-right: 4px;
-    line-height: 100%;
-}
-.review-item.jsx-644785032:first-child.jsx-644785032::after {
-    position: absolute;
-    top: 24px;
-    bottom: 24px;
-    right: 0px;
-    border-right: 1px solid rgb(223, 223, 223);
-    content: "";
-}
-.review-item.jsx-644785032 {
-          padding: 24px 32px 32px;
-          width: 100%;
-          cursor: pointer;
-      }
-      .title.jsx-644785032 {
-          position: relative;
-      }
-  </style>
+  
+  h4.jsx-644785032 {
+      display: flex;
+      width: 100%;
+      font-size: 17px;
+      margin-top: 12px;
+  }
+  h4.jsx-644785032 > span.jsx-644785032 {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      padding: 0px 5px;
+  }
+  .info.jsx-644785032 {
+      display: flex;
+      -webkit-box-align: center;
+      align-items: center;
+      padding: 8px 0px;
+      font-size: 14px;
+      border-bottom: 1px solid rgb(236, 236, 236);
+  }
+  .info.jsx-644785032 .nickname.jsx-644785032 {
+      color: rgb(33, 33, 33);
+      margin-left: 8px;
+  }
+  .info.jsx-644785032 span.jsx-644785032 {
+      color: rgb(102, 102, 102);
+  }
+  .info.jsx-644785032 .sub.jsx-644785032 {
+      margin-left: auto;
+  }
+  .info.jsx-644785032 span.jsx-644785032 {
+      color: rgb(102, 102, 102);
+  }
+  .content.jsx-644785032 {
+      padding: 24px 0px;
+  }
+  .rating-btn-box.jsx-644785032 {
+      display: flex;
+  }
+  .star-box.jsx-644785032 {
+      display: flex;
+      align-items: flex-end;
+      margin-right: auto;
+      padding-bottom: 8px;
+  }
+  .star-box.jsx-644785032 > span.jsx-644785032 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-right: 4px;
+      line-height: 100%;
+  }
+  .review-item.jsx-644785032:first-child.jsx-644785032::after {
+      position: absolute;
+      top: 24px;
+      bottom: 24px;
+      right: 0px;
+      border-right: 1px solid rgb(223, 223, 223);
+      content: "";
+  }
+  .review-item.jsx-644785032 {
+      padding: 24px 32px 32px;
+      width: 100%;
+      cursor: pointer;
+  }
+  .title.jsx-644785032 {
+      position: relative;
+  }
+</style>
 <style id="__jsx-133251687">
-    .content.jsx-133251687 {
-    width: 400px;
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    padding: 24px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px;
-}
-h5.jsx-133251687 {
-    font-size: 14px;
-    margin-bottom: 16px;
-}
-.btn-box.jsx-133251687 {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-}
-.btn-join.jsx-133251687, .btn-login.jsx-133251687 {
-    margin: 0px 8px;
-}
-  </style>
+  .content.jsx-133251687 {
+	  width: 400px;
+	  display: flex;
+	  text-align: center;
+	  flex-direction: column;
+	  background-color: rgb(255, 255, 255);
+	  border-radius: 8px;
+	  padding: 24px;
+	  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px;
+  }
+  h5.jsx-133251687 {
+      font-size: 14px;
+      margin-bottom: 16px;
+  }
+  .btn-box.jsx-133251687 {
+      display: flex;
+      -webkit-box-pack: center;
+      justify-content: center;
+  }
+  .btn-join.jsx-133251687, .btn-login.jsx-133251687 {
+      margin: 0px 8px;
+  }
+</style>
+
 
 </head>
 <body>
@@ -745,290 +700,299 @@ h5.jsx-133251687 {
 
 	<main id="main">
 
-		<!-- ======= Breadcrumbs ======= -->
-		<section id="breadcrumbs" class="breadcrumbs">
-		  <div class="container">
-		
-		    <ol>
-		      <li><a href="index.html">Home</a></li>
-		      <li>Teacher</li>
-		    </ol>
-		    <h2>Teacher</h2>
-		
-		  </div>
-		</section><!-- End Breadcrumbs -->
-		
-		<section class="inner-page">
-		  <div class="container">
-		    <div class="jsx-722889332 content">
-		      <div class="jsx-1629185219 search-layout">
-		        
-		        <div class="jsx-1629185219 title">
-		          <h4 class="jsx-1629185219">TEACHER</h4>
-		          <p class="jsx-1629185219">
-		            누가 나와 잘 맞는 선생님일까?
-		          </p>
-		        </div>
-		
-		        
-		      </div>
-		      <div class="jsx-3239872667 main-card">
-		        <div class="jsx-1020960270 message">
-		          <div class="jsx-1020960270 title">
-		            <span class="jsx-1020960270">teacher name</span>
-		            <p class="jsx-1020960270"></p>
-		          </div>
-		          <div class="jsx-1020960270 rating">
-		            <span class="jsx-1020960270 score">
-		              <span class="jsx-1020960270">7.6</span> 
-		              / 10
-		            </span>
-		            <div class="jsx-2007872434 stars">
-		              <div class="jsx-2007872434 star star-2"></div>
-		              <div class="jsx-2007872434 star star-2"></div>
-		              <div class="jsx-2007872434 star star-2"></div>
-		              <div class="jsx-2007872434 star star-2"></div>
-		              <div class="jsx-2007872434 star star-0"></div>
-		            </div>
-		          </div>
-		        </div>
-		
-		        <div class="jsx-216214598 content">
-		          <div class="jsx-216214598 flex-left">
-		            <div class="jsx-216214598 profile">
-		              <div class="jsx-216214598 tutor-image" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=480&amp;f=webp&quot;);">
-		              </div>
-		            </div>
-		
-		            <div class="jsx-216214598 btn-box">
-		              <button class="jsx-3857673807 btn-follow" type="button">
-		                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
-		                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-		                </svg>
-		                <span class="jsx-216214598">팔로우하고 더 많은 자료보기</span>
-		              </button>
-		              <button class="jsx-3857673807 btn-enroll" type="button">
-		                <span class="jsx-216214598">수강신청하기</span>
-		              </button>
-		            </div>
-		          </div>
-		
-		          <div class="jsx-216214598 flex-right">
-		            <div class="jsx-216214598 title">
-		              <h3 class="jsx-216214598">
-		                (short description)
-		              </h3>
-		              <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
-		              	<a></a>
-		                <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
-		              </button>
-		            </div>
-		
-		            <div class="jsx-2255129348 real-time-evaluation">
-		              <div class="jsx-2255129348 scroll-box">
-		                <ul class="jsx-2255129348">
-		                  <li class="jsx-2255129348">
-		                    <h4 class="jsx-2255129348">학원명</h4>
-		                  </li>
-		                  <li class="jsx-3839070939 tutor">
-		                    <div class="jsx-3839070939 board-item">
-		                      <div class="jsx-3839070939 title">
-		                        <h4 class="jsx-3839070939">휴먼교육센터</h4>
-		                      </div>
-		                    </div>
-		                  </li>
-		                  <li class="jsx-2255129348 horizontal-rule"></li>
-		                  <li class="jsx-2255129348">
-		                    <h4 class="jsx-2255129348">강의명</h4>
-		                  </li>
-		                  <li class="jsx-1434886323 ">
-		                    <div class="jsx-1434886323 board-item">
-		                      <div class="jsx-1434886323 title">
-		                        <h4 class="jsx-1434886323">강의 설명</h4>
-		                      </div>
-		                    </div>
-		                  </li>
-		                </ul>
-		              </div>
-		            </div>
-		
-		          </div>
-		        </div>
-		      </div>
-		
-		      <div class="jsx-245464177 flex-box">
-		        <div class="jsx-4119538605 container" style="padding: 0px;">
-		          
-		          <div class="jsx-4119538605 review-area">
-		            <div class="jsx-4149508951 review-tab">
-		              <div class="jsx-1546215327 tabs">
-		                <ul class="jsx-1546215327">
-		                  <li class="jsx-1546215327 on">
-		                    <button class="jsx-1546215327">수강생 리뷰</button>
-		                  </li>
-		                </ul>
-		
-		                <div class="jsx-1546215327 content">
-		                  <div title="강사리뷰" class="jsx-4149508951">
-		                    <div class="jsx-4149508951 review-box">
-		                    
-		                    	<!-- 댓글이 있을 경우 -->
-		                      <div class="jsx-644785032 review-item">
-		                      
-		                        <div class="jsx-644785032 ">
-		                          <div class="jsx-644785032 info">
-		                            <div class="jsx-644785032">
-		                              <div class="jsx-1397353033 avatar">
-		                                <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
-		                                </div>
-		                              </div>
-		                            </div>
-		                            
-		                            <span class="jsx-644785032 nickname">아*****</span>
-		                            <div class="jsx-644785032 rating-btn-box">
-			                            <div class="jsx-644785032 star-box">
-			                              <span class="jsx-644785032">7.6</span>
-			                              <div class="jsx-2704879397 stars">
-			                                <div class="jsx-2704879397 star star-2"></div>
-			                                <div class="jsx-2704879397 star star-2"></div>
-			                                <div class="jsx-2704879397 star star-2"></div>
-			                                <div class="jsx-2704879397 star star-2"></div>
-			                                <div class="jsx-2704879397 star star-0"></div>
-			                              </div>
-			                            </div>
-		                          	</div>
-		                          	
-		                          </div>
-		                        </div>
-		                        <div class="jsx-644785032 title">
-		                          <h4 class="jsx-644785032">
-		                            “ 
-		                            <span class="jsx-644785032">인강은 안 들어서 모르겠지만 다락원 교재로 공부했습니다</span>
-		                            ”
-		                          </h4>
-		                        </div>
-		                      </div>
-		
-		                      <!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
-		                      <div class="jsx-4149508951 auth-popup on">
-		                        <div class="jsx-133251687 content">
-		                          <h5 class="jsx-133251687">로그인하고 전체보기</h5>
-		                          <div class="jsx-133251687 btn-box">
-		                            <div class="jsx-133251687 btn-join">
-		                              <button type="button" class="jsx-520855050 ">회원가입</button>
-		                            </div>
-		                            <div class="jsx-133251687 btn-login">
-		                              <button type="button" class="jsx-1487464557 ">로그인</button>
-		                            </div>
-		                          </div>
-		                        </div>
-		                      </div>
-		                    </div>
-		
-		                    <div class="jsx-4119538605 review-area">
-		                      <div class="jsx-4149508951 review-tab">
-		                        <div class="jsx-1546215327 tabs">
-		                          <ul class="jsx-1546215327">
-		                            <li class="jsx-1546215327 on">
-		                              <button class="jsx-1546215327">수강생 리뷰</button>
-		                            </li>
-		                          </ul>
-		
-		                          <!-- 후기가 없을때 -->
-		                          <div class="jsx-1546215327 content">
-		                            <div title="강사리뷰" class="jsx-4149508951">
-		                              <div class="jsx-4149508951 review-box">
-		                                <div class="jsx-644785032 review-item">
-		                                  <div class="jsx-644785032 title">
-		                                    
-		                                    <h4 class="jsx-644785032">
-		                                      <span class="jsx-644785032">아직 후기가 없어요</span>
-		                                    </h4>
-		                                  </div>
-		                                  <div class="jsx-644785032 ">
-		                                    <div class="jsx-644785032 info">
-		                                      <span class="jsx-644785032 nickname"><a href="#">후기 작성하기</a></span>
-		                                    </div>
-		                                  </div>
-		                                </div>
-		                              </div>
-		                            </div>
-		                          </div>
-		                        </div>
-		                      </div>
-		                    </div>
-		
-		                    <div class="jsx-4119538605 review-area">
-		                      <div class="jsx-4149508951 review-tab">
-		                        <div class="jsx-1546215327 tabs">
-		                          <ul class="jsx-1546215327">
-		                            <li class="jsx-1546215327 on">
-		                              <button class="jsx-1546215327">수강생 리뷰</button>
-		                            </li>
-		                            <!-- <li class="jsx-1546215327 ">
-		                              <button class="jsx-1546215327">환승후기</button>
-		                            </li> -->
-		                          </ul>
-		
-		                          <!-- 후기가 없을때 -->
-		                          <div class="jsx-1546215327 content">
-		                            <div title="강사리뷰" class="jsx-4149508951">
-		                              <div class="jsx-4149508951 review-box">
-		                                <div class="jsx-644785032 review-item">
-		                                  <!-- 후기 작성할 폼 -->
-		                                  <div class="jsx-1546215327 content">
-		                                    <div title="강사리뷰" class="jsx-4149508951">
-		                                      
-		                                      <form action="" method="post">
-		                                        <div class="jsx-4149508951 review-box">
-		                                          <div class="jsx-644785032 review-item">
-		                                            <div class="jsx-644785032 title">
-		                                              <div class="jsx-644785032 info">
-		                                                <div class="jsx-644785032">
-		                                                  <div class="jsx-1397353033 avatar">
-		                                                    <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
-		                                                    </div>
-		                                                  </div>
-		                                                </div>
-		                                                <span class="jsx-644785032 nickname">아*****</span>
-		                                              </div>
-		
-		                                              <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
-		                                                <div class="adminArea mb-3">
-		                                                  <form action="" method="post">
-		                                                    <div class="input-group mb-3">
-		                                                      <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
-		                                                      <button class="btn btn-outline-secondary gap-2 col-2 mx-auto" type="button" id="button-addon2">작성</button>
-		                                                    </div>
-		                                                  </form>
-		                                                </div>
-		
-		                                              </div>
-		                                              
-		                                            </div>
-		                                          </div>
-		                                        </form>
-		                                      </div>
-		                                    </div>
-		                                  </div>
-		                                </div>
-		                              </div>
-		                            </div>
-		                          </div>
-		                        </div>
-		                      </div>
-		                    </div>
-		                  </div>
-		                </div>
-		              </div>
-		            </div>
-		          </div>
-		        </div>
-		      </div>
-		    </div>
-	  	</section>
-		
-	</main><!-- End #main -->
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="index.html">Home</a></li>
+          <li>Teacher</li>
+        </ol>
+        <h2>Teacher</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    
+
+    <section class="inner-page">
+      <div class="container">
+        <div class="jsx-722889332 content">
+
+          <div class="jsx-3810764099 board-box">
+            <div class="jsx-2656936329 content-box">
+              <div class="jsx-2656936329 card-box"> 
+                  
+                <div class="jsx-1629185219 title mb-3">
+                  <h4 class="jsx-1629185219">TEACHER</h4>
+                  <p class="jsx-1629185219">
+                    누가 나와 잘 맞는 선생님일까?
+                  </p>
+                </div>
+
+                  
+                <div class="jsx-3239872667 main-card">
+                  <div class="jsx-1020960270 message">
+                    <div class="jsx-1020960270 title">
+                      <span class="jsx-1020960270">teacher name</span>
+                      <p class="jsx-1020960270"></p>
+                    </div>
+                    <div class="jsx-1020960270 rating">
+                      <span class="jsx-1020960270 score">
+                        <span class="jsx-1020960270">7.6</span> 
+                        / 10
+                      </span>
+                      <div class="jsx-2007872434 stars">
+                        <div class="jsx-2007872434 star star-2"></div>
+                        <div class="jsx-2007872434 star star-2"></div>
+                        <div class="jsx-2007872434 star star-2"></div>
+                        <div class="jsx-2007872434 star star-2"></div>
+                        <div class="jsx-2007872434 star star-0"></div>
+                      </div>
+                    </div>
+                  </div>
+          
+                  <div class="jsx-216214598 content">
+                    <div class="jsx-216214598 flex-left">
+                      <div class="jsx-216214598 profile">
+                        <div class="jsx-216214598 tutor-image" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=480&amp;f=webp&quot;);">
+                        </div>
+                      </div>
+          
+                      <div class="jsx-216214598 btn-box">
+                        <button class="jsx-3857673807 btn-follow" type="button">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+                          </svg>
+                          <span class="jsx-216214598">팔로우하고 더 많은 자료보기</span>
+                        </button>
+                        <button class="jsx-3857673807 btn-enroll" type="button">
+                          <span class="jsx-216214598">수강신청하기</span>
+                        </button>
+                      </div>
+                    </div>
+          
+                    <div class="jsx-216214598 flex-right">
+                      <div class="jsx-216214598 title">
+                        <h3 class="jsx-216214598">
+                          (short description)
+                        </h3>
+                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
+                          <a></a>
+                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
+                        </button>
+                      </div>
+          
+                      <div class="jsx-2255129348 real-time-evaluation">
+                        <div class="jsx-2255129348 scroll-box">
+                          <ul class="jsx-2255129348">
+                            <li class="jsx-2255129348">
+                              <h4 class="jsx-2255129348">학원명</h4>
+                            </li>
+                            <li class="jsx-3839070939 tutor">
+                              <div class="jsx-3839070939 board-item">
+                                <div class="jsx-3839070939 title">
+                                  <h4 class="jsx-3839070939">휴먼교육센터</h4>
+                                </div>
+                              </div>
+                            </li>
+                            <li class="jsx-2255129348 horizontal-rule"></li>
+                            <li class="jsx-2255129348">
+                              <h4 class="jsx-2255129348">강의명</h4>
+                            </li>
+                            <li class="jsx-1434886323 ">
+                              <div class="jsx-1434886323 board-item">
+                                <div class="jsx-1434886323 title">
+                                  <h4 class="jsx-1434886323">강의 설명</h4>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+          
+                    </div>
+                  </div>
+                </div>
+
+                <div class="jsx-245464177 flex-box">
+                  <div class="jsx-4119538605 container" style="padding: 0px;">
+                    
+                    <div class="jsx-4119538605 review-area">
+                      <div class="jsx-4149508951 review-tab">
+                        <div class="jsx-1546215327 tabs">
+                          <ul class="jsx-1546215327">
+                            <li class="jsx-1546215327 on">
+                              <button class="jsx-1546215327">수강생 리뷰</button>
+                            </li>
+                          </ul>
+          
+                          <div class="jsx-1546215327 content">
+                            <div title="강사리뷰" class="jsx-4149508951">
+                              <div class="jsx-4149508951 review-box">
+                              
+                                <!-- 댓글이 있을 경우 -->
+                                <div class="jsx-644785032 review-item">
+                                
+                                  <div class="jsx-644785032 ">
+                                    <div class="jsx-644785032 info">
+                                      <div class="jsx-644785032">
+                                        <div class="jsx-1397353033 avatar">
+                                          <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                      <span class="jsx-644785032 nickname">아*****</span>
+                                      <div class="jsx-644785032 rating-btn-box">
+                                        <div class="jsx-644785032 star-box">
+                                          <span class="jsx-644785032">7.6</span>
+                                          <div class="jsx-2704879397 stars">
+                                            <div class="jsx-2704879397 star star-2"></div>
+                                            <div class="jsx-2704879397 star star-2"></div>
+                                            <div class="jsx-2704879397 star star-2"></div>
+                                            <div class="jsx-2704879397 star star-2"></div>
+                                            <div class="jsx-2704879397 star star-0"></div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                  </div>
+                                  <div class="jsx-644785032 title">
+                                    <h4 class="jsx-644785032">
+                                      “ 
+                                      <span class="jsx-644785032">인강은 안 들어서 모르겠지만 다락원 교재로 공부했습니다</span>
+                                      ”
+                                    </h4>
+                                  </div>
+                                </div>
+          
+                                <!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
+                                <div class="jsx-4149508951 auth-popup popup_on">
+                                  <div class="jsx-133251687 content">
+                                    <h5 class="jsx-133251687">로그인하고 전체보기</h5>
+                                    <div class="jsx-133251687 btn-box">
+                                      <div class="jsx-133251687 btn-join">
+                                        <button type="button" class="jsx-520855050 ">회원가입</button>
+                                      </div>
+                                      <div class="jsx-133251687 btn-login">
+                                        <button type="button" class="jsx-1487464557 ">로그인</button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+          
+                              <div class="jsx-4119538605 review-area">
+                                <div class="jsx-4149508951 review-tab">
+                                  <div class="jsx-1546215327 tabs">
+                                    <ul class="jsx-1546215327">
+                                      <li class="jsx-1546215327 on">
+                                        <button class="jsx-1546215327">수강생 리뷰</button>
+                                      </li>
+                                    </ul>
+          
+                                    <!-- 후기가 없을때 -->
+                                    <div class="jsx-1546215327 content">
+                                      <div title="강사리뷰" class="jsx-4149508951">
+                                        <div class="jsx-4149508951 review-box">
+                                          <div class="jsx-644785032 review-item">
+                                            <div class="jsx-644785032 title">
+                                              
+                                              <h4 class="jsx-644785032">
+                                                <span class="jsx-644785032">아직 후기가 없어요</span>
+                                              </h4>
+                                            </div>
+                                            <div class="jsx-644785032 ">
+                                              <div class="jsx-644785032 info">
+                                                <span class="jsx-644785032 nickname"><a href="#">후기 작성하기</a></span>
+                                                <!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+          
+                              <div class="jsx-4119538605 review-area">
+                                <div class="jsx-4149508951 review-tab">
+                                  <div class="jsx-1546215327 tabs">
+                                    <ul class="jsx-1546215327">
+                                      <li class="jsx-1546215327 on">
+                                        <button class="jsx-1546215327">수강생 리뷰</button>
+                                      </li>
+                                      <!-- <li class="jsx-1546215327 ">
+                                        <button class="jsx-1546215327">환승후기</button>
+                                      </li> -->
+                                    </ul>
+          
+                                    <!-- 후기가 없을때 -->
+                                    <div class="jsx-1546215327 content">
+                                      <div title="강사리뷰" class="jsx-4149508951">
+                                        <div class="jsx-4149508951 review-box">
+                                          <div class="jsx-644785032 review-item">
+                                            <!-- 후기 작성할 폼 -->
+                                            <div class="jsx-1546215327 content">
+                                              <div title="강사리뷰" class="jsx-4149508951">
+                                                
+                                                <form action="" method="post">
+                                                  <div class="jsx-4149508951 review-box">
+                                                    <div class="jsx-644785032 review-item">
+                                                      <div class="jsx-644785032 title">
+                                                        <div class="jsx-644785032 info">
+                                                          <div class="jsx-644785032">
+                                                            <div class="jsx-1397353033 avatar">
+                                                              <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
+                                                              </div>
+                                                            </div>
+                                                          </div>
+                                                          <span class="jsx-644785032 nickname">아*****</span>	<!-- 로그인 한 학생의 이름 -->
+                                                        </div>
+          
+                                                        <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
+                                                          <div class="adminArea mb-3">
+                                                            <form action="" method="post">
+                                                              <div class="input-group mb-3">
+                                                                <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+                                                                <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
+                                                              </div>
+                                                            </form>
+                                                          </div>
+          
+                                                        </div>
+                                                        
+                                                      </div>
+                                                    </div>
+                                                  </form>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div> 
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
@@ -1135,11 +1099,27 @@ h5.jsx-133251687 {
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
+	let btn_follow = document.querySelector(".btn-follow");
+	let btn_enroll = document.querySelector(".btn-enroll");
 	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
+	let btn_review_post = document.querySelector(".review_post");
+		
+	btn_follow.addEventListener("click", function() {
+		alert("1");
+	})
+	
+	btn_enroll.addEventListener("click", function() {
+		alert("1");
+	})
 	
 	btn_update_teacher_info.addEventListener("click", function() {
 		location.href='teacherUpdating.do';
 	});
+	
+	btn_review_post.addEventListener("click", function() {
+		alert("1");
+	})
+	
 </script>
 
 </html>

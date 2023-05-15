@@ -28,20 +28,20 @@ public class TeacherDAOImpl implements TeacherDAO {
 
 	@Override
 	public void insertTeacher(TeacherVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("## insertTeacher dao 진입 ##");
+		mybatis.insert("TeacherDAO.insertTeacher", vo);
 	}
 
 	@Override
 	public void updateTeacher(TeacherVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("## updateTeacher dao 진입 ##");
+		mybatis.update("TeacherDAO.updateTeacher", vo);
 	}
 
 	@Override
 	public void deleteTeacher(TeacherVO vo) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("## deleteTeacher dao 진입 ##");
+		mybatis.delete("TeacherDAO.deleteTeacher", vo);
 	}
 
 }
