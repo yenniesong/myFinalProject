@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.human.java.dao.QnADAO;
+import com.human.java.domain.PagingVO;
 import com.human.java.domain.QnAVO;
 
 @Service("QnAService")
@@ -13,7 +14,6 @@ public class QnAServiceImpl implements QnAService {
 
 	@Autowired
 	private QnADAO qnaDAO;
-	private int countPerPage = 10;
 	
 	@Override
 	public void insertQnABoard(QnAVO vo) {
@@ -30,25 +30,60 @@ public class QnAServiceImpl implements QnAService {
 	}
 
 	@Override
-	public List<QnAVO> getQnAList(QnAVO vo) {
+	public List<QnAVO> getQnAList(PagingVO vo) {
 		System.out.println("## getQnAList service 진입 ##");
 
-		// DAO 접근 , 전체 리스트 갯수를 가져오는 함수, DAO, MAPPER 생성
-		
-		int countList = 15;
-		int countPage = countList/countPerPage;
-		if ( countList%countPerPage != 0 ) countPage++;
-		
+		// 서비스에서 하면 return이 하나만 되고 게시글에 대한 정보만 리턴!
+		// 게시글에 대한 정보와 총 페이지수에 대한 정보는 섞이기 어려운 정보
+		// => 별도의 서비스를 진행하는 게 더 좋음
+			
 		
 		//int pageNum = vo.getPageNum();
-		int pageNum = 1; // 나중에 지울코드
-		int startPage = (pageNum-1)*countPerPage+1;
-		int endPage = pageNum*countPerPage;
+//		int pageNum = 1; // 나중에 지울코드
+		
+		int startPage = (vo.getPageNum() - 1 ) * vo.getCountPerPage() + 1;
+		int endPage = vo.getPageNum() * vo.getCountPerPage();
 		
 		vo.setStartPage(startPage);
 		vo.setEndPage(endPage);
 		
 		return qnaDAO.getQnAList(vo);
+	}
+	
+	@Override
+	public PagingVO getQnAListCount(int groupNum) {
+		System.out.println("## getQnAListCount service 진입 ##");
+		
+		PagingVO vo = qnaDAO.getQnAListCount();
+		vo.setGroupNum(groupNum);
+		
+		System.out.println("vo : " + vo);
+		
+		int totalPageCount = vo.getTotalCount() / vo.getCountPerPage();
+		if ( vo.getTotalCount() % vo.getCountPerPage() != 0 ) totalPageCount++;
+		
+		vo.setTotalPageCount(totalPageCount);
+		System.out.println("totalPageCount : " + vo);
+		
+		int totalGroupCount = totalPageCount / vo.getCountPerGroup();
+		if ( totalPageCount % vo.getCountPerGroup() != 0 ) totalGroupCount++;
+
+		vo.setTotalGroupCount(totalGroupCount);
+		System.out.println("totalPageCount : " + vo);
+		
+		// group작업
+		int groupStartPage = (vo.getGroupNum() - 1) * vo.getCountPerGroup() + 1;
+		int groupEndPage = vo.getGroupNum() * vo.getCountPerGroup();
+		
+		if (groupEndPage >= vo.getTotalPageCount()) {
+			groupEndPage = vo.getTotalPageCount();
+		}
+		
+		vo.setGroupStartPage(groupStartPage);
+		vo.setGroupEndPage(groupEndPage);
+		
+		
+		return vo;
 	}
 
 	@Override

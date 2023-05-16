@@ -67,7 +67,7 @@ public class MemberController {
 			
 			
 			// 세션에 login 이름에 사용자 이름 저장
-			session.setAttribute("loginFg","b");
+			session.setAttribute("loginFg","s");
 			
 			session.setAttribute("name", result.getName());
 			session.setAttribute("userId", result.getUserId());

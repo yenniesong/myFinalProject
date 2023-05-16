@@ -33,7 +33,20 @@ public class AnswerServiceImpl implements AnswerService {
 	public List<AnswerVO> getAnswerList(AnswerVO vo) {
 		System.out.println("## getAnswerList service 진입 ##");
 
+		System.out.println("vo : " + vo);
+		
 		return answerDAO.getAnswerList(vo);
+	}
+
+	@Override
+	public AnswerVO getAnswerCount(AnswerVO aVO) {
+		System.out.println("## getAnswerCount service 진입 ##");
+		
+		AnswerVO vo = answerDAO.getAnswerCount();
+		vo.setBootcamp_id(aVO.getBootcamp_id());
+		System.out.println("AnswerVO vo : " + vo);
+		
+		return vo;
 	}
 
 	

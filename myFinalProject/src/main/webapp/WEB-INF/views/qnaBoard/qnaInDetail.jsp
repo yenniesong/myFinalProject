@@ -121,7 +121,7 @@
         -webkit-box-align: center;
         align-items: center;
         font-weight: 700;
-        padding-bottom: 16px;
+        padding-bottom: 5px;
         border-bottom: 1px solid rgb(236, 236, 236);
     }
     span.jsx-2868521983 {
@@ -188,6 +188,12 @@
     }
     .on {
     	display: none !important;
+    }
+    
+    .writedDate {
+    	margin-left: 570px;
+    	font-size: smaller;
+    	font-weight: inherit;
     }
 </style>
 <style id="__jsx-401750031">
@@ -383,15 +389,6 @@
                                             <span class="jsx-401750031 bootcamp-name" style="margin: 0px; color: #90d487;">${qna.academy }</span>
                                         </div>
                                         <div class="jsx-401750031 info-box">
-                                            <span class="jsx-401750031 info-view">
-                                                <span class="jsx-401750031 hide-on-mobile">조회</span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
-                                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                                    <circle cx="12" cy="12" r="3"></circle>
-                                                </svg>
-                                                <span class="jsx-401750031">${qna.view_cnt }</span>
-                                            </span>
-                                            <span class="jsx-401750031 division-line"></span>
                                             <span class="jsx-401750031 date">${qna.created_at }</span>
                                         </div>
                                     </div>
@@ -415,8 +412,9 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
                                             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
                                         </svg>
+                                        <c:set var="total" value="${fn:length(aList)}" />
                                         <span class="jsx-2868521983">댓글
-                                            <span class="jsx-2868521983 comment-total">0</span>개
+                                            <span class="jsx-2868521983 comment-total">${total }</span>개
                                         </span>
                                         <button type="button" class="jsx-654986024 btn-view-list">
                                             <span class="jsx-654986024 hide-on-mobile">목록보기</span>
@@ -495,6 +493,10 @@
 		                                                            <div class="jsx-2363903998 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot;);"></div>
 		                                                        </div>
 		                                                        <span class="jsx-394409708">${answerList.bootcamp_name }</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
+		                                                    </div>
+		                                                    <div class="jsx-394409708 profile">
+		                                                        
+		                                                        <span class="jsx-394409708 writedDate" style="margin-left: 630px; font-size: smaller; font-weight: inherit;">${answerList.created_at }</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
 		                                                    </div>
 		                                                </div>
 		                                                <label class="jsx-4265535288 textarea">

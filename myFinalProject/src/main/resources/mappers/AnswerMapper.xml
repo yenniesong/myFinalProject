@@ -17,11 +17,18 @@
   	</insert>
   	
   	<select id="getAnswerList" parameterType="answer" resultType="answer">
-  		SELECT COUNT(*) 
+  		SELECT answer_id, question_id, bootcamp_id, content, bootcamp_name, TO_CHAR(created_at, 'YYYY-MM-DD') as created_at
   		  FROM answer 
   		 WHERE question_id = #{question_id}
   		 ORDER BY ANSWER_ID DESC
   	</select>
+  	
+  	<select id="getAnswerCount" parameterType="answer" resultType="answer">
+  		SELECT COUNT(*) 
+  		  FROM answer 
+  		 WHERE question_id = #{question_id}
+  		 ORDER BY ANSWER_ID DESC
+   	</select>
   	
   </mapper>
   

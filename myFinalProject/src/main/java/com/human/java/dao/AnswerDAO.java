@@ -14,5 +14,7 @@ public interface AnswerDAO {
 	void writingAnswer(AnswerVO vo);
 
 	List<AnswerVO> getAnswerList(AnswerVO vo);
+
+	AnswerVO getAnswerCount();
 	
 }

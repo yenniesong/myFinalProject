@@ -5,17 +5,40 @@
   
   <mapper namespace="QnADAO">
 
-	<select id="getQnAList" parameterType="qna" resultType="com.human.java.domain.QnAVO"> -->
+	<select id="getQnAList" parameterType="paging" resultType="com.human.java.domain.QnAVO"> 
   		SELECT question_id, category_id, category_name, title, name, created_at, view_cnt 
 		FROM (
 		      SELECT ROWNUM as rn, e.*
-		      FROM (    SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
+		      FROM (    
+		      			SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
 		                  FROM question q, category c
 		                 WHERE q.category_id = c.category_id
 		                 ORDER BY q.question_id DESC
 		            ) e 
 		      )  
-		WHERE rn between #{startPage} and #{endPage}
+		WHERE rn BETWEEN #{startPage} AND #{endPage}
+  	</select>
+<!-- 	<select id="getQnAList" parameterType="paging" resultType="com.human.java.domain.QnAVO">  -->
+<!--   		SELECT * -->
+<!-- 		FROM ( -->
+<!-- 			  SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') AS created_at, q.view_cnt, -->
+<!-- 			    ( -->
+<!-- 			      SELECT COUNT(*) -->
+<!-- 			        FROM answer -->
+<!-- 			       WHERE question_id = q.question_id -->
+<!-- 			    ) AS answer_count, -->
+<!-- 			    ROWNUM AS rn -->
+<!-- 			  FROM question q INNER JOIN category c ON q.category_id = c.category_id -->
+<!-- 			  ORDER BY q.question_id DESC -->
+<!-- 			) -->
+<!-- 		WHERE rn BETWEEN #{startPage} AND #{endPage} ; -->
+
+<!--   	</select> -->
+  	
+  	<select id="getQnAListCount" resultType="paging">
+  		<!-- 리스트를 카운트 -->
+  		SELECT COUNT(*) AS totalCount
+  		  FROM question
   	</select>
   	
 <!--   	<select id="getQnAList" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO"> -->
@@ -52,6 +75,8 @@
   		INSERT INTO QUESTION (QUESTION_ID, CATEGORY_ID, USERID, ACADEMY, TITLE, NAME, CONTENT, CREATED_AT, PASSWORD, VIEW_CNT)
 		VALUES (seq_question_question_id.NEXTVAL, #{category_id}, #{userId}, #{academy}, #{title}, #{name}, #{content}, SYSDATE, #{password}, 0)			
   	</insert>
+  	
+  	
   	
   </mapper>
   
