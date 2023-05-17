@@ -15,6 +15,22 @@
   		 WHERE teacher_id = #{teacher_id}
   	</select>
   	
+  	<insert id="insertTeacher" parameterType="teacher">
+  		 INSERT INTO TEACHER (TEACHER_ID, BOOTCAMP_ID, TEACHER_NAME, BOOTCAMP_NAME, COURSE_NAME, SHORT_DESCRIPTION, DESCRIPTION, IMAGE_URL)
+		 VALUES (seq_teacher_teacher_id.NEXTVAL, #{question_id}, #{teacher_name}, #{bootcamp_name}, #{course_name}, #{short_description}, #{description}, #{image_url})
+  	</insert>
+  	
+  	<update id="updateTeacher" parameterType="teacher">
+  		UPDATE teacher 
+  		   SET TEACHER_NAME = #{teacher_name}, COURSE_NAME = #{course_name}, SHORT_DESCRIPTION = #{short_description}, DESCRIPTION = #{description}, IMAGE_URL = #{image_url} 
+  		 WHERE TEACHER_ID = #{teacher_id}
+  	</update>
+  	
+  	<delete id="deleteTeacher" parameterType="teacher"><!-- int로 할지 고민 -->
+  		DELETE FROM teacher 
+  		 WHERE TEACHER_ID = #{teacher_id}
+  	</delete>
+  	
   </mapper>
   
 

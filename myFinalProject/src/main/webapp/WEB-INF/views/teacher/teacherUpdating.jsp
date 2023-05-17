@@ -38,6 +38,511 @@
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
 
+<style>
+    textarea {
+      resize: none;
+      height: 400px;
+    }
+    .board-box.jsx-3810764099 {
+        position: relative;
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+    }
+    .content-box.jsx-2656936329 {
+        overflow: hidden;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .card-box.jsx-2656936329 {
+        position: relative;
+        padding: 48px 94px;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid rgb(223, 223, 223);
+    }
+    .title.jsx-1629185219 {
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 24px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgb(102, 102, 102);
+    }
+    .board-title.jsx-407192405 h3.jsx-407192405 {
+        font-size: 24px;
+    }
+    .avatar.jsx-3763643514 {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin: 0px auto;
+    }
+    .circle.jsx-3763643514 {
+        position: relative;
+        clear: both;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background-size: cover;
+        background-color: rgb(223, 223, 223);
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .content.jsx-4039423562 {
+        padding: 24px 0px;
+    }
+    .editor.jsx-3744650923 * {
+        color: rgb(33, 33, 33);
+    }
+    .fr-view {
+        word-wrap: break-word;
+    }
+    button.jsx-1625922102 {
+        display: block;
+        height: 42px;
+        border: 1px solid rgb(223, 223, 223);
+        border-radius: 21px;
+        font-size: 14px;
+        padding: 0px 20px;
+    }
+    .count.jsx-1625922102 {
+        color: rgb(63, 96, 204);
+        margin-left: 8px;
+    }
+    .count.jsx-3993525863 {
+        color: rgb(255, 51, 102);
+        margin-left: 8px;
+    }
+    .comment-header.jsx-2868521983 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        font-weight: 700;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgb(236, 236, 236);
+    }
+    span.jsx-2868521983 {
+        margin-left: 4px;
+        margin-right: auto;
+    }
+    .comment-total.jsx-2868521983 {
+        color: rgb(63, 96, 204);
+        margin-left: 4px;
+    }
+    .write-comment-box.jsx-4129687755 {
+        margin-top: 24px;
+    }
+    .avatar.jsx-2363903998 {
+        position: relative;
+        width: 24px;
+        height: 24px;
+        margin: 0px auto;
+    }
+    .circle.jsx-2363903998 {
+        position: relative;
+        clear: both;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        overflow: hidden;
+        background-size: cover;
+        background-color: rgb(255, 255, 255);
+        background-position: center center;
+        background-repeat: no-repeat;
+    }
+    .textarea.jsx-4265535288 {
+        position: relative;
+        display: block;
+        overflow: hidden;
+    }
+    
+    textarea.jsx-4265535288 {
+        display: block;
+        font-size: 14px;
+        width: 100%;
+        height: 60px;
+        border: none;
+        color: rgb(33, 33, 33);
+        padding: 0px;
+        resize: none;
+        appearance: none;
+    }
+    button.jsx-3240274678 {
+        font-size: 14px;
+        padding: 0px;
+        width: 70px;
+        min-width: 70px;
+        height: 32px;
+        line-height: 30px;
+        border-radius: 0px;
+        background-color: rgba(0, 0, 0, 0);
+        color: rgb(33, 33, 33);
+        border: 1px solid rgb(223, 223, 223);
+        transition: background-color 0.3s ease 0s;
+    }
+    .hide-on-desktop {
+        display: none;
+    }
+    .select-box.jsx-2395210693 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        font-weight: 700;
+        padding-bottom: 16px;
+    }
+    .input-title.jsx-599077571 {
+        margin-left: auto;
+    }
+    input.jsx-599077571 {
+        height: 42px;
+        border-bottom: solid 1px #dfdfdf;
+    }
+    .select.jsx-2019229575 {
+        max-width: 160px;
+        width: 100%;
+    }
+</style>
+<style id="__jsx-401750031">
+    .board-header.jsx-401750031 {
+        border-bottom: 1px solid rgb(236, 236, 236);
+        padding-bottom: 24px;
+    }
+    .board-header.jsx-401750031 h4.jsx-401750031 {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    
+    .header-info.jsx-401750031 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        font-size: 14px;
+        margin-top: 12px;
+    }
+    .avatar-box.jsx-401750031 {
+        display: flex;
+        margin-right: auto;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .avatar-box.jsx-401750031 > span.jsx-401750031 {
+        margin-left: 8px;
+    }
+    .info-view.jsx-401750031 > span.jsx-401750031:first-child, .info-good.jsx-401750031 > span.jsx-401750031:first-child, .info-download.jsx-401750031 > span.jsx-401750031:first-child {
+        color: rgb(102, 102, 102);
+        margin-right: 4px;
+    }
+    .info-view.jsx-401750031 > svg, .info-good.jsx-401750031 > svg, .info-download.jsx-401750031 > svg {
+        display: none;
+    }
+    .division-line {
+        display: inline-block;
+        width: 1px;
+        height: 10px;
+        background-color: #dfdfdf;
+        margin: 0 10px;
+    }
+    .date.jsx-401750031 {
+        margin-right: 8px;
+    }
+</style>
+<style id="__jsx-654986024">
+    .service.jsx-654986024 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        margin: 32px 0px;
+    }
+    .btn-view-list.jsx-654986024 {
+        padding: 0px 12px;
+        height: 28px;
+        font-size: 14px;
+        border: 1px solid rgb(223, 223, 223);
+        border-radius: 14px;
+        transition: background-color 0.3s ease 0s;
+    }
+    .btn-view-list.jsx-654986024 svg {
+        display: none;
+    }
+    .recommend-box.jsx-654986024 {
+        display: flex;
+    }
+</style>
+<style id="__jsx-394409708">
+    .write-comment-wrap.jsx-394409708 {
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 255, 255);
+    }
+    .write-comment.jsx-394409708 {
+        background-color: rgb(255, 255, 255);
+        padding: 16px;
+        border: 1px solid rgb(223, 223, 223);
+    }
+    .write-comment-wrap.jsx-394409708 .profile-box.jsx-394409708 {
+        display: flex;
+        margin-bottom: 8px;
+    }
+    .write-comment-wrap.jsx-394409708 .profile.jsx-394409708 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    .write-comment-wrap.jsx-394409708 .profile.jsx-394409708 > span.jsx-394409708 {
+        font-size: 14px;
+        font-weight: 700;
+        margin-left: 8px;
+    }
+    .buttons.jsx-394409708 {
+        display: flex;
+        align-items: flex-end;
+        margin: 8px;
+    }
+    .buttons.jsx-394409708 .button--post {
+        border-radius: 16px;
+        margin-left: auto;
+        height: 28px;
+    }
+</style>
+
+<!-- 추가로 넣은 css -->
+<style id="__jsx-216214598">
+    .content.jsx-216214598 {
+        display: flex;
+    }
+    .content.jsx-216214598 .btn-enroll {
+        background-color: rgb(223, 223, 223);
+    }
+    .content.jsx-216214598 .btn-follow, .content.jsx-216214598 .btn-enroll {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        width: 100%;
+        height: 52px;
+        border-radius: 4px;
+    }
+    .content.jsx-216214598 .btn-evaluation img {
+        margin-left: 4px;
+    }
+    .content.jsx-216214598 .btn-evaluation {
+        border-radius: 32px;
+        color: rgb(63, 96, 204);
+        border: 1px solid rgb(223, 223, 223);
+        width: auto;
+        min-width: auto;
+        height: 42px;
+        line-height: 40px;
+        padding: 0px 24px;
+        margin-left: auto;
+        transition: background-color 0.3s ease 0s;
+        background-color: rgb(255, 255, 255);
+    }
+    .flex-left.jsx-216214598 {
+        min-width: 280px;
+        margin-right: 20px;
+    }
+    .flex-right.jsx-216214598 {
+        width: 100%;
+    }
+    .profile.jsx-216214598 {
+        position: relative;
+        width: 100%;
+        height: 280px;
+        padding: 0px 20px;
+        background-color: rgb(238, 239, 244);
+        margin-bottom: 16px;
+    }
+    .rank.jsx-216214598 {
+        position: absolute;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        font-size: 14px;
+        color: rgb(255, 255, 255);
+        font-weight: 700;
+        border-radius: 50%;
+        background-color: rgb(102, 102, 102);
+    }
+    .top-rank.jsx-216214598, .rank.jsx-216214598 {
+        width: 64px;
+        height: 64px;
+        top: 16px;
+        right: 12px;
+    }
+    .tutor-image.jsx-216214598 {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        background-size: contain;
+    }
+    .title.jsx-216214598 {
+        display: flex;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        align-items: center;
+        margin-bottom: 14px;
+    }
+    .title.jsx-216214598 h3.jsx-216214598 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        font-size: 22px;
+        margin-right: 8px;
+    }
+    .title.jsx-216214598 h3.jsx-216214598 > span.jsx-216214598 {
+        color: rgb(63, 96, 204);
+        margin-right: 4px;
+    }
+</style>
+<style id="__jsx-2255129348">
+    .real-time-evaluation.jsx-2255129348 {
+        border: 1px solid rgb(223, 223, 223);
+        background-color: rgb(238, 239, 244);
+        overflow-y: auto;
+        height: 352px;
+    }
+    .scroll-box.jsx-2255129348 {
+        padding: 12px;
+    }
+    ul.jsx-2255129348 {
+        overflow: hidden;
+    }
+    li.jsx-2255129348 > h4.jsx-2255129348 {
+        margin-bottom: 8px;
+    }
+    .horizontal-rule.jsx-2255129348 {
+        width: 100%;
+        height: 1px;
+        background-color: rgb(223, 223, 223);
+        margin: 12px 0px;
+    }
+    .btn-more-box.jsx-2255129348 {
+        display: flex;
+        margin-top: 16px;
+    }
+    .btn-more-box.jsx-2255129348 a.jsx-2255129348 {
+        font-size: 14px;
+        height: 42px;
+        border: 1px solid rgb(223, 223, 223);
+        border-radius: 4px;
+        width: 100%;
+        margin-right: 8px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .btn-more-box.jsx-2255129348 a.jsx-2255129348:last-child {
+        margin-right: 0px;
+    }
+</style>
+<style id="__jsx-3839070939">
+    .board-item.jsx-3839070939 {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .title.jsx-3839070939 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    h4.jsx-3839070939 {
+        max-width: 402px;
+        font-weight: normal;
+        margin-right: 4px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .sub.jsx-3839070939 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+    li.tutor.jsx-3839070939 .tags.jsx-3839070939 {
+        color: rgb(255, 51, 102);
+    }
+    li.jsx-3839070939 {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        margin-bottom: 8px;
+        padding: 12px;
+        cursor: pointer;
+    }
+    .tags.jsx-3839070939 {
+        font-size: 13px;
+        color: rgb(63, 96, 204);
+    }
+    .emotion-img.jsx-3839070939 {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 40px;
+    }
+</style>
+<style id="__jsx-1434886323">
+    li.jsx-1434886323:last-child {
+        margin-bottom: 0px;
+    }
+    li.jsx-1434886323 {
+        position: relative;
+        background-color: rgb(255, 255, 255);
+        border-radius: 4px;
+        margin-bottom: 8px;
+        padding: 12px;
+        cursor: pointer;
+    }
+    .board-item.jsx-1434886323 {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .title.jsx-1434886323 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+    h4.jsx-1434886323 {
+        max-width: 402px;
+        font-weight: normal;
+        margin-right: 4px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .sub.jsx-1434886323 {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: justify;
+        justify-content: space-between;
+        margin-top: 5px;
+    }
+    .tags.jsx-1434886323 {
+        font-size: 13px;
+        color: rgb(63, 96, 204);
+    }
+    .emotion-img.jsx-1434886323 {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        width: 40px;
+    }
+</style>
+
 </head>
 <body>
 	<!-- ======= Header ======= -->
@@ -105,11 +610,12 @@
                                 <div class="jsx-1629185219 title mb-3">
                                     <h4 class="jsx-1629185219">TEACHER</h4>
                                     <p class="jsx-1629185219">
-                                       	우리 학원의 선생님을 소개해주세요
+                                       	 우리 학원의 선생님을 소개해주세요
                                     </p>
                                 </div>
 
-								<form action="updateTeacher.do">
+								<form action="">
+									<c:forEach items="${tInfo}" var="teacher_info">
 	                                <div class="jsx-401750031 board-header">
 	
 	                                    <div class="jsx-216214598 content">
@@ -119,14 +625,11 @@
 	                                                <input type="file" id="fileloads" name="fileloads" style="display: block;" accept="image/*" onchange="previewImage(event);" required="required"> 
 	                                            </div>
 	                                            <div class="jsx-216214598 btn-box">
-	                                                <input type="hidden" value="${teacher.teacher_id }"><!-- value 여기에 해당 선생님의 id 적어주기  -->
-	                                                <input type="hidden" value="${teacher.bootcamp_id }">
-	                                                <input type="hidden" value="${teacher.teacher_id }">
 	                                                <button class="jsx-3857673807 btn-follow" type="button">
 	                                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
 	                                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
 	                                                  </svg>
-	                                                  <span class="jsx-216214598">${teacher.bootcamp_name }</span>
+	                                                  <span class="jsx-216214598">대표학원명</span>
 	                                                  <span class="jsx-216214598"></span>
 	                                                </button>
 	                                            </div>
@@ -138,7 +641,7 @@
 	                                                <div class="jsx-2255129348 scroll-box">
 	                                                    <ul class="jsx-2255129348">
 	                                                        <li class="jsx-2255129348">
-	                                                            <h4 class="jsx-2255129348">${teacher.teacher_name }</h4>
+	                                                            <h4 class="jsx-2255129348">선생님의 이름</h4>
 	                                                        </li>
 	                                                        <li class="jsx-3839070939 tutor">
 	                                                            <div class="jsx-3839070939 board-item">
@@ -215,7 +718,9 @@
 	                                        </button>
 	                                    </div>
 	                                </div>
-                                </form>
+	                                </c:forEach>
+	                           	</form>
+                           
                             </div>
                         </div>
                     </div>

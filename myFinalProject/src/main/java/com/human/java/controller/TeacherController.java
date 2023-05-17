@@ -86,7 +86,7 @@ public class TeacherController {
 	}
 	
 	// 강사 페이지 정보 수정
-	// 강사 넘버를 받아야함
+	// 강사 넘버를 받아야함(조회를 할때 계속 번호로 받아오면 이거랑 getTeacher.do랑 한번만 조회해도 되는지 아니면 따로 업데이트를 위한 조회를 하나 더 만들어야하는지 물어보기)
 	@RequestMapping("updateTeacher.do")
 	public String updateTeacher(TeacherVO vo) {
 		System.out.println("## updateTeacher.do 진입 ##");
