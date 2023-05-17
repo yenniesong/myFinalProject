@@ -48,18 +48,7 @@ public class TeacherController {
 		
 		model.addAttribute("teacher", teacherService.getTeacher(vo));
 		
-//		List<ReviewVO> reviewList = reviewService.getReviewList(rVo);
-		
-//		if ( aList == null ) {
-//			model.addAttribute("aListSize", 0);
-//		}else {
-//			model.addAttribute("aListSize", aList.size());
-//			model.addAttribute("aList", aList);
-//		}
-		
-//		System.out.println(reviewList);
-		
-//		model.addAttribute("reviewList", reviewList);
+		System.out.println("teacher vo : " + vo);
 		
 		return "/teacher/teacherInDetail";
 	}
@@ -72,15 +61,7 @@ public class TeacherController {
 		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");
 		System.out.println("## 파일 크기 : " + vo.getFsize() + " ##");
 		
-//		System.out.println("====> category_id : " + vo.getCategory_id());
-//		System.out.println("====> title : " + vo.getTitle());
-//		System.out.println("====> userId : " + vo.getUserId());
-		
 		teacherService.insertTeacher(vo);
-		
-//		vo.setName((String)session.getAttribute("nickName"));
-//		session.getAttribute("loginFg"); // ABC 
-//		System.out.println("====> name : " + vo.getName());
 		
 		return "redirect:/teacher/getTeacherList.do";
 	}

@@ -5,17 +5,61 @@
   
   <mapper namespace="QnADAO">
 
-	<select id="getQnAList" parameterType="qna" resultType="com.human.java.domain.QnAVO"> -->
-  		SELECT question_id, category_id, category_name, title, name, created_at, view_cnt 
-		FROM (
-		      SELECT ROWNUM as rn, e.*
-		      FROM (    SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
-		                  FROM question q, category c
-		                 WHERE q.category_id = c.category_id
-		                 ORDER BY q.question_id DESC
-		            ) e 
-		      )  
-		WHERE rn between #{startPage} and #{endPage}
+	<select id="getQnAList" parameterType="paging" resultType="com.human.java.domain.QnAVO"> 
+<!--   		SELECT question_id, category_id, category_name, title, name, created_at, view_cnt  -->
+<!-- 		FROM ( -->
+<!-- 		      SELECT ROWNUM as rn, e.* -->
+<!-- 		      FROM (     -->
+<!-- 		      			SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt -->
+<!-- 		                  FROM question q, category c -->
+<!-- 		                 WHERE q.category_id = c.category_id -->
+<!-- 		                 ORDER BY q.question_id DESC -->
+<!-- 		            ) e  -->
+<!-- 		      )   -->
+<!-- 		WHERE rn BETWEEN #{startPage} AND #{endPage} -->
+		  SELECT rn, question_id, category_id, category_name, title, name, created_at, view_cnt, sum(de) as answer_count
+		    FROM (
+		    SELECT rn, q.question_id, category_id, category_name, title, name, q.created_at, view_cnt
+		        , DECODE( a.question_id , q.question_id , 1, 0) as de
+				FROM ( 
+				      SELECT ROWNUM as rn, e.*
+				      FROM (    
+				      			SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
+				                  FROM question q, category c
+				                 WHERE q.category_id = c.category_id
+				                 	AND q.name like '%${userId}%'
+				                 ORDER BY q.question_id DESC
+				            ) e 
+				      )  q,
+		              answer a
+				WHERE rn BETWEEN #{startPage} AND #{endPage}
+		    )
+		    GROUP BY rn,question_id, category_id, category_name, title, name, created_at, view_cnt
+		    ORDER BY rn
+     
+  	</select>
+<!-- 	<select id="getQnAList" parameterType="paging" resultType="com.human.java.domain.QnAVO">  -->
+<!--   		SELECT * -->
+<!-- 		FROM ( -->
+<!-- 			  SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') AS created_at, q.view_cnt, -->
+<!-- 			    ( -->
+<!-- 			      SELECT COUNT(*) -->
+<!-- 			        FROM answer -->
+<!-- 			       WHERE question_id = q.question_id -->
+<!-- 			    ) AS answer_count, -->
+<!-- 			    ROWNUM AS rn -->
+<!-- 			  FROM question q INNER JOIN category c ON q.category_id = c.category_id -->
+<!-- 			  ORDER BY q.question_id DESC -->
+<!-- 			) -->
+<!-- 		WHERE rn BETWEEN #{startPage} AND #{endPage} ; -->
+
+<!--   	</select> -->
+  	
+  	<select id="getQnAListCount" parameterType="String" resultType="paging">
+  		<!-- 리스트를 카운트 -->
+  		SELECT COUNT(*) AS totalCount
+  		  FROM question
+  		   WHERE name like '%${value}%'
   	</select>
   	
 <!--   	<select id="getQnAList" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO"> -->
@@ -29,7 +73,7 @@
   	<select id="chkPwd" parameterType="qna" resultType="qna">
   		SELECT * 
   		  FROM question 
-  		 WHERE userId = #{userId} AND password = #{password} and question_id = #{question_id}
+  		 WHERE userId = #{userId} AND password = #{password} AND question_id = #{question_id}
   	</select>
   	
   	<select id="getQnABoard" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO">
@@ -52,6 +96,14 @@
   		INSERT INTO QUESTION (QUESTION_ID, CATEGORY_ID, USERID, ACADEMY, TITLE, NAME, CONTENT, CREATED_AT, PASSWORD, VIEW_CNT)
 		VALUES (seq_question_question_id.NEXTVAL, #{category_id}, #{userId}, #{academy}, #{title}, #{name}, #{content}, SYSDATE, #{password}, 0)			
   	</insert>
+  	
+  	<select id="findMyQuestion" parameterType="qna" resultType="qna">
+  		SELECT * 
+  		  FROM question 
+  		 WHERE userId = #{userId}
+  	</select>
+  	
+  	
   	
   </mapper>
   

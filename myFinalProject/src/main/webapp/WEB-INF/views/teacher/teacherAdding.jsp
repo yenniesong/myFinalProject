@@ -594,9 +594,9 @@
 
                 <ol>
                 <li><a href="index.html">Home</a></li>
-                <li>Q&A</li>
+                <li>Teacher</li>
                 </ol>
-                <h2>Q & A</h2>
+                <h2>TEACHER</h2>
 
             </div>
         </section><!-- End Breadcrumbs -->
@@ -701,7 +701,7 @@
                                     </div>
                                     <div class="jsx-394409708 buttons">
                                         <button type="button" class="jsx-654986024 btn-view-list">
-                                            <span class="jsx-654986024 hide-on-mobile">목록보기</span>
+                                            <span class="jsx-654986024 hide-on-mobile btn-view-list">목록보기</span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
                                                 <line x1="8" y1="6" x2="21" y2="6"></line>
                                                 <line x1="8" y1="12" x2="21" y2="12"></line>
@@ -711,7 +711,7 @@
                                                 <line x1="3" y1="18" x2="3" y2="18"></line>
                                             </svg>
                                         </button>
-                                        <button class="jsx-3240274678 button--post" type="button">
+                                        <button class="jsx-3240274678 button--post" type="submit">
                                             <span class="jsx-654986024">등록</span>
                                         </button>
                                     </div>
@@ -827,4 +827,15 @@
 
 <!-- Template Main JS File -->
 <script src="${path}/resources/assets/js/main.js"></script>
+
+<!-- my Script -->
+<script>
+	let btnBackToList = document.querySelector('.btn-view-list');
+	
+	// 목록으로 가는 버튼
+	btnBackToList.addEventListener("click", function () {
+	   
+	    history.back();   
+	});
+</script>
 </html>

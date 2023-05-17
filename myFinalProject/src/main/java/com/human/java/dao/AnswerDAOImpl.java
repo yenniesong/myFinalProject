@@ -36,4 +36,11 @@ public class AnswerDAOImpl implements AnswerDAO {
 		return mybatis.selectList("AnswerDAO.getAnswerList", vo);
 	}
 
+	@Override
+	public AnswerVO getAnswerCount() {
+		System.out.println("## getAnswerCount dao 진입 ##");
+		
+		return mybatis.selectOne("AnswerDAO.getAnswerCount");
+	}
+
 }

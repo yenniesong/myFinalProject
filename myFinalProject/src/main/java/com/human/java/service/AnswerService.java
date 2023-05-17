@@ -13,4 +13,6 @@ public interface AnswerService {
 	void writingAnswer(AnswerVO vo);
 
 	List<AnswerVO> getAnswerList(AnswerVO vo);
+
+	AnswerVO getAnswerCount(AnswerVO aVO);
 }

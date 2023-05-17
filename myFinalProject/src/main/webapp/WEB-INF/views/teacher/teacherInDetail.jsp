@@ -708,7 +708,7 @@
           <li><a href="index.html">Home</a></li>
           <li>Teacher</li>
         </ol>
-        <h2>Teacher</h2>
+        <h2>TEACHER</h2>
 
       </div>
     </section><!-- End Breadcrumbs -->

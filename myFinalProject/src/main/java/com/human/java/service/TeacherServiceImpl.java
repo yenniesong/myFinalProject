@@ -23,6 +23,10 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public TeacherVO getTeacher(TeacherVO vo) {
 		System.out.println("## getTeacher service 진입 ##");
+		
+		System.out.println("service의 teacher vo : " + vo);
+		
+		
 		return teacherDAO.getTeacher(vo);
 	}
 

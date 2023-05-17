@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class QnAVO {
+	
 	private int question_id;
 	private int category_id;
 	private String category_name;
@@ -15,9 +16,6 @@ public class QnAVO {
 	private String created_at;
 	private String password;
 	private int view_cnt;
-	private String answer_state;
+	private int answer_count;
 	
-	private int pageNum;
-	private int startPage;
-	private int endPage;
 }

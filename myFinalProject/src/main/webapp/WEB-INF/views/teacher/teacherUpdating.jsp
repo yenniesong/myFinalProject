@@ -596,7 +596,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li>Teacher</li>
                 </ol>
-                <h2>Teacher</h2>
+                <h2>TEACHER</h2>
 
             </div>
         </section><!-- End Breadcrumbs -->
@@ -614,7 +614,7 @@
                                     </p>
                                 </div>
 
-								<form action="">
+								<form action="updateTeacher.do" method="post">
 									<c:forEach items="${tInfo}" var="teacher_info">
 	                                <div class="jsx-401750031 board-header">
 	

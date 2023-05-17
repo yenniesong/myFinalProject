@@ -3,6 +3,7 @@ package com.human.java.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import com.human.java.domain.PagingVO;
 import com.human.java.domain.QnAVO;
 
 public interface QnADAO {
@@ -14,8 +15,12 @@ public interface QnADAO {
 	QnAVO getQnABoard(QnAVO vo);
 	
 	// 글 목록 조회
-	List<QnAVO> getQnAList(QnAVO vo);
+	List<QnAVO> getQnAList(PagingVO vo);
 
 	// qna 게시글 비밀번호 조회
 	QnAVO chkPwd(QnAVO vo);
+
+	PagingVO getQnAListCount(String userId);
+
+	List<QnAVO> findMyQuestion(QnAVO vo);
 }

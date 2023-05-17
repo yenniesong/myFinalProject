@@ -152,34 +152,12 @@
         align-self: flex-end;
     }
     .select-wrap.jsx-485996613 {
-        /* display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
         display: flex;
-        font-size: 14px; */
-        text-align: center;
-        width: 120px;
-        min-width: 120px;
-        height: 42px;
-        line-height: 42px;
-        border-radius: 26px;
-        background-color: #3f60cc;
-        color: #ffffff;
-        -webkit-transition: background-color 0.3s;
-        transition: background-color 0.3s;
     }
     button.jsx-3066370919 {
-        font-size: 14px;
-        text-align: center;
-        width: 120px;
-        min-width: 120px;
-        height: 42px;
-        line-height: 42px;
-        border-radius: 26px;
-        background-color: #3f60cc;
-        color: #ffffff;
-        -webkit-transition: background-color 0.3s;
-        transition: background-color 0.3s;
+        margin-left: auto;
+      	color: #719a60;
+      	border-bottom: 1px solid #719a60;
     }
     .hide-on-desktop {
         display: none;
@@ -267,6 +245,12 @@
       outline: none;
       box-shadow: 0px 0px 0px 2px #a5d8ff;
     }
+    .title.jsx-1629185219 {
+    text-align: center;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgb(102, 102, 102);
+}
  </style>    
 <style id="__jsx-2395210693">
       .select-wrap.jsx-2395210693 {
@@ -334,7 +318,8 @@
           height: 42px;
           font-size: 15px;
           font-weight: normal;
-          border-top: 1px solid #212121;
+/*           border-top: 1px solid #212121; */
+    	  background-color: #f2f2f1;
           border-bottom: 1px solid #ececec;
       }
       .list-header.jsx-1779968077 li.jsx-1779968077>div.jsx-1779968077 {
@@ -449,41 +434,19 @@
 	                </p>
 	              </div>
 	
-	              <div class="jsx-2395210693 select-wrap">
-	                <div class="jsx-2395210693 select-box">
-	                  <div class="jsx-2019229575 select">
-	                    <select id="inputState" class="form-select">
-	                      <option selected>카테고리</option>
-	                      <option>강사</option>
-	                      <option>커리큘럼</option>
-	                      <option>기타</option>
-	                    </select>
-	                    <!-- <div class="jsx-2019229575 choice">카테고리
-	                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 0px; bottom: 8px;">
-	                        <polyline points="6 9 12 15 18 9"></polyline>
-	                      </svg>
-	                    </div> -->
-	                  </div>
-	                </div>
-	                
-	                <div class="jsx-2395210693 search">
-	                  <div class="jsx-1738213615 search-box">
-	                    <div class="jsx-599077571 input">
-	                      <input title="검색어 입력" placeholder="검색어를 입력해 주세요." class="jsx-599077571" value="" style="width: 300px;">
-	                    </div>
-	                    <button type="button" class="jsx-411775790 goSearch" style="margin-left: 16px;">검색</button>
-	                  </div>
-	                </div>
-	              </div>
-	
 	              <div class="jsx-485996613 sort-number">
 	              <c:set var="total" value="${fn:length(qnaList)}" />
 	                <span class="jsx-485996613 total-number">총 ${total}개</span>
-	                <c:if test="${loginFg eq 's'}">
-		                <div class="jsx-485996613 select-wrap talk fix-position">
-			                  <button type="button" class="jsx-3066370919 btn-writing">글쓰기</button>
-		                </div>
-		            </c:if>
+	                <div class="jsx-485996613 select-wrap talk fix-position">
+                  		<button type="button" class="jsx-3066370919 myQna">내가 쓴 글 보기</button>
+                	</div>
+<%-- 	                <% if(se) %> 세선이 있다면 ! --%>
+<%-- 	                <c:if test="${loginFg eq 's'}"> --%>
+<!-- 		                <div class="jsx-485996613 select-wrap talk fix-position"> -->
+<!-- 			                  <button type="button" class="jsx-3066370919 btn-writing">글쓰기</button> -->
+<!-- 		                </div> -->
+<%-- 		            </c:if> --%>
+		            
 	              </div>
 	              <div class="jsx-1779968077 board-list-box">
 	                <ul class="jsx-1779968077 list-header">
@@ -493,61 +456,113 @@
 	                    <div class="jsx-1779968077" style="max-width: 400px;">제목</div>
 	                    <div class="jsx-1779968077" style="max-width: 100px;">작성자</div>
 	                    <div class="jsx-1779968077" style="max-width: 100px;">등록일</div>
-<!-- 	                    <div class="jsx-1779968077" style="max-width: 60px;">조회</div> -->
 	                    <div class="jsx-1779968077" style="max-width: 100px;">답변상태</div>
 	                  </li>
 	                </ul>
 	                
 	                <c:forEach items="${qnaList }" var="qna">
-	                <ul class="jsx-1779968077 list-body">
-	                  <li tabindex="0" class="jsx-989812570 ">
-	                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
-	                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
-	                    <div class="jsx-989812570 col-title" style="max-width: 400px;">
-<%-- 	                      <a class="jsx-989812570" href="getQnABoard.do?question_id=${qna.question_id }" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a> --%>
-	                      <a class="jsx-989812570" href="#" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a>
-	                      <span class="jsx-989812570 comment-number hide-on-desktop">0
-	                        <span class="jsx-989812570">댓글</span>
-	                      </span>
-	                    </div>
-	                    <div class="jsx-989812570 col-nickname" style="max-width: 100px;">${qna.name }</div>
-	                    <div class="jsx-989812570 col-created" style="max-width: 100px;">${qna.created_at }</div>
-<%-- 	                    <div class="jsx-989812570 read_count hide-on-mobile" style="max-width: 60px;">${qna.view_cnt }</div> --%>
-	                    <div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
-	                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
-	                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-	                        <circle cx="12" cy="12" r="3"></circle>
-	                      </svg>
-	                    </div>
-	                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 100px;">?</div>
-	                    <!-- <div class="jsx-989812570 like_count hide-on-desktop" style="max-width: 60px;">
-	                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
-	                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-	                      </svg>1
-	                    </div> -->
-	                  </li>
-	                </ul>
+		                <ul class="jsx-1779968077 list-body">
+		                  <li tabindex="0" class="jsx-989812570 ">
+		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
+		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
+		                    <div class="jsx-989812570 col-title" style="max-width: 382px;">
+	<%-- 	                      <a class="jsx-989812570" href="getQnABoard.do?question_id=${qna.question_id }" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a> --%>
+		                      <a class="jsx-989812570" href="#" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a>
+		                      <span class="jsx-989812570 comment-number hide-on-desktop">0
+		                        <span class="jsx-989812570">댓글</span>
+		                      </span>
+		                    </div>
+		                    <div class="jsx-989812570 col-nickname" style="max-width: 100px;">${qna.name }</div>
+		                    <div class="jsx-989812570 col-created" style="max-width: 100px;">${qna.created_at }</div>
+	<%-- 	                    <div class="jsx-989812570 read_count hide-on-mobile" style="max-width: 60px;">${qna.view_cnt }</div> --%>
+		                    <div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
+		                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
+		                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+		                        <circle cx="12" cy="12" r="3"></circle>
+		                      </svg>
+		                    </div>
+		                    
+		                    <c:if test="${qna.answer_count gt 0}">
+			                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 100px;">
+			                    	답변 완료
+			                    </div>
+		                    </c:if>
+		                    <c:if test="${qna.answer_count eq 0}">
+			                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 100px;">
+			                    	답변 미완료
+			                    </div>
+		                    </c:if>
+
+		                  </li>
+		                </ul>
 	                </c:forEach>
 	              </div>
 	              
 	              <div class="jsx-4203269740 board-list-footer">
 	                <ul class="jsx-2507860227 pagination">
-	                  <li class="jsx-2507860227 prev disabled">
-	                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
-	                      <polyline points="11 17 6 12 11 7"></polyline>
-	                      <polyline points="18 17 13 12 18 7"></polyline>
-	                    </svg>
-	                    <span class="jsx-2507860227 alt-text">앞으로</span>
-	                  </li><li class="jsx-2507860227 on">1</li>
-	                  <li class="jsx-2507860227 ">2</li>
-	                  <li class="jsx-2507860227 next disabled">
-	                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
-	                      <polyline points="13 17 18 12 13 7"></polyline>
-	                      <polyline points="6 17 11 12 6 7"></polyline>
-	                    </svg>
-	                    <span class="jsx-2507860227 alt-text">뒤로</span>
-	                  </li>
+	                
+	                	<c:if test="${pInfoVo.groupNum eq 1}">
+			                  <li class="jsx-2507860227 prev disabled">
+			                  	<a href="getQnAList.do?groupNum=${pInfoVo.groupNum-1}&pageNum=${pInfoVo.groupStartPage-1}">
+				                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+				                      <polyline points="11 17 6 12 11 7"></polyline>
+				                      <polyline points="18 17 13 12 18 7"></polyline>
+				                    </svg>
+				                    <span class="jsx-2507860227 alt-text">앞으로</span>
+			                    </a>
+			                  </li>
+	                	</c:if>
+	                	<c:if test="${pInfoVo.groupNum > 1}">
+			                  <li class="jsx-2507860227 prev">
+			                  	<a href="getQnAList.do?groupNum=${pInfoVo.groupNum-1}&pageNum=${pInfoVo.groupStartPage-1}">
+				                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+				                      <polyline points="11 17 6 12 11 7"></polyline>
+				                      <polyline points="18 17 13 12 18 7"></polyline>
+				                    </svg>
+				                    <span class="jsx-2507860227 alt-text">앞으로</span>
+			                    </a>
+			                  </li>
+	                		
+	                	</c:if>
+	                  
+	                  <c:forEach var="i" begin="${pInfoVo.groupStartPage }" end="${pInfoVo.groupEndPage }">
+	                  	<li class="jsx-2507860227 on"><a href="getQnAList.do?groupNum=${pInfoVo.groupNum}&pageNum=${i }">${i }</a></li>
+	                  </c:forEach>
+	                  
+	                  	<c:if test="${pInfoVo.groupNum eq pInfoVo.totalGroupCount}">
+		                  <li class="jsx-2507860227 next disabled">
+		                  	<a href="getQnAList.do?groupNum=${pInfoVo.groupNum+1}&pageNum=${pInfoVo.groupEndPage+1}">
+			                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+			                      <polyline points="13 17 18 12 13 7"></polyline>
+			                      <polyline points="6 17 11 12 6 7"></polyline>
+			                    </svg>
+			                    <span class="jsx-2507860227 alt-text">뒤로</span>
+		                    </a>
+		                  </li>
+	                  	
+	                  	</c:if>
+	                  	<c:if test="${pInfoVo.groupNum ne pInfoVo.totalGroupCount}">
+		                  <li class="jsx-2507860227 next">
+		                  	<a href="getQnAList.do?groupNum=${pInfoVo.groupNum+1}&pageNum=${pInfoVo.groupEndPage+1}">
+			                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
+			                      <polyline points="13 17 18 12 13 7"></polyline>
+			                      <polyline points="6 17 11 12 6 7"></polyline>
+			                    </svg>
+			                    <span class="jsx-2507860227 alt-text">뒤로</span>
+		                    </a>
+		                  </li>
+	                  	
+	                  	</c:if>
+	                  
 	                </ul>
+	                
+	                <%-- 	                <% if(se) %> 세선이 있다면 ! --%>
+	                <c:if test="${loginFg eq 's'}">
+		                <div class="jsx-4203269740 btn-write fix-position">
+		                  <button class="jsx-4203269740 writeQna">글쓰기</button>
+		                </div>
+		            </c:if>
+		            
 	              </div>
 	            </div>
 	          </div>
@@ -682,26 +697,88 @@
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-	  console.log($('#hidden_userId').val());
-  $(document).ready(function() {
-    $('div.jsx-989812570.col-title > a').click(function() {
-      q_id = $(this).parent().prev().prev().text();
-      $('#hidden_question_id').val(q_id);
-      $("#staticBackdrop").modal("show");
-      
-    });
-  });
+	console.log($('#hidden_userId').val());
   
-  $(document).ready(function() {
-    $('.goSearch').click(function() {
-    	alert('1');
-    });
-  });
+	$(document).ready(function() {
+		$('div.jsx-989812570.col-title > a').click(function() {
+			q_id = $(this).parent().prev().prev().text();
+			$('#hidden_question_id').val(q_id);
+			$("#staticBackdrop").modal("show");
 
-  let goWriting = document.querySelector('.btn-writing');
-  
-  goWriting.addEventListener("click", function () {
-    location.href='qnaWriting.do';
-  });
+		});
+
+		$('li.jsx-2507860227.disabled a').removeAttr('href');
+
+	});
+
+	let goWriting = document.querySelector('.writeQna');
+	let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
+
+	goWriting.addEventListener("click", function() {
+		location.href = 'qnaWriting.do';
+	});
+
+// 	btn_myQna.addEventListener("click", function() {
+// 		location.href = 'findMyQuestion.do';
+// 	});
+
+	function findMyQuestion() {
+		let userId = '<%= session.getAttribute("userId") %>';
+		
+// 		var xhr = new XMLHttpRequest();
+// 		xhr.open('POST', 'findMyQuestion.do', true);
+// 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		
+// // 		xhr.onload = function() {
+// // 			if (xhr.status === 200) {
+// // 				var response = JSON.parse(xhr.responseText);
+// // 				showMyQuestionList(response);
+// // 			}
+// // 		}
+// 		xhr.send('userId=' + userId);
+		
+		location.href='findMyQuestion.do?userId='+ userId;
+	}
+	
+	$(function(){
+		let myQuestion = '<%= session.getAttribute("MyQuestion") %>';
+
+		let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
+		let goBackToList = '<button type="button" class="jsx-3066370919 myQna">전체 글 보기</button>'
+		
+		// myQuestion 0이 아닐 때 버튼은 목록으로 or 전체 보기 버튼 바꿔주기 
+		if (myQuestion != "null") {
+			btn_myQna.innerHTML = '전체 글 보기';
+			
+			btn_myQna.onclick = function() {
+				location.href='allQuestion.do';
+			}
+			
+		} else {
+			btn_myQna.innerHTML = '내가 쓴 글 보기'
+			btn_myQna.onclick = findMyQuestion;
+		}
+		
+	});
+	
+// 	function showMyQuestionList(questions) {
+// 		let qnaUl = document.querySelector('.list-body');
+// 		let qna_q_id = document.querySelector('.q_id');
+// 		let qna_q_category_name = document.querySelector('.q_category_name');
+// 		let qna_q_title = document.querySelector('.q_title');
+// 		let qna_q_name = document.querySelector('.q_name');
+// 		let qna_q_created_at = document.querySelector('.q_created_at');
+// 		let qna_q_answer_count = document.querySelector('.q_answer_count');
+		
+		
+// 		for (var i = 0; i < questions.length; i++) {
+// 			var question = questions[i];
+			
+// 			let 
+			
+// 		}
+		
+// 	}
+
 </script>
 </html>
