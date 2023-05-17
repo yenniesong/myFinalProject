@@ -52,7 +52,7 @@
   	<select id="chkPwd" parameterType="qna" resultType="qna">
   		SELECT * 
   		  FROM question 
-  		 WHERE userId = #{userId} AND password = #{password} and question_id = #{question_id}
+  		 WHERE userId = #{userId} AND password = #{password} AND question_id = #{question_id}
   	</select>
   	
   	<select id="getQnABoard" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO">

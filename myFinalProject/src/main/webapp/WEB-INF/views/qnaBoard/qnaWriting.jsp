@@ -413,12 +413,11 @@
 	                                                <div class="jsx-3763643514 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_08@2x.png&quot;);">
 	                                                </div>
 	                                            </div>
-	<!--                                             <span class="jsx-401750031">닉넴이 여기</span> -->
 												
 												<input type="hidden" value="<%=userId %>" name="userId">
 												<input type="hidden" value="<%=name %>" name="name">
 												<input type="hidden" value="<%=academy %>" name="academy">
-	                                            <span class="jsx-401750031"><%=nickName %></span><!-- 우선 쓰는걸로 하지만 나중에 아이디나 닉네임 불러오는걸로 변경 -->
+	                                            <span class="jsx-401750031"><%=nickName %></span>
 	                                            <span class="jsx-401750031 division-line"></span>
 	                                            <span class="jsx-401750031 bootcamp-name" style="margin: 0px; color: #90d487;"><%=academy %></span>
 	                                        </div>
@@ -430,10 +429,6 @@
 	                                    </div>
 	                                </div>
 	                                
-	                                <!--                                 
-	                                	<script type="application/ld+json">{"@context":"http://schema.org/","@type":"Article","url":"https://www.starteacher.co.kr/certificate/community/talk/articles/22971","name":"가입했습니다~","headline":"가입했습니다~","description":" ;) ","image":"https://www.starteacher.co.kr/static/images/opengraph/root.jpg","datePublished":"2023-01-12T13:01:24.000Z","dateModified":"2023-05-09T22:00:25.000Z","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.starteacher.co.kr/certificate"},"publisher":{"@type":"Organization","url":"https://www.starteacher.co.kr","name":"별별선생","logo":{"@type":"ImageObject","url":"https://www.starteacher.co.kr/static/images/logo/lv1_logo_h_blue.png"}},"author":{"@type":"Person","name":"뚱냥","image":"https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_01@2x.png"}}</script>
-	                                 -->
-                                
 	                                <div class="jsx-4064263859 comment">
 	                                    
 	                                    <div class="jsx-4129687755 write-comment-box">

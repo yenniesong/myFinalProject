@@ -594,9 +594,9 @@
 
                 <ol>
                 <li><a href="index.html">Home</a></li>
-                <li>Q&A</li>
+                <li>Teacher</li>
                 </ol>
-                <h2>Q & A</h2>
+                <h2>TEACHER</h2>
 
             </div>
         </section><!-- End Breadcrumbs -->

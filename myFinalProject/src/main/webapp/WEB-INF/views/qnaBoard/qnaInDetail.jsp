@@ -3,7 +3,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-<%! String bootName = "휴먼교육센터"; int boot_id = 3;  %>
+<%
+	HttpSession bootSession = request.getSession();
+	String bootcamp_id = (String)bootSession.getAttribute("bootcamp_id");
+	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -433,7 +437,7 @@
                                     <!-- 답변이 없으면! -->
                                     <form action="writingAnswer.do" method="post">
                                     <input type="hidden" name="question_id" value="${qna.question_id }">
-                                    <input type="hidden" name="bootcamp_id" value="<%=boot_id %>"><!-- 세션으로 로그인 한 사람의 bootcamp_id와 name 가져오기 -->
+                                    <input type="hidden" name="bootcamp_id" value=""><!-- 세션으로 로그인 한 사람의 bootcamp_id와 name 가져오기 -->
 	                                    
 	                                    <c:choose>
 	                                        <c:when test="${empty aList}">
@@ -462,7 +466,7 @@
 		                                                        <div class="jsx-2363903998 avatar">
 		                                                            <div class="jsx-2363903998 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_common01@2x.png&quot;);"></div>
 		                                                        </div>
-		                                                        <span class="jsx-394409708"><input type="text" id="bootcamp_name" value="<%=bootName %>" name="bootcamp_name"></span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
+		                                                        <span class="jsx-394409708"><input type="text" id="bootcamp_name" value="<%=bootcamp_name %>" name="bootcamp_name"></span><!-- 여기도 나중에 디비에서 불러오는 걸로 어떻게???? -->
 		                                                    </div>
 		                                                </div>
 		                                                <label class="jsx-4265535288 textarea">

@@ -99,26 +99,15 @@ public class QnAController {
 	}
 	
 	@RequestMapping("getQnABoard.do")
-	public String getQnABoard(QnAVO vo, Model model, AnswerVO aVo) {
+	public String getQnABoard(QnAVO vo, Model model, AnswerVO aVo, HttpSession session) {
 		System.out.println("## getQnABoard.do 진입 ##");
 		System.out.println("## 게시글 번호 : " + vo.getQuestion_id() + " ##");
 		
 		model.addAttribute("qna", qnaService.getQnABoard(vo));
 		
-//		AnswerVO answerCnt = answerService.getAnswerList(vo.getQuestion_id());
-		
 		System.out.println("aVO : " + aVo);
 ;		
 		List<AnswerVO> aList = answerService.getAnswerList(aVo);
-		
-//		if ( aList == null ) {
-//			model.addAttribute("aListSize", 0);
-//		}else {
-//			model.addAttribute("aListSize", aList.size());
-//			model.addAttribute("aList", aList);
-//		}
-		
-//		System.out.println("aList : " + aList );
 		
 		model.addAttribute("aList", aList);
 		
