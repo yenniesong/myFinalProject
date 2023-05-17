@@ -146,6 +146,7 @@
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
     margin-bottom: 0;
+    margin-right: -21px;
   }
 
   ul.institutes.jsx-2875758176 li.jsx-2875758176,
@@ -404,7 +405,7 @@
     p.jsx-445560552 {
         font-size:14px;
         color:#666666;
-        width:160px;
+/*         width:160px; */
         overflow:hidden;
         text-overflow:ellipsis;
         line-height:20px;
@@ -452,7 +453,7 @@
     .profile-image.tutor.jsx-445560552,.profile-image.university.jsx-445560552,.profile-image.institute.jsx-445560552 {
         /* right:24px; */
         /*top:22px;*/
-        width:260px;
+        width:266.3px;
         height:154px;
     }
     .profile-image.institute.jsx-445560552>span.jsx-445560552 {

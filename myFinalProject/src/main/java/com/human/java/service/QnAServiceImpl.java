@@ -51,10 +51,10 @@ public class QnAServiceImpl implements QnAService {
 	}
 	
 	@Override
-	public PagingVO getQnAListCount(int groupNum) {
+	public PagingVO getQnAListCount(int groupNum, String userId) {
 		System.out.println("## getQnAListCount service 진입 ##");
 		
-		PagingVO vo = qnaDAO.getQnAListCount();
+		PagingVO vo = qnaDAO.getQnAListCount(userId);
 		vo.setGroupNum(groupNum);
 		
 		System.out.println("vo : " + vo);
@@ -90,6 +90,12 @@ public class QnAServiceImpl implements QnAService {
 	public QnAVO chkPwd(QnAVO vo) {
 		System.out.println("## chkPwd service 진입 ##");
 		return qnaDAO.chkPwd(vo);
+	}
+
+	@Override
+	public List<QnAVO> findMyQuestion(QnAVO vo) {
+		System.out.println("## findMyQuestion service 진입 ##");
+		return qnaDAO.findMyQuestion(vo);
 	}
 
 }

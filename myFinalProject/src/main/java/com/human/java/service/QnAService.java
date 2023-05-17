@@ -20,7 +20,10 @@ public interface QnAService {
 	QnAVO chkPwd(QnAVO vo);
 
 	// 페이지수를 
-	PagingVO getQnAListCount(int groupNum);
+	PagingVO getQnAListCount(int groupNum, String userId);
+
+	// 내가 쓴 글 목록
+	List<QnAVO> findMyQuestion(QnAVO vo);
 
 	
 	

@@ -16,6 +16,6 @@ public class QnAVO {
 	private String created_at;
 	private String password;
 	private int view_cnt;
-	private String answer_state;
+	private int answer_count;
 	
 }

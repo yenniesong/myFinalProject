@@ -21,7 +21,7 @@ public class QnADAOImpl implements QnADAO {
 		System.out.println("## insertQnABoard dao 진입 ##");
 		mybatis.insert("QnADAO.insertQnABoard", vo);
 		
-	}
+	} 
 
 	// 상세 보기
 	@Override
@@ -44,9 +44,15 @@ public class QnADAOImpl implements QnADAO {
 	}
 
 	@Override
-	public PagingVO getQnAListCount() {
+	public PagingVO getQnAListCount(String userId) {
 		System.out.println("## getQnAListCount dao 진입 ##");
-		return mybatis.selectOne("QnADAO.getQnAListCount");
+		return mybatis.selectOne("QnADAO.getQnAListCount", userId);
+	}
+
+	@Override
+	public List<QnAVO> findMyQuestion(QnAVO vo) {
+		System.out.println("## findMyQuestion dao 진입 ##");
+		return mybatis.selectList("QnADAO.findMyQuestion", vo);
 	}
 	
 }

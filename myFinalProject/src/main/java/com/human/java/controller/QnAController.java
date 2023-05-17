@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.AnswerVO;
@@ -37,9 +38,13 @@ public class QnAController {
 	}
 	
 	@RequestMapping("getQnAList.do")
-	public String getQnAList(Model model, PagingVO pVO) {
+	public String getQnAList(Model model, PagingVO pVO, HttpSession session) {
 		System.out.println("## getQnAList.do 진입 ##");
-				
+		
+		System.out.println((String) session.getAttribute("MyQuestion"));
+		pVO.setUserId((String) session.getAttribute("MyQuestion"));
+		
+		
 		// 서비스에서 하면 return이 하나만 되고 게시글에 대한 정보만 리턴!
 		// 게시글에 대한 정보와 총 페이지수에 대한 정보는 섞이기 어려운 정보
 		// => 별도의 서비스를 진행하는 게 더 좋음
@@ -47,7 +52,7 @@ public class QnAController {
 		System.out.println("시작 페이지번호 : " + pVO.getPageNum() );
 		
 		// 총 페이지에 대한 개념
-		PagingVO pInfoVo = qnaService.getQnAListCount(pVO.getGroupNum());	// 얘는 조회만 하면 되서 넘겨주는게 없음
+		PagingVO pInfoVo = qnaService.getQnAListCount(pVO.getGroupNum(),pVO.getUserId() );	// 얘는 조회만 하면 되서 넘겨주는게 없음
 		
 		// pVo : startPageNum / endPage 
 		List<QnAVO> qnaList = qnaService.getQnAList(pVO);
@@ -55,7 +60,7 @@ public class QnAController {
 		model.addAttribute("qnaList", qnaList);
 		model.addAttribute("pInfoVo", pInfoVo);
 		System.out.println("pInfoVo : " + pInfoVo);
-		
+			
 		return "/qnaBoard/qnaList";
 	}
 	
@@ -106,12 +111,32 @@ public class QnAController {
 		model.addAttribute("qna", qnaService.getQnABoard(vo));
 		
 		System.out.println("aVO : " + aVo);
-;		
+		
 		List<AnswerVO> aList = answerService.getAnswerList(aVo);
 		
 		model.addAttribute("aList", aList);
 		
 		return "/qnaBoard/qnaInDetail";
+	}
+	
+	@RequestMapping("findMyQuestion.do")
+	public String findMyQuestion(@RequestParam("userId") String userId,HttpSession session) {
+		System.out.println("## findMyQuestion.do 진입 ##");
+		System.out.println("## userId : " + userId);
+		
+		session.setAttribute("MyQuestion", userId);
+		
+		
+		return "redirect:/qnaBoard/getQnAList.do";
+	}
+	
+	@RequestMapping("allQuestion.do")
+	public String allQuestion(HttpSession session) {
+		System.out.println("## findMyQuestion.do 진입 ##");
+	
+		session.removeAttribute("MyQuestion");
+		
+		return "redirect:/qnaBoard/getQnAList.do";
 	}
 	
 	@RequestMapping("insertQnABoard.do")

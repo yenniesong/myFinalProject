@@ -1,5 +1,5 @@
 package com.human.java.dao;
 
-public class CourseDAO {
+public interface CourseDAO {
 
 }

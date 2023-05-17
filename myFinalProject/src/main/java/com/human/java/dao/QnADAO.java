@@ -20,5 +20,7 @@ public interface QnADAO {
 	// qna 게시글 비밀번호 조회
 	QnAVO chkPwd(QnAVO vo);
 
-	PagingVO getQnAListCount();
+	PagingVO getQnAListCount(String userId);
+
+	List<QnAVO> findMyQuestion(QnAVO vo);
 }

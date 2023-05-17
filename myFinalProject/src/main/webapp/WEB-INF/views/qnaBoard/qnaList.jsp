@@ -245,6 +245,12 @@
       outline: none;
       box-shadow: 0px 0px 0px 2px #a5d8ff;
     }
+    .title.jsx-1629185219 {
+    text-align: center;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgb(102, 102, 102);
+}
  </style>    
 <style id="__jsx-2395210693">
       .select-wrap.jsx-2395210693 {
@@ -312,7 +318,8 @@
           height: 42px;
           font-size: 15px;
           font-weight: normal;
-          border-top: 1px solid #212121;
+/*           border-top: 1px solid #212121; */
+    	  background-color: #f2f2f1;
           border-bottom: 1px solid #ececec;
       }
       .list-header.jsx-1779968077 li.jsx-1779968077>div.jsx-1779968077 {
@@ -427,33 +434,6 @@
 	                </p>
 	              </div>
 	
-	              <div class="jsx-2395210693 select-wrap">
-	                <div class="jsx-2395210693 select-box">
-	                  <div class="jsx-2019229575 select">
-	                    <select id="inputState" class="form-select">
-	                      <option selected>카테고리</option>
-	                      <option>강사</option>
-	                      <option>커리큘럼</option>
-	                      <option>기타</option>
-	                    </select>
-	                    <!-- <div class="jsx-2019229575 choice">카테고리
-	                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 0px; bottom: 8px;">
-	                        <polyline points="6 9 12 15 18 9"></polyline>
-	                      </svg>
-	                    </div> -->
-	                  </div>
-	                </div>
-	                
-	                <div class="jsx-2395210693 search">
-	                  <div class="jsx-1738213615 search-box">
-	                    <div class="jsx-599077571 input">
-	                      <input title="검색어 입력" placeholder="검색어를 입력해 주세요." class="jsx-599077571" value="" style="width: 300px;">
-	                    </div>
-	                    <button type="button" class="jsx-411775790 goSearch" style="margin-left: 16px;">검색</button>
-	                  </div>
-	                </div>
-	              </div>
-	
 	              <div class="jsx-485996613 sort-number">
 	              <c:set var="total" value="${fn:length(qnaList)}" />
 	                <span class="jsx-485996613 total-number">총 ${total}개</span>
@@ -502,21 +482,17 @@
 		                      </svg>
 		                    </div>
 		                    
-<%-- 		                    <c:if test="${qnaList.answer_count gt 0}"> --%>
+		                    <c:if test="${qna.answer_count gt 0}">
 			                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 100px;">
 			                    	답변 완료
 			                    </div>
-<%-- 		                    </c:if> --%>
-<%-- 		                    <c:if test="${qnaList.answer_count eq 0}"> --%>
-<!-- 			                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 100px;"> -->
-<!-- 			                    	답변 미완료 -->
-<!-- 			                    </div> -->
-<%-- 		                    </c:if> --%>
-		                    <!-- <div class="jsx-989812570 like_count hide-on-desktop" style="max-width: 60px;">
-		                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
-		                        <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
-		                      </svg>1
-		                    </div> -->
+		                    </c:if>
+		                    <c:if test="${qna.answer_count eq 0}">
+			                    <div class="jsx-989812570 like_count hide-on-mobile" style="max-width: 100px;">
+			                    	답변 미완료
+			                    </div>
+		                    </c:if>
+
 		                  </li>
 		                </ul>
 	                </c:forEach>
@@ -735,23 +711,74 @@
 
 	});
 
-	$(document).ready(function() {
-		$('.goSearch').click(function() {
-			alert('1');
-		});
-	});
-
 	let goWriting = document.querySelector('.writeQna');
 	let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
-	console.log(btn_myQna);
 
 	goWriting.addEventListener("click", function() {
 		location.href = 'qnaWriting.do';
 	});
 
-	btn_myQna.addEventListener("click", function() {
-		alert('1');
+// 	btn_myQna.addEventListener("click", function() {
+// 		location.href = 'findMyQuestion.do';
+// 	});
+
+	function findMyQuestion() {
+		let userId = '<%= session.getAttribute("userId") %>';
+		
+// 		var xhr = new XMLHttpRequest();
+// 		xhr.open('POST', 'findMyQuestion.do', true);
+// 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+		
+// // 		xhr.onload = function() {
+// // 			if (xhr.status === 200) {
+// // 				var response = JSON.parse(xhr.responseText);
+// // 				showMyQuestionList(response);
+// // 			}
+// // 		}
+// 		xhr.send('userId=' + userId);
+		
+		location.href='findMyQuestion.do?userId='+ userId;
+	}
+	
+	$(function(){
+		let myQuestion = '<%= session.getAttribute("MyQuestion") %>';
+
+		let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
+		let goBackToList = '<button type="button" class="jsx-3066370919 myQna">전체 글 보기</button>'
+		
+		// myQuestion 0이 아닐 때 버튼은 목록으로 or 전체 보기 버튼 바꿔주기 
+		if (myQuestion != "null") {
+			btn_myQna.innerHTML = '전체 글 보기';
+			
+			btn_myQna.onclick = function() {
+				location.href='allQuestion.do';
+			}
+			
+		} else {
+			btn_myQna.innerHTML = '내가 쓴 글 보기'
+			btn_myQna.onclick = findMyQuestion;
+		}
+		
 	});
+	
+// 	function showMyQuestionList(questions) {
+// 		let qnaUl = document.querySelector('.list-body');
+// 		let qna_q_id = document.querySelector('.q_id');
+// 		let qna_q_category_name = document.querySelector('.q_category_name');
+// 		let qna_q_title = document.querySelector('.q_title');
+// 		let qna_q_name = document.querySelector('.q_name');
+// 		let qna_q_created_at = document.querySelector('.q_created_at');
+// 		let qna_q_answer_count = document.querySelector('.q_answer_count');
+		
+		
+// 		for (var i = 0; i < questions.length; i++) {
+// 			var question = questions[i];
+			
+// 			let 
+			
+// 		}
+		
+// 	}
 
 </script>
 </html>
