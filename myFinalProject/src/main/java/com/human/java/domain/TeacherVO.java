@@ -11,12 +11,15 @@ import lombok.Data;
 public class TeacherVO {
 	private int teacher_id;		
 	private int bootcamp_id;
+	private String userId;
 	private String teacher_name;
 	private String bootcamp_name;
 	private String course_name;
 	private String short_description;
 	private String description;
 	private String image_url;
+	private int position_id;
+	private String position;
 	
 	private String ip;
 	private String fname;

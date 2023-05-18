@@ -46,6 +46,7 @@ public class TeacherController {
 		System.out.println("## getTeacher.do 진입 ##");
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
 		
+		vo = teacherService.getTeacher(vo);
 		model.addAttribute("teacher", teacherService.getTeacher(vo));
 		
 		System.out.println("teacher vo : " + vo);
@@ -58,10 +59,16 @@ public class TeacherController {
 	public String insertTeacher(TeacherVO vo, HttpSession session) {
 		// 학원 아이디 등록해주기 세션에
 		System.out.println("## insertTeacher.do 진입 ##");
+		System.out.println("====> Teacher_id : " + vo.getTeacher_id());
+		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
+		System.out.println("====> Course_name : " + vo.getCourse_name());
+		System.out.println("====> Short_description : " + vo.getShort_description());
 		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");
 		System.out.println("## 파일 크기 : " + vo.getFsize() + " ##");
 		
 		teacherService.insertTeacher(vo);
+		vo.setUserId((String)session.getAttribute("userId"));
+		vo.setBootcamp_name((String)session.getAttribute("bootcamp_name"));
 		
 		return "redirect:/teacher/getTeacherList.do";
 	}

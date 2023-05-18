@@ -10,12 +10,9 @@
   	</select>
   	
   	<select id="getTeacher" parameterType="teacher" resultType="teacher">
-<!--   		SELECT *  -->
-<!--   		  FROM teacher -->
-<!--   		 WHERE teacher_id = #{teacher_id} -->
-  		 select teacher_id, bootcamp_id, teacher_name, bootcamp_name, course_name, description, image_url
-           from teacher
-          where teacher_id = #{teacher_id}
+  		SELECT * 
+  		  FROM teacher
+  		 WHERE teacher_id = #{teacher_id}
   	</select>
   	
   	<insert id="insertTeacher" parameterType="teacher">

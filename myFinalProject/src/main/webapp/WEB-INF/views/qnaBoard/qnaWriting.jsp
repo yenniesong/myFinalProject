@@ -391,15 +391,10 @@
 	                                            <div class="jsx-2019229575 select">
 	                                                <select id="inputState" class="form-select" name="category_id">
 		                                                <option selected>카테고리</option>
-		                                                <option class="tutor" value="1" id="category_name"> 강사</option>
-		                                                <option class="course" value="2" id="category_name">강좌</option>
-		                                                <option class="etc" value="3" id="category_name">기타</option>
+		                                                <option class="category_name tutor" value="1"> 강사</option>
+		                                                <option class="category_name course" value="2">강좌</option>
+		                                                <option class="category_name etc" value="3">기타</option>
 	                                                </select>
-	                                                <!-- <div class="jsx-2019229575 choice">카테고리
-	                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; right: 0px; bottom: 8px;">
-	                                                    <polyline points="6 9 12 15 18 9"></polyline>
-	                                                </svg>
-	                                                </div> -->
 	                                            </div>
 	                                            <div class="jsx-599077571 input-title">
 	                                                <input id="title" name="title" title="제목 입력" placeholder="제목을 입력해 주세요." class="jsx-599077571" value="" style="width: 600px;">

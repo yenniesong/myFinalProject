@@ -269,6 +269,7 @@
 
   .title.jsx-1020960270 p.jsx-1020960270 {
     color: #666666;
+    margin-left: -30px;
   }
 
   .rating.jsx-1020960270 {
@@ -355,6 +356,13 @@
   .content.jsx-216214598 .btn-enroll {
       background-color: rgb(223, 223, 223);
   }
+  .content.jsx-216214598 .btn-follow {
+      background-color: rgb(61,203,71);
+  }
+  .content.jsx-216214598 .btn-follow span {
+      margin-left: 8px;
+      color: rgb(255,255,255);
+  }
   .content.jsx-216214598 .btn-follow, .content.jsx-216214598 .btn-enroll {
       display: flex;
       -webkit-box-align: center;
@@ -364,13 +372,14 @@
       width: 100%;
       height: 52px;
       border-radius: 4px;
+      margin-bottom: 8px;
   }
   .content.jsx-216214598 .btn-evaluation img {
       margin-left: 4px;
   }
   .content.jsx-216214598 .btn-evaluation {
       border-radius: 32px;
-      color: rgb(63, 96, 204);
+      color: rgb(61,203,71);
       border: 1px solid rgb(223, 223, 223);
       width: auto;
       min-width: auto;
@@ -726,7 +735,7 @@
                 <div class="jsx-1629185219 title mb-3">
                   <h4 class="jsx-1629185219">TEACHER</h4>
                   <p class="jsx-1629185219">
-                    누가 나와 잘 맞는 선생님일까?
+                   	 누가 나와 잘 맞는 선생님일까?
                   </p>
                 </div>
 
@@ -734,8 +743,12 @@
                 <div class="jsx-3239872667 main-card">
                   <div class="jsx-1020960270 message">
                     <div class="jsx-1020960270 title">
-                      <span class="jsx-1020960270">teacher name</span>
-                      <p class="jsx-1020960270"></p>
+	                   	<input type="hidden" name="teacher_id" value="${teacher.teacher_id }">			
+	                   	<input type="hidden" name="teacher_bootcamp_id" value="${teacher.bootcamp_id }">			
+	                   	<input type="hidden" name="teacher_bootcamp_id" value="${teacher.position_id }">			
+	                   	<input type="hidden" name="teacher_bootcamp_id" value="${teacher.position }">			
+						<span class="jsx-1020960270">${teacher.teacher_name } 선생님</span>
+                      	<p class="jsx-1020960270">${teacher.short_description }</p>
                     </div>
                     <div class="jsx-1020960270 rating">
                       <span class="jsx-1020960270 score">
@@ -774,11 +787,7 @@
           
                     <div class="jsx-216214598 flex-right">
                       <div class="jsx-216214598 title">
-                        <h3 class="jsx-216214598">
-                          (short description)
-                        </h3>
                         <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
-                          <a></a>
                           <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
                         </button>
                       </div>
@@ -792,18 +801,18 @@
                             <li class="jsx-3839070939 tutor">
                               <div class="jsx-3839070939 board-item">
                                 <div class="jsx-3839070939 title">
-                                  <h4 class="jsx-3839070939">휴먼교육센터</h4>
+                                  <h4 class="jsx-3839070939">${teacher.bootcamp_name }</h4>
                                 </div>
                               </div>
                             </li>
                             <li class="jsx-2255129348 horizontal-rule"></li>
                             <li class="jsx-2255129348">
-                              <h4 class="jsx-2255129348">강의명</h4>
+                              <h4 class="jsx-2255129348">${teacher.course_name }</h4>
                             </li>
                             <li class="jsx-1434886323 ">
                               <div class="jsx-1434886323 board-item">
                                 <div class="jsx-1434886323 title">
-                                  <h4 class="jsx-1434886323">강의 설명</h4>
+                                  <h4 class="jsx-1434886323">${teacher.description }</h4>
                                 </div>
                               </div>
                             </li>
