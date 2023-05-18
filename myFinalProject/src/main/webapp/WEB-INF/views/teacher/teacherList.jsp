@@ -99,7 +99,6 @@
     }
 
 </style>
-
 <style id="__jsx-2875758176">
   .sections.jsx-2875758176 {
     padding: 48px 40px;
@@ -448,7 +447,6 @@
     }
   }
 </style>
-
 <style id="__jsx-283961174">
     .title.jsx-283961174 {
         display: flex;
@@ -467,7 +465,6 @@
         color: rgb(63, 96, 204);
     }
 </style>
-
 <style id="__jsx-445560552">
     .card.jsx-445560552 {
         position:relative;
@@ -630,7 +627,6 @@
       .card.jsx-445560552 .stars .star{margin-right:2px;}
     }
   </style>
-
 <style id="__jsx-2704879397">
     .star-2.jsx-2704879397 {
         background-image: url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png");
@@ -645,7 +641,6 @@
         background-size: cover;
     }
 </style>
-
 <style id="__jsx-2373216897">
     .search-page.kindergarten.jsx-2373216897 .search-box.jsx-2373216897 {
         background-image:linear-gradient(261deg,#f65d58,#ff9d1f);
@@ -743,7 +738,6 @@
     }
 
 </style>
-
 <style id="__jsx-2595981909">
   .filter.jsx-2595981909 {
     display: -webkit-box;
@@ -1067,7 +1061,6 @@
     font-size: 14px;
   }
 </style>
-
 <style id="__jsx-786344230">
   h3.jsx-786344230 {
     display: -webkit-box;
@@ -1291,7 +1284,6 @@
     justify-content: center;
 }
 </style>
-
 <style id="__jsx-3824006232">
     li.jsx-3824006232 {
     margin: 0px 12px 12px 0px;
@@ -1335,7 +1327,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
     white-space: nowrap;
 }
 </style>
-
 <style id="__jsx-2749561681">
   li.jsx-2749561681 {
     margin: 0px 8px 8px 0px;
