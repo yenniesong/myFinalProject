@@ -4,7 +4,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-
+<%
+	HttpSession bSession = request.getSession();
+	String userId = (String)bSession.getAttribute("userId");
+	String bootcamp_name = (String)bSession.getAttribute("bootcamp_name");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,7 +16,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<title>Update Teacher Info</title>
+<title>update Teacher</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -607,86 +611,56 @@
                     <div class="jsx-3810764099 board-box">
                         <div class="jsx-2656936329 content-box">
                             <div class="jsx-2656936329 card-box"> 
-                                <div class="jsx-1629185219 title mb-3">
-                                    <h4 class="jsx-1629185219">TEACHER</h4>
-                                    <p class="jsx-1629185219">
-                                       	 우리 학원의 선생님을 소개해주세요
-                                    </p>
-                                </div>
-
-								<form action="updateTeacher.do" method="post">
-									<c:forEach items="${tInfo}" var="teacher_info">
+                            	<form action="insertTeacher.do" method="post">
+	                                <div class="jsx-1629185219 title mb-3">
+	                                    <h4 class="jsx-1629185219">TEACHER</h4>
+	                                    <p class="jsx-1629185219">
+	                                       	 우리 학원의 선생님을 소개해주세요
+	                                    </p>
+	                                </div>
+	
 	                                <div class="jsx-401750031 board-header">
 	
 	                                    <div class="jsx-216214598 content">
 	                                        <div class="jsx-216214598 flex-left">
 	                                            <div class="jsx-216214598 profile">
-	                                                <img id="preview" src="#" alt="미리보기" style="width: 300px;"> 
-	                                                <input type="file" id="fileloads" name="fileloads" style="display: block;" accept="image/*" onchange="previewImage(event);" required="required"> 
+	                                                <img id="preview" src="#" alt="" style="width: 300px;"> 
 	                                            </div>
-	                                            <div class="jsx-216214598 btn-box">
-	                                                <button class="jsx-3857673807 btn-follow" type="button">
-	                                                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
-	                                                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
-	                                                  </svg>
-	                                                  <span class="jsx-216214598">대표학원명</span>
-	                                                  <span class="jsx-216214598"></span>
-	                                                </button>
-	                                            </div>
-	                          
+	                                            <label class="input_file_button" for="image_url">프로필 업로드</label>
+	                                            <input type="file" id="image_url" name="image_url" style="display: none;" accept="image/*" onchange="previewImage(event);" required="required"> 
 	                                        </div>
 	                          
 	                                        <div class="jsx-216214598 flex-right">
-	                                            <div class="jsx-2255129348 real-time-evaluation">
-	                                                <div class="jsx-2255129348 scroll-box">
-	                                                    <ul class="jsx-2255129348">
-	                                                        <li class="jsx-2255129348">
-	                                                            <h4 class="jsx-2255129348">선생님의 이름</h4>
-	                                                        </li>
-	                                                        <li class="jsx-3839070939 tutor">
-	                                                            <div class="jsx-3839070939 board-item">
-	                                                                <div class="jsx-3839070939 title">
-	                                                                <h4 class="jsx-3839070939">이름 작성란</h4>
-	                                                                </div>
-	                                                            </div>
-	                                                            <div class="jsx-3839070939 sub">
-	                                                                <span class="jsx-3839070939 tags">#best 강사리뷰</span>
-	                                                            </div>
-	                                                        </li>
-	                                                        <li class="jsx-2255129348 horizontal-rule"></li>
-	                                                        <li class="jsx-2255129348">
-	                                                            <h4 class="jsx-2255129348">선생님의 한마디</h4>
-	                                                        </li>
-	                                                        <li class="jsx-3839070939 tutor">
-	                                                            <div class="jsx-3839070939 board-item">
-	                                                                <div class="jsx-3839070939 title">
-	                                                                <h4 class="jsx-3839070939">좌우명 혹은 뭐 그런거 작성</h4>
-	                                                                </div>
-	                                                            </div>
-	                                                            <div class="jsx-3839070939 sub">
-	                                                                <span class="jsx-3839070939 tags">#best 강사리뷰</span>
-	                                                            </div>
-	                                                        </li>
-	                                                        <li class="jsx-2255129348 horizontal-rule"></li>
-	                                                        <li class="jsx-2255129348">
-	                                                            <h4 class="jsx-2255129348">강의 명</h4>
-	                                                        </li>
-	                                                        <li class="jsx-1434886323 ">
-	                                                            <div class="jsx-1434886323 board-item">
-	                                                                <div class="jsx-1434886323 title">
-	                                                                <h4 class="jsx-1434886323">강의명 작성란</h4>
-	                                                                </div>
-	                                                            </div>
-	                                                            <div class="jsx-1434886323 sub">
-	                                                                <span class="jsx-1434886323 tags">#강사리뷰</span>
-	                                                            </div>
-	                                                        </li>
-	                                                    </ul>
+	                                            <div class="jsx-401750031">
+	                                                <div class="jsx-401750031 header-info">
+	                                                    
+	                                                    <div class="jsx-401750031 info-box">
+	                                                        <div class="col input-group">
+	                                                        	<input type="hidden" name="teacher_id" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${teacher.teacher_id }">
+	                                                            <input type="text" name="bootcamp_name" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${teacher.bootcamp_name }">
+	                                                            <input type="text" name="teacher_name" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="${teacher.teacher_name }">
+	                                                            <input type="text" name="short_description" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="${teacher.short_description }" style="width: 500px;">
+	                                                        </div>
+	                                                    </div>
+	                                                </div>
+	                                                <div class="jsx-401750031 classfi-text">
+	                                                    <div class="jsx-2395210693 select-box">
+	                                                        <div class="jsx-2019229575 select">
+	                                                            <select id="inputState" class="form-select" name="position_id">
+	                                                                <option selected>카테고리</option>
+	                                                                <option value="1" class="position">front-end</option>
+	                                                                <option value="2" class="position">back-end</option>
+	                                                                <option value="3" class="position">full stack</option>
+	                                                            </select>
+	                                                        </div>
+	                                                        <div class="jsx-599077571 input-title">
+	                                                            <input title="강의명 입력" name="course_name" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="${teacher.course_name }" style="width: 500px;">
+	                                                        </div>
+	                                                    </div>
 	                                                </div>
 	                                            </div>
 	                                        </div>
 	                                    </div>
-	
 	                                </div>
 	                                
 	                                <div class="jsx-4064263859 comment">
@@ -695,32 +669,22 @@
 	                                        <div class="jsx-394409708 write-comment-wrap">
 	                                            <div class="jsx-394409708 write-comment">
 	                                                <label class="jsx-4265535288 textarea">
-	                                                    <textarea class="jsx-4265535288 " placeholder="간단한 강의 설명" style="height: 200px;"></textarea>
+	                                                    <textarea class="jsx-4265535288 " name="description" placeholder="간단한 강의 설명" style="height: 200px;">${teacher.description }</textarea>
 	                                                </label>
 	                                                
 	                                            </div>
 	                                        </div>
 	                                    </div>
-	                                    <div class="jsx-394409708 buttons">
-	                                        <button type="button" class="jsx-654986024 btn-view-list">
-	                                            <span class="jsx-654986024 hide-on-mobile">목록보기</span>
-	                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#8f8f8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
-	                                                <line x1="8" y1="6" x2="21" y2="6"></line>
-	                                                <line x1="8" y1="12" x2="21" y2="12"></line>
-	                                                <line x1="8" y1="18" x2="21" y2="18"></line>
-	                                                <line x1="3" y1="6" x2="3" y2="6"></line>
-	                                                <line x1="3" y1="12" x2="3" y2="12"></line>
-	                                                <line x1="3" y1="18" x2="3" y2="18"></line>
-	                                            </svg>
-	                                        </button>
-	                                        <button class="jsx-3240274678 button--post" type="submit">
-	                                            <span class="jsx-654986024">등록</span>
-	                                        </button>
+	                                    <div class="jsx-1968836963 btn-box">
+	                                        <div class="jsx-1968836963 btn-cancel">
+	                                            <button type="button" class="jsx-3357072104 btn-view-list">취소</button>
+	                                        </div>
+	                                        <div class="jsx-1968836963 btn-finish">
+	                                            <button type="submit" class="jsx-1389197839 ">작성완료</button>
+	                                        </div>
 	                                    </div>
 	                                </div>
-	                                </c:forEach>
-	                           	</form>
-                           
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -729,28 +693,6 @@
         </section>
 
     </main><!-- End #main -->
-
-	<!-- modal -->	<!-- ajax로 하기 -->
-	<form action="chkPwd.do" method="post">
-		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-		      </div>
-		      <div class="modal-body">
-		        <p style="text-align: center;">비밀번호 입력</p>
-		        <input type="password" name="password" title="비밀번호 입력" placeholder="비밀번호를 입력해 주세요." class="jsx-599077571 password" value="" style="width: 300px;">
-		        <input type="hidden" name="question_id" id='hidden_question_id'>
-		        <input type="hidden" name="userId" value="${qna.userId}" id='hidden_userId'>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="submit" class="btn btn-primary">확인</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</form>
 	
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
@@ -839,7 +781,7 @@
 	
 	<div id="preloader"></div>
 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-	
+
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
@@ -854,4 +796,24 @@
 
 <!-- Template Main JS File -->
 <script src="${path}/resources/assets/js/main.js"></script>
+
+<!-- my Script -->
+<script>
+	let btnBackToList = document.querySelector('.btn-view-list');
+	
+	// 목록으로 가는 버튼
+	btnBackToList.addEventListener("click", function() {
+		alert('작성중인 글은 저장되지 않습니다.');
+		history.back();
+	});
+
+	function previewImage(event) {
+		var reader = new FileReader();
+		reader.onload = function() {
+			var output = document.getElementById('preview');
+			output.src = reader.result;
+		}
+		reader.readAsDataURL(event.target.files[0]);
+	}
+</script>
 </html>
