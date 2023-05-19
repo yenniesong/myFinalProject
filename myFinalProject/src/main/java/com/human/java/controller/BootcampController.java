@@ -25,16 +25,16 @@ public class BootcampController {
 	private BootcampService bootcampService;
 	
 	@RequestMapping("{url}.do")
-	public String userViewPage(@PathVariable String url) {
+	public String viewPage(@PathVariable String url) {
 		System.out.println("## Bootcamp Controller 진입 ## " + url);
 		
 		return "/bootcamp/" + url;
 	}
 	
 	
-	@RequestMapping("/bootlogin.do")
-	public String userLogin(BootcampVO vo, HttpSession session) {
-		System.out.println("## login.do 진입 ##");
+	@RequestMapping("/bootcampLogin.do")
+	public String bootcampLogin(BootcampVO vo, HttpSession session) {
+		System.out.println("## bootcampLogin.do 진입 ##");
 		
 		System.out.println("## id : " + vo.getUserId());
 		System.out.println("## pwd : " + vo.getPassword());
@@ -62,7 +62,7 @@ public class BootcampController {
 			
 			// 있을 경우 연결하는 페이지
 //			return "redirect:/qnaBoard/getQnAList.do";	// 리턴에는 /user/ 꼭 써줘야함
-			return "redirect:/teacher/getteacherList.do";	// 리턴에는 /user/ 꼭 써줘야함
+			return "redirect:/teacher/getTeacherList.do";	// 리턴에는 /user/ 꼭 써줘야함
 		}
 	}
 	
