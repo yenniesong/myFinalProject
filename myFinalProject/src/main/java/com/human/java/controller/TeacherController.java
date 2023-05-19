@@ -30,8 +30,10 @@ public class TeacherController {
 	
 	// 강사 리스트 불러오기
 	@RequestMapping("getTeacherList.do")
-	public String getTeacherList(TeacherVO vo, Model model) {
+	public String getTeacherList(TeacherVO vo, Model model, HttpSession session) {
 		System.out.println("## getTeacherList.do 진입 ##");
+		
+		
 		
 		List<TeacherVO> tList = teacherService.getTeacherList(vo);
 		

@@ -474,7 +474,6 @@
 		                    </div>
 		                    <div class="jsx-989812570 col-nickname" style="max-width: 100px;">${qna.name }</div>
 		                    <div class="jsx-989812570 col-created" style="max-width: 100px;">${qna.created_at }</div>
-	<%-- 	                    <div class="jsx-989812570 read_count hide-on-mobile" style="max-width: 60px;">${qna.view_cnt }</div> --%>
 		                    <div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
 		                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
 		                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>

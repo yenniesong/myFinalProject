@@ -4,6 +4,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<%
+	HttpSession bootSession = request.getSession();
+	String bootcamp_id = (String)bootSession.getAttribute("bootcamp_id");
+	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -663,7 +668,6 @@
   }
 </style>
 
-
 </head>
 <body>
 	<!-- ======= Header ======= -->
@@ -789,6 +793,9 @@
                       <div class="jsx-216214598 title">
                         <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
                           <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
+                        </button>
+                        <button class="jsx-3857673807 btn-evaluation deleteTeacher" type="button" style="margin-left: 10px; padding: 0px 10px;"> 
+                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
                         </button>
                       </div>
           
@@ -1108,27 +1115,35 @@
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
+	
 	let btn_follow = document.querySelector(".btn-follow");
 	let btn_enroll = document.querySelector(".btn-enroll");
 	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
 	let btn_review_post = document.querySelector(".review_post");
-		
+	let btn_deleteTeacher = document.querySelector(".deleteTeacher");
+
 	btn_follow.addEventListener("click", function() {
 		alert("1");
 	})
-	
+
 	btn_enroll.addEventListener("click", function() {
 		alert("1");
 	})
-	
+
 	btn_update_teacher_info.addEventListener("click", function() {
-		location.href='teacherUpdating.do';
+		location.href = 'teacherUpdating.do';
+	});
+
+	btn_deleteTeacher.addEventListener("click", function() {
+		/* location.href = 'deleteTeacher.do'; */
+		
+		alert('1');
 	});
 	
 	btn_review_post.addEventListener("click", function() {
 		alert("1");
 	})
-	
+
 </script>
 
 </html>
