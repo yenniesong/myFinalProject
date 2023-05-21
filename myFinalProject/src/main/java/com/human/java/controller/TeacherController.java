@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.human.java.domain.BootcampVO;
 import com.human.java.domain.ReviewVO;
 import com.human.java.domain.TeacherVO;
+import com.human.java.service.BootcampService;
 import com.human.java.service.TeacherService;
 
 @Controller
@@ -20,6 +22,9 @@ public class TeacherController {
 	
 	@Autowired
 	private TeacherService teacherService;
+	@Autowired
+	private BootcampService bootcampService;
+	
 	
 	@RequestMapping("{url}.do")
 	public String viewPage(@PathVariable String url) {
@@ -30,14 +35,16 @@ public class TeacherController {
 	
 	// 강사 리스트 불러오기
 	@RequestMapping("getTeacherList.do")
-	public String getTeacherList(TeacherVO vo, Model model, HttpSession session) {
+	public String getTeacherList(TeacherVO vo, Model model, HttpSession session, BootcampVO bVO) {
 		System.out.println("## getTeacherList.do 진입 ##");
-		
-		
 		
 		List<TeacherVO> tList = teacherService.getTeacherList(vo);
 		
 		model.addAttribute("tList", tList);
+
+		List<BootcampVO> bList = bootcampService.bootcampInfo();
+		
+		model.addAttribute("bList", bList);
 		
 		return "/teacher/teacherList";
 	}
@@ -61,15 +68,17 @@ public class TeacherController {
 	public String insertTeacher(TeacherVO vo, HttpSession session) {
 		// 학원 아이디 등록해주기 세션에
 		System.out.println("## insertTeacher.do 진입 ##");
-		System.out.println("====> Teacher_id : " + vo.getTeacher_id());
+		System.out.println("====> Bootcamp_id : " + vo.getBootcamp_id());
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> Course_name : " + vo.getCourse_name());
 		System.out.println("====> Short_description : " + vo.getShort_description());
+		System.out.println("====> position : " + vo.getPosition());
 		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");
 		System.out.println("## 파일 크기 : " + vo.getFsize() + " ##");
 		
 		teacherService.insertTeacher(vo);
 		vo.setUserId((String)session.getAttribute("userId"));
+		vo.setBootcamp_id((Integer)session.getAttribute("bootcamp_id"));
 		vo.setBootcamp_name((String)session.getAttribute("bootcamp_name"));
 		
 		return "redirect:/teacher/getTeacherList.do";
@@ -90,7 +99,7 @@ public class TeacherController {
 	// 강사 페이지 삭제
 	@RequestMapping("deleteTeacher.do")
 	public String deleteTeacher(TeacherVO vo) {		// int로 받을지 고민(위에 수정도)
-		System.out.println("## updateTeacher.do 진입 ##");
+		System.out.println("## deleteTeacher.do 진입 ##");
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
 		
 		teacherService.deleteTeacher(vo);

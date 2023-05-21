@@ -6,7 +6,11 @@ import java.util.UUID;
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Data
 public class TeacherVO {
 	private int teacher_id;		
@@ -17,7 +21,7 @@ public class TeacherVO {
 	private String course_name;
 	private String short_description;
 	private String description;
-	private String image_url;
+//	private String image_url;
 	private int position_id;
 	private String position;
 	
@@ -41,7 +45,7 @@ public class TeacherVO {
 		
 		if (!file.isEmpty()) {
 			// 파일 이름 추출, 사이즈, 확장자 추출 등...
-			this.fname = file.getOriginalFilename();	// 실제 파일명을 b_fname에 넣어주는 것
+			this.fname = file.getOriginalFilename();	// 실제 파일명을 fname에 넣어주는 것
 			this.fsize = file.getSize(); 
 			
 			// 실제 파일 생성 >> 혹시 사용자가 같은 이름을 가진 파일을 첨부(업로드)한다면 이전 파일에게 덮어짐 > 이전 파일이 훼손

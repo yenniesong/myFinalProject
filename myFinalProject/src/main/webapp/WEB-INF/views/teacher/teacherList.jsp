@@ -1437,78 +1437,15 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                    <h4 class="jsx-2595981909">학원</h4>
 	                    <button type="button" class="jsx-2595981909 btn-all on">전체</button>
 	                    <ul class="jsx-2595981909">
+	                    <c:forEach items="${bList}" var="bootcamp">
 	                      <li class="jsx-3824006232">
 	                      <button type="button" class="jsx-3824006232 ">
 	                      <span class="jsx-3824006232 logo">
-	                      <img src="${path}/resources/imgs/pea_icon.png" alt="휴먼교육센터" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">휴먼교육센터</div>
+	                      <img src="${path}/resources/imgs/pea_icon.png" alt="${bootcamp.bootcamp_name}" class="jsx-3824006232"></span>
+	                          <div class="jsx-3824006232 name">${bootcamp.bootcamp_name}</div>
 	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logof6914b8a882ed9c5d2cc9de5bdd177d4e8d38f4a63a331104cb2599c6c299cbc?w=128&amp;f=webp"
-	                              alt="EBSi-고등" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">쌍용</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logof5b37142b9d1cc3cd1a31876ca4c2c0d6e457351f4ec8474aa6b9244723940d0?w=128&amp;f=webp"
-	                              alt="eck교육" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">KH정보교육원</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoe4e65a50a30230aca0d856559b5bf45aef7f8b1972b3d72baf2d41a7ae9aa3af7d7c9a3b573002ae48a7ccbc47619514?w=128&amp;f=webp"
-	                              alt="리더스어학원" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">리더스어학원</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoe449ccd618c1bf386e7c63bb5b0a8a5b1bba061361c5461eee95dd9fdfac4e3f?w=128&amp;f=webp"
-	                              alt="기술단기" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">기술단기</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoe08d1e70ba0164a87a58989d4c69557e7e911c5b4ea7f4563d925c43b8bf5476?w=128&amp;f=webp"
-	                              alt="분당시대인재" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">분당시대인재</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logodcc52c87049fb7ef9e9678f06e71ec7d89c1d51eeb58a50842fe8c35a39f6cd5?w=128&amp;f=webp"
-	                              alt="박정어학원(PJ어학원)" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">박정어학원(PJ어학원)</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logod8f8364e085378aab48a651585abf4de894d01857ef0c569484f41a3d7419143?w=128&amp;f=webp"
-	                              alt="YBM어학원" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">YBM어학원</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logobf1e94559b1e63b7a6966b0a7890e415eb71515aa16ed8521512768906014497?w=128&amp;f=webp"
-	                              alt="민병철어학원" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">민병철어학원</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logobf0c2f6922111dc0c91309e22578b1f0de906ef2d7855aa36408b4d972626d5a?w=128&amp;f=webp"
-	                              alt="파고다" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">파고다</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logobe33aa7cf72abae0e9a913e6a23e2949eba82446b5eb45b23a52f98f91cdfae8?w=128&amp;f=webp"
-	                              alt="YBM어학원" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">YBM어학원</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoab7a957366d38045e51ff9e25fb596a3023a2f63366589a1a9ec8f9958392b77?w=128&amp;f=webp"
-	                              alt="EDM 아이엘츠" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">EDM 아이엘츠</div>
-	                        </button></li>
-	                      <li class="jsx-3824006232"><button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                              src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoa974d639e4860f3c42de2172261763839b69d07e591b50f0de3455c74d0cfe02?w=128&amp;f=webp"
-	                              alt="파고다" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">파고다</div>
-	                        </button></li>
-	                      <li class="jsx-2595981909"><button type="button" class="jsx-2595981909 btn-more"><svg
-	                            xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5d7ee9"
-	                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin: auto;">
-	                            <line x1="12" y1="5" x2="12" y2="19"></line>
-	                            <line x1="5" y1="12" x2="19" y2="12"></line>
-	                          </svg></button></li>
+	                        
+	                      </c:forEach>
 	                    </ul>
 	                  </div>
 	                </li>

@@ -19,7 +19,7 @@
   		  FROM bootcamp
 <!--   		  WHERE userId = #{userId} -->
   	</select>
-  	
+
   </mapper>
   
 

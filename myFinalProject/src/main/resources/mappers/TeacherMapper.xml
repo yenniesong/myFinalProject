@@ -15,14 +15,22 @@
   		 WHERE teacher_id = #{teacher_id}
   	</select>
   	
-  	<insert id="insertTeacher" parameterType="teacher">
-  		 INSERT INTO TEACHER (TEACHER_ID, BOOTCAMP_ID, TEACHER_NAME, BOOTCAMP_NAME, COURSE_NAME, SHORT_DESCRIPTION, DESCRIPTION, IMAGE_URL)
-		 VALUES (seq_teacher_teacher_id.NEXTVAL, #{question_id}, #{teacher_name}, #{bootcamp_name}, #{course_name}, #{short_description}, #{description}, #{image_url})
+  	<insert id="insertTeacher" parameterType="com.human.java.domain.TeacherVO">
+  		 INSERT INTO TEACHER (TEACHER_ID, BOOTCAMP_ID, TEACHER_NAME, BOOTCAMP_NAME, COURSE_NAME, SHORT_DESCRIPTION, DESCRIPTION
+  		 	<if test="fname != null">
+  		 		, FNAME, FSIZE
+  		 	</if>
+  		 , POSITION)
+		 VALUES (seq_teacher_teacher_id.NEXTVAL, #{bootcamp_id}, #{teacher_name}, #{bootcamp_name}, #{course_name}, #{short_description}, #{description}
+		 	<if test="fname != null">
+		 	, #{fname}, #{fsize}
+		 	</if>
+		 , #{position})
   	</insert>
   	
   	<update id="updateTeacher" parameterType="teacher">
   		UPDATE teacher 
-  		   SET TEACHER_NAME = #{teacher_name}, COURSE_NAME = #{course_name}, SHORT_DESCRIPTION = #{short_description}, DESCRIPTION = #{description}, IMAGE_URL = #{image_url} 
+  		   SET TEACHER_NAME = #{teacher_name}, COURSE_NAME = #{course_name}, SHORT_DESCRIPTION = #{short_description}, DESCRIPTION = #{description}, FNAME = #{fname}, FSIZE = #{fsize}, POSITION = #{position}
   		 WHERE TEACHER_ID = #{teacher_id}
   	</update>
   	

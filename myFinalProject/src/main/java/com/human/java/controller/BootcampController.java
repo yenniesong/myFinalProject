@@ -32,7 +32,7 @@ public class BootcampController {
 	}
 	
 	
-	@RequestMapping("/bootcampLogin.do")
+	@RequestMapping("/login.do")
 	public String bootcampLogin(BootcampVO vo, HttpSession session) {
 		System.out.println("## bootcampLogin.do 진입 ##");
 		
@@ -53,10 +53,10 @@ public class BootcampController {
 //			session.setAttribute("loginFg","s");
 			session.setAttribute("loginFg","b");
 			
-			session.setAttribute("Bootcamp_name", result.getBootcamp_name());
-			session.setAttribute("UserId", result.getUserId());
-			session.setAttribute("Bootcamp_Manager", result.getBootcamp_Manager());
-			session.setAttribute("Bootcamp_id", result.getBootcamp_id());
+			session.setAttribute("userId", result.getUserId());
+			session.setAttribute("bootcamp_name", result.getBootcamp_name());
+			session.setAttribute("bootcamp_Manager", result.getBootcamp_Manager());
+			session.setAttribute("bootcamp_id", result.getBootcamp_id());
 			
 			session.setAttribute("sessionTime", new Date().toLocaleString());
 			

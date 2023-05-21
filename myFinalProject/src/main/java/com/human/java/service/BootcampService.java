@@ -14,5 +14,6 @@ public interface BootcampService {
 	public int bootcampInsert(BootcampVO vo );
 	
 	public List<BootcampVO> bootcampInfo();
+
 	
 }

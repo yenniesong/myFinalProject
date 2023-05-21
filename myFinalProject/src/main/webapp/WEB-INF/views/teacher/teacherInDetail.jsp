@@ -6,7 +6,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
 	HttpSession bootSession = request.getSession();
-	String bootcamp_id = (String)bootSession.getAttribute("bootcamp_id");
+	int bootcamp_id = (Integer)bootSession.getAttribute("bootcamp_id");
 	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
 %>
 
@@ -794,9 +794,12 @@
                         <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
                           <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
                         </button>
-                        <button class="jsx-3857673807 btn-evaluation deleteTeacher" type="button" style="margin-left: 10px; padding: 0px 10px;"> 
+                        <form action="deleteTeacher.do" method="post">
+                        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">	
+                        <button class="jsx-3857673807 btn-evaluation deleteTeacher" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
                           <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
                         </button>
+                        </form>
                       </div>
           
                       <div class="jsx-2255129348 real-time-evaluation">
@@ -1134,15 +1137,43 @@
 		location.href = 'teacherUpdating.do';
 	});
 
-	btn_deleteTeacher.addEventListener("click", function() {
-		/* location.href = 'deleteTeacher.do'; */
+// 	btn_deleteTeacher.addEventListener("click", function() {
+// 		alert('정말로 삭제하시겠습니까?');
+//  		location.href = 'deleteTeacher.do'; 
 		
-		alert('1');
-	});
+// 	});
 	
 	btn_review_post.addEventListener("click", function() {
 		alert("1");
 	})
+	
+// 	function deleteData(no) {
+// 	  // AJAX 요청을 생성합니다.
+// 	  var xhr = new XMLHttpRequest();
+	  
+// 	  // 요청을 처리할 URL을 지정합니다.
+// 	  var url = 'deleteTeacher.do?teacher_id=' + no;
+	  
+// 	  // 요청을 오픈합니다.
+// 	  xhr.open('GET', url, true);
+	  
+// 	  // 응답이 도착했을 때의 처리를 정의합니다.
+// 	  xhr.onreadystatechange = function() {
+// 	    if (xhr.readyState === XMLHttpRequest.DONE) {
+// 	      if (xhr.status === 200) {
+// 	        // 성공적으로 응답을 받았을 때의 처리
+// 	        alert('삭제되었습니다.');
+// 	        location.reload(); // 페이지 새로고침
+// 	      } else {
+// 	        // 요청에 실패하거나 응답이 에러인 경우의 처리
+// 	        alert('삭제 실패');
+// 	      }
+// 	    }
+// 	  };
+	  
+// 	  // 요청을 전송합니다.
+// 	  xhr.send();
+// 	}
 
 </script>
 

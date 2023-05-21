@@ -17,7 +17,7 @@
 		<p>아이디와 패스워드를 입력하세요.
 	</h4>
 	
-	<form action="bootcampLogin.do" method="post">
+	<form action="login.do" method="post">
 		<table>
 			<tr>
 				<td width="100">아이디</td>

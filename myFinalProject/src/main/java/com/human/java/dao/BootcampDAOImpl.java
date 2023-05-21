@@ -31,7 +31,7 @@ public class BootcampDAOImpl implements BootcampDAO {
 
 	@Override
 	public BootcampVO bootcampLogin(BootcampVO vo) {
-		System.out.println("==> BootcampVO DAO 도착");
+		System.out.println("==> bootcampLogin DAO 도착");
 		
 		return mybatis.selectOne("BootcampDAO.idCheck", vo);
 	}
@@ -40,5 +40,6 @@ public class BootcampDAOImpl implements BootcampDAO {
 	public List<BootcampVO> bootcampInfo() {
 		return mybatis.selectList("BootcampDAO.bootcampInfo");
 	}
+
 
 }
