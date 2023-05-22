@@ -21,11 +21,9 @@ public class TeacherVO {
 	private String course_name;
 	private String short_description;
 	private String description;
-//	private String image_url;
 	private int position_id;
 	private String position;
 	
-	private String ip;
 	private String fname;
 	private String fname_en;
 	private long fsize;

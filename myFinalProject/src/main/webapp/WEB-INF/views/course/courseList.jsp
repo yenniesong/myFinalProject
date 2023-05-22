@@ -11,7 +11,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-<title>course - main</title>
+<title>Course - main</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -1510,7 +1510,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
             <div class="jsx-1629185219 title">
               <h4 class="jsx-1629185219">COURSE</h4>
               <p class="jsx-1629185219">
-                어떤 수업이 나와 잘 맞는 과정일까?
+               	어떤 수업이 나와 잘 맞는 과정일까?
               </p>
             </div>
 
@@ -1673,21 +1673,26 @@ li.jsx-3824006232 button.jsx-3824006232 {
                     <h2 class="jsx-283961174">COURSE&nbsp;</h2>
                   </div>
 
+
                   <div class="jsx-786344230 btn-add-teacher mb-3">
                     <span class="jsx-786344230">찾으시는 과정이 없으신가요?</span>
-                    <button type="button" class="jsx-3375816330 ">
-                      <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 addCourse">과정 추가하기
+                    <button type="button" class="jsx-3375816330 addCourse">
+                      <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">과정 추가하기
                     </button>
                   </div>
 
+				  <c:forEach items="${cList }" var="course">
                   <ul class="jsx-2875758176 tutors">
                     <li class="jsx-2875758176">
-                      <a class="jsx-2875758176" href="/testenglish/tutors/4752">
+                      <a class="jsx-2875758176" href="getCourse.do?course_id=${course.course_id }">
                         <div tabindex="0" class="jsx-445560552 card">
                           <div class="jsx-445560552 content">
                             <div class="jsx-445560552 info">
-                              <h3 class="jsx-445560552">제니김</h3>
-                              <p class="jsx-445560552">다락원</p>
+                            	<input type="hidden" value="${course.course_id }">
+                            	<input type="hidden" value="${course.bootcamp_id }">
+                              <h3 class="jsx-445560552">${course.course_name }</h3>
+                              <p class="jsx-445560552">${course.bootcamp_name }</p>
+                              <p class="jsx-445560552">${course.price }</p>
                             </div>
                             <div class="jsx-445560552 star-box">
                               <span class="jsx-445560552">7.6</span>
@@ -1707,139 +1712,11 @@ li.jsx-3824006232 button.jsx-3824006232 {
                       </a>
                     </li>
 
-                    <li class="jsx-2875758176">
-                      <a class="jsx-2875758176" href="/abroad/tutors/4767">
-                        <div tabindex="0" class="jsx-445560552 card">
-                          <div class="jsx-445560552 content">
-                            <div class="jsx-445560552 info">
-                              <h3 class="jsx-445560552">이안</h3>
-                              <p class="jsx-445560552">EDM 아이엘츠</p>
-                            </div>
-                            <div class="jsx-445560552 star-box">
-                              <span class="jsx-445560552">7.8</span>
-                              <div class="jsx-2704879397 stars">
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                              </div>
-                            </div>
-                            <div class="jsx-445560552 profile-image tutor">
-                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/tutor/profileebf999414689238cc8254416a99c661116eeaf75b2a3395047d1476c9d69e5f2?w=280&amp;f=webp&quot;);"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="jsx-2875758176">
-                      <a class="jsx-2875758176" href="/abroad/tutors/114342">
-                        <div tabindex="0" class="jsx-445560552 card">
-                          <div class="jsx-445560552 content">
-                            <div class="jsx-445560552 info">
-                              <h3 class="jsx-445560552">정사랑</h3>
-                              <p class="jsx-445560552">이완호토플아이엘츠학원</p>
-                            </div>
-                            <div class="jsx-445560552 star-box">
-                              <span class="jsx-445560552">9.9</span>
-                              <div class="jsx-2704879397 stars">
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                              </div>
-                            </div>
-                            <div class="jsx-445560552 profile-image tutor">
-                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="jsx-2875758176">
-                      <a class="jsx-2875758176" href="/abroad/tutors/425">
-                        <div tabindex="0" class="jsx-445560552 card">
-                          <div class="jsx-445560552 content">
-                            <div class="jsx-445560552 info">
-                              <h3 class="jsx-445560552">이완호</h3>
-                              <p class="jsx-445560552">민병철어학원</p>
-                            </div>
-                            <div class="jsx-445560552 star-box">
-                              <span class="jsx-445560552">7.3</span>
-                              <div class="jsx-2704879397 stars">
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-1"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                              </div>
-                            </div>
-                            <div class="jsx-445560552 profile-image tutor">
-                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher02_06@2x.png?w=280&amp;f=webp&quot;);"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-                      
-                    <li class="jsx-2875758176">
-                      <a class="jsx-2875758176" href="/abroad/tutors/4750">
-                        <div tabindex="0" class="jsx-445560552 card">
-                          <div class="jsx-445560552 content">
-                            <div class="jsx-445560552 info">
-                              <h3 class="jsx-445560552">조</h3>
-                              <p class="jsx-445560552">권혁미 서일어학원</p>
-                            </div>
-                            <div class="jsx-445560552 star-box">
-                              <span class="jsx-445560552">0.0</span>
-                              <div class="jsx-2704879397 stars">
-                                <div class="jsx-2704879397 star star-0"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                              </div>
-                            </div>
-                            <div class="jsx-445560552 profile-image tutor">
-                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_01@2x.png?w=280&amp;f=webp&quot;);"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-
-                    <li class="jsx-2875758176">
-                      <a class="jsx-2875758176" href="/abroad/tutors/113531">
-                        <div tabindex="0" class="jsx-445560552 card">
-                          <div class="jsx-445560552 content">
-                            <div class="jsx-445560552 info">
-                              <h3 class="jsx-445560552">Sophia Lee</h3>
-                              <p class="jsx-445560552">EDM 아이엘츠</p>
-                            </div>
-                            <div class="jsx-445560552 star-box">
-                              <span class="jsx-445560552">7.7</span>
-                              <div class="jsx-2704879397 stars">
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                              </div>
-                            </div>
-                            <div class="jsx-445560552 profile-image tutor">
-                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/tutor/profile3ab2c8bb693e26d4b660933408ab054edd4720922eabf302502c811d80ec445b?w=280&amp;f=webp&quot;);"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
                   </ul>
+                  </c:forEach>
 
                   <div class="jsx-786344230 btn-view-more">
-                    <button type="button" class="jsx-1662442796 ">더보기</button>
+                    <button type="button" class="jsx-1662442796 seeMore">더보기</button>
                   </div>
 
                 </div>
@@ -1957,26 +1834,16 @@ li.jsx-3824006232 button.jsx-3824006232 {
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-	  console.log($('#hidden_userId').val());
-  $(document).ready(function() {
-    $('div.jsx-989812570.col-title > a').click(function() {
-      q_id = $(this).parent().prev().prev().text();
-      $('#hidden_question_id').val(q_id);
-      $("#staticBackdrop").modal("show");
-      
-    });
-  });
-  
-  $(document).ready(function() {
-    $('.goSearch').click(function() {
-    	alert('1');
-    });
-  });
-
-  let goWriting = document.querySelector('.btn-writing');
-  
-  goWriting.addEventListener("click", function () {
-    location.href='qnaWriting.do';
-  });
+	let btn_addCourse = document.querySelector(".addCourse");
+	let btn_see_more = document.querySelector(".seeMore");
+	
+	btn_addCourse.addEventListener("click", function () {
+		location.href='courseAdding.do';
+	});
+	
+	btn_see_more.addEventListener("click", function() {
+		alert("1");
+	});
+	
 </script>
 </html>

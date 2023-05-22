@@ -12,6 +12,7 @@
 		<typeAlias type="com.human.java.domain.BootcampVO" alias="bootcamp"/>
 		<typeAlias type="com.human.java.domain.TeacherVO" alias="teacher"/>
 		<typeAlias type="com.human.java.domain.ReviewVO" alias="review"/>
+		<typeAlias type="com.human.java.domain.CourseVO" alias="course"/>
   	</typeAliases>
   </configuration>
   

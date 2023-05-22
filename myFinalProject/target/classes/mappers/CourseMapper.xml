@@ -4,8 +4,58 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="CourseDAO">
+  	<select id="getCourseList" parameterType="course" resultType="course">
+  		SELECT * 
+  		  FROM course
+  		 ORDER BY course_id ASC
+  	</select>
   	
+  	<select id="getCourse" parameterType="course" resultType="course">
+  		SELECT * 
+  		  FROM course
+  		 WHERE course_id = #{course_id}
+  	</select>
   	
+  	<insert id="insertCourse" parameterType="course">
+  		INSERT INTO COURSE (COURSE_ID, COURSE_NAME, DESCRIPTION, PRICE, BOOTCAMP_ID, BOOTCAMP_NAME, USERID, COURSE_PERIOD, POSITION_ID
+  			<if test="fname != null">
+  				,FNAME, FNAME_EN, FSIZE)
+  			</if>
+  		VALUES (seq_course_course_id.NEXTVAL, #{course_id}, #{course_name}, #{description}, #{price}, #{bootcamp_id}, #{bootcamp_name}, #{userId}, #{course_period}, #{position_id}
+  			<if test="fname != null">
+		 	, #{fname}, #{fname_en}, #{fsize})
+		 	</if>
+  	</insert>
+  	
+  	<select id="goCourseForUpdating" parameterType="course" resultType="course">
+  		SELECT * 
+  		  FROM course
+  		 WHERE course_id = #{course_id} 
+  	</select>
+  	
+  	<update id="updateCourse" parameterType="course">
+  		UPDATE COURSE 
+  		SET
+	      COURSE_NAME = #{course_name},
+	      DESCRIPTION = #{description},
+	      PRICE = #{price},
+	      BOOTCAMP_ID = #{bootcamp_id},
+	      BOOTCAMP_NAME = #{bootcamp_name},
+	      USERID = #{userId},
+	      COURSE_PERIOD = #{course_period},
+	      POSITION_ID = #{position_id}
+      <if test="fname != null">
+         , FNAME = #{fname},
+         FNAME_EN = #{fname_en},
+         FSIZE = #{fsize}
+      </if>
+	   WHERE COURSE_ID = #{course_id}
+  	</update>
+  	
+  	<delete id="deleteCourse" parameterType="course">
+  		DELETE FROM course 
+  		 WHERE course_id = #{course_id} 
+  	</delete>
   </mapper>
   
 

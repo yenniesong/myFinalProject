@@ -960,7 +960,8 @@ img.jsx-2891290942 {
 	</header><!-- End Header -->
 	
 	<main id="main">
-	    <!-- ======= Breadcrumbs ======= -->
+	
+	   <!-- ======= Breadcrumbs ======= -->
 	  <section id="breadcrumbs" class="breadcrumbs">
 	    <div class="container">
 	
@@ -976,345 +977,283 @@ img.jsx-2891290942 {
 	  <section class="inner-page">
 	    <div class="container">
 	      <div class="jsx-722889332 content">
-	        
-	        <div class="jsx-1629185219 search-layout">
-	          <div class="jsx-1629185219 title">
-	            <h4 class="jsx-1629185219">COURSE</h4>
-	            <p class="jsx-1629185219">
-	              어떤 수업이 나와 잘 맞는 과정일까?
-	            </p>
-	          </div>
 	
-	          <div class="jsx-2373216897 search-page">
-	
-	            <!-- 해시태그 -->
-	            <ul class="jsx-786344230 sort-list">
-	              <li class="jsx-786344230">
-	                <div class="jsx-2595981909 filter filter--institute">
-	                  <h4 class="jsx-2595981909">지역</h4>
-	                  <button type="button" class="jsx-2595981909 btn-all on">전체</button>
-	                  <ul class="jsx-2595981909">
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                      <span class="jsx-3824006232 logo">
-	                        <img src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoff255b4a3648f56d5f02f5ec5574716fafaed957d169c7f2d6825b3e2b44a174?w=128&amp;f=webp" alt="해커스 온라인" class="jsx-3824006232">
-	                      </span>
-	                        <div class="jsx-3824006232 name">서울</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo">
-	                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logof6914b8a882ed9c5d2cc9de5bdd177d4e8d38f4a63a331104cb2599c6c299cbc?w=128&amp;f=webp" alt="EBSi-고등" class="jsx-3824006232">
-	                        </span>
-	                        <div class="jsx-3824006232 name">경기도</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo">
-	                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logof5b37142b9d1cc3cd1a31876ca4c2c0d6e457351f4ec8474aa6b9244723940d0?w=128&amp;f=webp" alt="eck교육" class="jsx-3824006232">
-	                        </span>
-	                        <div class="jsx-3824006232 name">인천</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoe4e65a50a30230aca0d856559b5bf45aef7f8b1972b3d72baf2d41a7ae9aa3af7d7c9a3b573002ae48a7ccbc47619514?w=128&amp;f=webp"
-	                            alt="리더스어학원" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">대전</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo">
-	                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoe449ccd618c1bf386e7c63bb5b0a8a5b1bba061361c5461eee95dd9fdfac4e3f?w=128&amp;f=webp" alt="기술단기" class="jsx-3824006232">
-	                        </span>
-	                        <div class="jsx-3824006232 name">세종</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoe08d1e70ba0164a87a58989d4c69557e7e911c5b4ea7f4563d925c43b8bf5476?w=128&amp;f=webp"
-	                            alt="분당시대인재" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">충청도</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logodcc52c87049fb7ef9e9678f06e71ec7d89c1d51eeb58a50842fe8c35a39f6cd5?w=128&amp;f=webp"
-	                            alt="박정어학원(PJ어학원)" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">광주</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 "><span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logod8f8364e085378aab48a651585abf4de894d01857ef0c569484f41a3d7419143?w=128&amp;f=webp"
-	                            alt="YBM어학원" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">전라도</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logobf1e94559b1e63b7a6966b0a7890e415eb71515aa16ed8521512768906014497?w=128&amp;f=webp"
-	                            alt="민병철어학원" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">대구</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logobf0c2f6922111dc0c91309e22578b1f0de906ef2d7855aa36408b4d972626d5a?w=128&amp;f=webp"
-	                            alt="파고다" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">부산</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logobe33aa7cf72abae0e9a913e6a23e2949eba82446b5eb45b23a52f98f91cdfae8?w=128&amp;f=webp"
-	                            alt="YBM어학원" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">울산</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoab7a957366d38045e51ff9e25fb596a3023a2f63366589a1a9ec8f9958392b77?w=128&amp;f=webp"
-	                            alt="EDM 아이엘츠" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">경상도</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoa974d639e4860f3c42de2172261763839b69d07e591b50f0de3455c74d0cfe02?w=128&amp;f=webp"
-	                            alt="파고다" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">강원도</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
-	                        <span class="jsx-3824006232 logo"><img
-	                            src="https://d1ta1myjmiqbpz.cloudfront.net/institute/logoa974d639e4860f3c42de2172261763839b69d07e591b50f0de3455c74d0cfe02?w=128&amp;f=webp"
-	                            alt="파고다" class="jsx-3824006232"></span>
-	                        <div class="jsx-3824006232 name">제주도</div>
-	                      </button>
-	                    </li>
-	                    <li class="jsx-2595981909">
-	                      <button type="button" class="jsx-2595981909 btn-more">
-	                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5d7ee9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin: auto;">
-	                          <line x1="12" y1="5" x2="12" y2="19"></line>
-	                          <line x1="5" y1="12" x2="19" y2="12"></line>
-	                        </svg>
-	                      </button>
-	                    </li>
-	                  </ul>
-	                </div>
-	              </li>
-	              <li class="jsx-786344230">
-	                <div class="jsx-2595981909 filter">
-	                  <h4 class="jsx-2595981909">과목</h4>
-	                  <button type="button" class="jsx-2595981909 btn-all on">전체</button>
-	                  <ul class="jsx-2595981909">
-	                    <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">프론트엔드</button></li>
-	                    <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">백엔드</button></li>
-	                    <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">풀스택</button></li>
-	                  </ul>
-	                </div>
-	              </li>
-	            </ul>
-	            
-	          </div>
-	        </div>
-	
-	        <!-- 검색 결과 -->
-	        <div class="jsx-1629185219 search-result">
-	          
-	          <div class="jsx-1629185219 content">
-	            <div class="jsx-2875758176 sections">
-	              
-	              <div class="jsx-283961174 section section--search">
-	
-	                <div class="jsx-283961174 title">
-	                  <h2 class="jsx-283961174">COURSE&nbsp;</h2>
-	                </div>
-	
-	                <div class="jsx-786344230 btn-add-teacher mb-3">
-	                  <span class="jsx-786344230">찾으시는 과정이 없으신가요?</span>
-	                  <button type="button" class="jsx-3375816330 ">
-	                    <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 addCourse">과정 추가하기
-	                  </button>
-	                </div>
-	
-	                <ul class="jsx-2875758176 tutors">
-	                  <li class="jsx-2875758176">
-	                    <a class="jsx-2875758176" href="/testenglish/tutors/4752">
-	                      <div tabindex="0" class="jsx-445560552 card">
-	                        <div class="jsx-445560552 content">
-	                          <div class="jsx-445560552 info">
-	                            <h3 class="jsx-445560552">제니김</h3>
-	                            <p class="jsx-445560552">다락원</p>
-	                          </div>
-	                          <div class="jsx-445560552 star-box">
-	                            <span class="jsx-445560552">7.6</span>
-	                            <div class="jsx-2704879397 stars">
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                            </div>
-	                          </div>
-	                          <div class="jsx-445560552 profile-image tutor">
-	                            <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-	                          </div>
-	                        </div>
-	                      </div>
-	                    </a>
-	                  </li>
-	
-	                  <li class="jsx-2875758176">
-	                    <a class="jsx-2875758176" href="/abroad/tutors/4767">
-	                      <div tabindex="0" class="jsx-445560552 card">
-	                        <div class="jsx-445560552 content">
-	                          <div class="jsx-445560552 info">
-	                            <h3 class="jsx-445560552">이안</h3>
-	                            <p class="jsx-445560552">EDM 아이엘츠</p>
-	                          </div>
-	                          <div class="jsx-445560552 star-box">
-	                            <span class="jsx-445560552">7.8</span>
-	                            <div class="jsx-2704879397 stars">
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                            </div>
-	                          </div>
-	                          <div class="jsx-445560552 profile-image tutor">
-	                            <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/tutor/profileebf999414689238cc8254416a99c661116eeaf75b2a3395047d1476c9d69e5f2?w=280&amp;f=webp&quot;);"></span>
-	                          </div>
-	                        </div>
-	                      </div>
-	                    </a>
-	                  </li>
-	
-	                  <li class="jsx-2875758176">
-	                    <a class="jsx-2875758176" href="/abroad/tutors/114342">
-	                      <div tabindex="0" class="jsx-445560552 card">
-	                        <div class="jsx-445560552 content">
-	                          <div class="jsx-445560552 info">
-	                            <h3 class="jsx-445560552">정사랑</h3>
-	                            <p class="jsx-445560552">이완호토플아이엘츠학원</p>
-	                          </div>
-	                          <div class="jsx-445560552 star-box">
-	                            <span class="jsx-445560552">9.9</span>
-	                            <div class="jsx-2704879397 stars">
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                            </div>
-	                          </div>
-	                          <div class="jsx-445560552 profile-image tutor">
-	                            <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-	                          </div>
-	                        </div>
-	                      </div>
-	                    </a>
-	                  </li>
-	
-	                  <li class="jsx-2875758176">
-	                    <a class="jsx-2875758176" href="/abroad/tutors/425">
-	                      <div tabindex="0" class="jsx-445560552 card">
-	                        <div class="jsx-445560552 content">
-	                          <div class="jsx-445560552 info">
-	                            <h3 class="jsx-445560552">이완호</h3>
-	                            <p class="jsx-445560552">민병철어학원</p>
-	                          </div>
-	                          <div class="jsx-445560552 star-box">
-	                            <span class="jsx-445560552">7.3</span>
-	                            <div class="jsx-2704879397 stars">
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-1"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                            </div>
-	                          </div>
-	                          <div class="jsx-445560552 profile-image tutor">
-	                            <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher02_06@2x.png?w=280&amp;f=webp&quot;);"></span>
-	                          </div>
-	                        </div>
-	                      </div>
-	                    </a>
-	                  </li>
-	                    
-	                  <li class="jsx-2875758176">
-	                    <a class="jsx-2875758176" href="/abroad/tutors/4750">
-	                      <div tabindex="0" class="jsx-445560552 card">
-	                        <div class="jsx-445560552 content">
-	                          <div class="jsx-445560552 info">
-	                            <h3 class="jsx-445560552">조</h3>
-	                            <p class="jsx-445560552">권혁미 서일어학원</p>
-	                          </div>
-	                          <div class="jsx-445560552 star-box">
-	                            <span class="jsx-445560552">0.0</span>
-	                            <div class="jsx-2704879397 stars">
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                            </div>
-	                          </div>
-	                          <div class="jsx-445560552 profile-image tutor">
-	                            <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_01@2x.png?w=280&amp;f=webp&quot;);"></span>
-	                          </div>
-	                        </div>
-	                      </div>
-	                    </a>
-	                  </li>
-	
-	                  <li class="jsx-2875758176">
-	                    <a class="jsx-2875758176" href="/abroad/tutors/113531">
-	                      <div tabindex="0" class="jsx-445560552 card">
-	                        <div class="jsx-445560552 content">
-	                          <div class="jsx-445560552 info">
-	                            <h3 class="jsx-445560552">Sophia Lee</h3>
-	                            <p class="jsx-445560552">EDM 아이엘츠</p>
-	                          </div>
-	                          <div class="jsx-445560552 star-box">
-	                            <span class="jsx-445560552">7.7</span>
-	                            <div class="jsx-2704879397 stars">
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-2"></div>
-	                              <div class="jsx-2704879397 star star-0"></div>
-	                            </div>
-	                          </div>
-	                          <div class="jsx-445560552 profile-image tutor">
-	                            <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/tutor/profile3ab2c8bb693e26d4b660933408ab054edd4720922eabf302502c811d80ec445b?w=280&amp;f=webp&quot;);"></span>
-	                          </div>
-	                        </div>
-	                      </div>
-	                    </a>
-	                  </li>
-	                </ul>
-	
-	                <div class="jsx-786344230 btn-view-more">
-	                  <button type="button" class="jsx-1662442796 ">더보기</button>
-	                </div>
-	
+	        <!-- content 내부 title -->
+	        <div class="jsx-3810764099 board-box">
+	          <div class="jsx-2656936329 content-box">
+	            <div class="jsx-2656936329 card-box"> 
+	              <div class="jsx-1629185219 title mb-3">
+	                <h4 class="jsx-1629185219">COURSE</h4>
+	                <p class="jsx-1629185219">
+	                  어떤 수업이 나와 잘 맞는 과정일까?
+	                </p>
 	              </div>
 	
+	              
+	              <!-- content 메인 카드(상단) -->
+	              <div class="jsx-3239872667 main-card">
+	      
+	                <!-- 안 내용 -->
+	                <div class="jsx-216214598 content">
+	      
+	                  <!-- 상세 페이지의 이미지 들어가는 부분 -->
+	                  <div class="jsx-216214598 flex-left">
+	                    <div class="jsx-216214598 profile">
+	                      <span class="jsx-216214598 rank">랭킹외</span>
+	                      <div class="jsx-216214598 tutor-image" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=480&amp;f=webp&quot;);"></div>
+	                    </div>
+	                  </div>
+	      
+	                  <div class="jsx-216214598 flex-right">
+	      
+	                    <div class="jsx-216214598 title">
+	                        <button class="jsx-3857673807 btn-evaluation updatingCourse" type="button">수정하기
+	                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
+	                        </button>
+	                      </div>
+	
+	                    <!-- 상세 페이지의 간단 설명 부분 -->
+	                    <div class="jsx-2255129348 real-time-evaluation">
+	                      <div class="jsx-2255129348 scroll-box">
+	                        <ul class="jsx-2255129348">
+	                          <li class="jsx-2255129348">
+	                            <h4 class="jsx-2255129348">강의명</h4>
+	                          </li>
+	                          <li class="jsx-3839070939 tutor">
+	                            <div class="jsx-3839070939 board-item">
+	                              <div class="jsx-3839070939 title">
+	                                <h4 class="jsx-3839070939">강의명 샬라샬라</h4>
+	                              </div>
+	                            </div>
+	                          </li>
+	                          <li class="jsx-2255129348 horizontal-rule"></li>
+	                          <li class="jsx-2255129348">
+	                            <h4 class="jsx-2255129348">별점</h4>
+	                          </li>
+	                          <li class="jsx-1434886323 ">
+	                            <div class="jsx-1434886323 board-item">
+	                              <div class="jsx-1434886323 title">
+	                                <h4 class="jsx-1434886323">별점 샤샥</h4>
+	                              </div>
+	                            </div>
+	                          </li>
+	                          <li class="jsx-2255129348 horizontal-rule"></li>
+	                          <li class="jsx-2255129348">
+	                            <h4 class="jsx-2255129348">학원명</h4>
+	                          </li>
+	                          <li class="jsx-1434886323 ">
+	                            <div class="jsx-1434886323 board-item">
+	                              <div class="jsx-1434886323 title">
+	                                <h4 class="jsx-1434886323">학원이름</h4>
+	                              </div>
+	                            </div>
+	                          </li>
+	                        </ul>
+	                      </div>
+	                    </div>
+	                  </div>
+	                </div>
+	              </div>
+	      
+	              <!-- content 메인 내용 -->
+	              <div class="jsx-245464177 flex-box">
+	                <div class="jsx-4119538605 container" style="padding: 0px;">
+	      
+	                  <div class="jsx-4119538605 flex-box">
+	                    <div class="jsx-4119538605 flex-half right">
+	                      <!-- 리뷰 / 설명 -->
+	                      <div class="jsx-4119538605 review-area">
+	                        <div class="jsx-4149508951 review-tab">
+	                          <div class="jsx-1546215327 tabs">
+	                            <ul class="jsx-1546215327">
+	                              <li class="jsx-1546215327 on">
+	                                <button class="jsx-1546215327">강의 설명</button>
+	                              </li>
+	                              <li class="jsx-1546215327 "> <!-- 여기가 눌리면 on 추가 -->
+	                                <button class="jsx-1546215327">수강생 리뷰</button>
+	                              </li>
+	                            </ul>
+	      
+	                            <div class="jsx-1546215327 content">
+	      
+	                              <!-- 수강생 리뷰 -->
+	                              <div title="강사리뷰" class="jsx-4149508951">
+	      
+	                                <!-- 후기 내용이 들어가는 부분 (바뀌어야하는 부분) -->
+	                                <div class="jsx-4149508951 review-box">
+	                                  <div class="jsx-644785032 review-item">
+	      
+	                                    <div class="jsx-644785032 ">
+	                                      <div class="jsx-644785032 info">
+	                                        <div class="jsx-644785032">
+	                                          <div class="jsx-1397353033 avatar">
+	                                            <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);"></div>
+	                                          </div>
+	                                        </div>
+	                                        <span class="jsx-644785032 nickname">아*****</span>
+	                                        
+	                                        <span class="jsx-644785032 sub">
+	                                          <div class="jsx-644785032 rating-btn-box">
+	                                            <div class="jsx-644785032 star-box">
+	                                              <span class="jsx-644785032">7.6</span>
+	                                              <div class="jsx-2704879397 stars">
+	                                                <div class="jsx-2704879397 star star-2"></div>
+	                                                <div class="jsx-2704879397 star star-2"></div>
+	                                                <div class="jsx-2704879397 star star-2"></div>
+	                                                <div class="jsx-2704879397 star star-2"></div>
+	                                                <div class="jsx-2704879397 star star-0"></div>
+	                                              </div>
+	                                            </div>
+	                                          </div>
+	                                        </span>
+	                                      </div>
+	                                    </div>
+	
+	                                    <div class="jsx-644785032 title">
+	                                      <h4 class="jsx-644785032">
+	                                        “ 
+	                                        <span class="jsx-644785032">인강은 안 들어서 모르겠지만 다락원 교재로 공부했습니다</span>
+	                                          ”
+	                                      </h4>
+	                                    </div>
+	
+	                                  </div>
+	      
+	                                  <!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
+	                                  <div class="jsx-4149508951 auth-popup popup_review">
+	                                    <div class="jsx-133251687 content">
+	                                      <h5 class="jsx-133251687">로그인하고 전체보기</h5>
+	                                      <div class="jsx-133251687 btn-box">
+	                                        <div class="jsx-133251687 btn-join">
+	                                          <button type="button" class="jsx-520855050 signUp">회원가입</button>
+	                                        </div>
+	                                        <div class="jsx-133251687 btn-login">
+	                                          <button type="button" class="jsx-1487464557 login">로그인</button>
+	                                        </div>
+	                                      </div>
+	                                    </div>
+	                                  </div>
+	                                </div>
+	      
+	                                <!-- 후기가 없을때 -->
+	                                <div class="jsx-4149508951 review-box">
+	                                  <div class="jsx-644785032 review-item">
+	                                    <div class="jsx-644785032 title">
+	                                      <h4 class="jsx-644785032">
+	                                        <span class="jsx-644785032">아직 후기가 없어요</span>
+	                                      </h4>
+	                                    </div>
+	                                    <div class="jsx-644785032 ">
+	                                      <div class="jsx-644785032 info">
+	                                        <span class="jsx-644785032 nickname goWriting"><a href="#">후기 작성하기</a></span>
+	                                      </div>
+	                                    </div>
+	                                  </div>
+	                                </div>
+	      
+	                                <!-- 후기가 없을때 -->
+	                                <form action="" method="post">
+	                                  <div class="jsx-4149508951 review-box">
+	                                    <div class="jsx-644785032 review-item">
+	                                      <div class="jsx-644785032 title">
+	                                        <div class="jsx-644785032 info">
+	                                          <div class="jsx-644785032">
+	                                            <div class="jsx-1397353033 avatar">
+	                                              <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
+	                                              </div>
+	                                            </div>
+	                                          </div>
+	                                          <span class="jsx-644785032 nickname">아*****</span>
+	                                        </div>
+	      
+	                                        <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
+	                                        <div class="adminArea mb-3">
+	                                          <div class="input-group mb-3">
+	                                              <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+	                                              <button class="btn btn-outline-secondary gap-2 col-2 mx-auto writingComment" type="button" id="button-addon2">작성</button>
+	                                          </div>
+	                                        </div>
+	                                      </div>
+	                                    </div>
+	                                  </div>
+	                                </form>
+	                              </div>
+	      
+	                              <div title="강의설명" class="jsx-4149508951 on">
+	                                <div class="jsx-4149508951 transfer-box">
+	                                  <div class="jsx-2891290942 null-set-box">
+	                                    <h2>여기는 강의 설명란</h2>
+	                                  </div>
+	                                </div>
+	                              </div>
+	                              
+	                            </div>
+	                          </div>
+	                        </div>
+	                      </div>
+	                    </div>
+	      
+	                    <!-- 우측 장바구니 버튼 -->
+	                    <div class="jsx-4119538605 flex-half">
+	                      <div class="ac-cd-4 ac-ct-12">
+	                        <aside class="cd-floating">
+	                          <div class="cd-floating__container e-floating-wrapper">
+	                            <div class="cd-floating__card e-cd-floating-card">
+	                              <div class="cd-floating__card--top">
+	                                <div class="cd-floating__price cd-floating__price--installment">
+	                                  <div class="cd-floating__price--top">
+	                                    <span class="cd-price__pay-price">71,500원</span>
+	                                  </div>
+	                                  <div class="cd-floating__price--bottom">
+	                                    <h4>월 14,300원</h4>
+	                                    <span class="cd-price__ment">5개월 할부 시</span>
+	                                  </div>
+	                                </div>
+	                                <div class="cd-floating__buttons">
+	                                  <button class="ac-button is-lg is-solid is-primary floating__main-button e-enrol " data-type="cart">수강신청 하기</button>
+	                                  <button class="ac-button is-lg is-outlined is-gray floating__main-button e-add-cart " data-type="add-cart">바구니에 담기</button>
+	                                </div>
+	                                <div class="cd-floating__sub-buttons">
+	                                  <span class="cd-floating__sub-button e-add-playlist">
+	                                    <span class="infd-icon">
+	                                      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 16 16">
+	                                        <path fill="#212529" fill-rule="evenodd" clip-rule="evenodd" d="M2.5 2.5A.5.5 0 0 0 2 3v10a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V4.5a.5.5 0 0 0-.5-.5H7.035a1.5 1.5 0 0 1-1.248-.668l-.406-.61a.5.5 0 0 0-.416-.222H2.5zM1 3a1.5 1.5 0 0 1 1.5-1.5h2.465c.501 0 .97.25 1.248.668l.406.61A.5.5 0 0 0 7.035 3H14.5A1.5 1.5 0 0 1 16 4.5V13a1.5 1.5 0 0 1-1.5 1.5h-12A1.5 1.5 0 0 1 1 13V3z"></path>
+	                                        <path fill="#212529" fill-rule="evenodd" clip-rule="evenodd" d="M8.5 5.5A.5.5 0 0 1 9 6v5a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5z"></path>
+	                                        <path fill="#212529" fill-rule="evenodd" clip-rule="evenodd" d="M11.5 8.5a.5.5 0 0 1-.5.5H6a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5z"></path>
+	                                      </svg>
+	                                    </span>폴더에 추가
+	                                  </span>
+	                                  <span class="cd-floating__sub-button like-button e-like " data-cnt="457" data-target="PC">
+	                                    <span class="infd-icon">
+	                                      <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+	                                        <path fill="#212529" fill-rule="evenodd" clip-rule="evenodd" d="M4.49095 2.66666C3.10493 2.66666 1.66663 3.92028 1.66663 5.67567C1.66663 7.74725 3.21569 9.64919 4.90742 11.0894C5.73796 11.7965 6.571 12.3653 7.19759 12.7576C7.51037 12.9534 7.7704 13.1045 7.95123 13.2061C7.96818 13.2156 7.98443 13.2247 7.99996 13.2333C8.01549 13.2247 8.03174 13.2156 8.04869 13.2061C8.22952 13.1045 8.48955 12.9534 8.80233 12.7576C9.42892 12.3653 10.262 11.7965 11.0925 11.0894C12.7842 9.64919 14.3333 7.74725 14.3333 5.67567C14.3333 3.92028 12.895 2.66666 11.509 2.66666C10.1054 2.66666 8.9751 3.59266 8.4743 5.09505C8.40624 5.29922 8.21518 5.43693 7.99996 5.43693C7.78474 5.43693 7.59368 5.29922 7.52562 5.09505C7.02482 3.59266 5.89453 2.66666 4.49095 2.66666ZM7.99996 13.8018L8.22836 14.2466C8.08499 14.3202 7.91493 14.3202 7.77156 14.2466L7.99996 13.8018ZM0.666626 5.67567C0.666626 3.368 2.55265 1.66666 4.49095 1.66666C6.01983 1.66666 7.25381 2.48414 7.99996 3.73655C8.74611 2.48414 9.98009 1.66666 11.509 1.66666C13.4473 1.66666 15.3333 3.368 15.3333 5.67567C15.3333 8.22121 13.4657 10.3823 11.7407 11.8509C10.863 12.5982 9.98767 13.1953 9.33301 13.6052C9.00516 13.8104 8.73133 13.9696 8.53847 14.0779C8.44201 14.1321 8.36571 14.1737 8.31292 14.2019C8.28653 14.2161 8.26601 14.2269 8.25177 14.2344L8.2352 14.2431L8.23054 14.2455L8.22914 14.2462C8.22897 14.2463 8.22836 14.2466 7.99996 13.8018C7.77156 14.2466 7.77173 14.2467 7.77156 14.2466L7.76938 14.2455L7.76472 14.2431L7.74815 14.2344C7.73391 14.2269 7.71339 14.2161 7.687 14.2019C7.63421 14.1737 7.55791 14.1321 7.46145 14.0779C7.26858 13.9696 6.99476 13.8104 6.66691 13.6052C6.01225 13.1953 5.13695 12.5982 4.25917 11.8509C2.53423 10.3823 0.666626 8.22121 0.666626 5.67567Z"></path>
+	                                      </svg>
+	                                    </span>
+	                                    <span class="infd-icon is-like">
+	                                      <svg width="16" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 16 16">
+	                                        <path fill="#e5503c" d="M9.333 13.605c-.328.205-.602.365-.795.473-.102.057-.205.113-.308.168h-.002c-.143.074-.313.074-.456 0-.105-.054-.208-.11-.31-.168-.193-.108-.467-.268-.795-.473-.655-.41-1.53-1.007-2.408-1.754C2.534 10.382.667 8.22.667 5.676c0-2.308 1.886-4.01 3.824-4.01 1.529 0 2.763.818 3.509 2.07.746-1.252 1.98-2.07 3.509-2.07 1.938 0 3.824 1.702 3.824 4.01 0 2.545-1.867 4.706-3.592 6.175-.878.747-1.753 1.344-2.408 1.754z"></path>
+	                                      </svg>
+	                                    </span>
+	                                    <span class="cd-floating__sub-button--cnt">457</span>
+	                                  </span>
+	                                  <span class="cd-floating__sub-button e-share">
+	                                    <span class="infd-icon">
+	                                      <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+	                                        <path fill="#212529" fill-rule="evenodd" clip-rule="evenodd" d="M13.3334 3.66666C13.3334 4.95533 12.2887 6 11 6C10.3257 6 9.7181 5.7139 9.29211 5.25646L5.88379 7.27067C5.95923 7.50012 6.00004 7.74529 6.00004 8C6.00004 8.25469 5.95923 8.49986 5.8838 8.72932L9.29224 10.7434C9.71822 10.286 10.3257 10 11 10C12.2887 10 13.3334 11.0447 13.3334 12.3333C13.3334 13.622 12.2887 14.6667 11 14.6667C9.71138 14.6667 8.66671 13.622 8.66671 12.3333C8.66671 12.0786 8.70752 11.8335 8.78296 11.604L5.37452 9.58992C4.94854 10.0473 4.34103 10.3333 3.66671 10.3333C2.37804 10.3333 1.33337 9.28866 1.33337 8C1.33337 6.71133 2.37804 5.66666 3.66671 5.66666C4.34102 5.66666 4.94853 5.9527 5.37452 6.41007L8.78295 4.39599L8.78321 4.39678C8.70761 4.1671 8.66671 3.92166 8.66671 3.66666C8.66671 2.378 9.71138 1.33333 11 1.33333C12.2887 1.33333 13.3334 2.378 13.3334 3.66666ZM12.3334 3.66666C12.3334 4.40304 11.7364 4.99999 11 4.99999C10.2637 4.99999 9.66671 4.40304 9.66671 3.66666C9.66671 2.93028 10.2637 2.33333 11 2.33333C11.7364 2.33333 12.3334 2.93028 12.3334 3.66666ZM3.66671 9.33333C4.40309 9.33333 5.00004 8.73637 5.00004 8C5.00004 7.26362 4.40309 6.66666 3.66671 6.66666C2.93033 6.66666 2.33337 7.26362 2.33337 8C2.33337 8.73637 2.93033 9.33333 3.66671 9.33333ZM12.3334 12.3333C12.3334 13.0697 11.7364 13.6667 11 13.6667C10.2637 13.6667 9.66671 13.0697 9.66671 12.3333C9.66671 11.5969 10.2637 11 11 11C11.7364 11 12.3334 11.5969 12.3334 12.3333Z"></path>
+	                                      </svg>
+	                                    </span>공유
+	                                  </span>
+	                                </div>
+	                              </div>
+	                            </div>
+	                          </div>
+	                        </aside>
+	                      </div>
+	                    </div>
+	                  </div>
+	                
+	                </div>
+	              </div>
 	            </div>
 	          </div>
 	        </div>
@@ -1322,6 +1261,7 @@ img.jsx-2891290942 {
 	      </div>
 	    </div>
 	  </section>
+	
 	</main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
@@ -1428,26 +1368,27 @@ img.jsx-2891290942 {
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-	  console.log($('#hidden_userId').val());
-  $(document).ready(function() {
-    $('div.jsx-989812570.col-title > a').click(function() {
-      q_id = $(this).parent().prev().prev().text();
-      $('#hidden_question_id').val(q_id);
-      $("#staticBackdrop").modal("show");
-      
-    });
+  let btn_signUp = document.querySelector('.signUp');
+  let btn_login = document.querySelector('.login');
+  let btn_wrtingComment = document.querySelector('.writingComment');
+  let btn_goWriting = document.querySelector('.goWriting');
+  let btn_updatingCourse = document.querySelector('.updatingCourse');
+
+  btn_signUp.addEventListener("click", function () {
+    alert('1');
   });
-  
-  $(document).ready(function() {
-    $('.goSearch').click(function() {
-    	alert('1');
-    });
+  btn_login.addEventListener("click", function () {
+    alert('1');
+  });
+  btn_wrtingComment.addEventListener("click", function () {
+    alert('1');
+  });
+  btn_goWriting.addEventListener("click", function () {
+    alert('1');
+  });
+  btn_updatingCourse.addEventListener("click", function () {
+    alert('1');
   });
 
-  let goWriting = document.querySelector('.btn-writing');
-  
-  goWriting.addEventListener("click", function () {
-    location.href='qnaWriting.do';
-  });
 </script>
 </html>
