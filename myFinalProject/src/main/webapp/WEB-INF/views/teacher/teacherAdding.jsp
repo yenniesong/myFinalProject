@@ -234,6 +234,13 @@ input.jsx-599077571 {
 	width: 250px;
 }
 
+.bootcamp_name.jsx-599077571 {
+    height: 42px;
+    border-bottom: solid 1px #dfdfdf;
+    margin-right: 23px;
+    width: 250px;
+}
+
 .select.jsx-2019229575 {
 	max-width: 160px;
 	width: 100%;
@@ -293,6 +300,10 @@ button.jsx-3357072104 {
 	border-radius: 26px;
 	color: white;
 	cursor: pointer;
+}
+#preview {
+	width: 238px;
+    height: 238px;
 }
 </style>
 <style id="__jsx-401750031">
@@ -474,6 +485,8 @@ button.jsx-3357072104 {
 	margin-bottom: 16px;
 	border: 1px solid rgb(238, 239, 244);
 	border-radius: 6px;
+	display: flex;
+    align-items: center;
 }
 
 .rank.jsx-216214598 {
@@ -764,7 +777,7 @@ h4.jsx-1434886323 {
 	                                    <div class="jsx-216214598 content">
 	                                        <div class="jsx-216214598 flex-left">
 	                                            <div class="jsx-216214598 profile">
-	                                                <img id="preview" src="#" alt="" style="width: 300px;"> 
+	                                                <img id="preview" src="#" alt=""> 
 	                                            </div>
 	                                            <label class="input_file_button" for="file">프로필 업로드</label>
 	                                            <input type="file" id="file" name="file" style="display: none;" accept="image/*" onchange="previewImage(event);" required="required"> 
@@ -780,10 +793,11 @@ h4.jsx-1434886323 {
 	                                                        <div class="col input-group">
 	                                                        	<input type="hidden" name="userId" value="<%=userId%>">
 	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
-	                                                        	<span name="bootcamp_name" class="jsx-599077571"><%=bootcamp_name%></span>
+	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
+	                                                        	<span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=bootcamp_name%></span>
 <%-- 	                                                            <input title="학원 명 입력" name="bootcamp_name" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${bootcamp_name }" readonly="readonly"> --%>
 	                                                            <input type="text" name="teacher_name" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="">
-	                                                            <input type="text" name="short_description" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="" style="width: 500px;">
+	                                                            <input type="text" name="short_description" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="" style="width: 100%; margin-top: 10px;">
 	                                                        </div>
 	                                                    </div>
 	                                                </div>
@@ -798,7 +812,7 @@ h4.jsx-1434886323 {
 	                                                            </select>
 	                                                        </div>
 	                                                        <div class="jsx-599077571 input-title">
-	                                                            <input name="course_name" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="" style="width: 390px; margin-left: 23px;">
+	                                                            <input name="course_name" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="" style="width: 360px; margin-left: 23px;">
 	                                                        </div>
 	                                                    </div>
 	                                                </div>

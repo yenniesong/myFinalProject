@@ -132,6 +132,10 @@
     .popup_on {
     	display: none;
     }
+    .fname_en {
+		width: 238px;
+    	height: 238px;
+    }
 </style>
 <style id="__jsx-1629185219">
     .search-result.jsx-1629185219 {
@@ -416,6 +420,8 @@
       background-repeat: no-repeat;
       background-position: center bottom;
       background-size: contain;
+      display: flex;
+      align-items: center;
   }
   .title.jsx-216214598 {
       display: flex;
@@ -772,7 +778,8 @@
                   <div class="jsx-216214598 content">
                     <div class="jsx-216214598 flex-left">
                       <div class="jsx-216214598 profile">
-                        <div class="jsx-216214598 tutor-image" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=480&amp;f=webp&quot;);">
+                        <div class="jsx-216214598 tutor-image">
+              				<img class=fname_en src="/resources/upload/${teacher.fname_en}" alt="#"/>
                         </div>
                       </div>
           
@@ -794,11 +801,11 @@
                         <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
                           <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
                         </button>
-                        <form action="deleteTeacher.do" method="post">
-                        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">	
-                        <button class="jsx-3857673807 btn-evaluation deleteTeacher" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
-                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
-                        </button>
+                        <form action="deleteTeacher.do" method="post" style="margin: 0px;">
+	                        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">	
+	                        <button class="jsx-3857673807 btn-evaluation deleteTeacher" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
+	                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
+	                        </button>	
                         </form>
                       </div>
           
@@ -1134,7 +1141,7 @@
 	})
 
 	btn_update_teacher_info.addEventListener("click", function() {
-		location.href = 'teacherUpdating.do';
+		location.href = 'getTeacherForUpdating.do?teacher_id='+ ${teacher.teacher_id };
 	});
 
 // 	btn_deleteTeacher.addEventListener("click", function() {

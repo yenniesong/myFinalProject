@@ -21,4 +21,6 @@ public interface TeacherService {
 	// 선생님 삭제
 	void deleteTeacher(TeacherVO vo);
 
+	TeacherVO getTeacherForUpdating(TeacherVO vo);
+
 }

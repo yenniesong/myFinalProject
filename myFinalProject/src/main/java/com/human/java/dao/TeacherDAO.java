@@ -14,9 +14,13 @@ public interface TeacherDAO {
 	// 선생님 추가
 	void insertTeacher(TeacherVO vo);
 
+	// 선생님 정보 변경을 위한 정보 조회
+	TeacherVO getTeacherForUpdating(TeacherVO vo);
+
 	// 선생님 정보 변경
 	void updateTeacher(TeacherVO vo);
 
 	// 선생님 삭제
 	void deleteTeacher(TeacherVO vo);
+
 }

@@ -24,7 +24,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public TeacherVO getTeacher(TeacherVO vo) {
 		System.out.println("## getTeacher dao 진입 ##");
 		
-		System.out.println("dao의 teacher vo : " + vo);
+		System.out.println("getTeacher vo : " + vo);
 		
 		return mybatis.selectOne("TeacherDAO.getTeacher", vo);
 	}
@@ -33,6 +33,12 @@ public class TeacherDAOImpl implements TeacherDAO {
 	public void insertTeacher(TeacherVO vo) {
 		System.out.println("## insertTeacher dao 진입 ##");
 		mybatis.insert("TeacherDAO.insertTeacher", vo);
+	}
+
+	@Override
+	public TeacherVO getTeacherForUpdating(TeacherVO vo) {
+		System.out.println("## getTeacherForUpdating dao 진입 ##");
+		return mybatis.selectOne("TeacherDAO.getTeacherForUpdating", vo);
 	}
 
 	@Override
@@ -46,5 +52,6 @@ public class TeacherDAOImpl implements TeacherDAO {
 		System.out.println("## deleteTeacher dao 진입 ##");
 		mybatis.delete("TeacherDAO.deleteTeacher", vo);
 	}
+
 
 }

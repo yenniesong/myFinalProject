@@ -23,9 +23,7 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public TeacherVO getTeacher(TeacherVO vo) {
 		System.out.println("## getTeacher service 진입 ##");
-		
-		System.out.println("service의 teacher vo : " + vo);
-		
+		System.out.println("getTeacher vo : " + vo);
 		
 		return teacherDAO.getTeacher(vo);
 	}
@@ -34,6 +32,12 @@ public class TeacherServiceImpl implements TeacherService {
 	public void insertTeacher(TeacherVO vo) {
 		System.out.println("## insertTeacher service 진입 ##");
 		teacherDAO.insertTeacher(vo);		
+	}
+
+	@Override
+	public TeacherVO getTeacherForUpdating(TeacherVO vo) {
+		System.out.println("## getTeacherForUpdating service 진입 ##");	
+		return teacherDAO.getTeacherForUpdating(vo);
 	}
 
 	@Override
@@ -47,5 +51,6 @@ public class TeacherServiceImpl implements TeacherService {
 		System.out.println("## deleteTeacher service 진입 ##");	
 		teacherDAO.deleteTeacher(vo);
 	}
+
 
 }

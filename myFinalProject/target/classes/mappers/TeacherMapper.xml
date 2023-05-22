@@ -7,6 +7,7 @@
   	<select id="getTeacherList" parameterType="teacher" resultType="teacher">
   		SELECT * 
   		  FROM teacher
+  		 ORDER BY teacher_id ASC
   	</select>
   	
   	<select id="getTeacher" parameterType="teacher" resultType="teacher">
@@ -18,20 +19,38 @@
   	<insert id="insertTeacher" parameterType="com.human.java.domain.TeacherVO">
   		 INSERT INTO TEACHER (TEACHER_ID, BOOTCAMP_ID, TEACHER_NAME, BOOTCAMP_NAME, COURSE_NAME, SHORT_DESCRIPTION, DESCRIPTION
   		 	<if test="fname != null">
-  		 		, FNAME, FSIZE
+  		 		, FNAME, FNAME_EN, FSIZE
   		 	</if>
-  		 , POSITION)
+  		 , POSITION_ID)
 		 VALUES (seq_teacher_teacher_id.NEXTVAL, #{bootcamp_id}, #{teacher_name}, #{bootcamp_name}, #{course_name}, #{short_description}, #{description}
 		 	<if test="fname != null">
-		 	, #{fname}, #{fsize}
+		 	, #{fname}, #{fname_en}, #{fsize}
 		 	</if>
-		 , #{position})
+		 , #{position_id})
   	</insert>
   	
+  	<select id="getTeacherForUpdating" parameterType="teacher" resultType="teacher">
+  		SELECT * 
+  		  FROM teacher
+  		 WHERE teacher_id = #{teacher_id}
+  	</select>
+  	
   	<update id="updateTeacher" parameterType="teacher">
-  		UPDATE teacher 
-  		   SET TEACHER_NAME = #{teacher_name}, COURSE_NAME = #{course_name}, SHORT_DESCRIPTION = #{short_description}, DESCRIPTION = #{description}, FNAME = #{fname}, FSIZE = #{fsize}, POSITION = #{position}
-  		 WHERE TEACHER_ID = #{teacher_id}
+		UPDATE teacher
+		SET 
+			BOOTCAMP_ID = #{bootcamp_id},
+			TEACHER_NAME = #{teacher_name},
+			BOOTCAMP_NAME = #{bootcamp_name},
+			COURSE_NAME = #{course_name},
+			SHORT_DESCRIPTION = #{short_description},
+			DESCRIPTION = #{description}
+		<if test="fname != null">
+			, FNAME = #{fname},
+			FNAME_EN = #{fname_en},
+			FSIZE = #{fsize}
+		</if>
+			, POSITION_ID = #{position_id}
+		WHERE TEACHER_ID = #{teacher_id}
   	</update>
   	
   	<delete id="deleteTeacher" parameterType="teacher"><!-- int로 할지 고민 -->

@@ -5,8 +5,11 @@
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
+	int teacher_id = Integer.parseInt(request.getParameter("teacher_id"));
+
 	HttpSession bSession = request.getSession();
 	String userId = (String)bSession.getAttribute("userId");
+	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
 	String bootcamp_name = (String)bSession.getAttribute("bootcamp_name");
 %>
 <!DOCTYPE html>
@@ -292,6 +295,10 @@ button.jsx-3357072104 {
 	border-radius: 26px;
 	color: white;
 	cursor: pointer;
+}
+#preview {
+	width: 238px;
+    height: 238px;
 }
 </style>
 <style id="__jsx-401750031">
@@ -753,80 +760,90 @@ h4.jsx-1434886323 {
                                 <div class="jsx-1629185219 title mb-3">
                                     <h4 class="jsx-1629185219">TEACHER</h4>
                                     <p class="jsx-1629185219">
-                                        우리 학원의 선생님을 소개해주세요
+                                       	우리 학원의 선생님을 소개해주세요
                                     </p>
                                 </div>
 
-                                <div class="jsx-401750031 board-header">
-
-                                    <div class="jsx-216214598 content">
-                                        <div class="jsx-216214598 flex-left">
-                                            <div class="jsx-216214598 profile">
-                                                <img id="preview" src="#" alt="" style="width: 300px;"> 
-                                            </div>
-                                            <label class="input_file_button" for="fileloads">프로필 업로드</label>
-                                            <input type="file" id="fileloads" name="fileloads" style="display: none;" accept="image/*" onchange="previewImage(event);" required="required"> 
-                                            
-                          
-                                        </div>
-                          
-                                        <div class="jsx-216214598 flex-right">
-                                            <div class="jsx-401750031">
-                                                <div class="jsx-401750031 header-info">
-                                                    
-                                                    <div class="jsx-401750031 info-box">
-                                                        <div class="col input-group">
-                                                            <input title="학원 명 입력" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="">
-                                                            <input type="text" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="">
-                                                            <input type="text" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="" style="width: 500px;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="jsx-401750031 classfi-text">
-                                                    <div class="jsx-2395210693 select-box">
-                                                        <div class="jsx-2019229575 select">
-                                                            <select id="inputState" class="form-select">
-                                                                <option selected="">카테고리</option>
-                                                                <option>front-end</option>
-                                                                <option>back-end</option>
-                                                                <option>full stack</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="jsx-599077571 input-title">
-                                                            <input title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="" style="width: 390px; margin-left: 23px;">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                            </div>
-                                            
-                                        </div>
-                                    </div>
-
-                                </div>
+								<form action="updateTeacher.do" method="post" enctype="multipart/form-data">
+	                                <div class="jsx-401750031 board-header">
+	
+	                                    <div class="jsx-216214598 content">
+	                                        <div class="jsx-216214598 flex-left">
+	                                            <div class="jsx-216214598 profile">
+	                                                <img id="preview fname_en" src="/resources/upload/${teacher.fname_en}" alt="" style="width: 300px;"> 
+	                                            </div>
+	                                            <label class="input_file_button" for="file">프로필 업로드</label>
+	                                            <input type="file" id="file" name="file" style="display: none;" accept="image/*" onchange="previewImage(event);" required="required"> 
+	                                            
+	                          
+	                                        </div>
+	                          
+	                                        <div class="jsx-216214598 flex-right">
+	                                            <div class="jsx-401750031">
+	                                                <div class="jsx-401750031 header-info">
+	                                                    
+	                                                    <div class="jsx-401750031 info-box">
+	                                                        <div class="col input-group">
+<%-- 	                                                            <input title="학원 명 입력" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${teacher.bootcamp_name }"> --%>
+	                                                            <input type="hidden" name="teacher_id" value="<%=teacher_id%>">
+	                                                            <input type="hidden" name="userId" value="<%=userId%>">
+	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
+	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
+	                                                        	
+	                                                        	
+	                                                            <span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=bootcamp_name%></span>
+	                                                            <input name="teacher_name" type="text" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="${teacher.teacher_name }">
+	                                                            <input name="short_description" type="text" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="${teacher.short_description }" style="width: 500px;">
+	                                                        </div>
+	                                                    </div>
+	                                                </div>
+	                                                <div class="jsx-401750031 classfi-text">
+	                                                    <div class="jsx-2395210693 select-box">
+	                                                        <div class="jsx-2019229575 select">
+	                                                            <select id="inputState" class="form-select" name="position_id">
+	                                                                <option selected="">카테고리</option>
+	                                                                <option class="position front" value="1">front-end</option>
+	                                                                <option class="position back" value="2">back-end</option>
+	                                                                <option class="position full" value="3">full stack</option>
+	                                                            </select>
+	                                                        </div>
+	                                                        <div class="jsx-599077571 input-title">
+	                                                            <input name="course_name" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="${teacher.course_name }" style="width: 390px; margin-left: 23px;">
+	                                                        </div>
+	                                                    </div>
+	                                                </div>
+	                                                
+	                                                
+	                                            </div>
+	                                            
+	                                        </div>
+	                                    </div>
+	
+	                                </div>	
                                 
-                                <div class="jsx-4064263859 comment">
-                                    
-                                    <div class="jsx-4129687755 write-comment-box">
-                                        <div class="jsx-394409708 write-comment-wrap">
-                                            <div class="jsx-394409708 write-comment">
-                                                <label class="jsx-4265535288 textarea">
-                                                    <textarea class="jsx-4265535288 " placeholder="간단한 강의 설명" style="height: 200px;"></textarea>
-                                                </label>
-                                                
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="jsx-1968836963 btn-box">
-                                        <div class="jsx-1968836963 btn-cancel">
-                                            <button type="button" class="jsx-3357072104 ">취소</button>
-                                        </div>
-                                        <div class="jsx-1968836963 btn-finish">
-                                            <button type="button" class="jsx-1389197839 ">작성완료</button>
-                                        </div>
-                                    </div>
-                                </div>
+	                                <div class="jsx-4064263859 comment">
+	                                    
+	                                    <div class="jsx-4129687755 write-comment-box">
+	                                        <div class="jsx-394409708 write-comment-wrap">
+	                                            <div class="jsx-394409708 write-comment">
+	                                                <label class="jsx-4265535288 textarea">
+	                                                    <textarea name="description" class="jsx-4265535288 " placeholder="간단한 강의 설명" style="height: 200px;">${teacher.description }</textarea>
+	                                                </label>
+	                                                
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                    <div class="jsx-1968836963 btn-box">
+	                                        <div class="jsx-1968836963 btn-cancel">
+	                                            <button type="button" class="jsx-3357072104 ">취소</button>
+	                                        </div>
+	                                        <div class="jsx-1968836963 btn-finish">
+	                                            <button type="submit" class="jsx-1389197839 ">작성완료</button>
+	                                        </div>
+	                                    </div>
+	                                </div>
+                            	</form>
+                            
                             </div>
                         </div>
                     </div>
@@ -954,13 +971,17 @@ h4.jsx-1434886323 {
 		location.href = 'updateTeacher.do';
 	});
 
+	
 	function previewImage(event) {
-		var reader = new FileReader();
-		reader.onload = function() {
-			var output = document.getElementById('preview');
-			output.src = reader.result;
+		var input = event.target;
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				var imagePreview = document.getElementById("preview");
+				imagePreview.src = e.target.result;
+			};
+			reader.readAsDataURL(input.files[0]);
 		}
-		reader.readAsDataURL(event.target.files[0]);
 	}
 </script>
 </html>

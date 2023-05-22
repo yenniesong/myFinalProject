@@ -72,8 +72,9 @@ public class TeacherController {
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> Course_name : " + vo.getCourse_name());
 		System.out.println("====> Short_description : " + vo.getShort_description());
-		System.out.println("====> position : " + vo.getPosition());
+		System.out.println("====> position : " + vo.getPosition_id());
 		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");
+		System.out.println("## 파일 영어 이름 : " + vo.getFname_en() + " ##");
 		System.out.println("## 파일 크기 : " + vo.getFsize() + " ##");
 		
 		teacherService.insertTeacher(vo);
@@ -84,16 +85,35 @@ public class TeacherController {
 		return "redirect:/teacher/getTeacherList.do";
 	}
 	
+	@RequestMapping("getTeacherForUpdating.do")
+	public String getTeacherForUpdating(TeacherVO vo, Model model) {
+		System.out.println("## getTeacherForUpdating.do 진입 ##");
+		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
+		
+		model.addAttribute("teacher", teacherService.getTeacherForUpdating(vo));
+		
+		return "/teacher/teacherUpdating";
+	}
+	
 	// 강사 페이지 정보 수정
 	// 강사 넘버를 받아야함(조회를 할때 계속 번호로 받아오면 이거랑 getTeacher.do랑 한번만 조회해도 되는지 아니면 따로 업데이트를 위한 조회를 하나 더 만들어야하는지 물어보기)
 	@RequestMapping("updateTeacher.do")
 	public String updateTeacher(TeacherVO vo) {
 		System.out.println("## updateTeacher.do 진입 ##");
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
+		System.out.println("## 선생님 이름 : " + vo.getTeacher_name() + " ##");
+		System.out.println("====> Bootcamp_id : " + vo.getBootcamp_id());
+		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
+		System.out.println("====> Course_name : " + vo.getCourse_name());
+		System.out.println("====> Short_description : " + vo.getShort_description());
+		System.out.println("====> position : " + vo.getPosition_id());
+		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");
+		System.out.println("## 파일 영어 이름 : " + vo.getFname_en() + " ##");
+		System.out.println("## 파일 크기 : " + vo.getFsize() + " ##");
 		
 		teacherService.updateTeacher(vo);
 		
-		return "redirect:/teacher/getTeacher.do";
+		return "redirect:/teacher/getTeacherList.do";
 	}
 	
 	// 강사 페이지 삭제
