@@ -41,6 +41,7 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	public void updateCourse(CourseVO vo) {
 		System.out.println("## updateCourse service 진입 ##");
+		System.out.println("getCourse vo : " + vo);
 		courseDAO.updateCourse(vo);
 	}
 

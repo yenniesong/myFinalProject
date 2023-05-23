@@ -959,7 +959,6 @@ h4.jsx-1434886323 {
 <!-- my Script -->
 <script>
 	let btnCancle = document.querySelector('.btn-cancel');
-	let btnFinish = document.querySelector('.btn-finish');
 	
 	// 목록으로 가는 버튼
 	btnCancle.addEventListener("click", function() {
@@ -967,10 +966,6 @@ h4.jsx-1434886323 {
 		history.back();
 	});
 	
-// 	btnFinish.addEventListener("click", function () {
-// 		location.href = 'updateTeacher.do';
-// 	});
-
 	function previewImage(event) {
 		var reader = new FileReader();
 		reader.onload = function() {

@@ -30,7 +30,7 @@ public class CourseController {
 	// 강좌 리스트 부르기
 	@RequestMapping("getCourseList.do")
 	public String getCourseList(CourseVO vo, Model model, HttpSession session) {
-		System.out.println("## getTeacherList.do 진입 ##");
+		System.out.println("## getCourseList.do 진입 ##");
 		List<CourseVO> cList = courseService.getCourseList(vo);
 		
 		model.addAttribute("cList", cList);

@@ -44,6 +44,7 @@ public class CourseDAOImpl implements CourseDAO {
 	@Override
 	public void updateCourse(CourseVO vo) {
 		System.out.println("## updateCourse dao 진입 ##");
+		System.out.println("getCourse vo : " + vo);
 		mybatis.update("CourseDAO.updateCourse", vo);
 	}
 

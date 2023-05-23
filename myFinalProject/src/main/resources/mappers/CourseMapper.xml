@@ -19,12 +19,14 @@
   	<insert id="insertCourse" parameterType="course">
   		INSERT INTO COURSE (COURSE_ID, COURSE_NAME, DESCRIPTION, PRICE, BOOTCAMP_ID, BOOTCAMP_NAME, USERID, COURSE_PERIOD, POSITION_ID
   			<if test="fname != null">
-  				,FNAME, FNAME_EN, FSIZE)
+  				,FNAME, FNAME_EN, FSIZE
   			</if>
-  		VALUES (seq_course_course_id.NEXTVAL, #{course_id}, #{course_name}, #{description}, #{price}, #{bootcamp_id}, #{bootcamp_name}, #{userId}, #{course_period}, #{position_id}
+  			) 
+  		VALUES (seq_course_course_id.NEXTVAL, #{course_name}, #{description}, #{price}, #{bootcamp_id}, #{bootcamp_name}, #{userId}, #{course_period}, #{position_id}
   			<if test="fname != null">
-		 	, #{fname}, #{fname_en}, #{fsize})
+		 	, #{fname}, #{fname_en}, #{fsize}
 		 	</if>
+		 	)
   	</insert>
   	
   	<select id="goCourseForUpdating" parameterType="course" resultType="course">

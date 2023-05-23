@@ -1692,7 +1692,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                             	<input type="hidden" value="${course.bootcamp_id }">
                               <h3 class="jsx-445560552">${course.course_name }</h3>
                               <p class="jsx-445560552">${course.bootcamp_name }</p>
-                              <p class="jsx-445560552">${course.price }</p>
+                              <p class="jsx-445560552">${course.price } 원</p>
                             </div>
                             <div class="jsx-445560552 star-box">
                               <span class="jsx-445560552">7.6</span>

@@ -4,6 +4,11 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<%
+	HttpSession bootSession = request.getSession();
+	int bootcamp_id = (Integer)bootSession.getAttribute("bootcamp_id");
+	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -391,6 +396,10 @@ button.jsx-1487464557 {
 	background-color: rgb(255, 255, 255);
 	border: 1px solid rgb(223, 223, 223);
 }
+.fname_en {
+	width: 460px;
+   	height: 386px;
+   }
 </style>
 <style id="__jsx-1629185219">
 .search-layout.jsx-1629185219 {
@@ -544,6 +553,8 @@ button.jsx-1487464557 {
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	background-size: contain;
+	display: flex;
+    align-items: center;
 }
 
 .title.jsx-216214598 {
@@ -985,7 +996,7 @@ img.jsx-2891290942 {
 	              <div class="jsx-1629185219 title mb-3">
 	                <h4 class="jsx-1629185219">COURSE</h4>
 	                <p class="jsx-1629185219">
-	                  어떤 수업이 나와 잘 맞는 과정일까?
+	                  	어떤 수업이 나와 잘 맞는 과정일까?
 	                </p>
 	              </div>
 	
@@ -999,8 +1010,14 @@ img.jsx-2891290942 {
 	                  <!-- 상세 페이지의 이미지 들어가는 부분 -->
 	                  <div class="jsx-216214598 flex-left">
 	                    <div class="jsx-216214598 profile">
-	                      <span class="jsx-216214598 rank">랭킹외</span>
-	                      <div class="jsx-216214598 tutor-image" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=480&amp;f=webp&quot;);"></div>
+	                      <div class="jsx-216214598 tutor-image">
+	                      	<img class="fname_en" alt="#" src="/resources/upload/${course.fname_en}">
+	                      	<input type="hidden" name="course_name" value="${course.course_name }">			
+		                   	<input type="hidden" name="bootcamp_id" value="${course.bootcamp_id }">			
+		                   	<input type="hidden" name="position_id" value="${course.position_id }">			
+		                   	<input type="hidden" name="position" value="${course.position }">			
+						
+	                      </div>
 	                    </div>
 	                  </div>
 	      
@@ -1010,7 +1027,13 @@ img.jsx-2891290942 {
 	                        <button class="jsx-3857673807 btn-evaluation updatingCourse" type="button">수정하기
 	                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
 	                        </button>
-	                      </div>
+	                        <form action="deleteCourse.do" method="post">
+	                        	<input type="hidden" name="course_id" value="${course.course_id }">	
+		                        <button class="jsx-3857673807 btn-evaluation deleteCourse" type="submit" style="margin-left: 10px;"> 
+		                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px">
+		                        </button>
+	                        </form>
+                       </div>
 	
 	                    <!-- 상세 페이지의 간단 설명 부분 -->
 	                    <div class="jsx-2255129348 real-time-evaluation">
@@ -1022,7 +1045,7 @@ img.jsx-2891290942 {
 	                          <li class="jsx-3839070939 tutor">
 	                            <div class="jsx-3839070939 board-item">
 	                              <div class="jsx-3839070939 title">
-	                                <h4 class="jsx-3839070939">강의명 샬라샬라</h4>
+	                                <h4 class="jsx-3839070939">${course.course_name }</h4>
 	                              </div>
 	                            </div>
 	                          </li>
@@ -1044,7 +1067,7 @@ img.jsx-2891290942 {
 	                          <li class="jsx-1434886323 ">
 	                            <div class="jsx-1434886323 board-item">
 	                              <div class="jsx-1434886323 title">
-	                                <h4 class="jsx-1434886323">학원이름</h4>
+	                                <h4 class="jsx-1434886323">${course.bootcamp_name }</h4>
 	                              </div>
 	                            </div>
 	                          </li>
@@ -1182,7 +1205,7 @@ img.jsx-2891290942 {
 	                              <div title="강의설명" class="jsx-4149508951 on">
 	                                <div class="jsx-4149508951 transfer-box">
 	                                  <div class="jsx-2891290942 null-set-box">
-	                                    <h2>여기는 강의 설명란</h2>
+	                                    <h2>${course.description }</h2>
 	                                  </div>
 	                                </div>
 	                              </div>
@@ -1202,10 +1225,10 @@ img.jsx-2891290942 {
 	                              <div class="cd-floating__card--top">
 	                                <div class="cd-floating__price cd-floating__price--installment">
 	                                  <div class="cd-floating__price--top">
-	                                    <span class="cd-price__pay-price">71,500원</span>
+	                                    <span class="cd-price__pay-price">${course.price }원</span>
 	                                  </div>
 	                                  <div class="cd-floating__price--bottom">
-	                                    <h4>월 14,300원</h4>
+	                                    <h4>전액 무료</h4>
 	                                    <span class="cd-price__ment">5개월 할부 시</span>
 	                                  </div>
 	                                </div>
@@ -1387,7 +1410,7 @@ img.jsx-2891290942 {
     alert('1');
   });
   btn_updatingCourse.addEventListener("click", function () {
-    alert('1');
+    location.href='goCourseForUpdating.do?course_id=' + ${course.course_id};
   });
 
 </script>
