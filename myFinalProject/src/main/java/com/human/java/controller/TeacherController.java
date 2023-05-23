@@ -14,6 +14,7 @@ import com.human.java.domain.BootcampVO;
 import com.human.java.domain.ReviewVO;
 import com.human.java.domain.TeacherVO;
 import com.human.java.service.BootcampService;
+import com.human.java.service.ReviewService;
 import com.human.java.service.TeacherService;
 
 @Controller
@@ -24,7 +25,8 @@ public class TeacherController {
 	private TeacherService teacherService;
 	@Autowired
 	private BootcampService bootcampService;
-	
+	@Autowired
+	private ReviewService reviewService;
 	
 	@RequestMapping("{url}.do")
 	public String viewPage(@PathVariable String url) {
@@ -51,7 +53,7 @@ public class TeacherController {
 	
 	// 강사 상세페이지 조회하기
 	@RequestMapping("getTeacher.do")
-	public String getTeacher(TeacherVO vo, Model model, ReviewVO rVo) {	// 추후에 학생들의 댓글(review vo 넣기)
+	public String getTeacher(TeacherVO vo, Model model, ReviewVO rVo, HttpSession session) {	// 추후에 학생들의 댓글(review vo 넣기)
 		System.out.println("## getTeacher.do 진입 ##");
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
 		
@@ -59,6 +61,12 @@ public class TeacherController {
 		model.addAttribute("teacher", teacherService.getTeacher(vo));
 		
 		System.out.println("teacher vo : " + vo);
+		
+		System.out.println("rVO : " + rVo);
+		
+		List<ReviewVO> rList = reviewService.getTReviewList(rVo);
+		
+		model.addAttribute("rList", rList);
 		
 		return "/teacher/teacherInDetail";
 	}
@@ -125,5 +133,22 @@ public class TeacherController {
 		teacherService.deleteTeacher(vo);
 		
 		return "redirect:/teacher/getTeacherList.do";
+	}
+	
+	// 댓글 등록
+	@RequestMapping("writingReview.do")
+	public String WritingReview(ReviewVO vo) {
+		System.out.println("## WritingReview.do 진입 ##");
+		
+		System.out.println("====> teacher_id : " + vo.getTeacher_id());
+		System.out.println("====> review_id : " + vo.getReview_id());
+		System.out.println("====> bootcamp_name : " + vo.getName());
+		System.out.println("====> content : " + vo.getContent());
+		System.out.println("====> star_point : " + vo.getStar_point());
+		
+		reviewService.writingReview(vo);
+		
+		return "redirect:/teacher/getTeacherList.do";
+		
 	}
 }

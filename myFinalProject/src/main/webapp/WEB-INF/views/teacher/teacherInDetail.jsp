@@ -136,6 +136,10 @@
 		width: 238px;
     	height: 238px;
     }
+    .on {
+    	display: none !important;
+    }
+    
 </style>
 <style id="__jsx-1629185219">
     .search-result.jsx-1629185219 {
@@ -852,159 +856,153 @@
                               <button class="jsx-1546215327">수강생 리뷰</button>
                             </li>
                           </ul>
+          				
+          				  <form action="writingReview.do" method="post">
+          				  <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">
+<!--           				  <input type="hidden" name="bootcamp_id" value="">세션으로 로그인 한 사람의 bootcamp_id와 name 가져오기 -->
           
-                          <div class="jsx-1546215327 content">
-                            <div title="강사리뷰" class="jsx-4149508951">
-                              <div class="jsx-4149508951 review-box">
-                              
+	                          <div class="jsx-1546215327 content">
+	                            <div title="강사리뷰" class="jsx-4149508951">
                                 <!-- 댓글이 있을 경우 -->
-                                <div class="jsx-644785032 review-item">
-                                
-                                  <div class="jsx-644785032 ">
-                                    <div class="jsx-644785032 info">
-                                      <div class="jsx-644785032">
-                                        <div class="jsx-1397353033 avatar">
-                                          <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
-                                          </div>
-                                        </div>
-                                      </div>
-                                      
-                                      <span class="jsx-644785032 nickname">아*****</span>
-                                      <div class="jsx-644785032 rating-btn-box">
-                                        <div class="jsx-644785032 star-box">
-                                          <span class="jsx-644785032">7.6</span>
-                                          <div class="jsx-2704879397 stars">
-                                            <div class="jsx-2704879397 star star-2"></div>
-                                            <div class="jsx-2704879397 star star-2"></div>
-                                            <div class="jsx-2704879397 star star-2"></div>
-                                            <div class="jsx-2704879397 star star-2"></div>
-                                            <div class="jsx-2704879397 star star-0"></div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                      
-                                    </div>
-                                  </div>
-                                  <div class="jsx-644785032 title">
-                                    <h4 class="jsx-644785032">
-                                      “ 
-                                      <span class="jsx-644785032">인강은 안 들어서 모르겠지만 다락원 교재로 공부했습니다</span>
-                                      ”
-                                    </h4>
-                                  </div>
-                                </div>
-          
-                                <!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
-                                <div class="jsx-4149508951 auth-popup popup_on">
-                                  <div class="jsx-133251687 content">
-                                    <h5 class="jsx-133251687">로그인하고 전체보기</h5>
-                                    <div class="jsx-133251687 btn-box">
-                                      <div class="jsx-133251687 btn-join">
-                                        <button type="button" class="jsx-520855050 ">회원가입</button>
-                                      </div>
-                                      <div class="jsx-133251687 btn-login">
-                                        <button type="button" class="jsx-1487464557 ">로그인</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-          
-                              <div class="jsx-4119538605 review-area">
-                                <div class="jsx-4149508951 review-tab">
-                                  <div class="jsx-1546215327 tabs">
-                                    <ul class="jsx-1546215327">
-                                      <li class="jsx-1546215327 on">
-                                        <button class="jsx-1546215327">수강생 리뷰</button>
-                                      </li>
-                                    </ul>
-          
-                                    <!-- 후기가 없을때 -->
-                                    <div class="jsx-1546215327 content">
-                                      <div title="강사리뷰" class="jsx-4149508951">
-                                        <div class="jsx-4149508951 review-box">
-                                          <div class="jsx-644785032 review-item">
-                                            <div class="jsx-644785032 title">
-                                              
-                                              <h4 class="jsx-644785032">
-                                                <span class="jsx-644785032">아직 후기가 없어요</span>
-                                              </h4>
-                                            </div>
-                                            <div class="jsx-644785032 ">
-                                              <div class="jsx-644785032 info">
-                                                <span class="jsx-644785032 nickname"><a href="#">후기 작성하기</a></span>
-                                                <!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-          
-                              <div class="jsx-4119538605 review-area">
-                                <div class="jsx-4149508951 review-tab">
-                                  <div class="jsx-1546215327 tabs">
-                                    <ul class="jsx-1546215327">
-                                      <li class="jsx-1546215327 on">
-                                        <button class="jsx-1546215327">수강생 리뷰</button>
-                                      </li>
-                                      <!-- <li class="jsx-1546215327 ">
-                                        <button class="jsx-1546215327">환승후기</button>
-                                      </li> -->
-                                    </ul>
-          
-                                    <!-- 후기가 없을때 -->
-                                    <div class="jsx-1546215327 content">
-                                      <div title="강사리뷰" class="jsx-4149508951">
-                                        <div class="jsx-4149508951 review-box">
-                                          <div class="jsx-644785032 review-item">
-                                            <!-- 후기 작성할 폼 -->
-                                            <div class="jsx-1546215327 content">
-                                              <div title="강사리뷰" class="jsx-4149508951">
-                                                
-                                                <form action="" method="post">
-                                                  <div class="jsx-4149508951 review-box">
-                                                    <div class="jsx-644785032 review-item">
-                                                      <div class="jsx-644785032 title">
-                                                        <div class="jsx-644785032 info">
-                                                          <div class="jsx-644785032">
-                                                            <div class="jsx-1397353033 avatar">
-                                                              <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
-                                                              </div>
-                                                            </div>
-                                                          </div>
-                                                          <span class="jsx-644785032 nickname">아*****</span>	<!-- 로그인 한 학생의 이름 -->
-                                                        </div>
-          
-                                                        <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
-                                                          <div class="adminArea mb-3">
-                                                            <form action="" method="post">
-                                                              <div class="input-group mb-3">
-                                                                <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
-                                                                <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
-                                                              </div>
-                                                            </form>
-                                                          </div>
-          
-                                                        </div>
-                                                        
-                                                      </div>
-                                                    </div>
-                                                  </form>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
+                                <c:choose>
+                                  <c:when test="${not empty rList }">
+                                  	<c:forEach items="${rList }" var="reviewList">
+	                              	<div class="jsx-4149508951 review-box">
+	                              
+		                                <div class="jsx-644785032 review-item">
+		                                
+		                                  <div class="jsx-644785032 ">
+		                                    <div class="jsx-644785032 info">
+		                                      <div class="jsx-644785032">
+		                                        <div class="jsx-1397353033 avatar">
+		                                          <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
+		                                          </div>
+		                                        </div>
+		                                      </div>
+		                                      
+		                                      <span class="jsx-644785032 nickname">${reviewList.userId }</span>
+		                                      <div class="jsx-644785032 rating-btn-box">
+		                                        <div class="jsx-644785032 star-box">
+		                                          <span class="jsx-644785032">${reviewList.star_point }</span>
+		                                          <div class="jsx-2704879397 stars">
+		                                            <div class="jsx-2704879397 star star-2"></div>
+		                                            <div class="jsx-2704879397 star star-2"></div>
+		                                            <div class="jsx-2704879397 star star-2"></div>
+		                                            <div class="jsx-2704879397 star star-2"></div>
+		                                            <div class="jsx-2704879397 star star-0"></div>
+		                                          </div>
+		                                        </div>
+		                                      </div>
+		                                      
+		                                    </div>
+		                                  </div>
+		                                  <div class="jsx-644785032 title">
+		                                    <h4 class="jsx-644785032">
+		                                      “ 
+		                                      <span class="jsx-644785032">${reviewList.content }</span>
+		                                      ”
+		                                    </h4>
+		                                  </div>
+		                                </div>
+		                                
+		                                                               
+	                                
+	                              		</div>
+	                              		</c:forEach>
+	         					 	</c:when>
+	         					 	
+	         					 	<c:otherwise>
+	          
+		                              <div class="jsx-4119538605 review-area">
+		                                <div class="jsx-4149508951 review-tab">
+		                                  <div class="jsx-1546215327 tabs">
+		                                    <ul class="jsx-1546215327">
+		                                      <li class="jsx-1546215327 on">
+		                                        <button class="jsx-1546215327">수강생 리뷰</button>
+		                                      </li>
+		                                    </ul>
+		          
+		                                    <!-- 후기가 없을때 -->
+		                                    <div class="jsx-1546215327 content">
+		                                      <div title="강사리뷰" class="jsx-4149508951">
+		                                        <div class="jsx-4149508951 review-box">
+		                                          <div class="jsx-644785032 review-item noAnswer">
+		                                            <div class="jsx-644785032 title">
+		                                              
+		                                              <h4 class="jsx-644785032">
+		                                                <span class="jsx-644785032">아직 후기가 없어요</span>
+		                                              </h4>
+		                                            </div>
+		                                            <div class="jsx-644785032 ">
+		                                              <div class="jsx-644785032 info">
+		                                              	<c:if test="${loginFg eq 's'}">
+			                                                <span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
+			                                                <!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
+			                                                <!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
+			                                                <c:if test="${empty session}">
+								                                <div class="jsx-4149508951 auth-popup popup_on">
+								                                  <div class="jsx-133251687 content">
+								                                    <h5 class="jsx-133251687">로그인하고 전체보기</h5>
+								                                    <div class="jsx-133251687 btn-box">
+								                                      <div class="jsx-133251687 btn-join">
+								                                        <button type="button" class="jsx-520855050 ">회원가입</button>
+								                                      </div>
+								                                      <div class="jsx-133251687 btn-login">
+								                                        <button type="button" class="jsx-1487464557 ">로그인</button>
+								                                      </div>
+								                                    </div>
+								                                  </div>
+								                                </div>
+							                                </c:if>
+		                                                </c:if>
+		                                              </div>
+		                                            </div>
+		                                          </div>
+		                                          
+		                                           <!-- 후기가 없을때 -->
+		                                          <div class="jsx-644785032 review-item writingArea on">
+			                                          <div class="jsx-1546215327 content">
+			                                            <div title="강사리뷰" class="jsx-4149508951">
+			                                              
+			                                                <div class="jsx-4149508951 review-box">
+			                                                  <div class="jsx-644785032 review-item">
+			                                                    <div class="jsx-644785032 title">
+			                                                      <div class="jsx-644785032 info">
+			                                                        <div class="jsx-644785032">
+			                                                          <div class="jsx-1397353033 avatar">
+			                                                            <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
+			                                                            </div>
+			                                                          </div>
+			                                                        </div>
+			                                                        <span class="jsx-644785032 nickname">아*****</span>	<!-- 로그인 한 학생의 이름 -->
+			                                                      </div>
+			        
+			                                                      <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
+			                                                       <div class="adminArea mb-3">
+			                                                           <div class="input-group mb-3">
+			                                                             <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+			                                                             <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="submit" id="button-addon2">작성</button>
+			                                                           </div>
+			                                                       </div>
+			                                                      </div>
+			                                                    </div>
+			                                                  </div>
+			                                              </div>
+			                                            </div>
+			                                          </div>
+		                                          
+		                                        </div>
+		                                      </div>
+		                                    </div>
+		                                  </div>
+		                                </div>
+		                              </div>
+	                              </div>
+	                            </div>
+	                            </c:otherwise>
+                            	</c:choose>
+                            </form>
+                         
                           </div>
                         </div>
                       </div>
@@ -1149,6 +1147,19 @@
 //  		location.href = 'deleteTeacher.do'; 
 		
 // 	});
+	
+	let btn_writing_review = document.querySelector('.btnWritingReview');
+	
+	btn_writing_review.addEventListener("click", function () {
+		let writing_review = document.querySelector('.writingArea');
+		let btn_review_post = document.querySelector('.review_post');
+		let noAnswer = document.querySelector('.noAnswer');
+		
+		writing_review.classList.remove('on');
+		btn_review_post.classList.remove('on');
+		noAnswer.classList.add('on');
+	});
+	
 	
 	btn_review_post.addEventListener("click", function() {
 		alert("1");

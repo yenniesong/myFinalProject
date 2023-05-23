@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="ReviewDAO">
+<!--   	<select id="getAnswer" parameterType="answer" resultType="answer"> -->
+<!--   		SELECT * -->
+<!--   		  FROM answer -->
+<!--   		 WHERE question_id = #{question_id} -->
+<!--   	</select> -->
+  	
+  	<insert id="writingReview" parameterType="review">
+  		INSERT INTO REVIEW (REVIEW_ID, USERID, TEACHER_ID, COURSE_ID, NAME, CONTENT, CREATED_AT, STAR_POINT)
+		VALUES (seq_review_review_id.NEXTVAL, #{userId}, #{teacher_id}, #{course_id}, #{name}, #{content}, SYSDATE, #{star_point});
+  	</insert>
+  	
+  	<select id="getTReviewList" parameterType="review" resultType="review">
+  		SELECT REVIEW_ID, USERID, TEACHER_ID, COURSE_ID, NAME, CONTENT, TO_CHAR(created_at, 'YYYY-MM-DD') as created_at, STAR_POINT
+  		  FROM REVIEW 
+  		 WHERE TEACHER_ID = #{teacher_id}
+  		 ORDER BY REVIEW_ID DESC
+  	</select>
+  	
+  	<select id="getTReviewCount" parameterType="review" resultType="review">
+  		SELECT COUNT(*) 
+  		  FROM REVIEW 
+  		 WHERE TEACHER_ID = #{teacher_id}
+  		 ORDER BY REVIEW_ID DESC
+   	</select>
+   
+   	<!-- 강좌 -->
+   
+  	<select id="getCReviewList" parameterType="review" resultType="review">
+  		SELECT REVIEW_ID, USERID, TEACHER_ID, COURSE_ID, NAME, CONTENT, TO_CHAR(created_at, 'YYYY-MM-DD') as created_at, STAR_POINT
+  		  FROM REVIEW 
+  		 WHERE COURSE_ID = #{course_id}
+  		 ORDER BY REVIEW_ID DESC
+  	</select>
+  	
+  	<select id="getCReviewCount" parameterType="review" resultType="review">
+  		SELECT COUNT(*) 
+  		  FROM REVIEW 
+  		 WHERE COURSE_ID = #{course_id}
+  		 ORDER BY REVIEW_ID DESC
+   	</select>
+  	
+  </mapper>
+  
+
+
