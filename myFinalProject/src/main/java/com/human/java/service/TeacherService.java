@@ -23,4 +23,6 @@ public interface TeacherService {
 
 	TeacherVO getTeacherForUpdating(TeacherVO vo);
 
+	List<TeacherVO> searchBootcampList(TeacherVO vo);
+
 }

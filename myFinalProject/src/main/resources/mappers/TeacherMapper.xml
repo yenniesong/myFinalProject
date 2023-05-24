@@ -11,9 +11,12 @@
   	</select>
   	
   	<select id="getTeacher" parameterType="teacher" resultType="teacher">
-  		SELECT * 
-  		  FROM teacher
-  		 WHERE teacher_id = #{teacher_id}
+<!--   		SELECT *  -->
+<!--   		  FROM teacher -->
+<!--   		 WHERE teacher_id = #{teacher_id} -->
+		SELECT t.teacher_id, t.bootcamp_id, t. teacher_name, t.bootcamp_name, t.course_name, t.short_description, t.description, t.fname, t.fname_en, t.fsize, p.position_id, p.position
+  		  FROM teacher t, position p
+  		 WHERE teacher_id = #{teacher_id} AND t.position_id = p.position_id
   	</select>
   	
   	<insert id="insertTeacher" parameterType="com.human.java.domain.TeacherVO">
@@ -53,10 +56,17 @@
 		WHERE TEACHER_ID = #{teacher_id}
   	</update>
   	
-  	<delete id="deleteTeacher" parameterType="teacher"><!-- int로 할지 고민 -->
+  	<delete id="deleteTeacher" parameterType="teacher">
   		DELETE FROM teacher 
   		 WHERE TEACHER_ID = #{teacher_id}
   	</delete>
+  	
+  	<select id="searchBootcampList" parameterType="teacher" resultType="teacher">
+  		SELECT * 
+  		  FROM teacher
+         WHERE bootcamp_name = #{bootcamp_name}
+  		 ORDER BY teacher_id ASC
+  	</select>
   	
   </mapper>
   

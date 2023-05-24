@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.ReviewVO;
@@ -150,5 +151,20 @@ public class TeacherController {
 		
 		return "redirect:/teacher/getTeacherList.do";
 		
+	}
+	
+	// 상단 학원 명 눌렀을 때 해당 학원 강사 출력
+	@RequestMapping("searchBootcampList.do")
+	public String searchBootcampList(@RequestParam("bootcampName") String bootcampName, TeacherVO vo, Model model) {
+		System.out.println("## searchBootcampList.do 진입 ##");
+		System.out.println("bootcampName: " + bootcampName);
+		
+		vo.setBootcamp_name(bootcampName);
+		
+		List<TeacherVO> bootcampNameList = teacherService.searchBootcampList(vo);
+		
+		model.addAttribute("bootcampNameList", bootcampNameList);
+		
+		return "redirect:/teacher/getTeacherList.do";
 	}
 }

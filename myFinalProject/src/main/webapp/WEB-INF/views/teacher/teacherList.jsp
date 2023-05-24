@@ -97,6 +97,10 @@
         -webkit-box-align: center;
         align-items: center;
     }
+    
+    .tutorsLi {
+    	display: none;
+    }
 
 </style>
 
@@ -1439,10 +1443,10 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                    <ul class="jsx-2595981909">
 	                    <c:forEach items="${bList}" var="bootcamp">
 	                      <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 ">
+	                      <button type="button" class="jsx-3824006232 bootcamp_btn">
 	                      <span class="jsx-3824006232 logo">
 	                      <img src="${path}/resources/imgs/pea_icon.png" alt="${bootcamp.bootcamp_name}" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 name">${bootcamp.bootcamp_name}</div>
+	                          <div class="jsx-3824006232 bootcampName">${bootcamp.bootcamp_name}</div>
 	                        </button></li>
 	                        
 	                      </c:forEach>
@@ -1488,9 +1492,9 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                  </div>
 <%-- 	                  </c:if> --%>
 	
-					  <c:forEach items="${tList}" var="teacher">
 	                  <ul class="jsx-2875758176 tutors">
-	                    <li class="jsx-2875758176">
+					  <c:forEach items="${tList}" var="teacher">
+	                    <li class="jsx-2875758176 tutorsLi">
 	                      <a class="jsx-2875758176" href="getTeacher.do?teacher_id=${teacher.teacher_id }">
 	                        <div tabindex="0" class="jsx-445560552 card">
 	                          <div class="jsx-445560552 content">
@@ -1518,8 +1522,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                      </a>
 	                    </li>
 	
-	                  </ul>
 					  </c:forEach>
+	                  </ul>
 	                  <div class="jsx-786344230 btn-view-more">
 	                    <button type="button" class="jsx-1662442796 seeMore">더보기</button>
 	                  </div>
@@ -1641,17 +1645,54 @@ li.jsx-3824006232 button.jsx-3824006232 {
 <!-- my js -->
 <script>
 	let btn_add_teacher = document.querySelector(".addTeacher");
-	let btn_see_more = document.querySelector(".seeMore");
 	
 	btn_add_teacher.addEventListener("click", function() {
 		location.href='teacherAdding.do';
 	});
-	
-	btn_see_more.addEventListener("click", function() {
-		alert("1");
-	});
-	
 
+	
+	$(function(){
+	      $(".tutorsLi").slice(0, 6).show(); // 초기갯수
+	      $(".seeMore").click(function(e){ // 클릭시 more
+	          e.preventDefault();
+	          $(".tutorsLi:hidden").slice(0, 6).show(); // 클릭시 more 갯수 지저정
+	          if($(".tutorsLi:hidden").length == 0){ // 컨텐츠 남아있는지 확인
+	              alert("게시물의 끝입니다."); // 컨텐츠 없을시 alert 창 띄우기 
+	          }
+	      });
+	  });
+	
+	let buttons = document.querySelectorAll(".bootcamp_btn");
+	let buttonArray = Array.from(buttons);
+
+	buttonArray.forEach(function(button) {
+	  button.addEventListener("click", function() {
+	    let bootcampName = this.querySelector(".bootcampName").innerHTML;
+
+	    // AJAX 요청을 생성합니다.
+	    let xhr = new XMLHttpRequest();
+	    xhr.open("POST", "searchBootcampList.do", true);
+	    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    xhr.onreadystatechange = function() {
+	      if (xhr.readyState === 4 && xhr.status === 200) {
+	        // 요청이 성공적으로 완료되었을 때의 처리 로직
+	        console.log(xhr.responseText);
+	      }
+	    };
+
+	    // 전송할 데이터를 설정합니다.
+	    let data = "bootcampName=" + encodeURIComponent(bootcampName);
+
+	    // AJAX 요청을 보냅니다.
+	    xhr.send(data);
+	  });
+	});
+
+	let bootcamp_names = document.querySelectorAll(".bootcampName");
+	for (var i = 0; i < bootcamp_names.length; i++) {
+		
+		console.log(bootcamp_names[i].innerHTML);
+	}
 </script>
 
 </html>

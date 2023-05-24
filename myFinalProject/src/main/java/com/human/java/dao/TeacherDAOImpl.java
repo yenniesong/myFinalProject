@@ -53,5 +53,11 @@ public class TeacherDAOImpl implements TeacherDAO {
 		mybatis.delete("TeacherDAO.deleteTeacher", vo);
 	}
 
+	@Override
+	public List<TeacherVO> searchBootcampList(TeacherVO vo) {
+		System.out.println("## searchBootcampList dao 진입 ##");
+		return mybatis.selectList("TeacherDAO.searchBootcampList", vo);
+	}
+
 
 }

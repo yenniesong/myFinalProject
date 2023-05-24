@@ -23,4 +23,6 @@ public interface TeacherDAO {
 	// 선생님 삭제
 	void deleteTeacher(TeacherVO vo);
 
+	List<TeacherVO> searchBootcampList(TeacherVO vo);
+
 }

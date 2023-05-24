@@ -817,7 +817,8 @@
                         <div class="jsx-2255129348 scroll-box">
                           <ul class="jsx-2255129348">
                             <li class="jsx-2255129348">
-                              <h4 class="jsx-2255129348">학원명</h4>
+                            	
+                              <h4 class="jsx-2255129348">${teacher.position }</h4>
                             </li>
                             <li class="jsx-3839070939 tutor">
                               <div class="jsx-3839070939 board-item">
@@ -1136,6 +1137,8 @@
 
 	btn_enroll.addEventListener("click", function() {
 		alert("1");
+		location.href = 'edeleteTeacher.do';
+		
 	})
 
 	btn_update_teacher_info.addEventListener("click", function() {

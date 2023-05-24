@@ -62,7 +62,8 @@ public class BootcampController {
 			
 			// 있을 경우 연결하는 페이지
 //			return "redirect:/qnaBoard/getQnAList.do";	// 리턴에는 /user/ 꼭 써줘야함
-			return "redirect:/course/getCourseList.do";	// 리턴에는 /user/ 꼭 써줘야함
+//			return "redirect:/course/getCourseList.do";	// 리턴에는 /user/ 꼭 써줘야함
+			return "redirect:/teacher/getTeacherList.do";	// 리턴에는 /user/ 꼭 써줘야함
 		}
 	}
 	
