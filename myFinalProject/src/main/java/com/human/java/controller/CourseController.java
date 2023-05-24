@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.human.java.domain.CourseVO;
 import com.human.java.domain.ReviewVO;
 import com.human.java.service.CourseService;
+import com.human.java.service.ReviewService;
 
 @Controller
 @RequestMapping("/course/")
@@ -20,6 +21,8 @@ public class CourseController {
 
 	@Autowired
 	private CourseService courseService;
+	@Autowired
+	private ReviewService reviewService;
 	
 	@RequestMapping("{url}.do")
 	public String viewPage(@PathVariable String url) {
@@ -40,13 +43,24 @@ public class CourseController {
 
 	// 강좌 상세 페이지 조회
 	@RequestMapping("getCourse.do")
-	public String getCourse(CourseVO vo, Model model, ReviewVO rVo) {
+	public String getCourse(CourseVO vo, Model model, ReviewVO cRVo, HttpSession session) {
 		System.out.println("## getCourse.do 진입 ##");
+		System.out.println("## 강좌 번호 : " + vo.getCourse_id() + " ##");
 		
 		vo = courseService.getCourse(vo);
 		
 		model.addAttribute("course", courseService.getCourse(vo));
 		System.out.println("Course vo : " + vo);
+		
+		System.out.println("rVO : " + vo);
+		
+		List<ReviewVO> cRList = reviewService.getCReviewList(cRVo);
+		
+		System.out.println("cRVo : " + cRVo);
+		
+		model.addAttribute("cRList", cRList);
+		
+		
 		
 		return "/course/courseInDetail";
 	}
@@ -114,6 +128,23 @@ public class CourseController {
 		courseService.deleteCourse(vo);
 		
 		return "redirect:/course/getCourseList.do";
+	}
+	
+	// 댓글 등록
+	@RequestMapping("writingReview.do")
+	public String WritingReview(ReviewVO vo) {
+		System.out.println("## WritingReview.do 진입 ##");
+		
+		System.out.println("====> teacher_id : " + vo.getTeacher_id());
+		System.out.println("====> review_id : " + vo.getReview_id());
+		System.out.println("====> bootcamp_name : " + vo.getName());
+		System.out.println("====> content : " + vo.getContent());
+		System.out.println("====> star_point : " + vo.getStar_point());
+		
+		reviewService.writingReview(vo);
+		
+		return "redirect:/teacher/getTeacherList.do";
+		
 	}
 	
 }

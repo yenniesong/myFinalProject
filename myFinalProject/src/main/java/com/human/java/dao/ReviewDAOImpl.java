@@ -26,4 +26,10 @@ public class ReviewDAOImpl implements ReviewDAO {
 		mybatis.insert("ReviewDAO.writingReview", vo);
 	}
 
+	@Override
+	public List<ReviewVO> getCReviewList(ReviewVO cRVo) {
+		System.out.println("## getCReviewList dao 진입 ##");
+		return mybatis.selectList("ReviewDAO.getCReviewList", cRVo);
+	}
+
 }

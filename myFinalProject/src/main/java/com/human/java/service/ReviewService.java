@@ -10,4 +10,6 @@ public interface ReviewService {
 
 	void writingReview(ReviewVO vo);
 
+	List<ReviewVO> getCReviewList(ReviewVO cRVo);
+
 }

@@ -53,7 +53,7 @@ public class TeacherController {
 	
 	// 강사 상세페이지 조회하기
 	@RequestMapping("getTeacher.do")
-	public String getTeacher(TeacherVO vo, Model model, ReviewVO rVo, HttpSession session) {	// 추후에 학생들의 댓글(review vo 넣기)
+	public String getTeacher(TeacherVO vo, Model model, ReviewVO rVo, HttpSession session) {
 		System.out.println("## getTeacher.do 진입 ##");
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
 		

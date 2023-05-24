@@ -27,4 +27,10 @@ public class ReviewServiceImpl implements ReviewService {
 		reviewDAO.writingReview(vo);
 	}
 
+	@Override
+	public List<ReviewVO> getCReviewList(ReviewVO cRVo) {
+		System.out.println("## getCReviewList service 진입 ##");
+		return reviewDAO.getCReviewList(cRVo);
+	}
+
 }
