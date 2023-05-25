@@ -1,5 +1,6 @@
 package com.human.java.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -10,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.ReviewVO;
@@ -44,7 +46,7 @@ public class TeacherController {
 		List<TeacherVO> tList = teacherService.getTeacherList(vo);
 		
 		model.addAttribute("tList", tList);
-
+		System.out.println(tList.size());
 		List<BootcampVO> bList = bootcampService.bootcampInfo();
 		
 		model.addAttribute("bList", bList);
@@ -155,16 +157,31 @@ public class TeacherController {
 	
 	// 상단 학원 명 눌렀을 때 해당 학원 강사 출력
 	@RequestMapping("searchBootcampList.do")
-	public String searchBootcampList(@RequestParam("bootcampName") String bootcampName, TeacherVO vo, Model model) {
-		System.out.println("## searchBootcampList.do 진입 ##");
-		System.out.println("bootcampName: " + bootcampName);
-		
-		vo.setBootcamp_name(bootcampName);
+	@ResponseBody
+	public HashMap<String, List<TeacherVO>> searchBootcampList(TeacherVO vo) {
+		System.out.println("## ajax를 이용한 searchBootcampList.do 진입 ##");
+		System.out.println("bootcampName: " + vo.getBootcamp_name());
 		
 		List<TeacherVO> bootcampNameList = teacherService.searchBootcampList(vo);
+		System.out.println(bootcampNameList.size());
 		
-		model.addAttribute("bootcampNameList", bootcampNameList);
+		HashMap<String, List<TeacherVO>> map = new HashMap<String, List<TeacherVO>>();
+		map.put("bootcampNameList", bootcampNameList);
 		
-		return "redirect:/teacher/getTeacherList.do";
+		return map;
 	}
+	// 상단 학원 명 눌렀을 때 해당 학원 강사 출력
+//	@RequestMapping("searchBootcampList.do")
+//	public String searchBootcampList(@RequestParam("bootcampName") String bootcampName, TeacherVO vo, Model model) {
+//		System.out.println("## searchBootcampList.do 진입 ##");
+//		System.out.println("bootcampName: " + bootcampName);
+//		
+//		vo.setBootcamp_name(bootcampName);
+//		
+//		List<TeacherVO> bootcampNameList = teacherService.searchBootcampList(vo);
+//		
+//		model.addAttribute("bootcampNameList", bootcampNameList);
+//		
+//		return "redirect:/teacher/getTeacherList.do";
+//	}
 }

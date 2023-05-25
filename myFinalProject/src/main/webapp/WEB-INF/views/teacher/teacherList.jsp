@@ -1505,7 +1505,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                              <p class="jsx-445560552">${teacher.bootcamp_name }</p>
 	                            </div>
 	                            <div class="jsx-445560552 star-box">
-	                              <span class="jsx-445560552">7.6</span>
+	                              <span class="jsx-445560552">2.3</span>
 	                              <div class="jsx-2704879397 stars">
 	                                <div class="jsx-2704879397 star star-2"></div>
 	                                <div class="jsx-2704879397 star star-2"></div>
@@ -1655,37 +1655,142 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	      $(".tutorsLi").slice(0, 6).show(); // 초기갯수
 	      $(".seeMore").click(function(e){ // 클릭시 more
 	          e.preventDefault();
-	          $(".tutorsLi:hidden").slice(0, 6).show(); // 클릭시 more 갯수 지저정
+	      	
 	          if($(".tutorsLi:hidden").length == 0){ // 컨텐츠 남아있는지 확인
-	              alert("게시물의 끝입니다."); // 컨텐츠 없을시 alert 창 띄우기 
+				alert("게시글이 더 이상 없습니다.");	              
+	          } else {
+		          $(".tutorsLi:hidden").slice(0, 6).show(); // 클릭시 more 갯수 지저정
+	        	  
 	          }
+	      
 	      });
 	  });
 	
-	let buttons = document.querySelectorAll(".bootcamp_btn");
-	let buttonArray = Array.from(buttons);
+// 	let buttons = document.querySelectorAll(".bootcamp_btn");
+// 	let buttonArray = Array.from(buttons);
 
-	buttonArray.forEach(function(button) {
-	  button.addEventListener("click", function() {
-	    let bootcampName = this.querySelector(".bootcampName").innerHTML;
+	
+	$(function() {
+		$(".bootcamp_btn").click(function() {
+			let bootcampName = $(this).find(".bootcampName").html();
+			
+			console.log(bootcampName);
+			
+			// 전송할 데이터
+			let data = { 'bootcamp_name' : bootcampName };
+			
+			$.ajax({
+				url : "searchBootcampList.do",
+				type: "POST",
+				data: data,
+				dataType: "JSON",
+				success: function (json) {
+					console.log(json);
+					
+					let resultUl = document.querySelector(".tutors");
+					resultUl.textContent = "";
+					let resultBootcamps = json.bootcampNameList;
+					
+					for (var i = 0; i < resultBootcamps.length; i++) {
+						let li = document.createElement("li");
+						li.classList.add("jsx-2875758176", "tutorsLi");
+						li.setAttribute("style", 'display: list-item;');
+						let a = document.createElement("a");
+						a.classList.add("jsx-2875758176");
+						a.href = "getTeacher.do?teacher_id=" + resultBootcamps[i].teacher_id;
+						
+						let divCard = document.createElement("div");
+						divCard.tabIndex = 0;
+						divCard.classList.add("jsx-445560552", "card");
+						
+						let divContent = document.createElement("div");
+						divContent.classList.add("jsx-445560552", "content");
+						
+						let divInfo = document.createElement("div");
+						divInfo.classList.add("jsx-445560552", "info");
+						
+						let hiddenInput1 = document.createElement("input");
+						hiddenInput1.type = "hidden";
+						hiddenInput1.value = resultBootcamps[i].teacher_id;
+						
+						let hiddenInput2 = document.createElement("input");
+						hiddenInput2.type = "hidden";
+						hiddenInput2.value = resultBootcamps[i].bootcamp_id;
+						
+						let h3 = document.createElement("h3");
+						h3.classList.add("jsx-445560552");
+						h3.textContent = resultBootcamps[i].teacher_name;
+						
+						let p = document.createElement("p");
+						p.classList.add("jsx-445560552");
+						p.textContent = resultBootcamps[i].bootcamp_name;
+						
+						divInfo.appendChild(hiddenInput1);
+						divInfo.appendChild(hiddenInput2);
+						divInfo.appendChild(h3);
+						divInfo.appendChild(p); 
+						
+						divContent.appendChild(divInfo);
+						
+						let starBox = document.createElement("div");
+						starBox.classList.add("jsx-445560552", "star-box");
 
-	    // AJAX 요청을 생성합니다.
-	    let xhr = new XMLHttpRequest();
-	    xhr.open("POST", "searchBootcampList.do", true);
-	    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	    xhr.onreadystatechange = function() {
-	      if (xhr.readyState === 4 && xhr.status === 200) {
-	        // 요청이 성공적으로 완료되었을 때의 처리 로직
-	        console.log(xhr.responseText);
-	      }
-	    };
+						let starSpan = document.createElement("span");
+						starSpan.classList.add("jsx-445560552");
+						starSpan.textContent = "7.6";
 
-	    // 전송할 데이터를 설정합니다.
-	    let data = "bootcampName=" + encodeURIComponent(bootcampName);
+						let starsDiv = document.createElement("div");
+						starsDiv.classList.add("jsx-2704879397", "stars");
 
-	    // AJAX 요청을 보냅니다.
-	    xhr.send(data);
-	  });
+						let star1 = document.createElement("div");
+						star1.classList.add("jsx-2704879397", "star", "star-2");
+
+						let star2 = document.createElement("div");
+						star2.classList.add("jsx-2704879397", "star", "star-2");
+
+						let star3 = document.createElement("div");
+						star3.classList.add("jsx-2704879397", "star", "star-2");
+
+						let star4 = document.createElement("div");
+						star4.classList.add("jsx-2704879397", "star", "star-2");
+
+						let star5 = document.createElement("div");
+						star5.classList.add("jsx-2704879397","star", "star-0");
+
+						starsDiv.appendChild(star1);
+						starsDiv.appendChild(star2);
+						starsDiv.appendChild(star3);
+						starsDiv.appendChild(star4);
+						starsDiv.appendChild(star5);
+
+						starBox.appendChild(starSpan);
+						starBox.appendChild(starsDiv);
+
+						let profileImageDiv = document.createElement("div");
+						profileImageDiv.classList.add("jsx-445560552", "profile-image", "tutor");
+
+						let profileImageSpan = document.createElement("span");
+						profileImageSpan.classList.add("jsx-445560552");
+						profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
+
+						profileImageDiv.appendChild(profileImageSpan);
+
+						divContent.appendChild(starBox);
+						divContent.appendChild(profileImageDiv);
+
+						divCard.appendChild(divContent);
+						a.appendChild(divCard);
+						li.appendChild(a);
+						resultUl.appendChild(li);
+					}
+					
+				},
+				error: function () {
+					alert('실패');
+				}
+				
+			});
+		});
 	});
 
 	let bootcamp_names = document.querySelectorAll(".bootcampName");
