@@ -512,6 +512,7 @@
         -webkit-flex:1 1 auto;
         -ms-flex:1 1 auto;
         flex:1 1 auto;
+        text-align: left;
     }
     h3.jsx-445560552 {
         font-size:22px;
@@ -1515,8 +1516,18 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                              </div>
 	                            </div>
 	                            <div class="jsx-445560552 profile-image tutor">
-	                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-	                            </div>
+									<c:choose>
+										<c:when test="${empty teacher.fname_en}">
+											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+										</c:when>
+										<c:otherwise>
+<!-- 											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"> -->
+<%-- 											  <%= teacher.fname_en %> --%>
+<!-- 											</span> -->
+											<span><img class="fname_en" src="/resources/upload/${teacher.fname_en}" alt="#"/></span>
+										</c:otherwise>
+									</c:choose>
+	                         	</div>
 	                          </div>
 	                        </div>
 	                      </a>

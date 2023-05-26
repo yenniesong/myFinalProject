@@ -6,6 +6,7 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
 	HttpSession bootSession = request.getSession();
+	String userId = (String)bootSession.getAttribute("userId");
 	int bootcamp_id = (Integer)bootSession.getAttribute("bootcamp_id");
 	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
 %>
@@ -975,7 +976,8 @@
 			                                                            </div>
 			                                                          </div>
 			                                                        </div>
-			                                                        <span class="jsx-644785032 nickname">아*****</span>	<!-- 로그인 한 학생의 이름 -->
+			                                                        <span class="jsx-644785032 nickname"><%=userId %></span>	<!-- 로그인 한 학생의 이름 -->
+			                                                        <input type="hidden" name="userId" value="<%=userId %>">
 			                                                      </div>
 			        
 			                                                      <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
