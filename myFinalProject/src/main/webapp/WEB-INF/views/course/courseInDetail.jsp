@@ -1041,9 +1041,29 @@ img.jsx-2891290942 {
 												</button>
 												<form action="deleteCourse.do" method="post">
 													<input type="hidden" name="course_id" value="${course.course_id }">
-													<button class="jsx-3857673807 btn-evaluation deleteCourse" type="submit" style="margin-left: 10px;">
+													<button class="jsx-3857673807 btn-evaluation deleteCourse" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px;">
 														<img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px">
 													</button>
+													
+													<!-- Modal -->
+													<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+													  <div class="modal-dialog">
+													    <div class="modal-content">
+													      <div class="modal-header">
+													        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+													        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+													      </div>
+													      <div class="modal-body">
+													        ...
+													      </div>
+													      <div class="modal-footer">
+													        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+													        <button type="button" class="btn btn-primary">Understood</button>
+													      </div>
+													    </div>
+													  </div>
+													</div>
+
 												</form>
 											</div>
 
@@ -1417,6 +1437,7 @@ img.jsx-2891290942 {
 	let btn_studentReview = document.querySelector(".studentReview");
 	let showDescrioption = document.querySelector(".description_on");
 	let showReviewArea = document.querySelector(".reviewArea");
+	let btn_enroll = document.querySelector("e-enrol");
 
 // 	btn_signUp.addEventListener("click", function() {
 // 		alert('1');
@@ -1454,6 +1475,12 @@ img.jsx-2891290942 {
 // 	});
 	btn_updatingCourse.addEventListener("click", function() {
 		location.href = 'goCourseForUpdating.do?course_id=' + ${course.course_id};
+	});
+	
+	btn_enroll.addEventListener('click'. function () {
+		alert('강좌 신청');
+		/* 학생의 정보와 이 강좌의 정보를 같이 보내야함 */
+	
 	});
 	
 	

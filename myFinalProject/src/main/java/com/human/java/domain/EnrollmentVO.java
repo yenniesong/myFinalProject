@@ -3,10 +3,11 @@ package com.human.java.domain;
 import lombok.Data;
 
 @Data
-public class Enrollment {
+public class EnrollmentVO {
 	
 	private int enrollment_id;
 	private String userId;
+	private String name;
 	private int teacher_id;
 	private String teacher_name;
 	private int course_id;

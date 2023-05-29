@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="EnrollmentDAO">
+
+	<select id="getEnrollList" parameterType="enroll" resultType="enroll">
+		SELECT * 
+		  FROM enrollment
+		 ORDER BY ENROLLMENT_ID DESC 
+	</select>
+	
+	<insert id="insertEnrollment" parameterType="enroll">
+		INSERT INTO ENROLLMENT (ENROLLMENT_ID, USERID, NAME, TEACHER_ID, TEACHER_NAME, COURSE_ID, COURSE_NAME, ENROLLMENT_DATE)
+		VALUES (seq_enrollment_enrollment_id.NEXTVAL, #{userId}, #{name}, #{teacher_id}, #{teacher_name}, #{course_id}, #{course_name}, SYSDATE);
+	</insert>
+
+  	
+  </mapper>
+  
+
+

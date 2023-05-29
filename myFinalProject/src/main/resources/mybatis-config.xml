@@ -13,6 +13,7 @@
 		<typeAlias type="com.human.java.domain.TeacherVO" alias="teacher"/>
 		<typeAlias type="com.human.java.domain.ReviewVO" alias="review"/>
 		<typeAlias type="com.human.java.domain.CourseVO" alias="course"/>
+		<typeAlias type="com.human.java.domain.EnrollmentVO" alias="enroll"/>
   	</typeAliases>
   </configuration>
   
