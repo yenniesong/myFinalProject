@@ -13,6 +13,5 @@ public class ReviewVO {
 	private String content;
 	private String created_at;
 	private int star_point;
-	private String flag;
 	
 }

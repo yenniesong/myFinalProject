@@ -143,8 +143,8 @@ public class TeacherController {
 	public String WritingReview(ReviewVO vo) {
 		System.out.println("## WritingReview.do 진입 ##");
 		
+		System.out.println("====> user_id : " + vo.getUserId());
 		System.out.println("====> teacher_id : " + vo.getTeacher_id());
-		System.out.println("====> review_id : " + vo.getReview_id());
 		System.out.println("====> bootcamp_name : " + vo.getName());
 		System.out.println("====> content : " + vo.getContent());
 		System.out.println("====> star_point : " + vo.getStar_point());
