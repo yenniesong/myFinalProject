@@ -5,8 +5,8 @@
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%
 	HttpSession bootSession = request.getSession();
-int bootcamp_id = (Integer) bootSession.getAttribute("bootcamp_id");
-String bootcamp_name = (String) bootSession.getAttribute("bootcamp_name");
+	int bootcamp_id = (Integer) bootSession.getAttribute("bootcamp_id");
+	String bootcamp_name = (String) bootSession.getAttribute("bootcamp_name");
 %>
 <!DOCTYPE html>
 <html>

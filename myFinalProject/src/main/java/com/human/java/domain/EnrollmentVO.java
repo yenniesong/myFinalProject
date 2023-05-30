@@ -8,6 +8,8 @@ public class EnrollmentVO {
 	private int enrollment_id;
 	private String userId;
 	private String name;
+	private String bootcamp_id;
+	private String bootcamp_name;
 	private int teacher_id;
 	private String teacher_name;
 	private int course_id;

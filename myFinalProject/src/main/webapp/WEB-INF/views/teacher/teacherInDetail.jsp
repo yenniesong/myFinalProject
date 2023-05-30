@@ -7,6 +7,7 @@
 <%
 	HttpSession bootSession = request.getSession();
 	String userId = (String)bootSession.getAttribute("userId");
+	String name = (String)bootSession.getAttribute("name");
 	int bootcamp_id = (Integer)bootSession.getAttribute("bootcamp_id");
 	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
 %>
@@ -1157,16 +1158,52 @@
 		/* ajax로 해야할듯 */
 		
 	})
+	
+	$(function() {
+		$(".btn-enroll").click(function() {
+			// 가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
+			let userId = <%=userId%>;
+			let name = <%=name%>;
+			let bootcampId = <%=bootcamp_id%>;
+			let bootcampName = <%=bootcamp_name%>;
+			let teacherId = '${teacher.teacher_id}';
+			let teacherName = '${teacher.teacher_name}';
+			let courseId = '${course.course_id}';
+			let courseName = '${course.course_name}';
+			
+			let data = {
+					'userId' : userId,
+					'name' : name,
+					'bootcamp_id' : bootcampId,
+					'bootcamp_name' : bootcampName,
+					'teacher_id' : teacherId,
+					'teacher_name' : teacherName,
+					'course_id' : courseId,
+					'course_name' : courseName
+			};
+			
+			$.ajax({
+				url : "insertEnrollment.do",
+				type: "post",
+				data: data,
+				dataType: "JSON",
+				success : function (json) {
+					alert("수강신청이 완료되었습니다.");
+				},
+				Error: function () {
+					alert("실패");
+				}
+			});
+			
+		});
+	});
+	
+	
 
 	btn_update_teacher_info.addEventListener("click", function() {
 		location.href = 'getTeacherForUpdating.do?teacher_id='+ ${teacher.teacher_id };
 	});
 
-// 	btn_deleteTeacher.addEventListener("click", function() {
-// 		alert('정말로 삭제하시겠습니까?');
-//  		location.href = 'deleteTeacher.do'; 
-		
-// 	});
 	
 	let btn_writing_review = document.querySelector('.btnWritingReview');
 	
