@@ -101,6 +101,11 @@
     .tutorsLi {
     	display: none;
     }
+    
+    .fname_en {
+    	width: 150px;
+    	height: 150px;
+    }
 
 </style>
 
@@ -1524,7 +1529,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 <!-- 											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"> -->
 <%-- 											  <%= teacher.fname_en %> --%>
 <!-- 											</span> -->
-											<span><img class="fname_en" src="/resources/upload/${teacher.fname_en}" alt="#"/></span>
+											<span class="jsx-445560552"><img class="fname_en" src="/resources/upload/${teacher.fname_en}" alt="#"/></span>
 										</c:otherwise>
 									</c:choose>
 	                         	</div>

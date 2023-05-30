@@ -221,9 +221,9 @@
 </style>
 <style id="__jsx-3239872667">
   .main-card.jsx-3239872667 {
-    background-color: #ffffff;
+    background-color: rgb(255, 255, 255);
     padding: 40px 40px 32px;
-    border: 1px solid #dfdfdf;
+    border: 1px solid rgb(223, 223, 223);
     margin-bottom: 8px;
   }
 
@@ -259,21 +259,13 @@
 </style>
 <style id="__jsx-1020960270">
   .message.jsx-1020960270 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-align-items: flex-start;
-    -webkit-box-align: flex-start;
-    -ms-flex-align: flex-start;
     align-items: flex-start;
     -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
     justify-content: space-between;
     padding-bottom: 16px;
     margin-bottom: 24px;
-    border-bottom: 1px solid #dfdfdf;
+    border-bottom: 1px solid rgb(223, 223, 223);
   }
 
   .title.jsx-1020960270 span.jsx-1020960270 {
@@ -282,8 +274,7 @@
   }
 
   .title.jsx-1020960270 p.jsx-1020960270 {
-    color: #666666;
-    margin-left: -30px;
+    color: rgb(102, 102, 102);
   }
 
   .rating.jsx-1020960270 {
@@ -416,7 +407,8 @@
       width: 100%;
       height: 280px;
       padding: 0px 20px;
-      background-color: rgb(238, 239, 244);
+/*       background-color: rgb(238, 239, 244); */
+	  border: 1px solid rgb(238, 239, 244);
       margin-bottom: 16px;
   }
   .tutor-image.jsx-216214598 {
@@ -453,7 +445,7 @@
       border: 1px solid rgb(223, 223, 223);
       background-color: rgb(238, 239, 244);
       overflow-y: auto;
-      height: 352px;
+      height: 342px;
   }
   .scroll-box.jsx-2255129348 {
       padding: 12px;
@@ -757,7 +749,7 @@
                   
                 <div class="jsx-3239872667 main-card">
                   <div class="jsx-1020960270 message">
-                    <div class="jsx-1020960270 title">
+                    <div class="jsx-1020960270 title" style="text-align: justify;">
 	                   	<input type="hidden" name="teacher_id" value="${teacher.teacher_id }">			
 	                   	<input type="hidden" name="teacher_bootcamp_id" value="${teacher.bootcamp_id }">			
 	                   	<input type="hidden" name="teacher_bootcamp_id" value="${teacher.position_id }">			
@@ -802,46 +794,68 @@
                     </div>
           
                     <div class="jsx-216214598 flex-right">
-                      <div class="jsx-216214598 title">
-                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
-                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
-                        </button>
-                        <form action="deleteTeacher.do" method="post" style="margin: 0px;">
-	                        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">	
-	                        <button class="jsx-3857673807 btn-evaluation deleteTeacher" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
-	                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
-	                        </button>	
-                        </form>
-                      </div>
-          
-                      <div class="jsx-2255129348 real-time-evaluation">
-                        <div class="jsx-2255129348 scroll-box">
-                          <ul class="jsx-2255129348">
-                            <li class="jsx-2255129348">
-                            	
-                              <h4 class="jsx-2255129348">${teacher.position }</h4>
-                            </li>
-                            <li class="jsx-3839070939 tutor">
-                              <div class="jsx-3839070939 board-item">
-                                <div class="jsx-3839070939 title">
-                                  <h4 class="jsx-3839070939">${teacher.bootcamp_name }</h4>
-                                </div>
-                              </div>
-                            </li>
-                            <li class="jsx-2255129348 horizontal-rule"></li>
-                            <li class="jsx-2255129348">
-                              <h4 class="jsx-2255129348">${teacher.course_name }</h4>
-                            </li>
-                            <li class="jsx-1434886323 ">
-                              <div class="jsx-1434886323 board-item">
-                                <div class="jsx-1434886323 title">
-                                  <h4 class="jsx-1434886323">${teacher.description }</h4>
-                                </div>
-                              </div>
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
+	          			<c:if test="${loginFg eq 'b'}">
+		                      <div class="jsx-216214598 title">
+		                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
+		                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
+		                        </button>
+		                        <button class="jsx-3857673807 btn-evaluation" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
+		                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
+		                        </button>	
+		                      </div>
+		                      
+								<!-- Modal -->
+								<form action="deleteTeacher.do" method="post" style="margin: 0px;">
+									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        ...
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">
+									        <button type="submit" class="btn btn-primary deleteTeacher">Understood</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+								</form>
+	                      </c:if>
+	          
+	                      <div class="jsx-2255129348 real-time-evaluation">
+	                        <div class="jsx-2255129348 scroll-box">
+	                          <ul class="jsx-2255129348">
+	                            <li class="jsx-2255129348">
+	                            	
+	                              <span class="jsx-2255129348">${teacher.position }</span>
+	                            </li>
+	                            <li class="jsx-3839070939 tutor">
+	                              <div class="jsx-3839070939 board-item">
+	                                <div class="jsx-3839070939 title">
+	                                  <span class="jsx-3839070939">${teacher.bootcamp_name }</span>
+	                                </div>
+	                              </div>
+	                            </li>
+	                            <li class="jsx-2255129348 horizontal-rule"></li>
+	                            <li class="jsx-2255129348">
+	                              <span class="jsx-2255129348">${teacher.course_name }</span>
+	                            </li>
+	                            <li class="jsx-1434886323 ">
+	                              <div class="jsx-1434886323 board-item">
+	                                <div class="jsx-1434886323 title">
+	                                  <span class="jsx-1434886323">${teacher.description }</span>
+	                                </div>
+	                              </div>
+	                            </li>
+	                            <li class="jsx-2255129348 horizontal-rule"></li>
+	                          </ul>
+	                        </div>
+	                      </div>
           
                     </div>
                   </div>
@@ -1138,8 +1152,9 @@
 	})
 
 	btn_enroll.addEventListener("click", function() {
-		alert("1");
-		location.href = 'edeleteTeacher.do';
+		alert("수강신청");
+		location.href = 'insertEnrollment.do?userId='+<%=userId%>;
+		/* ajax로 해야할듯 */
 		
 	})
 
@@ -1170,33 +1185,7 @@
 		alert("1");
 	})
 	
-// 	function deleteData(no) {
-// 	  // AJAX 요청을 생성합니다.
-// 	  var xhr = new XMLHttpRequest();
-	  
-// 	  // 요청을 처리할 URL을 지정합니다.
-// 	  var url = 'deleteTeacher.do?teacher_id=' + no;
-	  
-// 	  // 요청을 오픈합니다.
-// 	  xhr.open('GET', url, true);
-	  
-// 	  // 응답이 도착했을 때의 처리를 정의합니다.
-// 	  xhr.onreadystatechange = function() {
-// 	    if (xhr.readyState === XMLHttpRequest.DONE) {
-// 	      if (xhr.status === 200) {
-// 	        // 성공적으로 응답을 받았을 때의 처리
-// 	        alert('삭제되었습니다.');
-// 	        location.reload(); // 페이지 새로고침
-// 	      } else {
-// 	        // 요청에 실패하거나 응답이 에러인 경우의 처리
-// 	        alert('삭제 실패');
-// 	      }
-// 	    }
-// 	  };
-	  
-// 	  // 요청을 전송합니다.
-// 	  xhr.send();
-// 	}
+
 
 </script>
 
