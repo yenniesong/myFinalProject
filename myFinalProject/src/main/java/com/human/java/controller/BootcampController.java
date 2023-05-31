@@ -36,24 +36,24 @@ public class BootcampController {
 	public String bootcampLogin(BootcampVO vo, HttpSession session) {
 		System.out.println("## bootcampLogin.do 진입 ##");
 		
-		System.out.println("## id : " + vo.getUserId());
+		System.out.println("## id : " + vo.getUserid());
 		System.out.println("## pwd : " + vo.getPassword());
 
 		BootcampVO result = bootcampService.idCheck_Login(vo);
 		
 		// 4. 맞으면 성공(객체 생성) 틀리면 실패(null)
-		if (result == null || result.getUserId() == null) {
+		if (result == null || result.getUserid() == null) {
 			// 결과 없을 때
 			return "/bootcamp/bootcampLogin";
 		} else {
-			System.out.println("[ " + result.getUserId() + " ] 로그인 성공");
+			System.out.println("[ " + result.getUserid() + " ] 로그인 성공");
 			
 			
 			// 세션에 login 이름에 사용자 이름 저장
 //			session.setAttribute("loginFg","s");
 			session.setAttribute("loginFg","b");
 			
-			session.setAttribute("userId", result.getUserId());
+			session.setAttribute("userId", result.getUserid());
 			session.setAttribute("bootcamp_name", result.getBootcamp_name());
 			session.setAttribute("bootcamp_Manager", result.getBootcamp_Manager());
 			session.setAttribute("bootcamp_id", result.getBootcamp_id());

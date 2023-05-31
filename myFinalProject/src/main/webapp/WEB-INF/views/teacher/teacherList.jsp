@@ -4,6 +4,35 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<%
+	  
+	  String admin = null;
+	  String student = null;
+	  String company = null;
+	  String educator = null;
+	  
+	  String userId = null;
+	  String userNick = null;
+	  
+	  if (session.getAttribute("userId") != null) {
+	   
+		if (session.getAttribute("admin") != null ) {
+			admin = (String) session.getAttribute("admin"); 
+		} else if (session.getAttribute("student") != null ) {
+			student = (String) session.getAttribute("student"); 
+		} else if (session.getAttribute("company") != null ) {
+			company = (String) session.getAttribute("company"); 
+		} else if (session.getAttribute("educator") != null) {
+			educator = (String) session.getAttribute("educator");	
+		}
+	
+	  }
+	  	
+	  if (session.getAttribute("userNick") != null) {
+	  	userNick = (String) session.getAttribute("userNick");
+	  }
+	
+%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,7 +61,7 @@
 <link href="${path}/resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="${path}/resources/assets/css/style.css" rel="stylesheet">
+<link href="${path}/resources/css/style.css" rel="stylesheet">
 
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
@@ -1368,41 +1397,67 @@ li.jsx-3824006232 button.jsx-3824006232 {
 </head>
 <body>
 	<!-- ======= Header ======= -->
-	<header id="header" class="fixed-top header-inner-pages">
+	<header id="header" class="fixed-top ">
 	  <div class="container d-flex align-items-center">
 	
-	    <h1 class="logo me-auto"><a href="index.html">SOUPIE</a></h1>
+	    <h1 class="logo me-auto"><a href="main.do"><img src="${path}/resources/img/soupie.png" style="margin-right: 10px; margin-bottom: 10px;">Soupie</a></h1>
 	    <!-- Uncomment below if you prefer to use an image logo -->
-	    <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+	<!--       <a href="mainWeb" class="logo me-auto"><img src="resources/img/soupie.png" alt="" class="img-fluid"></a> -->
 	
 	    <nav id="navbar" class="navbar">
 	      <ul>
-	        <li><a class="nav-link scrollto " href="#hero">Home</a></li>
+	        <li><a class="nav-link scrollto active" href="main.do">Home</a></li>
 	        <li><a class="nav-link scrollto" href="#about">About</a></li>
-	        <li><a class="nav-link scrollto" href="#services">Services</a></li>
-	        <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
-	        <li><a class="nav-link scrollto" href="#team">Team</a></li>
-	        <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-	          <ul>
-	            <li><a href="#">Drop Down 1</a></li>
-	            <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-	              <ul>
-	                <li><a href="#">Deep Drop Down 1</a></li>
-	                <li><a href="#">Deep Drop Down 2</a></li>
-	                <li><a href="#">Deep Drop Down 3</a></li>
-	                <li><a href="#">Deep Drop Down 4</a></li>
-	                <li><a href="#">Deep Drop Down 5</a></li>
-	              </ul>
-	            </li>
-	            <li><a href="#">Drop Down 2</a></li>
-	            <li><a href="#">Drop Down 3</a></li>
-	            <li><a href="#">Drop Down 4</a></li>
+	        <li class="dropdown"><a class="nav-link scrollto" href="#announcements"><span>Announcements</span><i class="bi bi-chevron-down"></i></a>
+	         <ul>
+	            <li><a href="adminBoard.do">공지사항</a></li>
+	            <li><a href="faqsBoard">FAQs</a></li>
 	          </ul>
 	        </li>
-	        <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-	        <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+	        
+	        <li class="dropdown"><a href="#"><span>Teacher | Course</span> <i class="bi bi-chevron-down"></i></a>
+	            <ul>
+	              <li><a href="/teacher/teacherList.do">Teacher</a></li>
+	              <li><a href="#">Course</a></li>
+	              <li><a href="#">Teacher | Course Q&A</a></li>
+	            </ul>
+	          </li>
+	        
+	<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+	        <li><a class="nav-link scrollto" href="#team">Team</a></li>
+	<!--           <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+	         <%
+	  	if (userId == null) {
+	  	
+	  		%>
+	        <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a>
+	          <ul>
+	            <li><a href="/member/login">로그인</a></li>
+	            <li><a href="/member/join">회원가입</a></li>
+	          </ul>
+	        </li>
+	      <% } else { %>
+	      <% if (admin.equals("admin") ) { %>
+	        
+	        <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
+	          <ul>
+	            <li><a href="badComment">신고글 관리페이지</a></li>
+	            <li><a href="logoutAction">로그아웃</a></li>
+	          </ul>
+	        </li>
+	        <% } else { %>
+	        
+	         <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
+	          <ul>
+	            <li><a href="#"><%=userNick %>페이지</a></li>
+	            <li><a href="logoutAction">로그아웃</a></li>
+	          </ul>
+	        </li>
+	        	<%} %>
+	        <%} %>
+	<!--           <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
 	      </ul>
-	      <i class="bi bi-list mobile-nav-toggle"></i>
+	<!--         <i class="bi bi-list mobile-nav-toggle"></i> -->
 	    </nav><!-- .navbar -->
 	
 	  </div>

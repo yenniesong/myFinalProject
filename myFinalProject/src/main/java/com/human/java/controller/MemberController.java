@@ -2,15 +2,16 @@ package com.human.java.controller;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.List;
 import java.util.Random;
 
 import javax.inject.Inject;
-import javax.mail.internet.MimeMessage;
+//import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.mail.javamail.MimeMessageHelper;
+//import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -24,9 +25,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.human.java.domain.AdminVO;
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.Company_infoVO;
 import com.human.java.domain.MemberVO;
+import com.human.java.service.MemberService;
 import com.human.java.service.Y_MemberService;
 
 @Controller
@@ -34,7 +37,13 @@ import com.human.java.service.Y_MemberService;
 public class MemberController {
 
 	@Inject
-	private Y_MemberService service;
+	private MemberService service;
+	
+	// 메인으로 가기
+	@RequestMapping("/main.do")
+	public String main() {
+	    return "member/main";
+	}
 
 	// 로그인들어가기전
 	@GetMapping("/login")
@@ -259,7 +268,7 @@ public class MemberController {
 		memberVO.setTel(tel);
 
 		BootcampVO bootcampVO = new BootcampVO();
-		bootcampVO.setName(name);
+		bootcampVO.setBootcamp_Manager(name);
 		bootcampVO.setTel(tel);
 
 		Company_infoVO company_infoVO = new Company_infoVO();

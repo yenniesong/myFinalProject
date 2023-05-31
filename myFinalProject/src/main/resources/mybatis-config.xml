@@ -8,13 +8,13 @@
 		<typeAlias type="com.human.java.domain.QnAVO" alias="qna"/>
 		<typeAlias type="com.human.java.domain.PagingVO" alias="paging"/>
 		<typeAlias type="com.human.java.domain.AnswerVO" alias="answer"/>
-		<typeAlias type="com.human.java.domain.MemberVO" alias="member"/>
+		<typeAlias type="com.human.java.domain.MemberVO" alias="Member"/>
 		<typeAlias type="com.human.java.domain.BootcampVO" alias="bootcamp"/>
 		<typeAlias type="com.human.java.domain.TeacherVO" alias="teacher"/>
 		<typeAlias type="com.human.java.domain.ReviewVO" alias="review"/>
 		<typeAlias type="com.human.java.domain.CourseVO" alias="course"/>
 		<typeAlias type="com.human.java.domain.EnrollmentVO" alias="enroll"/>
-		<typeAlias type="com.human.java.domain.Company_infoVO" alias="company"/>
+		<typeAlias type="com.human.java.domain.Company_infoVO" alias="company_info"/>
 
 
   	</typeAliases>

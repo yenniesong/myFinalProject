@@ -1169,7 +1169,7 @@
 			// 가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
 			let userId = <%=userId%>;
 			let name = <%=name%>;
-			let bootcampId = <%=bootcamp_id%>;
+<%-- 			let bootcampId = <%=bootcamp_id%>; --%>
 			let bootcampName = <%=bootcamp_name%>;
 			let teacherId = '${teacher.teacher_id}';
 			let teacherName = '${teacher.teacher_name}';

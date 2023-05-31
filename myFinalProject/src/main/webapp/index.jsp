@@ -4,4 +4,4 @@
 <%--  <% response.sendRedirect("/member/userLogin.do"); %>  --%>
 <%--  <% response.sendRedirect("/bootcamp/bootcampLogin.do"); %>   --%>
 <%-- <% response.sendRedirect("/teacher/getTeacherList.do"); %>  --%>
- <% response.sendRedirect("main.do"); %>
+ <% response.sendRedirect("/member/main.do"); %>
