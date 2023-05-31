@@ -43,7 +43,7 @@
 	<select resultType="bootcamp" id="selectBootcamp" parameterType="String">SELECT * FROM bootcamp WHERE userid=#{value} </select>
 	
 	<!-- 회원탈퇴 -->
-	<delete id="deletebootcamp">delete form bootcampwhereuserid = #{userid} andpassword = #{password} </delete>
+	<delete id="deletebootcamp">delete form bootcamp where userid = #{userid} and password = #{password} </delete>
 	
 	<!-- 학원 회원가입 -->
 	<insert id="insertBootcamp" parameterType="bootcamp">INSERT INTO bootcamp(userid, name, nickname, email, password, tel, bootcamp_id,bootcamp_name, representative,bootcamp_manager,bootcamp_add,bootcamp_site, manager_email) VALUES (#{userid},#{name},#{nickname},#{email},#{password},#{tel},#{bootcamp_id}, #{bootcamp_name}, #{representative},#{bootcamp_manager},#{bootcamp_add}, #{bootcamp_site},#{manager_email}) </insert>
