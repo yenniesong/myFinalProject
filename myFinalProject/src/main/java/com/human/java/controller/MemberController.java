@@ -1,114 +1,398 @@
 package com.human.java.controller;
 
-import java.util.Date;
-import java.util.List;
+import java.io.IOException;
+import java.net.URLEncoder;
+import java.util.Random;
 
+import javax.inject.Inject;
+import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.human.java.domain.BootcampVO;
+import com.human.java.domain.Company_infoVO;
 import com.human.java.domain.MemberVO;
-import com.human.java.service.MemberService;
+import com.human.java.service.Y_MemberService;
 
 @Controller
-@RequestMapping("/member/")
+@RequestMapping("/member/*")
 public class MemberController {
-	
-	@Autowired
-	private MemberService memberService;
-	
-	@RequestMapping("{url}.do")
-	public String userViewPage(@PathVariable String url) {
-		System.out.println("## Member Controller 진입 ## " + url);
-		
-		return "/member/" + url;
-	}
-	
-	@RequestMapping("/userInsert.do")
-	public ModelAndView userInsert(MemberVO vo) {
-		System.out.println("## userInsert.do 진입 ##");
-		
-		// 데이터베이스에 등록 작업
-		int result = memberService.userInsert(vo);
-		System.out.println("결과 : " + result);
-		String message = "가입이 되지 않았음ㅋ";
-		
-		if (result > 0) message = vo.getName() + " 님, 가입을 ㅊㅋ";
-	
-		// message와 result를 화면에 전달 >> Model & ModelAndView 사용
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/user/userJoin_ok");	// 보낼 주소
-		mv.addObject("message", message);
-		mv.addObject("result", result);
-		
-		return mv;
-	}
-	
-	@RequestMapping("/login.do")
-	public String userLogin(MemberVO vo, HttpSession session) {
-		System.out.println("## login.do 진입 ##");
-		
-		System.out.println("## id : " + vo.getUserId());
-		System.out.println("## pwd : " + vo.getPassword());
 
-		MemberVO result = memberService.idCheck_Login(vo);
-		
-		// 4. 맞으면 성공(객체 생성) 틀리면 실패(null)
-		if (result == null || result.getUserId() == null) {
-			// 결과 없을 때
-			return "/user/userLogin";
+	@Inject
+	private Y_MemberService service;
+
+	// 로그인들어가기전
+	@GetMapping("/login")
+	public String loginform() {
+		System.out.println("loginform()호출..");
+		return "member/login";
+	}
+
+	@PostMapping("/login")
+	public String login(MemberVO memberVO, HttpSession session, RedirectAttributes rttr) throws Exception {
+		System.out.println("login()호출..");
+
+		MemberVO login = service.memberlogin(memberVO);
+
+		// 로그인을 실패 -- null
+		// 로그인을 성공 -- 아이디, 구분값
+		// if 구분값이 bcm 으로 구분
+
+		if (login == null || StringUtils.isEmpty(memberVO.getUserid()) || StringUtils.isEmpty(memberVO.getPassword())) {
+			// 로그인 실패 처리 및 아이디 또는 비밀번호가 입력되지 않은 경우 처리
+			String alertScript = "<script>alert('아이디 또는 비밀번호를 다시 입력해주세요');";
+			alertScript += "window.location.href='/member/login';</script>";
+			return "redirect:/member/login?alertScript=" + URLEncoder.encode(alertScript, "UTF-8");
+
 		} else {
-			System.out.println("[ " + result.getUserId() + " ] 로그인 성공");
-			
-			
-			// 세션에 login 이름에 사용자 이름 저장
-			session.setAttribute("loginFg","s");
-			
-			session.setAttribute("name", result.getName());
-			session.setAttribute("userId", result.getUserId());
-			session.setAttribute("nickName", result.getNickName());
-			session.setAttribute("academy", result.getAcademy());
-			
-			session.setAttribute("sessionTime", new Date().toLocaleString());
-			
-			// 있을 경우 연결하는 페이지
-//			return "redirect:/qnaBoard/getQnAList.do";	// 리턴에는 /user/ 꼭 써줘야함
-			return "redirect:/teacher/getTeacherList.do";	// 리턴에는 /user/ 꼭 써줘야함
+			session.setAttribute("userId", login.getUserid()); // 로그인 정보 세션에 저장
+			session.setAttribute("loginFG", login.getLoginFG());
+			// 로그인 완료하면 가는 경로
+			return "member/loginok";
 		}
 	}
-	
-	@RequestMapping("/memberInfo.do")
-	public String userInfo(Model model, HttpSession session) {
 
-		if (session.getAttribute("userId") == null) {
-			return "redirect:/user/userLogin.do";
+	// 일반 회원가입하기전
+	@GetMapping("/join")
+	public String joinform() {
+		System.out.println("Joinform() 호출..");
+		return "member/join";
+	}
+
+	// 일반회원 가입 완
+	@PostMapping("/student")
+	public String joinStudent(@ModelAttribute MemberVO memberVO) throws Exception {
+
+		// StudentForm 데이터를 이용하여 Student 객체 생성 및 데이터 저장 로직 수행
+		// StudentService를 사용하여 데이터 저장
+		service.insertmember(memberVO);
+		System.out.println("학생회원가입 완");
+		return "redirect:/";
+	}
+
+	// 학원회원 가입 완
+	@PostMapping("/bootcamp")
+	public String joinBootcamp(@ModelAttribute BootcampVO bootcampVO) throws Exception {
+
+		// BootcampForm 데이터를 이용하여 Bootcamp 객체 생성 및 데이터 저장 로직 수행
+		// BootcampService를 사용하여 데이터 저장
+		service.insertBootcamp(bootcampVO);
+		System.out.println("학원회원가입 완");
+		return "redirect:/";
+	}
+
+	// 기업회원가입 완
+	@PostMapping("/company")
+	public String joinCompany(@ModelAttribute Company_infoVO companyVO) throws Exception {
+
+		// CompanyForm 데이터를 이용하여 Company 객체 생성 및 데이터 저장 로직 수행
+		// CompanyService를 사용하여 데이터 저장
+		service.insertCompanyInfo(companyVO);
+		System.out.println("기업회원가입 완");
+		return "redirect:/";
+	}
+
+	// 아이디 중복체크
+	@ResponseBody
+	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
+	public int idCheck(String userid) throws Exception {
+		System.out.println("아이디중복체크 들어오기");
+
+		int idCheck = service.idCheck(userid);
+
+		int result = 0;
+
+		if (idCheck > 0) {
+			result = 1;
 		}
+
+		return result;
+	}
+
+	// 일반 회원 마이페이지
+	@GetMapping("MembermyPage")
+	public String memberModify(Model model, HttpSession session) throws Exception {
+		System.out.println("일반 정보수정 들어가요");
+		String userid = (String) session.getAttribute("userId"); // id
+
+		MemberVO member = service.getMemberByUserId(userid);
+
+		// 데이터 베이스를 접근
+		// select * from member where id = id
+
+		// 결과 : memberVO
+		model.addAttribute("member", member);
+
+		return "member/MembermyPage";
+	}
+
+	// 회원정보 수정 post
+	@PostMapping("/updatemember")
+	public String membepostModify(HttpSession session, MemberVO member, Model model) throws Exception {
+		System.out.println("수정했습니다.");
+		System.out.println(member);
+		service.updatemember(member);
+
+		// 수정된 정보를 다시 조회하여 Model에 저장하여 뷰로 전달
+		MemberVO updatemember = service.getMemberByUserId(member.getUserid());
+
+		model.addAttribute("member", updatemember);
+
+		/* session.invalidate(); */
+
+		return "member/MembermyPage";
+	}
+
+	// 학원 회원 마이페이지
+	@GetMapping("BootcampmyPage")
+	public String bootcampModify(Model model, HttpSession session) throws Exception {
+		System.out.println("학원 정보수정 들어가요");
+		String userid = (String) session.getAttribute("userId"); // id
+		BootcampVO bootcamp = service.getBootcampByUserId(userid);
+
+		// 데이터베이스에서 회원 정보 조회 로직을 작성하여 BootcampVO 객체에 값을 설정합니다.
+		model.addAttribute("bootcamp", bootcamp);
+
+		System.out.println(bootcamp.getUserid());
+		// 데이터 베이스를 접근
+		// select * from bootcamp where id = id
+
+		// 결과 : BootcampVO
+
+		return "member/BootcampmyPage";
+	}
+
+	// 학원 회원정보 수정 post
+	@PostMapping("/updatebootcamp")
+	public String bootcamppostModify(HttpSession session, BootcampVO bootcamp, Model model) throws Exception {
+		System.out.println("수정했습니다.");
+
+		service.updatebootcamp(bootcamp);
+
+		// 수정된 정보를 다시 조회하여 Model에 저장하여 뷰로 전달
+		BootcampVO updatebootcamp = service.getBootcampByUserId(bootcamp.getUserid());
+
+		model.addAttribute("bootcamp", updatebootcamp);
+
+		/* session.invalidate(); */
+
+		return "member/BootcampmyPage";
+	}
+
+	// 기업 회원 마이페이지
+	@GetMapping("/CompanymyPage")
+	public String companyModify(Model model, HttpSession session) throws Exception {
+		System.out.println("기업 정보수정 들어가요");
+		String userid = (String) session.getAttribute("userId"); // id
+		Company_infoVO companyInfo = service.getCompanyByUserId(userid);
+
+		// 조회된 회원 정보를 Model에 저장하여 뷰로 전달
+		model.addAttribute("companyInfo", companyInfo);
+
+		System.out.println(companyInfo.getUserid());
+		// 데이터 베이스를 접근
+		// select * from company_info where id = id
+
+		// 결과 : Company_infoVO
+		return "member/CompanymyPage";
+	}
+
+	// 기업정보 수정 post
+	@PostMapping("/updatecompany")
+	public String updateCompanyInfo(@ModelAttribute("companyInfo") Company_infoVO companyInfo, Model model,
+			HttpSession session) throws Exception {
+		// 수정된 회원 정보를 데이터베이스에 저장
+		service.updatecompany(companyInfo);
+
+		// 수정된 정보를 다시 조회하여 Model에 저장하여 뷰로 전달
+		Company_infoVO updatedCompanyInfo = service.getCompanyByUserId(companyInfo.getUserid());
+
+		model.addAttribute("companyInfo", updatedCompanyInfo);
+
+		// 정보 수정한거 다시 저장
+		session.setAttribute("companyInfo", updatedCompanyInfo);
+
+		return "member/CompanymyPage";
+	}
+
+	// 로그아웃
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception {
+		System.out.println("로그아웃 실행");
+
+		session.invalidate();
+
+		return "redirect:/";
+	}
+
+	// 아이디 찾기 들어가기
+	@RequestMapping(value = "/member/searchId", method = RequestMethod.GET)
+	public String searchid(HttpServletRequest request, Model model) {
+		System.out.println("아이디 찾기 들어가여,,,");
+		return "/member/searchId";
+	}
+
+	// 아이디 찾기
+	@PostMapping("search_result_id")
+	public String search_result_id(Model model, HttpSession session, @RequestParam("name") String name,
+			@RequestParam("tel") String tel) throws Exception {
+		System.out.println("아이디 찾기 실행해여,,,");
+
+		// 이름과 전화번호로 각 테이블에서 아이디를 조회
+		MemberVO memberVO = new MemberVO();
+		memberVO.setName(name);
+		memberVO.setTel(tel);
+
+		BootcampVO bootcampVO = new BootcampVO();
+		bootcampVO.setName(name);
+		bootcampVO.setTel(tel);
+
+		Company_infoVO company_infoVO = new Company_infoVO();
+		company_infoVO.setName(name);
+		company_infoVO.setTel(tel);
+
+		MemberVO memberuserid = service.memberIdSearch(memberVO);
+		BootcampVO bootcampuserid = service.bootcampIdSearch(bootcampVO);
+		Company_infoVO companyuserid = service.companyIdSearch(company_infoVO);
+
+		// 조회한 아이디 값을 모델에 추가
+		model.addAttribute("member", memberuserid);
+		model.addAttribute("bootcamp", bootcampuserid);
+		model.addAttribute("company", companyuserid);
+
+		return "member/search_result_id";
+	}
+
+	
+	// 비밀번호 찾기 들어가기
+	@RequestMapping(value = "/member/searchPw", method = RequestMethod.GET)
+	public String searchPw(HttpServletRequest request, Model model, MemberVO searchPW) {
+		return "/member/searchPw";
+	}
+
+	
+	// 비밀번호 찾기 실행
+	@PostMapping("search_result_pw")
+	public String search_result_pw(Model model, HttpSession session,
+			@RequestParam("email") String email, @RequestParam("userid") String userid) throws Exception {
 		
-		System.out.println("## memberInfo.do 진입 ##");
-		
-		List<MemberVO> mList = memberService.memberInfo();
-		
-		model.addAttribute("memberInfoList", mList);
-		
-		return "/user/memberInfo";
+		System.out.println("비밀번호 찾기 실행해여,,,");
+		System.out.println("userid : " + userid);
+		System.out.println("email : " + email);
+
+		// 이름과 전화번호로 각 테이블에서 아이디를 조회
+		MemberVO memberVO = new MemberVO();
+		memberVO.setUserid(userid);
+		memberVO.setEmail(email);
+
+		BootcampVO bootcampVO = new BootcampVO();
+		bootcampVO.setUserid(userid);
+		bootcampVO.setEmail(email);
+				
+		Company_infoVO company_infoVO = new Company_infoVO();
+		company_infoVO.setUserid(userid);
+		company_infoVO.setEmail(email);
+
+		MemberVO memberpw = service.memberPwCheck(memberVO);
+		System.out.println("memberpw : " + memberpw);
+		BootcampVO bootcamppw = service.bootcampPwCheck(bootcampVO);
+		Company_infoVO companypw = service.companyPwCheck(company_infoVO);
+
+		// 조회한 아이디 값을 모델에 추가
+		model.addAttribute("member", memberpw);
+		model.addAttribute("bootcamp", bootcamppw);
+		model.addAttribute("company", companypw);
+
+	    return "member/search_result_pw";
+	}
+
+
+	// 회원 탈퇴 get
+	@GetMapping("/DeleteView")
+	public String DeleteView() throws Exception {
+		System.out.println("회원탈퇴 들어가여");
+		return "member/DeleteView";
+	}
+
+	// 회원탈퇴 진행
+	@PostMapping("/DeleteView2")
+	public String memberdelete(HttpSession session, MemberVO memberVO, BootcampVO bootcampVO, Company_infoVO companyVO,
+			RedirectAttributes rttr) throws Exception {
+
+		String userid = (String) session.getAttribute("userId"); // id
+		// id
+		System.out.println("userid : " + memberVO.getUserid());
+		// password
+		System.out.println("password : " + memberVO.getPassword());
+		// FG
+		System.out.println("FG : " + memberVO.getLoginFG());
+
+		if (memberVO.getLoginFG().equals("m")) {
+			// 'm'에 해당하는 동작 수행
+			service.memberDelete(memberVO);
+			session.invalidate();
+			System.out.println("멤버 하나 삭제요");
+
+		} else if (memberVO.getLoginFG().equals("b")) {
+			// 'b'에 해당하는 동작 수행
+			service.bootcampDelete(bootcampVO);
+
+			session.invalidate();
+			System.out.println("학원 멤버 하나 삭제요");
+
+		} else if (memberVO.getLoginFG().equals("c")) {
+			// 'c'에 해당하는 동작 수행
+			service.companyDelete(companyVO);
+
+			session.invalidate();
+			System.out.println("기업 멤버 하나 삭제요");
+
+		} else {
+			// 비밀번호가 일치하지 않는 경우
+			rttr.addFlashAttribute("msg", "비밀번호가 일치하지 않습니다.");
+			return "redirect:/member/DeleteView";
+		}
+
+		return "/member/login";
 	}
 	
-	@RequestMapping("logOut.do")
-	public ModelAndView logOut(HttpSession session) {
-		System.out.println("## logOut.do 진입 ##");
+	// 내가 쓴 글 
+	@GetMapping("/mylist")
+	public String mylist() throws Exception {
+		System.out.println("내글 목록 들어가여");
+		// id
 		
-		ModelAndView mv = new ModelAndView();
+		// service
 		
-		session.removeAttribute("sessionTime");	// 한개 삭제
-		
-//		session.invalidate();	// 초기화, 모든 세션을 제거하기때문에 주의
-		mv.setViewName("/user/userLogin");	// 페이지 전환
-		
-		return mv;
+		// 대상의.size()
+		return "member/mylist";
 	}
+	
+
+	// 내가 쓴 댓글
+	@GetMapping("/myComment")
+	public String myComment() throws Exception {
+		System.out.println("내댓글 목록 들어가여");
+		return "member/myComment";
+	}
+	
+	
+	
+
+
 }

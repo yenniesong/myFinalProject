@@ -8,8 +8,15 @@
 	HttpSession bootSession = request.getSession();
 	String userId = (String)bootSession.getAttribute("userId");
 	String name = (String)bootSession.getAttribute("name");
-	int bootcamp_id = (Integer)bootSession.getAttribute("bootcamp_id");
+	System.out.println(name);
+	// if FG 가 b일때만 아래 문장이 실행하도록 
+ 		// String bootcamp_id = (String)bootSession.getAttribute("bootcamp_id");
+	// else 아닐때는 0을넣는다거나 로그인창으로 이동시키는 문장
+// 	int bootcamp_id = 2;
+	
+// 	System.out.println(bootcamp_id);
 	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
+	
 %>
 
 <!DOCTYPE html>
@@ -927,9 +934,7 @@
 	                              		</div>
 	                              		</c:forEach>
 	         					 	</c:when>
-	         					 	
 	         					 	<c:otherwise>
-	          
 		                              <div class="jsx-4119538605 review-area">
 		                                <div class="jsx-4149508951 review-tab">
 		                                  <div class="jsx-1546215327 tabs">
@@ -1015,10 +1020,10 @@
 		                                  </div>
 		                                </div>
 		                              </div>
-	                              </div>
-	                            </div>
 	                            </c:otherwise>
                             	</c:choose>
+                            	 </div>
+		                         </div>
                             </form>
                          
                           </div>

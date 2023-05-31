@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.MemberVO;
 import com.human.java.service.BootcampService;
-import com.human.java.service.MemberService;
+import com.human.java.service.Y_MemberService;
 
 @Controller
 @RequestMapping("/bootcamp/")

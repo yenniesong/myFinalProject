@@ -19,7 +19,51 @@
   		  FROM bootcamp
 <!--   		  WHERE userId = #{userId} -->
   	</select>
-
+  	
+  	
+  	<!-- 미나 mapper.xml -->
+	
+	<select resultType="bootcamp" id="bootcamplogin">
+	SELECT 'b' as loginFG,userid, password FROM bootcamp WHERE userid =#{userid} AND password =#{password} UNION ALL 
+	<!-- -->
+	
+	SELECT 'c',userid, password FROM COMPANY_INFO WHERE userid = #{userid} AND password = #{password} UNION ALL 
+	<!-- -->
+	
+	SELECT 'm',userid, password FROM MEMBER WHERE userid = #{userid} AND password =#{password} UNION ALL 
+	<!-- -->
+	
+	SELECT 'A',userid, password FROM ADMIN WHERE userid= #{userid} AND password =#{password} 
+	</select>
+	
+	<!-- 학원회원수정 -->
+	<update id="bootcampmodify" parameterType="bootcamp">UPDATE bootcamp SET name = #{name}, nickname = #{nickname},email =#{email},password =#{password},tel = #{tel},bootcamp_id =#{bootcamp_id},bootcamp_name =#{bootcamp_name},representative =#{representative},bootcamp_manager =#{bootcamp_manager},bootcamp_add= #{bootcamp_add},bootcamp_site =#{bootcamp_site},manager_email =#{manager_email} WHERE userid =#{userid} </update>
+	
+	<!-- 학원정보 찾기 -->
+	<select resultType="bootcamp" id="selectBootcamp" parameterType="String">SELECT * FROM bootcamp WHERE userid=#{value} </select>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="deletebootcamp">delete form bootcampwhereuserid = #{userid} andpassword = #{password} </delete>
+	
+	<!-- 학원 회원가입 -->
+	<insert id="insertBootcamp" parameterType="bootcamp">INSERT INTO bootcamp(userid, name, nickname, email, password, tel, bootcamp_id,bootcamp_name, representative,bootcamp_manager,bootcamp_add,bootcamp_site, manager_email) VALUES (#{userid},#{name},#{nickname},#{email},#{password},#{tel},#{bootcamp_id}, #{bootcamp_name}, #{representative},#{bootcamp_manager},#{bootcamp_add}, #{bootcamp_site},#{manager_email}) </insert>
+	
+	<!-- 아이디찾기 -->
+	<select resultType="int" id="pwCheck" parameterType="String">SELECT COUNT(*) FROM bootcamp WHERE userid = #{userid} AND password =#{password} </select>
+	
+	<select resultType="bootcamp" id="bootcampIdSearch">SELECT userid FROM bootcamp WHERE name = #{name} AND tel = #{tel} </select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select resultType="bootcamp" id="bootcampPwCheck" parameterType="bootcamp">SELECT password FROM bootcamp WHERE userid = #{userid} AND email = #{email} </select>
+	
+	<!-- 비밀번호 찾기 업테이트 -->
+	<update id="bootcampPwUpdate" parameterType="bootcamp">UPDATE bootcampSETpassword = #{password}WHEREname = #{name}AND userid = #{userid}AND email = #{email} </update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="bootcampDelete">DELETE FROM bootcamp WHERE userid = #{userid} AND password = #{password} </delete>
+	
+	<!-- 비밀번호 메일인증 -->
+	<select resultType="bootcamp" id="findByEmail" parameterType="String">SELECT * FROM bootcamp WHERE email = #{email} </select>
   </mapper>
   
 

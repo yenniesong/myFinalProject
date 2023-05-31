@@ -68,7 +68,7 @@ public class TeacherController {
 		System.out.println("rVO : " + rVo);
 		
 		List<ReviewVO> rList = reviewService.getTReviewList(rVo);
-		
+		System.out.println(rList.size());
 		model.addAttribute("rList", rList);
 		
 		return "/teacher/teacherInDetail";

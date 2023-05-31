@@ -1,0 +1,172 @@
+  .inner-page .container {
+          max-width: 1100px;
+          margin: 0 auto;
+          padding: 20px;
+ 
+        }
+        
+        .header {
+          
+          margin-bottom: 20px;
+        }
+        
+        .menu ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: flex;
+          justify-content: center;
+        }
+        
+        .menu ul li {
+          margin-right: 10px;
+        }
+        
+        .menu ul li a {
+          text-decoration: none;
+          color: #333;
+          padding: 5px 10px;
+        }
+        
+        .content_my-info {
+          margin-top: 20px;
+        }
+        
+        table {
+          width: 100%;
+          border-collapse: collapse;
+          
+        }
+        
+        table td,
+        table th {
+          padding: 10px;
+          font-weight: bolder;
+          color: #8d8d8f;
+        }
+        
+        button {
+          margin-top: 10px;
+          padding: 8px 16px;
+          background-color: #1ac4ee;
+          color: #fff;
+          border: none;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+        
+        button:hover {
+          background-color: #c6d0e6;
+        }
+        
+        .password_check_result {
+          font-weight: bold;
+        }
+        
+        /* 잡코리아 스타일 */
+
+        
+        .header {
+          background-color: #ffffff;
+          padding: 20px;
+        }
+        
+        .header h1 {
+          color: #949494;
+          font-size: 24px;
+          margin: 0;
+        }
+        
+        .user-info {
+          margin-top: 10px;
+        }
+        
+        .user-info p {
+          margin: 0;
+          margin-top : -50px;
+        }
+        
+        .menu {
+          background-color: #ffffff;
+          padding: 20px;
+          margin-top: -50px;
+          border-radius: 4px;
+          float : left;
+        }
+        
+        .menu ul li a {
+          font-size: 18px;
+          font-weight: bold;
+        }
+        
+        .menu ul li a:hover{
+            color: #949494;
+           
+        }
+        .content_my-info {
+          background-color: #ffffff;
+          padding: 20px;
+          margin-top: 20px;
+          border-radius: 4px;
+          
+         
+        }
+        
+        form {
+          margin-top: 20px;
+          margin-bottom: 20px;
+         border-collapse: collapse;
+        }
+        
+        form p {
+          font-size: 18px;
+          font-weight: bold;
+          margin-bottom: 10px;
+          
+        }
+        
+        form table {
+          margin-bottom: 20px;
+          font-size: 18px;
+          text-align: center;
+          border-collapse: collapse;
+       
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        select {
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-bottom: 1px solid #b9b9bb;
+            border-radius: 0;
+            background-color: transparent;
+            margin-left: 40px;
+            color: #434343;
+        }
+        
+        input[type="submit"],
+        input[type="button"] {
+          margin-top: 10px;
+          padding: 10px 30px;
+          background-color: #1ac4ee;
+          color: #fff;
+          border: none;
+          border-radius: 12px;
+          cursor: pointer;
+          float: right;
+          margin-right: 10px;
+         
+          
+        }
+        
+        input[type="submit"]:hover,
+        input[type="button"]:hover {
+          background-color: #62cee9;
+        }
+        

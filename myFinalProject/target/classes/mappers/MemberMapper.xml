@@ -20,6 +20,45 @@
 <!--   		  WHERE userId = #{userId} -->
   	</select>
   	
+  	<!-- 미나 mapper.xml -->
+  	<!-- 일반로그인 -->
+	<select resultType="Member" id="memberlogin"> SELECT 'b' as loginFG,userid, password FROM bootcamp WHERE userid = #{userid} AND password =#{password}UNION ALL SELECT 'c', userid, password FROM COMPANY_INFOWHERE userid =#{userid}AND password = #{password} UNION ALL SELECT'm', userid, password FROMMEMBERWHERE userid = #{userid} AND password= #{password} UNION ALL SELECT 'A',userid, password FROM ADMIN WHEREuserid = #{userid} AND password =#{password} </select>
+	
+	<!-- 아이디찾기 -->
+	<select resultType="Member" id="memberIdSearch"> SELECT userid FROMmember WHERE name = #{name} AND tel = #{tel} </select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select resultType="Member" id="memberPwCheck" parameterType="Member">SELECT passwordFROM memberWHERE userid = #{userid} AND email = #{email} </select>
+	
+	<!-- 회원정보 수정 -->
+	<update id="memberPwUpdate" parameterType="Member">UPDATE memberSETpassword = #{password}WHEREname = #{name}AND userid = #{userid}ANDemail = #{email} </update>
+	
+	<!-- 일반회원 수정 -->
+	<update id="membermodify" parameterType="Member">
+		UPDATE member SET userid=#{userid},name = #{name},nickname =#{nickname},email = #{email},password = #{password},tel = #{tel},birth =#{birth},interests = #{interests},gender = #{gender},location =#{location},position = #{position},academy = #{academy},employed =#{employed}WHEREuserid = #{userid} 
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="deletemember">delete from memberwhere userid = #{userid} andpassword = #{password} </delete>
+	
+	<!-- 학생정보 찾기 -->
+	<select resultType="Member" id="selectMember" parameterType="String">SELECT * FROM memberWHERE userid=#{value} </select>
+	
+	<!-- 학생 회원가입 -->
+	<insert id="insertmember" parameterType="Member">INSERT INTOmember(userid, name, nickname, email, password, tel, birth,interests,gender, location, position,academy,employed)VALUES(#{userid},#{name},#{nickname},#{email},#{password},#{tel},#{birth}, #{interests}, #{gender},#{location}, #{position},#{academy}, #{employed}) </insert>
+	
+	<!-- 아이디 중복검사 -->
+	<select resultType="int" id="idCheck" parameterType="String">SELECTCOUNT(*) FROM (SELECT userid FROM memberUNION ALLSELECT userid FROMbootcampUNION ALLSELECT userid FROM company_infoUNION ALLSELECT useridFROM admin) combinedWHERE userid = #{userid} </select>
+	
+	<!-- 비밀번호체크 -->
+	<select resultType="int" id="pwCheck" parameterType="String">SELECTCOUNT(*)FROM memberWHERE userid = #{userid} AND password = #{password} </select>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="memberDelete">DELETE FROM memberWHERE userid = #{userid}ANDpassword = #{password} </delete>
+	
+	<!-- 비밀번호 메일인증 -->
+	<select resultType="Member" id="findByEmail" parameterType="String">SELECT * FROM member WHERE email = #{email} </select>
+  	
   </mapper>
   
 

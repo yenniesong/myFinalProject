@@ -1,0 +1,250 @@
+@charset "UTF-8";
+
+*{
+    font-family: 'TAEBAEKmilkyway';
+  }
+    @font-face {
+      font-family: 'TAEBAEKmilkyway';
+      src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+	}
+
+	/* 전체 레이아웃 스타일 */
+.container {
+	margin: 0 auto;
+	max-width: 900px;
+  }
+  
+  /* 헤더 스타일 */
+  .header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px 0;
+	border-bottom: 1px solid #ddd;
+  }
+  
+  .header h1 {
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .user-info a {
+	color: #0077c8;
+	text-decoration: none;
+  }
+  
+  .user-info p {
+	font-size: 18px;
+  }
+  
+  /* 메뉴 스타일 */
+  .menu {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 30px;
+  }
+  
+  .menu ul {
+	display: flex;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .menu li {
+	margin-right: 30px;
+  }
+  
+  .menu a {
+	color: #333;
+	font-size: 18px;
+	text-decoration: none;
+  }
+  
+  .menu a:hover {
+	text-decoration: underline;
+  }
+  
+  /* 콘텐츠 스타일 */
+  .content_my-info,
+  .content_my-posts {
+	margin-top: 30px;
+  }
+  
+  .content_my-info h3,
+  .content_my-posts p {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 20px;
+  }
+  
+  .content_my-info table {
+	width: 100%;
+	border-collapse: collapse;
+  }
+  
+  .content_my-info td {
+	padding: 10px;
+	border: 1px solid #ddd;
+  }
+  
+  .content_my-info label {
+	display: block;
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 10px;
+  }
+  
+  .content_my-info input[type="text"],
+  .content_my-info input[type="password"],
+  .content_my-info input[type="email"],
+  .content_my-info input[type="tel"] {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	font-size: 18px;
+  }
+  
+  .content_my-info button[type="submit"] {
+	background-color: #0077c8;
+	color: #fff;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	font-size: 18px;
+	margin-top: 20px;
+  }
+  
+  .content_my-info button[type="submit"]:hover {
+	background-color: #005ea3;
+	cursor: pointer;
+  }
+  
+  .content_my-info a {
+	color: #0077c8;
+	text-decoration: none;
+	font-size: 18px;
+  }
+  
+  .content_my-info a:hover {
+	text-decoration: underline;
+  }
+  
+  /* 반응형 스타일 */
+  @media only screen and (max-width: 767px) {
+	.header h1 {
+	  font-size: 24px;
+	}
+  
+	.user-info p {
+	  font-size: 16px;
+	}
+  
+	.menu ul {
+	  flex-direction: column;
+	}
+  
+	.menu li {
+	  margin-right: 0;
+	  margin-bottom: 10px;
+	}
+  }
+
+  h2{
+   
+    margin-top: 50px;
+    margin-left : 30px;
+  }
+  
+  h3{
+   margin-left : 30px;
+   }
+  
+  /* content 영역 스타일 */
+.search{
+  margin-top: 30px;
+  margin-left: 180px;
+}
+    /* submit-button 스타일 */
+  #searchBtn {
+    background: #47b2e4;
+    border: 0;
+    padding: 10px 34px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bolder;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    cursor: pointer;
+  }
+  
+  
+  /* input 스타일 */
+  input[type="text"],
+  select, select>option {
+    background:transparent;
+    border:none;
+    border-bottom: solid 1px #ccc;
+    padding:10px 0px 5px 0px;
+    font-size:12pt;
+    width: 500px;
+    cursor: pointer;
+    margin-left: 20px;
+  }
+
+  input[type="text"]{
+    width: 50%;
+    
+  }
+
+  select{
+    width: 10%;
+    cursor: pointer;
+  
+  }
+
+
+  /* table 스타일 */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+    padding: auto;
+  }
+  
+  td, th {
+    border: 1px solid #e9e9e9;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #f4f2f2;
+  }
+  
+  tr:hover {
+    background-color: #cbcbcb;
+  }
+  
+  /* 번호 표시 스타일 */
+  a{
+    text-decoration: none;
+  }
+
+  #bno{
+    margin-top: 50px;
+    text-align: center;
+    
+  }
+  li{
+    list-style: none;
+    float: right;
+    margin: 5px;
+    font-size: 13px;
+    
+  }
+  

@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+* {
+	color: #545252;
+	/* 	 font-family: 'TAEBAEKmilkyway'; */
+	border: 2px soild black;
+}
+
+/* @font-face {
+    font-family: 'TAEBAEKmilkyway';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302@1.0/TAEBAEKmilkyway.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+p {
+	font-size: 15px;
+	font-weight: bolder;
+	margin-top: 70px;
+}
+
+label[for="id"], 
+label[for="password"] {
+	margin-left: 10px;
+}
+
+
+#id, #password {
+	text-align: center;
+}
+
+.inner-page input{
+	background: transparent;
+	border: none;
+	border-bottom: solid 1px #ccc;
+	font-size: 12pt;
+	width: 400px;
+	cursor: pointer;
+	padding: 15px;
+	text-align: center;
+}
+
+
+
+.inner-page input:focus {
+	background-color: #efecec;
+}
+
+.inner-page #submit {
+	background: #47b2e4;
+	border: 0;
+	padding: 10px 30px;
+	color: #fff;
+	transition: 0.4s;
+	border-radius: 50px;
+	font-size: 15px;
+	width: 200px;
+	font-weight: bolder;
+	cursor: pointer;
+	margin: 20px auto 0;
+	display: block;
+}
+
+#submit:hover {
+	cursor: pointer;
+}
+
+#tag_form {
+	text-align: center;
+	margin-top: 20px;
+}
+
+#tag_form a {
+	text-decoration: none;
+	font-size: 12px;
+	margin-left: 10px;
+}
+
+#tag_form a:hover {
+	background: #209dd8;
+	cursor: pointer;
+}
+
+
+

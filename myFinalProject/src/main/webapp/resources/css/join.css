@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+* {
+	color: #363434;
+}
+
+body {
+	width: 100%;
+	height: auto;
+	padding: 5px;
+	font-family: "Raleway";
+	margin-left: 280px;
+}
+
+h2 {
+	color: #848282;
+}
+
+table {
+	width: 75%;
+	margin-left: 120px;
+	text-align: center;
+}
+
+.user-type p {
+	font-size: 20px;
+	font-weight: bolder;
+	text-align: center;
+	margin-top: -10px;
+}
+
+.msg {
+	font-wight: bolder;
+}
+
+span {
+	font-weight: border;
+}
+
+td input, select, select>option {
+	background: transparent;
+	border: none;
+	border-bottom: solid 1px #ccc;
+	padding: 20px;
+	font-size: 12pt;
+	width: 100%;
+	text-align: center;
+}
+
+td input:focus {
+	background-color: #efecec;
+}
+
+th {
+	width: 100px;
+}
+
+td {
+	width: 400px;
+}
+
+#passwordbtn,#idCheck, .member-btn, .member-reset, 
+.boot-btn, .boot-reset, .company-btn,
+	.company-reset {
+	margin-top: 10px;
+	padding: 10px 30px;
+	background-color: #1ac4ee;
+	color: #fff;
+	border: none;
+	border-radius: 12px;
+	cursor: pointer;
+	float: right;
+	margin-right : 5px;
+	margin-top : 20px;
+}
+
+#passwordbtn:hover,.member-btn:hover, 
+#idCheck:hover , .member-reset:hover, .boot-btn:hover, .boot-reset:hover, .company-btn:hover,
+	.company-reset:hover{
+	background-color: #62cee9;
+}
+
+/* 회원 유형 버튼 */
+.user-type {
+	font-size: 20px;
+	font-weight: bolder;
+	margin-top: 50px;
+	text-align: center;
+}
+
+.checkbtn-bootcamp, .checkbtn-company, .checkbtn-student, .chkbtn {
+	width: 25%;
+	height: 45px;
+	display: inline-block;
+	border: 1px solid #EAE7E7;
+	border-radius: 50px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: 20px;
+	font-weight: bolder;
+	transition: 0.4s;
+}
+
+.chkbtn:hover {
+	background: #EAE7E7;
+}
+
+.checkbtn-bootcamp input[type=radio], .checkbtn-company input[type=radio],
+	.checkbtn-student input[type=radio] {
+	display: none;
+}
+
+.checkbtn-bootcamp label, .checkbtn-company label, .checkbtn-student label
+	{
+	display: block;
+	border-radius: 50px;
+	margin: 0 auto;
+	text-align: center;
+	height: 100%;
+	line-height: 45px;
+	cursor: pointer;
+	transition: 0.4s;
+}
+
+/* Checked */
+.checkbtn-bootcamp input[type=radio]:checked+label, .checkbtn-company input[type=radio]:checked+label,
+	.checkbtn-student input[type=radio]:checked+label {
+	background: #47b2e4;
+	width: 100%;
+	color: #fff;
+	transition: 0.4s;
+}
+
+/* Hover */
+.checkbtn-bootcamp label:hover, .checkbtn-company label:hover,
+	.checkbtn-student label:hover {
+	background: #EAE7E7;
+	width: 100%;
+	color: #727475;
+	transition: 0.4s;
+}
+
+input[type="radio"] #yes-insurances {
+	display: none;
+}
