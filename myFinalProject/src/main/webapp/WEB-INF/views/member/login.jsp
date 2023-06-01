@@ -82,35 +82,35 @@
 <!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
 <!--           <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
-           <%
-    	if (userId == null) {
+<%--            <% --%>
+<!-- //     	if (userId == null) { -->
     	
-    		%>
-          <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="/member/login">로그인</a></li>
-              <li><a href="/member/join">회원가입</a></li>
-            </ul>
-          </li>
-        <% } else { %>
-        <% if (admin.equals("admin") ) { %>
+<%--     		%> --%>
+<!--           <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a> -->
+<!--             <ul> -->
+<!--               <li><a href="/member/login">로그인</a></li> -->
+<!--               <li><a href="/member/join">회원가입</a></li> -->
+<!--             </ul> -->
+<!--           </li> -->
+<%--         <% } else { %> --%>
+<%--         <% if (admin.equals("admin") ) { %> --%>
           
-          <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="badComment">신고글 관리페이지</a></li>
-              <li><a href="logoutAction">로그아웃</a></li>
-            </ul>
-          </li>
-          <% } else { %>
+<!--           <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a> -->
+<!--             <ul> -->
+<!--               <li><a href="badComment">신고글 관리페이지</a></li> -->
+<!--               <li><a href="logoutAction">로그아웃</a></li> -->
+<!--             </ul> -->
+<!--           </li> -->
+<%--           <% } else { %> --%>
           
-           <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#"><%=userNick %>페이지</a></li>
-              <li><a href="logoutAction">로그아웃</a></li>
-            </ul>
-          </li>
-          	<%} %>
-          <%} %>
+<!--            <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a> -->
+<!--             <ul> -->
+<%--               <li><a href="#"><%=userNick %>페이지</a></li> --%>
+<!--               <li><a href="logoutAction">로그아웃</a></li> -->
+<!--             </ul> -->
+<!--           </li> -->
+<%--           	<%} %> --%>
+<%--           <%} %> --%>
 <!--           <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
         </ul>
 <!--         <i class="bi bi-list mobile-nav-toggle"></i> -->

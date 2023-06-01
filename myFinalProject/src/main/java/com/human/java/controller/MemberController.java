@@ -40,9 +40,11 @@ public class MemberController {
 	private MemberService service;
 	
 	// 메인으로 가기
-	@RequestMapping("/main.do")
-	public String main() {
-	    return "member/main";
+	@GetMapping(value = {"/main", "/main.do"})
+	public String main(Model model) {
+		System.out.println("main()호출..");
+		// main.do에 대한 처리 내용 작성
+		return "member/main";
 	}
 
 	// 로그인들어가기전

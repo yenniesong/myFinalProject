@@ -4,35 +4,35 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-<%
+<%-- <% --%>
 	  
-	  String admin = null;
-	  String student = null;
-	  String company = null;
-	  String educator = null;
+<!-- // 	  String admin = null; -->
+<!-- // 	  String student = null; -->
+<!-- // 	  String company = null; -->
+<!-- // 	  String educator = null; -->
 	  
-	  String userId = null;
-	  String userNick = null;
+<!-- // 	  String userId = null; -->
+<!-- // 	  String userNick = null; -->
 	  
-	  if (session.getAttribute("userId") != null) {
+<!-- // 	  if (session.getAttribute("userId") != null) { -->
 	   
-		if (session.getAttribute("admin") != null ) {
-			admin = (String) session.getAttribute("admin"); 
-		} else if (session.getAttribute("student") != null ) {
-			student = (String) session.getAttribute("student"); 
-		} else if (session.getAttribute("company") != null ) {
-			company = (String) session.getAttribute("company"); 
-		} else if (session.getAttribute("educator") != null) {
-			educator = (String) session.getAttribute("educator");	
-		}
+<!-- // 		if (session.getAttribute("admin") != null ) { -->
+<!-- // 			admin = (String) session.getAttribute("admin");  -->
+<!-- // 		} else if (session.getAttribute("student") != null ) { -->
+<!-- // 			student = (String) session.getAttribute("student");  -->
+<!-- // 		} else if (session.getAttribute("company") != null ) { -->
+<!-- // 			company = (String) session.getAttribute("company");  -->
+<!-- // 		} else if (session.getAttribute("educator") != null) { -->
+<!-- // 			educator = (String) session.getAttribute("educator");	 -->
+<!-- // 		} -->
 	
-	  }
+<!-- // 	  } -->
 	  	
-	  if (session.getAttribute("userNick") != null) {
-	  	userNick = (String) session.getAttribute("userNick");
-	  }
+<!-- // 	  if (session.getAttribute("userNick") != null) { -->
+<!-- // 	  	userNick = (String) session.getAttribute("userNick"); -->
+<!-- // 	  } -->
 	
-%> 
+<%-- %>  --%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -137,7 +137,6 @@
     }
 
 </style>
-
 <style id="__jsx-2875758176">
   .sections.jsx-2875758176 {
     padding: 48px 40px;
@@ -486,7 +485,6 @@
     }
   }
 </style>
-
 <style id="__jsx-283961174">
     .title.jsx-283961174 {
         display: flex;
@@ -505,7 +503,6 @@
         color: rgb(63, 96, 204);
     }
 </style>
-
 <style id="__jsx-445560552">
     .card.jsx-445560552 {
         position:relative;
@@ -669,7 +666,6 @@
       .card.jsx-445560552 .stars .star{margin-right:2px;}
     }
   </style>
-
 <style id="__jsx-2704879397">
     .star-2.jsx-2704879397 {
         background-image: url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png");
@@ -684,7 +680,6 @@
         background-size: cover;
     }
 </style>
-
 <style id="__jsx-2373216897">
     .search-page.kindergarten.jsx-2373216897 .search-box.jsx-2373216897 {
         background-image:linear-gradient(261deg,#f65d58,#ff9d1f);
@@ -782,7 +777,6 @@
     }
 
 </style>
-
 <style id="__jsx-2595981909">
   .filter.jsx-2595981909 {
     display: -webkit-box;
@@ -1106,7 +1100,6 @@
     font-size: 14px;
   }
 </style>
-
 <style id="__jsx-786344230">
   h3.jsx-786344230 {
     display: -webkit-box;
@@ -1330,7 +1323,6 @@
     justify-content: center;
 }
 </style>
-
 <style id="__jsx-3824006232">
     li.jsx-3824006232 {
     margin: 0px 12px 12px 0px;
@@ -1374,7 +1366,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
     white-space: nowrap;
 }
 </style>
-
 <style id="__jsx-2749561681">
   li.jsx-2749561681 {
     margin: 0px 8px 8px 0px;
@@ -1426,35 +1417,35 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
 	        <li><a class="nav-link scrollto" href="#team">Team</a></li>
 	<!--           <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
-	         <%
-	  	if (userId == null) {
+<%-- 	         <% --%>
+<!-- // 	  	if (userId == null) { -->
 	  	
-	  		%>
-	        <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a>
-	          <ul>
-	            <li><a href="/member/login">로그인</a></li>
-	            <li><a href="/member/join">회원가입</a></li>
-	          </ul>
-	        </li>
-	      <% } else { %>
-	      <% if (admin.equals("admin") ) { %>
+<%-- 	  		%> --%>
+<!-- 	        <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a> -->
+<!-- 	          <ul> -->
+<!-- 	            <li><a href="/member/login">로그인</a></li> -->
+<!-- 	            <li><a href="/member/join">회원가입</a></li> -->
+<!-- 	          </ul> -->
+<!-- 	        </li> -->
+<%-- 	      <% } else { %> --%>
+<%-- 	      <% if (admin.equals("admin") ) { %> --%>
 	        
-	        <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
-	          <ul>
-	            <li><a href="badComment">신고글 관리페이지</a></li>
-	            <li><a href="logoutAction">로그아웃</a></li>
-	          </ul>
-	        </li>
-	        <% } else { %>
+<!-- 	        <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a> -->
+<!-- 	          <ul> -->
+<!-- 	            <li><a href="badComment">신고글 관리페이지</a></li> -->
+<!-- 	            <li><a href="logoutAction">로그아웃</a></li> -->
+<!-- 	          </ul> -->
+<!-- 	        </li> -->
+<%-- 	        <% } else { %> --%>
 	        
-	         <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
-	          <ul>
-	            <li><a href="#"><%=userNick %>페이지</a></li>
-	            <li><a href="logoutAction">로그아웃</a></li>
-	          </ul>
-	        </li>
-	        	<%} %>
-	        <%} %>
+<!-- 	         <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a> -->
+<!-- 	          <ul> -->
+<%-- 	            <li><a href="#"><%=userNick %>페이지</a></li> --%>
+<!-- 	            <li><a href="logoutAction">로그아웃</a></li> -->
+<!-- 	          </ul> -->
+<!-- 	        </li> -->
+<%-- 	        	<%} %> --%>
+<%-- 	        <%} %> --%>
 	<!--           <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
 	      </ul>
 	<!--         <i class="bi bi-list mobile-nav-toggle"></i> -->

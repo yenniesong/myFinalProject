@@ -53,25 +53,25 @@ public class MemberController_yennie {
 	public String userLogin(MemberVO vo, HttpSession session) {
 		System.out.println("## login.do 진입 ##");
 		
-		System.out.println("## id : " + vo.getUserId());
+		System.out.println("## id : " + vo.getUserid());
 		System.out.println("## pwd : " + vo.getPassword());
 
 		MemberVO result = memberService.idCheck_Login(vo);
 		
 		// 4. 맞으면 성공(객체 생성) 틀리면 실패(null)
-		if (result == null || result.getUserId() == null) {
+		if (result == null || result.getUserid() == null) {
 			// 결과 없을 때
 			return "/user/userLogin";
 		} else {
-			System.out.println("[ " + result.getUserId() + " ] 로그인 성공");
+			System.out.println("[ " + result.getUserid() + " ] 로그인 성공");
 			
 			
 			// 세션에 login 이름에 사용자 이름 저장
 			session.setAttribute("loginFg","s");
 			
 			session.setAttribute("name", result.getName());
-			session.setAttribute("userId", result.getUserId());
-			session.setAttribute("nickName", result.getNickName());
+			session.setAttribute("userId", result.getUserid());
+			session.setAttribute("nickName", result.getNickname());
 			session.setAttribute("academy", result.getAcademy());
 			
 			session.setAttribute("sessionTime", new Date().toLocaleString());
