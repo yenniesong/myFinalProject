@@ -17,6 +17,7 @@ import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -39,12 +40,19 @@ public class MemberController {
 	@Inject
 	private MemberService service;
 	
-	// 메인으로 가기
-	@GetMapping(value = {"/main", "/main.do"})
-	public String main(Model model) {
-		System.out.println("main()호출..");
-		// main.do에 대한 처리 내용 작성
+	@RequestMapping("/{url}")
+	public String viewPage(@PathVariable String url) {
+	
+		return url;
+	}
+	
+	@RequestMapping("main.do")
+	public String mainList() {
+	
+		System.out.println("메인 호출()");
+	
 		return "member/main";
+	
 	}
 
 	// 로그인들어가기전

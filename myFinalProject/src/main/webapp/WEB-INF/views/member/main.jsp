@@ -95,9 +95,9 @@
           
           <li class="dropdown"><a href="#"><span>Teacher | Course</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="/teacher/teacherList.do">Teacher</a></li>
-                <li><a href="#">Course</a></li>
-                <li><a href="#">Teacher | Course Q&A</a></li>
+                <li><a href="/teacher/getTeacherList.do">Teacher</a></li>
+                <li><a href="/course/getCourseList.do">Course</a></li>
+                <li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
               </ul>
             </li>
           

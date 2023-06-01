@@ -4,4 +4,7 @@
 <%-- <% response.sendRedirect("/qnaBoard/getQnAList.do"); %> --%>
 <%--  <% response.sendRedirect("/member/userLogin.do"); %>  --%>
 <%--  <% response.sendRedirect("/bootcamp/bootcampLogin.do"); %>   --%>
-<% response.sendRedirect("/teacher/getTeacherList.do"); %> 
+<%-- <% response.sendRedirect("/teacher/getTeacherList.do"); %>  --%>
+<% 
+    response.sendRedirect(request.getContextPath() + "/member/main.do");
+%> 
