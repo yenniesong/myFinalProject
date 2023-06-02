@@ -47,6 +47,7 @@ public class TeacherController {
 		
 		model.addAttribute("tList", tList);
 		System.out.println(tList.size());
+		
 		List<BootcampVO> bList = bootcampService.bootcampInfo();
 		
 		model.addAttribute("bList", bList);

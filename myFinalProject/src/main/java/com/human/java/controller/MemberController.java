@@ -79,8 +79,17 @@ public class MemberController {
 			return "redirect:/member/login?alertScript=" + URLEncoder.encode(alertScript, "UTF-8");
 
 		} else {
+			
+//			if ( login.getLoginFG().equals('m') ) {
+//				session.setAttribute("userId", login.getUserid()); // 로그인 정보 세션에 저장
+//				session.setAttribute("loginFG", login.getLoginFG());
+//			} else if ( login.getLoginFG().equals('b') ) {
+//				bootcampVO vo = service.메소드명(userid) 
+//			}
+			
 			session.setAttribute("userId", login.getUserid()); // 로그인 정보 세션에 저장
 			session.setAttribute("loginFG", login.getLoginFG());
+			
 			// 로그인 완료하면 가는 경로
 			return "member/loginok";
 		}

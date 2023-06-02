@@ -4,35 +4,13 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
-<%-- <% --%>
-	  
-<!-- // 	  String admin = null; -->
-<!-- // 	  String student = null; -->
-<!-- // 	  String company = null; -->
-<!-- // 	  String educator = null; -->
-	  
-<!-- // 	  String userId = null; -->
-<!-- // 	  String userNick = null; -->
-	  
-<!-- // 	  if (session.getAttribute("userId") != null) { -->
-	   
-<!-- // 		if (session.getAttribute("admin") != null ) { -->
-<!-- // 			admin = (String) session.getAttribute("admin");  -->
-<!-- // 		} else if (session.getAttribute("student") != null ) { -->
-<!-- // 			student = (String) session.getAttribute("student");  -->
-<!-- // 		} else if (session.getAttribute("company") != null ) { -->
-<!-- // 			company = (String) session.getAttribute("company");  -->
-<!-- // 		} else if (session.getAttribute("educator") != null) { -->
-<!-- // 			educator = (String) session.getAttribute("educator");	 -->
-<!-- // 		} -->
+<%
+	HttpSession tSession = request.getSession();
+
+	String userId = (String)tSession.getAttribute("userId");
+	String loginFG = (String)tSession.getAttribute("loginFG");
 	
-<!-- // 	  } -->
-	  	
-<!-- // 	  if (session.getAttribute("userNick") != null) { -->
-<!-- // 	  	userNick = (String) session.getAttribute("userNick"); -->
-<!-- // 	  } -->
-	
-<%-- %>  --%>
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -1456,148 +1434,155 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 	<main id="main">
 
-	    <!-- ======= Breadcrumbs ======= -->
-	    <section id="breadcrumbs" class="breadcrumbs">
-	      <div class="container">
+		<!-- ======= Breadcrumbs ======= -->
+		<section id="breadcrumbs" class="breadcrumbs">
+			<div class="container">
+			
+				<ol>
+					<li><a href="index.html">Home</a></li>
+					<li>Teacher</li>
+				</ol>
+				<h2>TEACHER</h2>
+			
+			</div>
+		</section><!-- End Breadcrumbs -->
 	
-	        <ol>
-	          <li><a href="index.html">Home</a></li>
-	          <li>Teacher</li>
-	        </ol>
-	        <h2>TEACHER</h2>
-	
-	      </div>
-	    </section><!-- End Breadcrumbs -->
-	
-	    <section class="inner-page">
-	      <div class="container">
-	        <div class="jsx-722889332 content">
-	          
-	          <!-- 선택 리스트 -->
-	          <div class="jsx-1629185219 search-layout">
-	            
-	            <div class="jsx-1629185219 title">
-	              <h4 class="jsx-1629185219">TEACHER</h4>
-	              <p class="jsx-1629185219">
-                	누가 나와 잘 맞는 선생님일까?
-	              </p>
-	            </div>
-	
-	            <div class="jsx-2373216897 search-page">
-	
-	              <!-- 해시태그 -->
-	              
-	              <ul class="jsx-786344230 sort-list">
-	                <li class="jsx-786344230">
-	                  <div class="jsx-2595981909 filter filter--institute">
-	                    <h4 class="jsx-2595981909">학원</h4>
-	                    <button type="button" class="jsx-2595981909 btn-all on">전체</button>
-	                    <ul class="jsx-2595981909">
-	                    <c:forEach items="${bList}" var="bootcamp">
-	                      <li class="jsx-3824006232">
-	                      <button type="button" class="jsx-3824006232 bootcamp_btn">
-	                      <span class="jsx-3824006232 logo">
-	                      <img src="${path}/resources/imgs/pea_icon.png" alt="${bootcamp.bootcamp_name}" class="jsx-3824006232"></span>
-	                          <div class="jsx-3824006232 bootcampName">${bootcamp.bootcamp_name}</div>
-	                        </button></li>
-	                        
-	                      </c:forEach>
-	                    </ul>
-	                  </div>
-	                </li>
-	                <li class="jsx-786344230">
-	                  <div class="jsx-2595981909 filter">
-	                    <h4 class="jsx-2595981909">과목</h4><button type="button" class="jsx-2595981909 btn-all on">전체</button>
-	                    <ul class="jsx-2595981909">
-	                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">프론트엔드</button></li>
-	                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">백엔드</button></li>
-	                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">풀스택</button></li>
-	                    </ul>
-	                  </div>
-	                </li>
-	              </ul>
-	              
-	            </div>
-	          </div>
-	
-	          <!-- 선생님 리스트 -->
-	          
-	          <div class="jsx-1629185219 search-result">
-	            
-	            <div class="jsx-1629185219 content">
-	              <div class="jsx-2875758176 sections">
-	                
-	                <div class="jsx-283961174 section section--search">
-	
-	                  <div class="jsx-283961174 title">
-	                    <h2 class="jsx-283961174">TEACHER&nbsp;</h2>
-	                  </div>
-	
-					<!-- 학원에서만 보이는 버튼 -->
-					<!-- 로그인 플래그가 b일 경우 -->
-<%-- 					 <c:if test="${loginFg eq 'b'}"> --%>
-	                  <div class="jsx-786344230 btn-add-teacher mb-3">
-	                    <span class="jsx-786344230">새로운 선생님을 등록하실 건가요?</span>
-	                    <button type="button" class="jsx-3375816330 addTeacher" style="width: 140px;">
-	                      <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">선생님 추가하기
-	                    </button>
-	                  </div>
-<%-- 	                  </c:if> --%>
-	
-	                  <ul class="jsx-2875758176 tutors">
-					  <c:forEach items="${tList}" var="teacher">
-	                    <li class="jsx-2875758176 tutorsLi">
-	                      <a class="jsx-2875758176" href="getTeacher.do?teacher_id=${teacher.teacher_id }">
-	                        <div tabindex="0" class="jsx-445560552 card">
-	                          <div class="jsx-445560552 content">
-	                            <div class="jsx-445560552 info">
-	                              <input type="hidden" value="${teacher.teacher_id }">
-	                              <input type="hidden" value="${teacher.bootcamp_id }">
-	                              <h3 class="jsx-445560552">${teacher.teacher_name }</h3>
-	                              <p class="jsx-445560552">${teacher.bootcamp_name }</p>
-	                            </div>
-	                            <div class="jsx-445560552 star-box">
-	                              <span class="jsx-445560552">2.3</span>
-	                              <div class="jsx-2704879397 stars">
-	                                <div class="jsx-2704879397 star star-2"></div>
-	                                <div class="jsx-2704879397 star star-2"></div>
-	                                <div class="jsx-2704879397 star star-2"></div>
-	                                <div class="jsx-2704879397 star star-2"></div>
-	                                <div class="jsx-2704879397 star star-0"></div>
-	                              </div>
-	                            </div>
-	                            <div class="jsx-445560552 profile-image tutor">
-									<c:choose>
-										<c:when test="${empty teacher.fname_en}">
-											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-										</c:when>
-										<c:otherwise>
-<!-- 											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"> -->
-<%-- 											  <%= teacher.fname_en %> --%>
-<!-- 											</span> -->
-											<span class="jsx-445560552"><img class="fname_en" src="/resources/upload/${teacher.fname_en}" alt="#"/></span>
-										</c:otherwise>
-									</c:choose>
-	                         	</div>
-	                          </div>
-	                        </div>
-	                      </a>
-	                    </li>
-	
-					  </c:forEach>
-	                  </ul>
-	                  <div class="jsx-786344230 btn-view-more">
-	                    <button type="button" class="jsx-1662442796 seeMore">더보기</button>
-	                  </div>
-	                </div>
-	                  
-	              </div>
-	            </div>
-	
-	          </div>
-	        </div>
-	      </div>
-	    </section>
+		<section class="inner-page">
+			<div class="container">
+				<div class="jsx-722889332 content">
+			          
+					<!-- 선택 리스트 -->
+					<div class="jsx-1629185219 search-layout">
+		  
+						<div class="jsx-1629185219 title">
+							<h4 class="jsx-1629185219">TEACHER</h4>
+							<p class="jsx-1629185219">
+							 	누가 나와 잘 맞는 선생님일까?
+							</p>
+						</div>
+			
+						<div class="jsx-2373216897 search-page">
+						
+							<!-- 해시태그 -->
+							<ul class="jsx-786344230 sort-list">
+								<li class="jsx-786344230">
+									<div class="jsx-2595981909 filter filter--institute">
+										<h4 class="jsx-2595981909">학원</h4>
+										<button type="button" class="jsx-2595981909 btn-all on">전체</button>
+										<ul class="jsx-2595981909">
+											<c:forEach items="${bList}" var="bootcamp">
+												<li class="jsx-3824006232">
+													<button type="button" class="jsx-3824006232 bootcamp_btn">
+														<span class="jsx-3824006232 logo">
+														<img src="${path}/resources/imgs/pea_icon.png" alt="${bootcamp.bootcamp_name}" class="jsx-3824006232"></span>
+														<div class="jsx-3824006232 bootcampName">${bootcamp.bootcamp_name}</div>
+													</button>
+												</li>
+											</c:forEach>
+										</ul>
+									</div>
+								</li>
+								<li class="jsx-786344230">
+									<div class="jsx-2595981909 filter">
+										<h4 class="jsx-2595981909">과목</h4><button type="button" class="jsx-2595981909 btn-all on">전체</button>
+										<ul class="jsx-2595981909">
+											<li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">프론트엔드</button></li>
+											<li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">백엔드</button></li>
+											<li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">풀스택</button></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						  
+						</div>
+					</div>
+			
+					<!-- 선생님 리스트 -->
+					<div class="jsx-1629185219 search-result">
+					
+						<div class="jsx-1629185219 content">
+							<div class="jsx-2875758176 sections">
+					    
+								<div class="jsx-283961174 section section--search">
+					
+									<div class="jsx-283961174 title">
+										<h2 class="jsx-283961174">TEACHER&nbsp;</h2>
+									</div>
+					
+									<!-- 학원에서만 보이는 버튼 -->
+									<!-- 로그인 플래그가 b일 경우 -->
+<%-- 									<c:if test="<%=loginFG %> eq 'b'}"> --%>
+<%-- 									<% if(loginFG.equals("b")) { %> --%>
+										<div class="jsx-786344230 btn-add-teacher mb-3">
+											<span class="jsx-786344230">새로운 선생님을 등록하실 건가요?</span>
+											<button type="button" class="jsx-3375816330 addTeacher" style="width: 140px;">
+												<img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">선생님 추가하기
+											</button>
+										</div>
+<%-- 									<% } %> --%>
+<%-- 									</c:if> --%>
+					
+									<ul class="jsx-2875758176 tutors">
+										<c:forEach items="${tList}" var="teacher">
+											<li class="jsx-2875758176 tutorsLi">
+												<a class="jsx-2875758176" href="getTeacher.do?teacher_id=${teacher.teacher_id }">
+										
+													<div tabindex="0" class="jsx-445560552 card">
+														<div class="jsx-445560552 content">
+															<div class="jsx-445560552 info">
+																<input type="hidden" value="${teacher.teacher_id }">
+																<input type="hidden" value="${teacher.bootcamp_id }">
+																<h3 class="jsx-445560552">${teacher.teacher_name }</h3>
+																<p class="jsx-445560552">${teacher.bootcamp_name }</p>
+															</div>
+								                            
+															<div class="jsx-445560552 star-box">
+																<span class="jsx-445560552">2.3</span>
+																<div class="jsx-2704879397 stars">
+																	<div class="jsx-2704879397 star star-2"></div>
+																	<div class="jsx-2704879397 star star-2"></div>
+																	<div class="jsx-2704879397 star star-2"></div>
+																	<div class="jsx-2704879397 star star-2"></div>
+																	<div class="jsx-2704879397 star star-0"></div>
+																</div>
+															</div>
+															
+															<div class="jsx-445560552 profile-image tutor">
+																<c:choose>
+																	<c:when test="${empty teacher.fname_en}">
+																		<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+																	</c:when>
+																	<c:otherwise>
+								<!-- 											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"> -->
+								<%-- 											  <%= teacher.fname_en %> --%>
+								<!-- 											</span> -->
+																		<span class="jsx-445560552">
+																			<img class="fname_en" src="/resources/upload/${teacher.fname_en}" alt="#"/>
+																		</span>
+																	</c:otherwise>
+																</c:choose>
+															</div>
+															
+														</div>
+													</div>
+												
+												</a>
+											</li>
+										</c:forEach>
+					
+									</ul>
+									
+									<div class="jsx-786344230 btn-view-more">
+										<button type="button" class="jsx-1662442796 seeMore">더보기</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					
+					</div>
+				</div>
+			</div>
+		</section>
 
 	</main><!-- End #main -->	
 	

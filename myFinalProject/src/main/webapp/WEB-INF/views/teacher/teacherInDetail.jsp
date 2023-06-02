@@ -8,14 +8,16 @@
 	HttpSession tSession = request.getSession();
 
 	String userId = null;
+	String name = null;
+	String nickname = null;
 
 	if(tSession.getAttribute("userId") != null) {
 		
 		userId = (String)tSession.getAttribute("userId");
 		
-		if(tSession.getAttribute("loginFG") == "m") {
+// 		if(tSession.getAttribute("loginFG") == "m") {
 			
-		}
+// 		}
 	}
 // 	String name = (String)bootSession.getAttribute("name");
 // 	System.out.println(name);
@@ -1207,19 +1209,17 @@
 		alert("1");
 	})
 
-	btn_enroll.addEventListener("click", function() {
-		alert("수강신청");
-<%-- 		location.href = 'insertEnrollment.do?userId='+<%=userId%>; --%>
-		/* ajax로 해야할듯 */
+// 	btn_enroll.addEventListener("click", function() {
+// 		alert("수강신청");
+<%-- <%-- 		location.href = 'insertEnrollment.do?userId='+<%=userId%>; --%> 
+// 		/* ajax로 해야할듯 */
 		
-	})
+// 	})
 	
 	$(function() {
 		$(".btn-enroll").click(function() {
 			// 가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
-<%-- 			let userId = <%=userId%>; --%>
-<%-- 			let name = <%=name%>; --%>
-<%-- 			let bootcampName = <%=bootcamp_name%>; --%>
+
 			let teacherId = '${teacher.teacher_id}';
 			let teacherName = '${teacher.teacher_name}';
 			let courseId = '${course.course_id}';
@@ -1259,12 +1259,13 @@
 
 	
 	let btn_writing_review1 = document.querySelector('.btnWritingReview1');
+	let tSessionExists = <%= tSession != null %>;
 	
 	btn_writing_review1.addEventListener("click", function () {
 	    alert("1");
 	    
 	    // 세션이 없을 때 로그인 팝업 표시
-	    if (!session) {
+	    if (!tSessionExists) {
 	    	let popup = document.querySelector('.auth-popup');
 	        popup.classList.add('popup_on'); // 팝업을 표시하기 위해 클래스 추가
 		} else {
