@@ -7,8 +7,36 @@
 <%
 	HttpSession tSession = request.getSession();
 
-	String userId = (String)tSession.getAttribute("userId");
-	String loginFG = (String)tSession.getAttribute("loginFG");
+	String userId = "steve";
+	String loginFG = "m";
+// 	String userId = (String)tSession.getAttribute("userId");
+// 	String loginFG = (String)tSession.getAttribute("loginFG");
+	
+// 	String admin = null;
+//     String student = null;
+//     String company = null;
+    String educator = "steve";
+    
+    String userNick = "sexy steve";
+    
+//     if (session.getAttribute("userId") != null) {
+     
+// 		if (session.getAttribute("admin") != null ) {
+// 			admin = (String) session.getAttribute("admin"); 
+// 		} else if (session.getAttribute("student") != null ) {
+// 			student = (String) session.getAttribute("student"); 
+// 		} else if (session.getAttribute("company") != null ) {
+// 			company = (String) session.getAttribute("company"); 
+// 		} else if (session.getAttribute("educator") != null) {
+// 			educator = (String) session.getAttribute("educator");	
+// 		}
+	
+//     }
+    	
+//     if (session.getAttribute("userNick") != null) {
+//     	userNick = (String) session.getAttribute("userNick");
+//     }
+	
 	
 %>
 <!DOCTYPE html>
@@ -1386,26 +1414,26 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	        
 	        <li class="dropdown"><a href="#"><span>Teacher | Course</span> <i class="bi bi-chevron-down"></i></a>
 	            <ul>
-	              <li><a href="/teacher/teacherList.do">Teacher</a></li>
-	              <li><a href="#">Course</a></li>
-	              <li><a href="#">Teacher | Course Q&A</a></li>
+	              <li><a href="/teacher/getTeacherList.do">Teacher</a></li>
+	              <li><a href="/course/getCourseList.do">Course</a></li>
+	              <li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
 	            </ul>
 	          </li>
 	        
 	<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
 	        <li><a class="nav-link scrollto" href="#team">Team</a></li>
 	<!--           <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
-<%-- 	         <% --%>
-<!-- // 	  	if (userId == null) { -->
+	         <%
+	  	if (userId == null) {
 	  	
-<%-- 	  		%> --%>
-<!-- 	        <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a> -->
-<!-- 	          <ul> -->
-<!-- 	            <li><a href="/member/login">로그인</a></li> -->
-<!-- 	            <li><a href="/member/join">회원가입</a></li> -->
-<!-- 	          </ul> -->
-<!-- 	        </li> -->
-<%-- 	      <% } else { %> --%>
+	  		%>
+	        <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a>
+	          <ul>
+	            <li><a href="/member/login">로그인</a></li>
+	            <li><a href="/member/join">회원가입</a></li>
+	          </ul>
+	        </li>
+	      <% } else { %>
 <%-- 	      <% if (admin.equals("admin") ) { %> --%>
 	        
 <!-- 	        <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a> -->
@@ -1416,14 +1444,14 @@ li.jsx-3824006232 button.jsx-3824006232 {
 <!-- 	        </li> -->
 <%-- 	        <% } else { %> --%>
 	        
-<!-- 	         <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a> -->
-<!-- 	          <ul> -->
-<%-- 	            <li><a href="#"><%=userNick %>페이지</a></li> --%>
-<!-- 	            <li><a href="logoutAction">로그아웃</a></li> -->
-<!-- 	          </ul> -->
-<!-- 	        </li> -->
+	         <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
+	          <ul>
+	            <li><a href="#"><%=userNick %>페이지</a></li>
+	            <li><a href="logoutAction">로그아웃</a></li>
+	          </ul>
+	        </li>
 <%-- 	        	<%} %> --%>
-<%-- 	        <%} %> --%>
+	        <%} %>
 	<!--           <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
 	      </ul>
 	<!--         <i class="bi bi-list mobile-nav-toggle"></i> -->
@@ -1589,32 +1617,18 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	<!-- ======= Footer ======= -->
 	<footer id="footer">
 	
-	  <div class="footer-newsletter">
-	    <div class="container">
-	      <div class="row justify-content-center">
-	        <div class="col-lg-6">
-	          <h4>Join Our Newsletter</h4>
-	          <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-	          <form action="" method="post">
-	            <input type="email" name="email"><input type="submit" value="Subscribe">
-	          </form>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	
 	  <div class="footer-top">
 	    <div class="container">
 	      <div class="row">
 	
 	        <div class="col-lg-3 col-md-6 footer-contact">
-	          <h3>Arsha</h3>
+	          <h3>Soupie</h3>
 	          <p>
-	            A108 Adam Street <br>
-	            New York, NY 535022<br>
-	            United States <br><br>
-	            <strong>Phone:</strong> +1 5589 55488 55<br>
-	            <strong>Email:</strong> info@example.com<br>
+	                  123-45 Soupie-gil<br>
+	            	Soupie-dong, Soupie-si 16167<br>
+	             Gyeongki-do <br><br>
+	            <strong>Phone:</strong> +82 031 000 0000<br>
+	            <strong>Email:</strong> admin@soupie.com<br>
 	          </p>
 	        </div>
 	
@@ -1642,7 +1656,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	
 	        <div class="col-lg-3 col-md-6 footer-links">
 	          <h4>Our Social Networks</h4>
-	          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+	          <p>You can explore more about Soupie!</p>
 	          <div class="social-links mt-3">
 	            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
 	            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
