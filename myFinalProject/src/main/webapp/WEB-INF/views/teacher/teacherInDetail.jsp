@@ -818,7 +818,7 @@
                       <div class="jsx-2007872434 stars">
                         <div class="jsx-2007872434 star star-2"></div>
                         <div class="jsx-2007872434 star star-2"></div>
-                        <div class="jsx-2007872434 star star-2"></div>
+                        <div class="jsx-2007872434 star star-2"></div> 
                         <div class="jsx-2007872434 star star-2"></div>
                         <div class="jsx-2007872434 star star-0"></div>
                       </div>
