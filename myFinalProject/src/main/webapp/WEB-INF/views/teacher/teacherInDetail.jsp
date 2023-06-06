@@ -11,6 +11,7 @@
 	
 	String name = "steveNoh";
 	String userNick = "sexy steve";
+	String loginFG = "m";
 
 // 	if(tSession.getAttribute("userId") != null) {
 		
@@ -1246,15 +1247,17 @@
 	$(function() {
 		$(".btn-enroll").click(function() {
 			// 가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
-
+			alert("수강신청하기");
+		
+			let bootcampName = '${teacher.bootcamp_name }';
 			let teacherId = '${teacher.teacher_id}';
 			let teacherName = '${teacher.teacher_name}';
 			let courseId = '${course.course_id}';
 			let courseName = '${course.course_name}';
 			
 			let data = {
-					'userId' : <%=userId%>,
-					'name' : <%=name%>,
+					'userId': '<%=userId%>',
+				    'name': '<%=name%>',
 					'bootcamp_name' : bootcampName,
 					'teacher_id' : teacherId,
 					'teacher_name' : teacherName,
@@ -1263,8 +1266,8 @@
 			};
 			
 			$.ajax({
-				url : "insertEnrollment.do",
-				type: "post",
+				url : "/enrollment/insertEnrollment.do",
+				type: "POST",
 				data: data,
 				dataType: "JSON",
 				success : function (json) {

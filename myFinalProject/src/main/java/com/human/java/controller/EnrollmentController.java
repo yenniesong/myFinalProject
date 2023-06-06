@@ -46,6 +46,6 @@ public class EnrollmentController {
 		session.setAttribute("loginFg", "b");
 		session.getAttribute("loginFg");
 		
-		return "redirect:/enrollment/getEnrollList.do";
+		return "redirect:/teacher/teacherList";
 	}
 }
