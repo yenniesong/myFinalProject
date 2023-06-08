@@ -406,7 +406,7 @@
 	  </div>
 	</header><!-- End Header -->
 
-	<main id="main">
+		<main id="main">
 
 	    <!-- ======= Breadcrumbs ======= -->
 	    <section id="breadcrumbs" class="breadcrumbs">
@@ -414,9 +414,9 @@
 	
 	        <ol>
 	          <li><a href="index.html">Home</a></li>
-	          <li>Q&A</li>
+	          <li>enrollment</li>
 	        </ol>
-	        <h2>Q & A</h2>
+	        <h2>수강 목록</h2>
 	
 	      </div>
 	    </section><!-- End Breadcrumbs -->
@@ -428,17 +428,16 @@
 	            <div class="jsx-2591363015 content-box">
 	              
 	              <div class="jsx-1629185219 title mb-3">
-	                <h4 class="jsx-1629185219">Q & A</h4>
-	                <p class="jsx-1629185219">
-	                  	궁금한 건 절대 못 참아!
-	                </p>
+	                <h4 class="jsx-1629185219">수강자 목록</h4>
+	                
 	              </div>
 	
 	              <div class="jsx-485996613 sort-number">
 	              <c:set var="total" value="${fn:length(qnaList)}" />
 	                <span class="jsx-485996613 total-number">총 ${total}개</span>
 	                <div class="jsx-485996613 select-wrap talk fix-position">
-                  		<button type="button" class="jsx-3066370919 myQna">내가 쓴 글 보기</button>
+                        <!-- 선생명, 강좌명, 학생이름으로 검색할 수 있게 구현 -->
+                  		<button type="button" class="jsx-3066370919 myQna">검색</button>
                 	</div>
 <%-- 	                <% if(se) %> 세선이 있다면 ! --%>
 <%-- 	                <c:if test="${loginFg eq 's'}"> --%>
@@ -452,15 +451,16 @@
 	                <ul class="jsx-1779968077 list-header">
 	                  <li class="jsx-1779968077">
 	                    <div class="jsx-1779968077" style="max-width: 60px;">번호</div>
-	                    <div class="jsx-1779968077" style="max-width: 120px;">분류</div>
-	                    <div class="jsx-1779968077" style="max-width: 400px;">제목</div>
-	                    <div class="jsx-1779968077" style="max-width: 100px;">작성자</div>
-	                    <div class="jsx-1779968077" style="max-width: 100px;">등록일</div>
-	                    <div class="jsx-1779968077" style="max-width: 100px;">답변상태</div>
+	                    <div class="jsx-1779968077" style="max-width: 120px;">수강생</div>
+	                    <div class="jsx-1779968077" style="max-width: 400px;">수강생 ID</div>
+	                    <div class="jsx-1779968077" style="max-width: 100px;">과정 명</div>
+	                    <div class="jsx-1779968077" style="max-width: 100px;">선생님</div>
+	                    <div class="jsx-1779968077" style="max-width: 100px;">학원명</div>
+	                    <div class="jsx-1779968077" style="max-width: 100px;">수강일자</div>
 	                  </li>
 	                </ul>
 	                
-	                <c:forEach items="${qnaList }" var="qna">
+	                <c:forEach items="${eList }" var="enroll">
 		                <ul class="jsx-1779968077 list-body">
 		                  <li tabindex="0" class="jsx-989812570 ">
 		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
@@ -569,6 +569,28 @@
 	      </div>
 	    </section>
   	</main><!-- End #main -->  
+
+	<!-- modal -->	<!-- ajax로 하기 -->
+	<form action="chkPwd.do" method="post">
+		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+		      </div>
+		      <div class="modal-body">
+		        <p style="text-align: center;">비밀번호 입력</p>
+		        <input type="password" name="password" title="비밀번호 입력" placeholder="비밀번호를 입력해 주세요." class="jsx-599077571 password" value="" style="width: 300px;">
+		        <input type="hidden" name="question_id" id='hidden_question_id'>
+		        <input type="hidden" name="userId" value="${qna.userId}" id='hidden_userId'>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="submit" class="btn btn-primary">확인</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</form>
 
 	<!-- modal -->	<!-- ajax로 하기 -->
 	<form action="chkPwd.do" method="post">
