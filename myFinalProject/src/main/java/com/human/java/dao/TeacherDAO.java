@@ -25,4 +25,6 @@ public interface TeacherDAO {
 
 	List<TeacherVO> searchBootcampList(TeacherVO vo);
 
+	List<TeacherVO> searchPositionList(TeacherVO vo);
+
 }

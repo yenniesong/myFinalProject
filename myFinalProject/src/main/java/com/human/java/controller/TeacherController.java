@@ -171,6 +171,22 @@ public class TeacherController {
 		
 		return map;
 	}
+	
+	// 상단 과목 명 눌렀을 때 해당 학원 강사 출력
+	@RequestMapping("searchPositionList.do")
+	@ResponseBody
+	public HashMap<String, List<TeacherVO>> searchPositionList(TeacherVO vo) {
+		System.out.println("## ajax를 이용한 searchPositionList.do 진입 ##");
+		System.out.println("position: " + vo.getPosition());
+		
+		List<TeacherVO> positionList = teacherService.searchPositionList(vo);
+		System.out.println(positionList.size());
+		
+		HashMap<String, List<TeacherVO>> map = new HashMap<String, List<TeacherVO>>();
+		map.put("positionList", positionList);
+		
+		return map;
+	}
 	// 상단 학원 명 눌렀을 때 해당 학원 강사 출력
 //	@RequestMapping("searchBootcampList.do")
 //	public String searchBootcampList(@RequestParam("bootcampName") String bootcampName, TeacherVO vo, Model model) {

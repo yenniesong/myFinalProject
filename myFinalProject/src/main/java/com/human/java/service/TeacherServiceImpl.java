@@ -58,5 +58,11 @@ public class TeacherServiceImpl implements TeacherService {
 		return teacherDAO.searchBootcampList(vo);
 	}
 
+	@Override
+	public List<TeacherVO> searchPositionList(TeacherVO vo) {
+		System.out.println("## searchPositionList service 진입 ##");	
+		return teacherDAO.searchPositionList(vo);
+	}
+
 
 }

@@ -68,6 +68,13 @@
   		 ORDER BY teacher_id ASC
   	</select>
   	
+  	<select id="searchPositionList" parameterType="teacher" resultType="teacher">
+  		SELECT * 
+  		  FROM teacher
+         WHERE position LIKE '%' || #{position} || '%'	
+  		 ORDER BY teacher_id ASC
+  	</select>
+  	
   </mapper>
   
 

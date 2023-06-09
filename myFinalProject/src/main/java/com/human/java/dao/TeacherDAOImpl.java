@@ -59,5 +59,11 @@ public class TeacherDAOImpl implements TeacherDAO {
 		return mybatis.selectList("TeacherDAO.searchBootcampList", vo);
 	}
 
+	@Override
+	public List<TeacherVO> searchPositionList(TeacherVO vo) {
+		System.out.println("## searchPositionList dao 진입 ##");
+		return mybatis.selectList("TeacherDAO.searchPositionList", vo);
+	}
+
 
 }
