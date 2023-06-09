@@ -69,9 +69,9 @@
   	</select>
   	
   	<select id="searchPositionList" parameterType="teacher" resultType="teacher">
-  		SELECT * 
-  		  FROM teacher
-         WHERE position LIKE '%' || #{position} || '%'	
+  		SELECT t.teacher_id, t.bootcamp_id, t.teacher_name, t.bootcamp_name, t.course_name, t.short_description, t.fname, t.fname_en, t.fsize, t.position_id, p.position
+  		  FROM teacher t, position p
+         WHERE t.position_id = p.position_id AND p.position LIKE '%' || #{position} || '%'	
   		 ORDER BY teacher_id ASC
   	</select>
   	

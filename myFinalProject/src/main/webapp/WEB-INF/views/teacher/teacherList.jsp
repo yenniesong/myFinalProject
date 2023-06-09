@@ -1882,7 +1882,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	
 	$(function() {
 		$(".position").click(function() {
-			let btnPosition = $(this).find(".position").html();
+// 			let btnPosition = $(this).find(".position").val();
+			let btnPosition = $(this).attr('value');
 			
 			console.log(btnPosition);
 			
