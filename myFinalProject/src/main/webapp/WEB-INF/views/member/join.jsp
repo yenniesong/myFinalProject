@@ -361,6 +361,7 @@
 									name="company_type" placeholder="2글자 이상입력" required></td>
 							</tr>
 							<tr>
+
 								<th><label for="sales">매출액</label></th>
 								<td><input type="text" id="sales" name="sales"
 									placeholder="ex> -억원, (,콤마)금지" required></td>
