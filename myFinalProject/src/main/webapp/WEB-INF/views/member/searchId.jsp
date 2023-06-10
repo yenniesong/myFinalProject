@@ -66,8 +66,8 @@
           	<li><a class="nav-link scrollto" href="#services">취업게시판</a></li>
           	<li><a class="nav-link scrollto" href="#portfolio">지식 공유</a></li>
           	<li><a class="nav-link scrollto" href="#team">문의 게시판</a></li>
-          	<li><a class="nav-link scrollto" href="/member/join">회원가입</a></li>
-          	<li><a class="getstarted scrollto" href="/member/login">로그인</a></li>
+          	<li><a class="nav-link scrollto" href="join">회원가입</a></li>
+          	<li><a class="getstarted scrollto" href="login">로그인</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -94,7 +94,7 @@
       <div class="container">
        <h1 class="h4 text-gray-900 mb-2"><strong>아이디 찾기</strong></h1>
    <hr>
-   <form id="createForm" action="/member/search_result_id" method="post">
+   <form id="createForm" action="search_result_id" method="post">
   <table>
     <tr>
       <th><label for="name">이름</label></th>
@@ -112,8 +112,8 @@
   </table>
   <hr>
   <div class="text-center">
-    <a class="small" href="/member/join">[회원가입]</a>
-    <a class="small" href="/member/login">[로그인]</a>
+    <a class="small" href="join">[회원가입]</a>
+    <a class="small" href="login">[로그인]</a>
   </div>
 </form>
       </div>

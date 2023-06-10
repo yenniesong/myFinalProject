@@ -65,8 +65,8 @@ $(document).ready(function() {
           	<li><a class="nav-link scrollto" href="#services">취업게시판</a></li>
           	<li><a class="nav-link scrollto" href="#portfolio">지식 공유</a></li>
           	<li><a class="nav-link scrollto" href="#team">문의 게시판</a></li>
-          	<li><a class="nav-link scrollto" href="/member/join">회원가입</a></li>
-          	<li><a class="getstarted scrollto" href="/member/login">로그인</a></li>
+          	<li><a class="nav-link scrollto" href="join">회원가입</a></li>
+          	<li><a class="getstarted scrollto" href="login">로그인</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -93,7 +93,7 @@ $(document).ready(function() {
       <div class="container">		
       <h1 class="h4 text-gray-900 mb-2"><strong>비밀번호 찾기</strong></h1>
 	<hr>
-	<form id="userpw" action="/member/search_result_pw" method="post">
+	<form id="userpw" action="search_result_pw" method="post">
 			<table>
 				<tr>
 					<th><label for="userid">아이디 </label></th>
@@ -112,8 +112,8 @@ $(document).ready(function() {
 			</table>
 		<hr>
 	<div class="text-center">
-		<a class="small" href="/member/join">[회원가입]</a> 
-		<a class="small" href="/member/login">[로그인]</a>
+		<a class="small" href="join">[회원가입]</a> 
+		<a class="small" href="login">[로그인]</a>
 	</div>
 	</form>	
 	</div>

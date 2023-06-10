@@ -65,8 +65,8 @@ $(document).ready(function() {
           	<li><a class="nav-link scrollto" href="#services">취업게시판</a></li>
           	<li><a class="nav-link scrollto" href="#portfolio">지식 공유</a></li>
           	<li><a class="nav-link scrollto" href="#team">문의 게시판</a></li>
-          	<li><a class="nav-link scrollto" href="/member/join">회원가입</a></li>
-          	<li><a class="getstarted scrollto" href="/member/login">로그인</a></li>
+          	<li><a class="nav-link scrollto" href="join">회원가입</a></li>
+          	<li><a class="getstarted scrollto" href="login">로그인</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -116,9 +116,9 @@ $(document).ready(function() {
     </c:if>
     <br>
     <div class="text-center">
-  		<a class="small" href="/member/join">[ 회원가입 ]</a>
-        <a class="small" href="/member/login">[ 로그인 ]</a>                                                               
-        <a class="small" href="/member/searchPw">[ PW찾기 ]</a>                       
+  		<a class="small" href="join">[ 회원가입 ]</a>
+        <a class="small" href="login">[ 로그인 ]</a>                                                               
+        <a class="small" href="searchPw">[ PW찾기 ]</a>                       
     </div>
     
       </div>

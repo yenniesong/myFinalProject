@@ -1,14 +1,10 @@
 package com.human.java.controller;
 
-import java.io.IOException;
 import java.net.URLEncoder;
-import java.util.List;
-import java.util.Random;
 
 import javax.inject.Inject;
 //import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 //import org.springframework.mail.javamail.MimeMessageHelper;
@@ -23,15 +19,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.human.java.domain.AdminVO;
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.Company_infoVO;
 import com.human.java.domain.MemberVO;
 import com.human.java.service.MemberService;
-import com.human.java.service.Y_MemberService;
 
 @Controller
 @RequestMapping("/member/*")

@@ -73,21 +73,21 @@
             <!-- 회원 -->
             	<c:if test="${loginFG == 'm'}" > 
 	              <li><a href="#">이력서</a></li>
-	              <li><a href="/member/MembermyPage">내 정보</a></li>
-	              <li><a href="/member/mylist">내 글 목록</a></li>
-	              <li><a href="/member/myComment">내 댓글 목록</a></li>
+	              <li><a href="MembermyPage">내 정보</a></li>
+	              <li><a href="mylist">내 글 목록</a></li>
+	              <li><a href="myComment">내 댓글 목록</a></li>
               </c:if>
               <c:if test="${loginFG == 'b'}" > 
 	              <!-- 학원 -->              
-	              <li><a href="/member/BootcampmyPage">내 정보</a></li>
-	               <li><a href="/member/mylist">내 글 목록</a></li>
-	                <li><a href="/member/myComment">내 댓글 목록</a></li>
+	              <li><a href="BootcampmyPage">내 정보</a></li>
+	               <li><a href="mylist">내 글 목록</a></li>
+	                <li><a href="myComment">내 댓글 목록</a></li>
               </c:if>
               <c:if test="${loginFG == 'c'}" > 
 	              <!-- 기업 -->
-              	<li><a href="/member/CompanymyPage">내 정보</a></li>
-              	<li><a href="/member/mylist">내 글 목록</a></li>
-              	 <li><a href="/member/myComment">내 댓글 목록</a></li>
+              	<li><a href="CompanymyPage">내 정보</a></li>
+              	<li><a href="mylist">내 글 목록</a></li>
+              	 <li><a href="myComment">내 댓글 목록</a></li>
               </c:if>
               <c:if test="${loginFG == 'a'}" > 
               <!-- 관리자-->
@@ -95,7 +95,7 @@
               </c:if>
             </ul>
           </li>
-          <li><a class="getstarted scrollto" href="/member/logout">로그아웃</a></li>
+          <li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
         </ul>
         
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -125,7 +125,7 @@
      		<h2><strong>회원 탈퇴</strong></h2>
      		<br>
      		<hr>
-	<form action="/member/DeleteView2" method="post">
+	<form action="DeleteView2" method="post">
 		<table>
 			<tr>
 				<th><label for="userid">아이디</label></th>

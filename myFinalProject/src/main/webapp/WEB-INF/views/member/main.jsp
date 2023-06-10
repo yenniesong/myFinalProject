@@ -110,8 +110,8 @@
     		%>
           <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="/member/login">로그인</a></li>
-              <li><a href="/member/join">회원가입</a></li>
+              <li><a href="login">로그인</a></li>
+              <li><a href="join">회원가입</a></li>
             </ul>
           </li>
         <% } else { %>

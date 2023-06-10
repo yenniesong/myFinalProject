@@ -136,7 +136,7 @@
 
     <section class="inner-page">
       <div class="container">
-       <form action="/member/login" method="post" id="select" name="frm">
+       <form action="login" method="post" id="select" name="frm">
 
 			<div id="id">
 				<label for="userid">ID </label><br> <input type="text"
@@ -151,9 +151,9 @@
 
 
 			<div id="tag_form">
-				<a href="/member/join">[회원가입]</a> 
-				<a href="/member/searchId">[ ID찾기&nbsp;&nbsp;&nbsp;/</a>
-				<a href="/member/searchPw">PW찾기 ]</a>
+				<a href="join">[회원가입]</a> 
+				<a href="searchId">[ ID찾기&nbsp;&nbsp;&nbsp;/</a>
+				<a href="searchPw">PW찾기 ]</a>
 			</div>
 
 			<button type="submit" id="submit">로그인</button>
@@ -174,7 +174,7 @@
             <h4>Join Our Newsletter</h4>
             <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
             <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
+              <input type="email" name="email"><input type="submi="Subscribe">
             </form>
           </div>
         </div>

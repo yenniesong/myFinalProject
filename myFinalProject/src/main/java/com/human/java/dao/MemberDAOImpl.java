@@ -28,7 +28,7 @@ public class MemberDAOImpl implements MemberDAO {
 	// 학원회원 회원가입
 	@Override
 	public void insertBootcamp(BootcampVO bootcampvo) throws Exception {
-		sql.insert("bootcamp.insertBootcamp", bootcampvo);
+		sql.insert("BootcampDAO.insertBootcamp", bootcampvo);
 
 	}
 

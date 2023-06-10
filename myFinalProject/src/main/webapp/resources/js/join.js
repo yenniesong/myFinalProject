@@ -19,7 +19,7 @@ studentRadioButton.addEventListener('change', (event) => {
     studentFields.style.display = 'block';
     companyFields.style.display = 'none';
     bootcampFields.style.display = 'none';
-    resetFields(companyFields, bootcampFields);
+//    resetFields(companyFields, bootcampFields);
   }
 });
 
@@ -29,7 +29,7 @@ companyRadioButton.addEventListener('change', (event) => {
     studentFields.style.display = 'none';
     companyFields.style.display = 'block';
     bootcampFields.style.display = 'none';
-    resetFields(studentFields, bootcampFields);
+//    resetFields(studentFields, bootcampFields);
   }
 });
 
@@ -39,7 +39,7 @@ bootcampRadioButton.addEventListener('change', (event) => {
     studentFields.style.display = 'none';
     companyFields.style.display = 'none';
     bootcampFields.style.display = 'block';
-    resetFields(studentFields, companyFields);
+//    resetFields(studentFields, companyFields);
   }
 });
 
@@ -203,7 +203,7 @@ $("#company-fields .idCheck").click(function() {
  function clearFields() {
    var inputs = document.getElementsByTagName('input');
    for (var i = 0; i < inputs.length; i++) {
-     if (inputs[i].type !== 'radio') {
+     if (inputs[i].type !== 'radio' && inputs[i].type !== 'submit' && inputs[i].type !== 'reset' ) {
        inputs[i].value = '';
      }
    }
@@ -217,26 +217,26 @@ $("#company-fields .idCheck").click(function() {
    });
  }
  
- 
-//회원가입 취소 및 입력 내용 초기화 함수
- function resetFields(userType) {
-   document.getElementById(userType + '-form').reset();
- }
-
- // 일반 회원가입 폼의 취소 버튼 클릭 시 입력 내용 초기화
- document.getElementById('student-reset').addEventListener('click', function() {
-   resetFields('student');
- });
-
- // 학원 회원가입 폼의 취소 버튼 클릭 시 입력 내용 초기화
- document.getElementById('bootcamp-reset').addEventListener('click', function() {
-   resetFields('bootcamp');
- });
-
- // 기업 회원가입 폼의 취소 버튼 클릭 시 입력 내용 초기화
- document.getElementById('company-reset').addEventListener('click', function() {
-   resetFields('company');
- });
+// 
+////회원가입 취소 및 입력 내용 초기화 함수
+// function resetFields(userType) {
+//   document.getElementById(userType + '-form').reset();
+// }
+//
+// // 일반 회원가입 폼의 취소 버튼 클릭 시 입력 내용 초기화
+// document.getElementById('member-reset').addEventListener('click', function() {
+//   resetFields('student');
+// });
+//
+// // 학원 회원가입 폼의 취소 버튼 클릭 시 입력 내용 초기화
+// document.getElementById('boot-reset').addEventListener('click', function() {
+//   resetFields('bootcamp');
+// });
+//
+// // 기업 회원가입 폼의 취소 버튼 클릭 시 입력 내용 초기화
+// document.getElementById('company-reset').addEventListener('click', function() {
+//   resetFields('company');
+// });
 
 // // Attach event listeners
 // var passwordConfirmButtons = document.querySelectorAll('.');
