@@ -8,9 +8,6 @@ import lombok.Data;
 public class Company_infoVO {
 	
 		private String userid;
-		private String name;
-		private String nickname;
-		private String email;
 		private String password;
 		private String password_confirm;
 		private String tel;
@@ -25,6 +22,5 @@ public class Company_infoVO {
 		private String insurances;
 		private String company_type;
 		private String sales;
-		private String major_business;
 		
 }
