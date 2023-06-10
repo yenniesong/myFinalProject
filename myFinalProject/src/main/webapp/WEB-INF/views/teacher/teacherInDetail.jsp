@@ -7,7 +7,7 @@
 <%
 	HttpSession tSession = request.getSession();
 
-	String userId = "steve";
+	String userid = "steve";
 	
 	String name = "steveNoh";
 	String userNick = "sexy steve";
@@ -732,7 +732,7 @@
           <li><a class="nav-link scrollto" href="#team">Team</a></li>
 <!--           <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
            <%
-    	if (userId == null) {
+    	if (userid == null) {
     	
     		%>
           <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a>
@@ -950,7 +950,7 @@
 			                                        </div>
 			                                      </div>
 			                                      <div>
-				                                      <span class="jsx-644785032 nickname">${reviewList.userId }</span>
+				                                      <span class="jsx-644785032 nickname">${reviewList.userid }</span>
 			                                      </div>
 			                                      <div class="jsx-644785032 rating-btn-box">
 			                                        <div class="jsx-644785032 star-box">
@@ -1009,14 +1009,16 @@
 	                                                    </div>
 	                                                  </div>
 	                                                </div>
-	                                                <span class="jsx-644785032 nickname nickname1 on" ><%=userId %></span>	<!-- 로그인 한 학생의 이름 -->
-	                                                <input type="hidden" name="userId" value="<%=userId %>">
+	                                                <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">			
+	                   								<input type="hidden" name="name" value="<%=name%>">
+	                                                <span class="jsx-644785032 nickname nickname1 on" ><%=userid %></span>	<!-- 로그인 한 학생의 이름 -->
+	                                                <input type="hidden" name="userid" value="<%=userid %>">
 	                                              </div>
 	
 	                                              <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
 	                                               <div class="adminArea mb-3 showWritingInput1 on">
 	                                                   <div class="input-group mb-3">
-	                                                     <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+	                                                     <input type="text" class="form-control" name="content" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
 	                                                     <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="submit" id="button-addon2">작성</button>
 	                                                   </div>
 	                                               </div>
@@ -1079,8 +1081,8 @@
 		                                                            </div>
 		                                                          </div>
 		                                                        </div>
-		                                                        <span class="jsx-644785032 nickname"><%=userId %></span>	<!-- 로그인 한 학생의 이름 -->
-		                                                        <input type="hidden" name="userId" value="<%=userId %>">
+		                                                        <span class="jsx-644785032 nickname"><%=userid %></span>	<!-- 로그인 한 학생의 이름 -->
+		                                                        <input type="hidden" name="userId" value="<%=userid %>">
 		                                                      </div>
 		        
 		                                                      <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
@@ -1250,26 +1252,27 @@
 			alert("수강신청하기");
 		
 			let bootcampName = '${teacher.bootcamp_name }';
-			let teacherId = '${teacher.teacher_id}';
+			let teacherId = '${teacher.teacher_id }';
 			let teacherName = '${teacher.teacher_name}';
-			let courseId = '${course.course_id}';
-			let courseName = '${course.course_name}';
+			let courseId = '${teacher.course_id}';
+			let courseName = '${teacher.course_name }';
 			
-			let data = {
-					'userId': '<%=userId%>',
-				    'name': '<%=name%>',
-					'bootcamp_name' : bootcampName,
-					'teacher_id' : teacherId,
-					'teacher_name' : teacherName,
-					'course_id' : courseId,
-					'course_name' : courseName
+			let data2 = {
+					"userid": "<%=userid%>"
+				    , "name": "<%=name%>"
+					, "bootcamp_name" : bootcampName
+					, "teacher_id" : teacherId
+					, "teacher_name" : teacherName
+					, "course_id" : courseId
+					, "course_name" : courseName
 			};
 			
 			$.ajax({
 				url : "/enrollment/insertEnrollment.do",
 				type: "POST",
-				data: data,
-				dataType: "JSON",
+				data: data2,
+				dataType: "text", 
+				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
 				success : function (json) {
 					alert("수강신청이 완료되었습니다.");
 				},

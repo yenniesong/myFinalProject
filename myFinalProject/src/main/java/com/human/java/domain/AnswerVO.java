@@ -1,7 +1,11 @@
 package com.human.java.domain;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
+@Setter
+@Getter
 @Data
 public class AnswerVO {
 	private int answer_id;

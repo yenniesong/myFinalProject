@@ -62,8 +62,8 @@ public class MemberController {
 		MemberVO login = service.memberlogin(memberVO);
 
 		// 로그인을 실패 -- null
-		// 로그인을 성공 -- 아이디, 구분값
-		// if 구분값이 bcm 으로 구분
+		// 로그인을 성공 -- 아이디, 구분값 
+		// if 구분값이 bcm 으로 구분 
 
 		if (login == null || StringUtils.isEmpty(memberVO.getUserid()) || StringUtils.isEmpty(memberVO.getPassword())) {
 			// 로그인 실패 처리 및 아이디 또는 비밀번호가 입력되지 않은 경우 처리

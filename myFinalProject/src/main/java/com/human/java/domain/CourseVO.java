@@ -23,7 +23,7 @@ public class CourseVO {
 	private String userId;
 	private String course_period;
 	private int position_id;
-	private String position;
+	private String position; 
 	
 	private String fname;
 	private String fname_en;

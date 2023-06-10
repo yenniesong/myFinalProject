@@ -23,6 +23,6 @@ public class PagingVO {
 	private int groupStartPage;
 	private int groupEndPage;
 	
-	private String userId;
+	private String userid;
 	
 }

@@ -12,7 +12,7 @@
   	
   	<insert id="writingReview" parameterType="review">
   		INSERT INTO REVIEW (REVIEW_ID, USERID, TEACHER_ID, COURSE_ID, NAME, CONTENT, CREATED_AT, STAR_POINT)
-		VALUES (seq_review_review_id.NEXTVAL, #{userId}, #{teacher_id}, #{course_id}, #{name}, #{content}, SYSDATE, #{star_point});
+		VALUES (seq_review_review_id.NEXTVAL, #{userid}, #{teacher_id}, #{course_id}, #{name}, #{content}, SYSDATE, #{star_point})
   	</insert>
   	
   	<select id="getTReviewList" parameterType="review" resultType="review">

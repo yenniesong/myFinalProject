@@ -7,31 +7,31 @@
     
     <%
     
-    String admin = null;
-    String student = null;
-    String company = null;
-    String educator = null;
-    
-    String userId = null;
-    String userNick = null;
-    
-    if (session.getAttribute("userId") != null) {
-     
-		if (session.getAttribute("admin") != null ) {
-			admin = (String) session.getAttribute("admin"); 
-		} else if (session.getAttribute("student") != null ) {
-			student = (String) session.getAttribute("student"); 
-		} else if (session.getAttribute("company") != null ) {
-			company = (String) session.getAttribute("company"); 
-		} else if (session.getAttribute("educator") != null) {
-			educator = (String) session.getAttribute("educator");	
-		}
-	
-    }
-    	
-    if (session.getAttribute("userNick") != null) {
-    	userNick = (String) session.getAttribute("userNick");
-    }
+	    String admin = null;
+	    String student = null;
+	    String company = null;
+	    String educator = null;
+	    
+	    String userId = null;
+	    String userNick = null;
+	    
+	    if (session.getAttribute("userId") != null) {
+	     
+			if (session.getAttribute("admin") != null ) {
+				admin = (String) session.getAttribute("admin"); 
+			} else if (session.getAttribute("student") != null ) {
+				student = (String) session.getAttribute("student"); 
+			} else if (session.getAttribute("company") != null ) {
+				company = (String) session.getAttribute("company"); 
+			} else if (session.getAttribute("educator") != null) {
+				educator = (String) session.getAttribute("educator");	
+			}
+		
+	    }
+	    	
+	    if (session.getAttribute("userNick") != null) {
+	    	userNick = (String) session.getAttribute("userNick");
+	    }
 
     %> 
 <!DOCTYPE html>

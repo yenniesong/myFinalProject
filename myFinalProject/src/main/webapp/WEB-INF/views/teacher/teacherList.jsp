@@ -1730,7 +1730,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 // 	let buttons = document.querySelectorAll(".bootcamp_btn");
 // 	let buttonArray = Array.from(buttons);
 
-	
+
 	$(function() {
 		$(".bootcamp_btn").click(function() {
 			let bootcampName = $(this).find(".bootcampName").html();
@@ -2003,6 +2003,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 			});
 		});
 	});
+
+	
 
 </script>
 

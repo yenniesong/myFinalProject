@@ -6,7 +6,7 @@ import lombok.Data;
 public class ReviewVO {
 
 	private int review_id;
-	private String userId;
+	private String userid;
 	private int teacher_id;
 	private int course_id;
 	private String name;

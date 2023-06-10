@@ -6,7 +6,7 @@ import lombok.Data;
 public class EnrollmentVO {
 	
 	private int enrollment_id;
-	private String userId;
+	private String userid;
 	private String name;
 	private String bootcamp_id;
 	private String bootcamp_name;

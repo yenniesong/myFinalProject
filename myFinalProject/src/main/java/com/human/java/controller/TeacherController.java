@@ -32,7 +32,7 @@ public class TeacherController {
 	private ReviewService reviewService;
 	
 	@RequestMapping("{url}.do")
-	public String viewPage(@PathVariable String url) {
+	public String viewPage(@PathVariable String url) { 
 		System.out.println("## Teacher Controller 진입 ## " + url);
 		
 		return "/teacher/" + url;
@@ -66,7 +66,7 @@ public class TeacherController {
 		
 		System.out.println("teacher vo : " + vo);
 		
-		System.out.println("rVO : " + rVo);
+		System.out.println("rVO : " + rVo); 
 		
 		List<ReviewVO> rList = reviewService.getTReviewList(rVo);
 		System.out.println(rList.size());
@@ -84,13 +84,13 @@ public class TeacherController {
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> Course_name : " + vo.getCourse_name());
 		System.out.println("====> Short_description : " + vo.getShort_description());
-		System.out.println("====> position : " + vo.getPosition_id());
-		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");
+		System.out.println("====> position : " + vo.getPosition_id()); 
+		System.out.println("## 파일 이름 : " + vo.getFname() + " ##"); 
 		System.out.println("## 파일 영어 이름 : " + vo.getFname_en() + " ##");
 		System.out.println("## 파일 크기 : " + vo.getFsize() + " ##");
 		
 		teacherService.insertTeacher(vo);
-		vo.setUserId((String)session.getAttribute("userId"));
+		vo.setUserid((String)session.getAttribute("userId"));
 		vo.setBootcamp_id((Integer)session.getAttribute("bootcamp_id"));
 		vo.setBootcamp_name((String)session.getAttribute("bootcamp_name"));
 		
@@ -144,9 +144,9 @@ public class TeacherController {
 	public String WritingReview(ReviewVO vo) {
 		System.out.println("## WritingReview.do 진입 ##");
 		
-		System.out.println("====> user_id : " + vo.getUserId());
+		System.out.println("====> user_id : " + vo.getUserid());
 		System.out.println("====> teacher_id : " + vo.getTeacher_id());
-		System.out.println("====> bootcamp_name : " + vo.getName());
+		System.out.println("====> name : " + vo.getName());
 		System.out.println("====> content : " + vo.getContent());
 		System.out.println("====> star_point : " + vo.getStar_point());
 		
