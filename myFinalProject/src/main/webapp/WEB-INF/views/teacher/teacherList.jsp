@@ -1897,7 +1897,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 				dataType: "JSON",
 				success: function (json) {
 					console.log(json);
-					
+					 
 					let resultUl = document.querySelector(".tutors");
 					resultUl.textContent = "";
 					let resultPositions = json.positionList;
