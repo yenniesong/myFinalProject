@@ -41,6 +41,10 @@ public class TeacherController {
 	@RequestMapping("getTeacherList.do")
 	public String getTeacherList(TeacherVO vo, Model model, HttpSession session, BootcampVO bVO) {
 		System.out.println("## getTeacherList.do 진입 ##");
+		String userId = (String)session.getAttribute("userId");
+		System.out.println("===> userId : " + userId);
+		
+		vo.setUserId(userId);
 		
 		List<TeacherVO> tList = teacherService.getTeacherList(vo);
 		
@@ -96,6 +100,7 @@ public class TeacherController {
 		return "redirect:/teacher/getTeacherList.do";
 	}
 	
+	// 수정페이지를 불러오기
 	@RequestMapping("getTeacherForUpdating.do")
 	public String getTeacherForUpdating(TeacherVO vo, Model model) {
 		System.out.println("## getTeacherForUpdating.do 진입 ##");

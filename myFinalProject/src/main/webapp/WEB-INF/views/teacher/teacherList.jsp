@@ -11,30 +11,35 @@
 // 	String loginFG = "m";
 	String userId = (String)tSession.getAttribute("userId");
 	String loginFG = (String)tSession.getAttribute("loginFG");
+	String userNick = (String) session.getAttribute("userNick");
 	
-	String admin = null;
-    String student = null;
-    String company = null;
-    String educator = null;
-    String userNick = null;
+	System.out.println("userId : " + userId);
+	System.out.println("loginFG : " + loginFG);
+	System.out.println("userNick : " + userNick);
+	
+// 	String admin = null;
+//     String student = null;
+//     String company = null;
+//     String educator = null;
+//     String userNick = null;
     
-    if (session.getAttribute("userId") != null) {
+//     if (session.getAttribute("userId") != null) {
      
-		if (session.getAttribute("admin") != null ) {
-			admin = (String) session.getAttribute("admin"); 
-		} else if (session.getAttribute("student") != null ) {
-			student = (String) session.getAttribute("student"); 
-		} else if (session.getAttribute("company") != null ) {
-			company = (String) session.getAttribute("company"); 
-		} else if (session.getAttribute("educator") != null) {
-			educator = (String) session.getAttribute("educator");	
-		}
+// 		if (session.getAttribute("admin") != null ) {
+// 			admin = (String) session.getAttribute("admin"); 
+// 		} else if (session.getAttribute("student") != null ) {
+// 			student = (String) session.getAttribute("student"); 
+// 		} else if (session.getAttribute("company") != null ) {
+// 			company = (String) session.getAttribute("company"); 
+// 		} else if (session.getAttribute("educator") != null) {
+// 			educator = (String) session.getAttribute("educator");	
+// 		}
 	
-    }
+//     }
     	
-    if (session.getAttribute("userNick") != null) {
-    	userNick = (String) session.getAttribute("userNick");
-    }
+//     if (session.getAttribute("userNick") != null) {
+//     	userNick = (String) session.getAttribute("userNick");
+//     }
 	
 	
 %>

@@ -118,9 +118,9 @@
 					<div id="student-fields" style="display: none;">
 						<table id="student-fields">
 							<tr>
-								<th><label for="userid">아이디</label></th>
-								<td><input type="text" name="userid" id="userid"
-									class="userid-input" placeholder="*,/,$,@ 특수문자 제외" required
+								<th><label for="userId">아이디</label></th>
+								<td><input type="text" name="userId" id="userId"
+									class="userId-input" placeholder="*,/,$,@ 특수문자 제외" required
 									onblur="checkId()" onkeydown="if(event.keyCode===13) checkId()">
 									<br> <br> <!-- id ajax 중복체크 --> <span class="msg">아이디를
 										확인해주세요</span>
@@ -212,9 +212,9 @@
 					<div id="bootcamp-fields" style="display: none;">
 						<table id="bootcamp-fields">
 							<tr>
-								<th><label for="userid">아이디</label></th>
-								<td><input type="text" name="userid" id="userid"
-									class="userid-input" placeholder="*,/,$,@ 특수문자 제외" required
+								<th><label for="userId">아이디</label></th>
+								<td><input type="text" name="userId" id="userId"
+									class="userId-input" placeholder="*,/,$,@ 특수문자 제외" required
 									onblur="checkId()" onkeydown="if(event.keyCode===13) checkId()">
 									<br> <br> <!-- id ajax 중복체크 --> <span class="msg">아이디를
 										확인해주세요</span>
@@ -280,9 +280,9 @@
 					<div id="company-fields" style="display: none;">
 						<table id="company-fields">
 							<tr>
-								<th><label for="userid">아이디</label></th>
-								<td><input type="text" name="userid" id="userid"
-									class="userid-input" placeholder="*,/,$,@ 특수문자 제외" required
+								<th><label for="userId">아이디</label></th>
+								<td><input type="text" name="userId" id="userId"
+									class="userId-input" placeholder="*,/,$,@ 특수문자 제외" required
 									onblur="checkId()" onkeydown="if(event.keyCode===13) checkId()">
 									<br> <br> <!-- id ajax 중복체크 --> <span class="msg">아이디를
 										확인해주세요</span>

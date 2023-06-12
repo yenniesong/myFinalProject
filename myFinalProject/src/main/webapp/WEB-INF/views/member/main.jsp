@@ -16,6 +16,7 @@
 	    String userNick = null;
 	    
 	    if (session.getAttribute("userId") != null) {
+	    	String loginFG = (String)session.getAttribute("loginFG");
 	     
 			if (session.getAttribute("admin") != null ) {
 				admin = (String) session.getAttribute("admin"); 

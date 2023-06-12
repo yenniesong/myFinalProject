@@ -99,19 +99,19 @@ $(document).ready(function() {
 
     <c:if test="${not empty member}">
         <div class="text-center">
-            <p class="mb-4">멤버 회원이시네요 ^^ </br> 찾으시는 아이디는 <strong>[ ${member.userid} ]</strong> 입니다.</p>
+            <p class="mb-4">멤버 회원이시네요 ^^ </br> 찾으시는 아이디는 <strong>[ ${member.userId} ]</strong> 입니다.</p>
         </div>
     </c:if>
     
     <c:if test="${not empty bootcamp}">
         <div class="text-center">
-            <p class="mb-4">학원 회원이시네요 ^^ </br> 찾으시는 아이디는 <strong>[ ${bootcamp.userid} ]</strong> 입니다.</p>
+            <p class="mb-4">학원 회원이시네요 ^^ </br> 찾으시는 아이디는 <strong>[ ${bootcamp.userId} ]</strong> 입니다.</p>
         </div>
     </c:if>
     
     <c:if test="${not empty company}">
         <div class="text-center">
-            <p class="mb-4">기업 회원이시네요 ^^ </br> 찾으시는 아이디는 <strong>[ ${company.userid} ]</strong> 입니다.</p>
+            <p class="mb-4">기업 회원이시네요 ^^ </br> 찾으시는 아이디는 <strong>[ ${company.userId} ]</strong> 입니다.</p>
         </div>
     </c:if>
     <br>

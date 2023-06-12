@@ -58,6 +58,8 @@ public class MemberController {
 	@PostMapping("/login")
 	public String login(MemberVO memberVO, HttpSession session, RedirectAttributes rttr) throws Exception {
 		System.out.println("login()호출..");
+		System.out.println("id : " + memberVO.getUserId());
+		System.out.println("pwd : " + memberVO.getPassword());
 
 		MemberVO login = service.memberlogin(memberVO);
 

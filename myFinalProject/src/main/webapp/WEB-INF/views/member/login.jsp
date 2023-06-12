@@ -139,8 +139,8 @@
        <form action="login" method="post" id="select" name="frm">
 
 			<div id="id">
-				<label for="userid">ID </label><br> <input type="text"
-					id="userid" name="userid" placeholder="아이디를 입력해주세요" required>
+				<label for="userId">ID </label><br> <input type="text"
+					id="userId" name="userId" placeholder="아이디를 입력해주세요" required>
 			</div>
 			<br /> <br />
 			<div id="password">

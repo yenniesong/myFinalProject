@@ -96,9 +96,9 @@ $(document).ready(function() {
 	<form id="userpw" action="search_result_pw" method="post">
 			<table>
 				<tr>
-					<th><label for="userid">아이디 </label></th>
-					<td><input type="text" class="userid" id="userid"
-						name="userid" placeholder="가입하신 아이디를 입력해주세요"></td>
+					<th><label for="userId">아이디 </label></th>
+					<td><input type="text" class="userId" id="userId"
+						name="userId" placeholder="가입하신 아이디를 입력해주세요"></td>
 				</tr>
 				<tr>
 					<th><label for="email">이메일 </label></th>

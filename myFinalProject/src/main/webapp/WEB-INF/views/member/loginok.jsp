@@ -58,6 +58,13 @@
           	<li><a class="nav-link scrollto" href="#services">취업게시판</a></li>
           	<li><a class="nav-link   scrollto" href="#portfolio">지식 공유</a></li>
           	<li><a class="nav-link scrollto" href="#team">문의 게시판</a></li>
+          	<li class="dropdown"><a href="#"><span>Teacher | Course</span> <i class="bi bi-chevron-down"></i></a>
+              <ul>
+                <li><a href="/teacher/getTeacherList.do">Teacher</a></li>
+                <li><a href="/course/getCourseList.do">Course</a></li>
+                <li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
+              </ul>
+            </li>
           	<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
             <li><a href="#">${userId}님 페이지</a></li>
@@ -73,6 +80,8 @@
 	              <li><a href="BootcampmyPage">내 정보</a></li>
 	               <li><a href="mylist">내 글 목록</a></li>
 	                <li><a href="myComment">내 댓글 목록</a></li>
+	                <li><a href="#">수강생 목록</a></li>
+	                
               </c:if>
               <c:if test="${loginFG == 'c'}" > 
 	              <!-- 기업 -->

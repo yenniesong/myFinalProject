@@ -113,7 +113,7 @@
       <div class="container">
       <div class="header">
 			<div class="user-info">		
-				<p>[ <strong> ${companyInfo.userid} </strong>님 마이페이지 ]</p>
+				<p>[ <strong> ${companyInfo.userId} </strong>님 마이페이지 ]</p>
 			</div>
 		</div>
 			<div class="menu">
@@ -129,9 +129,9 @@
 					<form action="updatecompany" method="post" name="companyform">
 					<table id="company-fields">
 						<tr>
-							<td><label for="userid">아이디</label></td>
-							<td><input type="text" name="userid" id="userid"
-								class="userid-input" readonly value="${companyInfo.userid}"></td>
+							<td><label for="userId">아이디</label></td>
+							<td><input type="text" name="userId" id="userId"
+								class="userId-input" readonly value="${companyInfo.userId}"></td>
 						</tr>
 						<tr>
 							<td><label for="name">이름</label></td>

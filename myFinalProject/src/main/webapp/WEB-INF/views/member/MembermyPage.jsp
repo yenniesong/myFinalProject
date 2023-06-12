@@ -124,7 +124,7 @@
       <div class="container">
       <div class="header">
 			<div class="user-info">		
-				<p>[ <strong> ${member.userid} </strong>님 마이페이지 ]</p>
+				<p>[ <strong> ${member.userId} </strong>님 마이페이지 ]</p>
 			</div>
 		</div>
 			<div class="menu">
@@ -140,8 +140,8 @@
 				<form action="updatemember" method="post">
 					<table id="student-fields">
 						<tr>
-							<td><label for="userid">아이디</label></td>
-							<td><input type="text" id="userid" name="userid" value="${member.userid}" readonly></td>
+							<td><label for="userId">아이디</label></td>
+							<td><input type="text" id="userId" name="userId" value="${member.userId}" readonly></td>
 						</tr>
 						<tr>
 							<td><label for="name">이름</label></td>

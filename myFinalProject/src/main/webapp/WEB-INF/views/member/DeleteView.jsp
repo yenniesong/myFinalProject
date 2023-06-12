@@ -128,8 +128,8 @@
 	<form action="DeleteView2" method="post">
 		<table>
 			<tr>
-				<th><label for="userid">아이디</label></th>
-				<td><input type="text" name="userid" value="${userId}">
+				<th><label for="userId">아이디</label></th>
+				<td><input type="text" name="userId" value="${userId}">
 					<input type="hidden" value="${loginFG}" name="loginFG"></td>
 			</tr>
 			<tr>
