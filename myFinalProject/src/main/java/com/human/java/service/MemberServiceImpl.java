@@ -42,27 +42,27 @@ public class MemberServiceImpl implements MemberService {
 
 	// 아이디 중복확인
 	@Override
-	public int idCheck(String userid) throws Exception {
-		return dao.idCheck(userid);
+	public int idCheck(String userId) throws Exception {
+		return dao.idCheck(userId);
 	}
 
 	// 마이페이지 멤버
 	@Override
-	public MemberVO getMemberByUserId(String userid) throws Exception {
+	public MemberVO getMemberByUserId(String userId) throws Exception {
 		// 회원 아이디로 데이터베이스에서 회원 정보를 조회하는 로직을 작성합니다.
-		return dao.getMemberByUserId(userid);
+		return dao.getMemberByUserId(userId);
 	}
 
 	// 학원페이지 멤버
 	@Override
-	public BootcampVO getBootcampByUserId(String userid) throws Exception {
-		return dao.getBootcampByUserId(userid);
+	public BootcampVO getBootcampByUserId(String userId) throws Exception {
+		return dao.getBootcampByUserId(userId);
 	}
 
 	// 기업페이지 멤버
 	@Override
-	public Company_infoVO getCompanyByUserId(String userid) throws Exception {
-		return dao.getCompanyByUserId(userid);
+	public Company_infoVO getCompanyByUserId(String userId) throws Exception {
+		return dao.getCompanyByUserId(userId);
 	}
 
 	

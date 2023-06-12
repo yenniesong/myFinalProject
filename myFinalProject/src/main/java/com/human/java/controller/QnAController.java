@@ -13,7 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+//import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.AnswerVO;
 import com.human.java.domain.PagingVO;
@@ -42,7 +42,7 @@ public class QnAController {
 		System.out.println("## getQnAList.do 진입 ##"); 
 		
 		System.out.println((String) session.getAttribute("MyQuestion"));
-		pVO.setUserid((String) session.getAttribute("MyQuestion"));
+		pVO.setUserId((String) session.getAttribute("MyQuestion"));
 		
 		
 		// 서비스에서 하면 return이 하나만 되고 게시글에 대한 정보만 리턴! 
@@ -52,7 +52,7 @@ public class QnAController {
 		System.out.println("시작 페이지번호 : " + pVO.getPageNum() );
 		
 		// 총 페이지에 대한 개념
-		PagingVO pInfoVo = qnaService.getQnAListCount(pVO.getGroupNum(),pVO.getUserid() );	// 얘는 조회만 하면 되서 넘겨주는게 없음
+		PagingVO pInfoVo = qnaService.getQnAListCount(pVO.getGroupNum(),pVO.getUserId() );	// 얘는 조회만 하면 되서 넘겨주는게 없음
 		
 		// pVo : startPageNum / endPage 
 		List<QnAVO> qnaList = qnaService.getQnAList(pVO);
@@ -67,9 +67,9 @@ public class QnAController {
 	@RequestMapping("chkPwd.do")
 	public String chkPwd(QnAVO vo, HttpServletResponse response, HttpSession session) throws IOException  {
 		System.out.println("## chkPwd.do 진입 ##");
-		vo.setUserid((String)session.getAttribute("userId"));
+		vo.setUserId((String)session.getAttribute("userId"));
 		System.out.println("## 클릭한 Question_id : " + vo.getQuestion_id());
-		System.out.println("## 클릭한 userId : " + vo.getUserid());
+		System.out.println("## 클릭한 userId : " + vo.getUserId());
 		System.out.println("## 입력한 Password : " + vo.getPassword());
 
 		
@@ -87,7 +87,7 @@ public class QnAController {
 			out.println("</script>");
 			out.close();
 			
-		} else if (result.getUserid() == null) {
+		} else if (result.getUserId() == null) {
 			response.setCharacterEncoding("UTF-8");
 
 			response.setContentType("text/html; charset=UTF-8");
@@ -144,7 +144,7 @@ public class QnAController {
 		System.out.println("## insertQnABoard.do 진입 ##");
 		System.out.println("====> category_id : " + vo.getCategory_id());
 		System.out.println("====> title : " + vo.getTitle());
-		System.out.println("====> userId : " + vo.getUserid());
+		System.out.println("====> userId : " + vo.getUserId());
 		System.out.println("====> name : " + vo.getName());
 		System.out.println("====> academy : " + vo.getAcademy());
 		System.out.println("====> password : " + vo.getPassword());

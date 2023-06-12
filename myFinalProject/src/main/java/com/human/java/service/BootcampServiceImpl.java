@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.human.java.dao.BootcampDAO;
-import com.human.java.dao.MemberDAO_yennie;
 import com.human.java.domain.BootcampVO;
-import com.human.java.domain.MemberVO;
 
 @Service("bootcampService")
 public class BootcampServiceImpl implements BootcampService {

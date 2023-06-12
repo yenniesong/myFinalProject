@@ -44,7 +44,7 @@ public class EnrollmentController {
 	public String insertEnrollment(EnrollmentVO vo, HttpSession session) {
 		System.out.println("## insertEnrollment.do 진입 ##");
 		
-		System.out.println("====> userid : " + vo.getUserid());
+		System.out.println("====> userId : " + vo.getUserId());
 		System.out.println("====> name : " + vo.getName());
 		System.out.println("====> bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> teacher_id : " + vo.getTeacher_id());

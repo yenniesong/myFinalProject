@@ -21,10 +21,13 @@ public interface TeacherService {
 	// 선생님 삭제
 	void deleteTeacher(TeacherVO vo);
 
+	// 
 	TeacherVO getTeacherForUpdating(TeacherVO vo);
 
+	// 학원 별 선생님 리스트 조회
 	List<TeacherVO> searchBootcampList(TeacherVO vo);
 
+	// 포지션 별 선생님 리스트 조회
 	List<TeacherVO> searchPositionList(TeacherVO vo);
 
 }

@@ -23,9 +23,7 @@ public class TeacherDAOImpl implements TeacherDAO {
 	@Override
 	public TeacherVO getTeacher(TeacherVO vo) {
 		System.out.println("## getTeacher dao 진입 ##");
-		
 		System.out.println("getTeacher vo : " + vo);
-		
 		return mybatis.selectOne("TeacherDAO.getTeacher", vo);
 	}
 

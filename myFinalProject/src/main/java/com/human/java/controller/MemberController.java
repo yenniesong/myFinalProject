@@ -65,7 +65,7 @@ public class MemberController {
 		// 로그인을 성공 -- 아이디, 구분값 
 		// if 구분값이 bcm 으로 구분 
 
-		if (login == null || StringUtils.isEmpty(memberVO.getUserid()) || StringUtils.isEmpty(memberVO.getPassword())) {
+		if (login == null || StringUtils.isEmpty(memberVO.getUserId()) || StringUtils.isEmpty(memberVO.getPassword())) {
 			// 로그인 실패 처리 및 아이디 또는 비밀번호가 입력되지 않은 경우 처리
 			String alertScript = "<script>alert('아이디 또는 비밀번호를 다시 입력해주세요');";
 			alertScript += "window.location.href='/member/login';</script>";
@@ -80,7 +80,7 @@ public class MemberController {
 //				bootcampVO vo = service.메소드명(userid) 
 //			}
 			
-			session.setAttribute("userId", login.getUserid()); // 로그인 정보 세션에 저장
+			session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
 			session.setAttribute("loginFG", login.getLoginFG());
 			
 			// 로그인 완료하면 가는 경로
@@ -131,10 +131,10 @@ public class MemberController {
 	// 아이디 중복체크
 	@ResponseBody
 	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
-	public int idCheck(String userid) throws Exception {
+	public int idCheck(String userId) throws Exception {
 		System.out.println("아이디중복체크 들어오기");
 
-		int idCheck = service.idCheck(userid);
+		int idCheck = service.idCheck(userId);
 
 		int result = 0;
 
@@ -149,9 +149,9 @@ public class MemberController {
 	@GetMapping("MembermyPage")
 	public String memberModify(Model model, HttpSession session) throws Exception {
 		System.out.println("일반 정보수정 들어가요");
-		String userid = (String) session.getAttribute("userId"); // id
+		String userId = (String) session.getAttribute("userId"); // id
 
-		MemberVO member = service.getMemberByUserId(userid);
+		MemberVO member = service.getMemberByUserId(userId);
 
 		// 데이터 베이스를 접근
 		// select * from member where id = id
@@ -170,7 +170,7 @@ public class MemberController {
 		service.updatemember(member);
 
 		// 수정된 정보를 다시 조회하여 Model에 저장하여 뷰로 전달
-		MemberVO updatemember = service.getMemberByUserId(member.getUserid());
+		MemberVO updatemember = service.getMemberByUserId(member.getUserId());
 
 		model.addAttribute("member", updatemember);
 
@@ -183,13 +183,13 @@ public class MemberController {
 	@GetMapping("BootcampmyPage")
 	public String bootcampModify(Model model, HttpSession session) throws Exception {
 		System.out.println("학원 정보수정 들어가요");
-		String userid = (String) session.getAttribute("userId"); // id
-		BootcampVO bootcamp = service.getBootcampByUserId(userid);
+		String userId = (String) session.getAttribute("userId"); // id
+		BootcampVO bootcamp = service.getBootcampByUserId(userId);
 
 		// 데이터베이스에서 회원 정보 조회 로직을 작성하여 BootcampVO 객체에 값을 설정합니다.
 		model.addAttribute("bootcamp", bootcamp);
 
-		System.out.println(bootcamp.getUserid());
+		System.out.println(bootcamp.getUserId());
 		// 데이터 베이스를 접근
 		// select * from bootcamp where id = id
 
@@ -206,7 +206,7 @@ public class MemberController {
 		service.updatebootcamp(bootcamp);
 
 		// 수정된 정보를 다시 조회하여 Model에 저장하여 뷰로 전달
-		BootcampVO updatebootcamp = service.getBootcampByUserId(bootcamp.getUserid());
+		BootcampVO updatebootcamp = service.getBootcampByUserId(bootcamp.getUserId());
 
 		model.addAttribute("bootcamp", updatebootcamp);
 
@@ -219,13 +219,13 @@ public class MemberController {
 	@GetMapping("/CompanymyPage")
 	public String companyModify(Model model, HttpSession session) throws Exception {
 		System.out.println("기업 정보수정 들어가요");
-		String userid = (String) session.getAttribute("userId"); // id
-		Company_infoVO companyInfo = service.getCompanyByUserId(userid);
+		String userId = (String) session.getAttribute("userId"); // id
+		Company_infoVO companyInfo = service.getCompanyByUserId(userId);
 
 		// 조회된 회원 정보를 Model에 저장하여 뷰로 전달
 		model.addAttribute("companyInfo", companyInfo);
 
-		System.out.println(companyInfo.getUserid());
+		System.out.println(companyInfo.getUserId());
 		// 데이터 베이스를 접근
 		// select * from company_info where id = id
 
@@ -241,7 +241,7 @@ public class MemberController {
 		service.updatecompany(companyInfo);
 
 		// 수정된 정보를 다시 조회하여 Model에 저장하여 뷰로 전달
-		Company_infoVO updatedCompanyInfo = service.getCompanyByUserId(companyInfo.getUserid());
+		Company_infoVO updatedCompanyInfo = service.getCompanyByUserId(companyInfo.getUserId());
 
 		model.addAttribute("companyInfo", updatedCompanyInfo);
 
@@ -284,17 +284,17 @@ public class MemberController {
 		bootcampVO.setTel(tel);
 
 		Company_infoVO company_infoVO = new Company_infoVO();
-		company_infoVO.setName(name);
+		company_infoVO.setCompany_manager(name);
 		company_infoVO.setTel(tel);
 
-		MemberVO memberuserid = service.memberIdSearch(memberVO);
-		BootcampVO bootcampuserid = service.bootcampIdSearch(bootcampVO);
-		Company_infoVO companyuserid = service.companyIdSearch(company_infoVO);
+		MemberVO memberuserId = service.memberIdSearch(memberVO);
+		BootcampVO bootcampuserId = service.bootcampIdSearch(bootcampVO);
+		Company_infoVO companyuserId = service.companyIdSearch(company_infoVO);
 
 		// 조회한 아이디 값을 모델에 추가
-		model.addAttribute("member", memberuserid);
-		model.addAttribute("bootcamp", bootcampuserid);
-		model.addAttribute("company", companyuserid);
+		model.addAttribute("member", memberuserId);
+		model.addAttribute("bootcamp", bootcampuserId);
+		model.addAttribute("company", companyuserId);
 
 		return "member/search_result_id";
 	}
@@ -310,24 +310,24 @@ public class MemberController {
 	// 비밀번호 찾기 실행
 	@PostMapping("search_result_pw")
 	public String search_result_pw(Model model, HttpSession session,
-			@RequestParam("email") String email, @RequestParam("userid") String userid) throws Exception {
+			@RequestParam("email") String email, @RequestParam("userId") String userId) throws Exception {
 		
 		System.out.println("비밀번호 찾기 실행해여,,,");
-		System.out.println("userid : " + userid);
+		System.out.println("userId : " + userId);
 		System.out.println("email : " + email);
 
 		// 이름과 전화번호로 각 테이블에서 아이디를 조회
 		MemberVO memberVO = new MemberVO();
-		memberVO.setUserid(userid);
+		memberVO.setUserId(userId);
 		memberVO.setEmail(email);
 
 		BootcampVO bootcampVO = new BootcampVO();
-		bootcampVO.setUserid(userid);
+		bootcampVO.setUserId(userId);
 		bootcampVO.setEmail(email);
 				
 		Company_infoVO company_infoVO = new Company_infoVO();
-		company_infoVO.setUserid(userid);
-		company_infoVO.setEmail(email);
+		company_infoVO.setUserId(userId);
+		company_infoVO.setCompany_manager_email(email);
 
 		MemberVO memberpw = service.memberPwCheck(memberVO);
 		System.out.println("memberpw : " + memberpw);
@@ -355,9 +355,9 @@ public class MemberController {
 	public String memberdelete(HttpSession session, MemberVO memberVO, BootcampVO bootcampVO, Company_infoVO companyVO,
 			RedirectAttributes rttr) throws Exception {
 
-		String userid = (String) session.getAttribute("userId"); // id
+		String userId = (String) session.getAttribute("userId"); // id
 		// id
-		System.out.println("userid : " + memberVO.getUserid());
+		System.out.println("userId : " + memberVO.getUserId());
 		// password
 		System.out.println("password : " + memberVO.getPassword());
 		// FG

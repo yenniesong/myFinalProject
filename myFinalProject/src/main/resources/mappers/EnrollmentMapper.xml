@@ -13,7 +13,7 @@
 	
 	<insert id="insertEnrollment" parameterType="enroll">
 		INSERT INTO ENROLLMENT (ENROLLMENT_ID, USERID, NAME, TEACHER_ID, TEACHER_NAME, COURSE_ID, COURSE_NAME, ENROLLMENT_DATE)
-		VALUES (seq_enrollment_enrollment_id.NEXTVAL, #{userid}, #{name}, #{teacher_id}, #{teacher_name}, #{course_id}, #{course_name}, SYSDATE)
+		VALUES (seq_enrollment_enrollment_id.NEXTVAL, #{userId}, #{name}, #{teacher_id}, #{teacher_name}, #{course_id}, #{course_name}, SYSDATE)
 	</insert>
 
   	

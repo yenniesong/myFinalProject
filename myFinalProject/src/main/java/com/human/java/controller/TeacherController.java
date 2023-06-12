@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.BootcampVO;
@@ -90,7 +89,7 @@ public class TeacherController {
 		System.out.println("## 파일 크기 : " + vo.getFsize() + " ##");
 		
 		teacherService.insertTeacher(vo);
-		vo.setUserid((String)session.getAttribute("userId"));
+		vo.setUserId((String)session.getAttribute("userId"));
 		vo.setBootcamp_id((Integer)session.getAttribute("bootcamp_id"));
 		vo.setBootcamp_name((String)session.getAttribute("bootcamp_name"));
 		
@@ -144,7 +143,7 @@ public class TeacherController {
 	public String WritingReview(ReviewVO vo) {
 		System.out.println("## WritingReview.do 진입 ##");
 		
-		System.out.println("====> user_id : " + vo.getUserid());
+		System.out.println("====> userId : " + vo.getUserId());
 		System.out.println("====> teacher_id : " + vo.getTeacher_id());
 		System.out.println("====> name : " + vo.getName());
 		System.out.println("====> content : " + vo.getContent());
@@ -187,18 +186,5 @@ public class TeacherController {
 		
 		return map;
 	}
-	// 상단 학원 명 눌렀을 때 해당 학원 강사 출력
-//	@RequestMapping("searchBootcampList.do")
-//	public String searchBootcampList(@RequestParam("bootcampName") String bootcampName, TeacherVO vo, Model model) {
-//		System.out.println("## searchBootcampList.do 진입 ##");
-//		System.out.println("bootcampName: " + bootcampName);
-//		
-//		vo.setBootcamp_name(bootcampName);
-//		
-//		List<TeacherVO> bootcampNameList = teacherService.searchBootcampList(vo);
-//		
-//		model.addAttribute("bootcampNameList", bootcampNameList);
-//		
-//		return "redirect:/teacher/getTeacherList.do";
-//	}
+
 }

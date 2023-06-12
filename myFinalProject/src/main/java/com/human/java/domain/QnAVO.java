@@ -8,7 +8,7 @@ public class QnAVO {
 	private int question_id;
 	private int category_id;
 	private String category_name;
-	private String userid;
+	private String userId;
 	private String academy;
 	private String title;
 	private String name;

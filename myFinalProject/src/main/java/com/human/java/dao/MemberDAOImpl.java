@@ -1,13 +1,12 @@
 package com.human.java.dao;
 
-import java.util.HashMap;
-import java.util.Map;
+//import java.util.HashMap;
+//import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.human.java.domain.AdminVO;
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.Company_infoVO;
 import com.human.java.domain.MemberVO;
@@ -47,25 +46,25 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 아이디 중복확인 보내기
 	@Override
-	public int idCheck(String userid) throws Exception {
-		return sql.selectOne("member.idCheck", userid);
+	public int idCheck(String userId) throws Exception {
+		return sql.selectOne("member.idCheck", userId);
 	}
 
 	// 일반회원 마이페이지
-	public MemberVO getMemberByUserId(String userid) throws Exception {
-		return sql.selectOne("member.selectMember", userid);
+	public MemberVO getMemberByUserId(String userId) throws Exception {
+		return sql.selectOne("member.selectMember", userId);
 	}
 
 	// 학원회원 마이페이지
 	@Override
-	public BootcampVO getBootcampByUserId(String userid) throws Exception {
-		return sql.selectOne("bootcamp.selectBootcamp", userid);
+	public BootcampVO getBootcampByUserId(String userId) throws Exception {
+		return sql.selectOne("bootcamp.selectBootcamp", userId);
 	}
 
 	// 기업회원 마이페이지
 	@Override
-	public Company_infoVO getCompanyByUserId(String userid) throws Exception {
-		return sql.selectOne("company_info.selectCompany", userid);
+	public Company_infoVO getCompanyByUserId(String userId) throws Exception {
+		return sql.selectOne("company_info.selectCompany", userId);
 	}
 
 	// 일반회원정보수정

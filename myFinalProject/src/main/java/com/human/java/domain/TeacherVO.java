@@ -15,7 +15,7 @@ import lombok.Setter;
 public class TeacherVO {
 	private int teacher_id;		
 	private int bootcamp_id;
-	private String userid;
+	private String userId;
 	private String teacher_name;
 	private String bootcamp_name;
 	private int course_id;

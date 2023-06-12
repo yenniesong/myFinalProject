@@ -6,33 +6,33 @@
 	<!-- 일반로그인 -->
 	<select id="company_infologin" resultType="company_info">
 		SELECT 'b' as loginFG,
-		userid, password
+		userId, password
 		FROM bootcamp
-		WHERE userid =
-		#{userid}
+		WHERE userId =
+		#{userId}
 		AND password =
 		#{password}
 		UNION ALL <!-- -->
 		SELECT 'c',
-		userid, password
+		userId, password
 		FROM COMPANY_INFO
 		WHERE
-		userid = #{userid}
+		userId = #{userId}
 		AND password = #{password}
 		UNION ALL <!-- -->
 		SELECT 'm',
-		userid, password
+		userId, password
 		FROM MEMBER
-		WHERE userid = #{userid}
+		WHERE userId = #{userId}
 		AND
 		password =
 		#{password}
 		UNION ALL <!-- -->
 		SELECT 'A',
-		userid, password
+		userId, password
 		FROM ADMIN
-		WHERE userid
-		= #{userid}
+		WHERE userId
+		= #{userId}
 		AND
 		password =
 		#{password}
@@ -67,20 +67,20 @@
 		#{company_type},
 		sales = #{sales},
 		major_business = #{major_business}
-		WHERE userid = #{userid}
+		WHERE userId = #{userId}
 	</update>
 
 	<!-- 기업정보 찾기 -->
 	<select id="selectCompany" parameterType="String"
 		resultType="company_info">
-		SELECT * FROM company_info WHERE userid=#{value}
+		SELECT * FROM company_info WHERE userId=#{value}
 	</select>
 
 
 	<!-- 회원탈퇴 -->
 	<delete id="deletecompany">
 		delete form company_info
-		where userid = #{userid}
+		where userId = #{userId}
 		and
 		password =
 		#{password}
@@ -89,7 +89,7 @@
 	<!-- 기업 회원가입 -->
 	<insert id="insertCompanyInfo">
 		INSERT INTO
-		company_info(userid, name, nickname,
+		company_info(userId, name, nickname,
 		email, password, tel,
 		company_name, company_representative,
 		company_manager, company_add,
@@ -97,7 +97,7 @@
 		employee_cnt, establishment_date,
 		insurances, company_type, sales,
 		major_business)
-		VALUES(#{userid},#{name},#{nickname},#{email},#{password},#{tel},#{company_name},
+		VALUES(#{userId},#{name},#{nickname},#{email},#{password},#{tel},#{company_name},
 		#{company_representative}, #{company_manager},
 		#{company_add},#{company_site},#{company_manager_email},#{employee_cnt},#{establishment_date},
 		#{insurances}, #{company_type}, #{sales}, #{major_business});
@@ -108,13 +108,13 @@
 		SELECT
 		COUNT(*)
 		FROM company_info
-		WHERE userid = #{userid} AND password =
+		WHERE userId = #{userId} AND password =
 		#{password}
 	</select>
 
 	<!-- 아이디찾기 -->
 	<select id="companyIdSearch" resultType="company_info">
-		SELECT userid FROM
+		SELECT userId FROM
 		company_info WHERE name = #{name} AND tel = #{tel}
 	</select>
 
@@ -124,7 +124,7 @@
 		FROM
 		company_info
 		WHERE
-		userid = #{userid}
+		userId = #{userId}
 		AND email = #{email}
 	</select>
 
@@ -135,7 +135,7 @@
 		password = #{password}
 		WHERE
 		name = #{name}
-		AND userid = #{userid}
+		AND userId = #{userId}
 		AND email = #{email}
 
 	</update>
@@ -143,7 +143,7 @@
 	<!-- 회원탈퇴 -->
 	<delete id="companyDelete">
 		DELETE FROM company_info
-		WHERE userid = #{userid}
+		WHERE userId = #{userId}
 		AND
 		password = #{password}
 	</delete>

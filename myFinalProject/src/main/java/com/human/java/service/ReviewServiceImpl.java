@@ -23,7 +23,6 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public void writingReview(ReviewVO vo) {
 		System.out.println("## writingReview service 진입 ##");
-		
 		reviewDAO.writingReview(vo);
 	}
 

@@ -7,35 +7,34 @@
 <%
 	HttpSession tSession = request.getSession();
 
-	String userId = "steve";
-	String loginFG = "m";
-// 	String userId = (String)tSession.getAttribute("userId");
-// 	String loginFG = (String)tSession.getAttribute("loginFG");
+// 	String userId = "steve";
+// 	String loginFG = "m";
+	String userId = (String)tSession.getAttribute("userId");
+	String loginFG = (String)tSession.getAttribute("loginFG");
 	
-// 	String admin = null;
-//     String student = null;
-//     String company = null;
-    String educator = "steve";
+	String admin = null;
+    String student = null;
+    String company = null;
+    String educator = null;
+    String userNick = null;
     
-    String userNick = "sexy steve";
-    
-//     if (session.getAttribute("userId") != null) {
+    if (session.getAttribute("userId") != null) {
      
-// 		if (session.getAttribute("admin") != null ) {
-// 			admin = (String) session.getAttribute("admin"); 
-// 		} else if (session.getAttribute("student") != null ) {
-// 			student = (String) session.getAttribute("student"); 
-// 		} else if (session.getAttribute("company") != null ) {
-// 			company = (String) session.getAttribute("company"); 
-// 		} else if (session.getAttribute("educator") != null) {
-// 			educator = (String) session.getAttribute("educator");	
-// 		}
+		if (session.getAttribute("admin") != null ) {
+			admin = (String) session.getAttribute("admin"); 
+		} else if (session.getAttribute("student") != null ) {
+			student = (String) session.getAttribute("student"); 
+		} else if (session.getAttribute("company") != null ) {
+			company = (String) session.getAttribute("company"); 
+		} else if (session.getAttribute("educator") != null) {
+			educator = (String) session.getAttribute("educator");	
+		}
 	
-//     }
+    }
     	
-//     if (session.getAttribute("userNick") != null) {
-//     	userNick = (String) session.getAttribute("userNick");
-//     }
+    if (session.getAttribute("userNick") != null) {
+    	userNick = (String) session.getAttribute("userNick");
+    }
 	
 	
 %>
@@ -1540,14 +1539,14 @@ li.jsx-3824006232 button.jsx-3824006232 {
 									<!-- 학원에서만 보이는 버튼 -->
 									<!-- 로그인 플래그가 b일 경우 -->
 <%-- 									<c:if test="<%=loginFG %> eq 'b'}"> --%>
-<%-- 									<% if(loginFG.equals("b")) { %> --%>
+									<% if(loginFG.equals("b")) { %>
 										<div class="jsx-786344230 btn-add-teacher mb-3">
 											<span class="jsx-786344230">새로운 선생님을 등록하실 건가요?</span>
 											<button type="button" class="jsx-3375816330 addTeacher" style="width: 140px;">
 												<img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">선생님 추가하기
 											</button>
 										</div>
-<%-- 									<% } %> --%>
+									<% } %>
 <%-- 									</c:if> --%>
 					
 									<ul class="jsx-2875758176 tutors">
@@ -1727,10 +1726,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	      });
 	  });
 	
-// 	let buttons = document.querySelectorAll(".bootcamp_btn");
-// 	let buttonArray = Array.from(buttons);
-
-
 	$(function() {
 		$(".bootcamp_btn").click(function() {
 			let bootcampName = $(this).find(".bootcampName").html();
@@ -1860,20 +1855,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		console.log(bootcamp_names[i].innerHTML);
 	}
 	
-// 	let btnFront = document.querySelector('front');
-// 	let btnBack = document.querySelector('back');
-// 	let btnFull = document.querySelector('full');
-	
-// 	btnFront.addEventListener("click", function() {
-// 		alert("front end");
-// 	});
-// 	btnBack.addEventListener("click", function() {
-// 		alert("front end");
-// 	});
-// 	btnBack.addEventListener("click", function() {
-// 		alert("front end");
-// 	});
-	
 	let btnPosition = document.querySelectorAll(".position");
 	
 	for (var i = 0; i < btnPosition.length; i++) {
@@ -1882,7 +1863,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	
 	$(function() {
 		$(".position").click(function() {
-// 			let btnPosition = $(this).find(".position").val();
 			let btnPosition = $(this).attr('value');
 			
 			console.log(btnPosition);

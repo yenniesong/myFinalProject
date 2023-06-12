@@ -1,6 +1,6 @@
 package com.human.java.dao;
 
-import com.human.java.domain.AdminVO;
+//import com.human.java.domain.AdminVO;
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.Company_infoVO;
 import com.human.java.domain.MemberVO;
@@ -20,16 +20,16 @@ public interface MemberDAO {
 	public MemberVO memberlogin(MemberVO memberVO) throws Exception;
 
 	// 중복확인
-	public int idCheck(String userid) throws Exception;
+	public int idCheck(String userId) throws Exception;
 
 	// 마이페이지 멤버
-	public MemberVO getMemberByUserId(String userid) throws Exception;
+	public MemberVO getMemberByUserId(String userId) throws Exception;
 
 	// 학원페이지 멤버
-	public BootcampVO getBootcampByUserId(String userid) throws Exception;
+	public BootcampVO getBootcampByUserId(String userId) throws Exception;
 
 	// 기업페이지 멤버
-	public Company_infoVO getCompanyByUserId(String userid) throws Exception;
+	public Company_infoVO getCompanyByUserId(String userId) throws Exception;
 
 	// 일반회원정보 수정
 	public int updatemember(MemberVO member) throws Exception;

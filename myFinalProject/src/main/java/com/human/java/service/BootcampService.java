@@ -1,10 +1,8 @@
 package com.human.java.service;
 
-import java.util.HashMap;
 import java.util.List;
 
 import com.human.java.domain.BootcampVO;
-import com.human.java.domain.MemberVO;
 
 public interface BootcampService {
 
