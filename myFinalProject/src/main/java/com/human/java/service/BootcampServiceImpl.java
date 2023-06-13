@@ -26,8 +26,8 @@ public class BootcampServiceImpl implements BootcampService {
 	}
 
 	@Override
-	public List<BootcampVO> bootcampInfo() {
-		return bootcampDAO.bootcampInfo();
+	public List<BootcampVO> bootcampList() {
+		return bootcampDAO.bootcampList();
 	}
 
 

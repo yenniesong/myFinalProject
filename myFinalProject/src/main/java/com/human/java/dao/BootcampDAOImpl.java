@@ -37,8 +37,8 @@ public class BootcampDAOImpl implements BootcampDAO {
 	}
 
 	@Override
-	public List<BootcampVO> bootcampInfo() {
-		return mybatis.selectList("BootcampDAO.bootcampInfo");
+	public List<BootcampVO> bootcampList() {
+		return mybatis.selectList("BootcampDAO.bootcampList");
 	}
 
 

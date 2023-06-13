@@ -14,11 +14,10 @@
 <!--   		SELECT * FROM bootcamp WHERE userId = #{userId} AND password = #{password} -->
 <!--   	</select> -->
   	
-<!--   	<select id="bootcampInfo" parameterType="bootcamp" resultType="bootcamp"> -->
-<!--   		SELECT *  -->
-<!--   		  FROM bootcamp -->
-<!--   		  WHERE userId = #{userId} -->
-<!--   	</select> --> 
+  	<select id="bootcampList" parameterType="bootcamp" resultType="bootcamp">
+  		SELECT * 
+  		  FROM bootcamp
+  	</select> 
   	
   	
   	<!-- 미나 mapper.xml -->

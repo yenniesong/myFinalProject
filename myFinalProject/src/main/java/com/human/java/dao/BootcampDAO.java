@@ -22,6 +22,6 @@ public interface BootcampDAO {
 	 */
 	BootcampVO bootcampLogin(BootcampVO vo);
 	
-	public List<BootcampVO> bootcampInfo();
+	public List<BootcampVO> bootcampList();
 
 }
