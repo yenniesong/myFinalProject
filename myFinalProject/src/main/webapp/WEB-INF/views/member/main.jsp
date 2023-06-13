@@ -112,7 +112,7 @@
 							<li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
 						</ul>
 					</li>
-
+ 
 					<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
 					<li><a class="nav-link scrollto" href="#team">Team</a></li>
 					<c:if test="${empty session}">
