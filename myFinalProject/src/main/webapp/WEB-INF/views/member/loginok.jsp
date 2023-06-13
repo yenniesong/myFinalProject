@@ -66,34 +66,34 @@
               </ul>
             </li>
           	<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-            <li><a href="#">${userId}님 페이지</a></li>
-            	<!-- 회원 -->
-            	<c:if test="${loginFG == 'm'}" > 
-	              <li><a href="#">이력서</a></li>
-	              <li><a href="MembermyPage">내 정보</a></li>
-	              <li><a href="mylist">내 글 목록</a></li>
-	              <li><a href="myComment">내 댓글 목록</a></li>
-              </c:if>
-              <c:if test="${loginFG == 'b'}" > 
-	              <!-- 학원 -->              
-	              <li><a href="BootcampmyPage">내 정보</a></li>
-	               <li><a href="mylist">내 글 목록</a></li>
-	                <li><a href="myComment">내 댓글 목록</a></li>
-	                <li><a href="#">수강생 목록</a></li>
-	                
-              </c:if>
-              <c:if test="${loginFG == 'c'}" > 
-	              <!-- 기업 -->
-              	<li><a href="CompanymyPage">내 정보</a></li>
-              	<li><a href="mylist">내 글 목록</a></li>
-              	 <li><a href="myComment">내 댓글 목록</a></li>
-              </c:if>
-              <c:if test="${loginFG == 'a'}" > 
-              <!-- 관리자-->
-              <li><a href="#">관리자 페이지</a></li>
-              </c:if>
-            </ul>
+	            <ul>
+	            <li><a href="#">${userId}님 페이지</a></li>
+	            	<!-- 회원 -->
+	            	<c:if test="${loginFG == 'm'}" > 
+		              <li><a href="#">이력서</a></li>
+		              <li><a href="MembermyPage">내 정보</a></li>
+		              <li><a href="mylist">내 글 목록</a></li>
+		              <li><a href="myComment">내 댓글 목록</a></li>
+	              </c:if>
+	              <c:if test="${loginFG == 'b'}" > 
+		              <!-- 학원 -->              
+		              <li><a href="BootcampmyPage">내 정보</a></li>
+		               <li><a href="mylist">내 글 목록</a></li>
+		                <li><a href="myComment">내 댓글 목록</a></li>
+		                <li><a href="#">수강생 목록</a></li>
+		                
+	              </c:if>
+	              <c:if test="${loginFG == 'c'}" > 
+		              <!-- 기업 -->
+	              	<li><a href="CompanymyPage">내 정보</a></li>
+	              	<li><a href="mylist">내 글 목록</a></li>
+	              	 <li><a href="myComment">내 댓글 목록</a></li>
+	              </c:if>
+	              <c:if test="${loginFG == 'a'}" > 
+	              <!-- 관리자-->
+	              <li><a href="#">관리자 페이지</a></li>
+	              </c:if>
+	            </ul>
           </li>
           <li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
         </ul>

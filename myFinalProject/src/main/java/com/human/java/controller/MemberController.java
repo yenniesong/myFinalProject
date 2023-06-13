@@ -86,7 +86,7 @@ public class MemberController {
 			session.setAttribute("loginFG", login.getLoginFG());
 			
 			// 로그인 완료하면 가는 경로
-			return "member/loginok";
+			return "member/main";
 		}
 	}
 
