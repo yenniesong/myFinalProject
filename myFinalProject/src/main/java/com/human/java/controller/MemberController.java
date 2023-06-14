@@ -83,6 +83,7 @@ public class MemberController {
 //			}
 			
 			session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
+			session.setAttribute("name", login.getName());
 			session.setAttribute("loginFG", login.getLoginFG());
 			
 			// 로그인 완료하면 가는 경로

@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.BootcampVO;
+import com.human.java.domain.MemberVO;
 import com.human.java.domain.ReviewVO;
 import com.human.java.domain.TeacherVO;
 import com.human.java.service.BootcampService;
@@ -68,7 +69,6 @@ public class TeacherController {
 		model.addAttribute("teacher", teacherService.getTeacher(vo));
 		
 		System.out.println("teacher vo : " + vo);
-		
 		System.out.println("rVO : " + rVo); 
 		
 		List<ReviewVO> rList = reviewService.getTReviewList(rVo);

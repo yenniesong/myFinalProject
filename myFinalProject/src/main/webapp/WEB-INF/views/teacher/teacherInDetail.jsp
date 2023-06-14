@@ -6,31 +6,14 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
 	HttpSession tSession = request.getSession();
-
-	String userid = "steve";
 	
-	String name = "steveNoh";
-	String userNick = "sexy steve";
-	String loginFG = "m";
-
-// 	if(tSession.getAttribute("userId") != null) {
-		
-// 		userId = (String)tSession.getAttribute("userId");
-		
-// 		if(tSession.getAttribute("loginFG") == "m") {
-			
-// 		}
-// 	}
-// 	String name = (String)bootSession.getAttribute("name");
-// 	System.out.println(name);
-	// if FG 가 b일때만 아래 문장이 실행하도록 
- 		// String bootcamp_id = (String)bootSession.getAttribute("bootcamp_id");
-	// else 아닐때는 0을넣는다거나 로그인창으로 이동시키는 문장
-// 	int bootcamp_id = 2;
+	String userId = (String)tSession.getAttribute("userId");
+	String userName = (String)tSession.getAttribute("name");
+	String loginFG = (String)tSession.getAttribute("loginFG");
 	
-// 	System.out.println(bootcamp_id);
-// 	String bootcamp_name = (String)bootSession.getAttribute("bootcamp_name");
-	
+	System.out.println("userId : " + userId);
+	System.out.println("userName : " + userName);
+	System.out.println("loginFG : " + loginFG);
 %>
 
 <!DOCTYPE html>
@@ -702,71 +685,88 @@
 </head>
 <body>
 	<!-- ======= Header ======= -->
-  <header id="header" class="fixed-top ">
-    <div class="container d-flex align-items-center">
-
-      <h1 class="logo me-auto"><a href="main.do"><img src="${path}/resources/img/soupie.png" style="margin-right: 10px; margin-bottom: 10px;">Soupie</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-<!--       <a href="mainWeb" class="logo me-auto"><img src="resources/img/soupie.png" alt="" class="img-fluid"></a> -->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="main.do">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li class="dropdown"><a class="nav-link scrollto" href="#announcements"><span>Announcements</span><i class="bi bi-chevron-down"></i></a>
-           <ul>
-              <li><a href="adminBoard.do">공지사항</a></li>
-              <li><a href="faqsBoard">FAQs</a></li>
-            </ul>
-          </li>
-          
-          <li class="dropdown"><a href="#"><span>Teacher | Course</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>
-                <li><a href="/teacher/getTeacherList.do">Teacher</a></li>
-                <li><a href="/course/getCourseList.do">Course</a></li>
-                <li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
-              </ul>
-            </li>
-          
-<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-<!--           <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
-           <%
-    	if (userid == null) {
-    	
-    		%>
-          <li class="dropdown"><a href="#"><span>Get online</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="/member/login">로그인</a></li>
-              <li><a href="/member/join">회원가입</a></li>
-            </ul>
-          </li>
-        <% } else { %>
-<%--         <% if (admin.equals("admin") ) { %> --%>
-          
-<!--           <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a> -->
-<!--             <ul> -->
-<!--               <li><a href="badComment">신고글 관리페이지</a></li> -->
-<!--               <li><a href="logoutAction">로그아웃</a></li> -->
-<!--             </ul> -->
-<!--           </li> -->
-<%--           <% } else { %> --%>
-          
-           <li class="dropdown" id="getonline"><a href="#"><span>Get Online</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#"><%=userNick %>페이지</a></li>
-              <li><a href="logoutAction">로그아웃</a></li>
-            </ul>
-          </li>
-<%--           	<%} %> --%>
-          <%} %>
-<!--           <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
-        </ul>
-<!--         <i class="bi bi-list mobile-nav-toggle"></i> -->
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+	 <header id="header" class="fixed-top ">
+		<div class="container d-flex align-items-center">
+	
+			<h1 class="logo me-auto">
+				<a href="main.do">
+					<img src="${path}/resources/img/soupie.png" style="margin-right: 10px; margin-bottom: 10px;">Soupie</a>
+			</h1>
+	
+			<nav id="navbar" class="navbar">
+				<ul>
+					<li><a class="nav-link scrollto active" href="main.do">Home</a></li>
+					<li><a class="nav-link scrollto" href="#about">About</a></li>
+					<li class="dropdown">
+						<a class="nav-link scrollto" href="#announcements">
+							<span>Announcements</span>
+							<i class="bi bi-chevron-down"></i>
+						</a>
+						<ul>
+							<li><a href="adminBoard.do">공지사항</a></li>
+							<li><a href="faqsBoard">FAQs</a></li>
+						</ul>
+					</li>
+	
+					<li class="dropdown">
+						<a href="#">
+							<span>Teacher | Course</span> 
+							<i class="bi bi-chevron-down"></i>
+						</a>
+						<ul>
+							<li><a href="/teacher/getTeacherList.do">Teacher</a></li>
+							<li><a href="/course/getCourseList.do">Course</a></li>
+							<li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
+						</ul>
+					</li>
+	
+					<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
+					<li><a class="nav-link scrollto" href="#team">Team</a></li>
+					<c:if test="${userId != null}">
+						<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
+							<ul>
+								<li><a href="#">${userId}님 페이지</a></li>
+								<!-- 회원 -->
+								<c:if test="${loginFG == 'm'}">
+									<li><a href="#">이력서</a></li>
+									<li><a href="MembermyPage">내 정보</a></li>
+									<li><a href="mylist">내 글 목록</a></li>
+									<li><a href="myComment">내 댓글 목록</a></li>
+								</c:if>
+								<c:if test="${loginFG == 'b'}">
+									<!-- 학원 -->
+									<li><a href="BootcampmyPage">내 정보</a></li>
+									<li><a href="mylist">내 글 목록</a></li>
+									<li><a href="myComment">내 댓글 목록</a></li>
+									<li><a href="#">수강생 목록</a></li>
+	
+								</c:if>
+								<c:if test="${loginFG == 'c'}">
+									<!-- 기업 -->
+									<li><a href="CompanymyPage">내 정보</a></li>
+									<li><a href="mylist">내 글 목록</a></li>
+									<li><a href="myComment">내 댓글 목록</a></li>
+								</c:if>
+								<c:if test="${loginFG == 'a'}">
+									<!-- 관리자-->
+									<li><a href="#">관리자 페이지</a></li>
+								</c:if>
+							</ul>
+						</li>
+						<li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
+					</c:if>
+					<li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
+						<ul>
+					       <li><a href="login">로그인</a></li>
+					       <li><a href="join">회원가입</a></li>
+						</ul>
+		          	</li>
+			</nav>
+			<!-- .navbar -->
+	
+		</div>
+	</header>
+	<!-- End Header -->
 
 	<main id="main">
 
@@ -950,7 +950,7 @@
 			                                        </div>
 			                                      </div>
 			                                      <div>
-				                                      <span class="jsx-644785032 nickname">${reviewList.userid }</span>
+				                                      <span class="jsx-644785032 nickname">${reviewList.userId }</span>
 			                                      </div>
 			                                      <div class="jsx-644785032 rating-btn-box">
 			                                        <div class="jsx-644785032 star-box">
@@ -1010,9 +1010,9 @@
 	                                                  </div>
 	                                                </div>
 	                                                <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">			
-	                   								<input type="hidden" name="name" value="<%=name%>">
-	                                                <span class="jsx-644785032 nickname nickname1 on" ><%=userid %></span>	<!-- 로그인 한 학생의 이름 -->
-	                                                <input type="hidden" name="userid" value="<%=userid %>">
+	                   								<input type="hidden" name="name" value="${userName }">
+	                                                <span class="jsx-644785032 nickname nickname1 on" >${userId }</span>	<!-- 로그인 한 학생의 이름 -->
+	                                                <input type="hidden" name="userId" value="${userId }">
 	                                              </div>
 	
 	                                              <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
@@ -1081,8 +1081,8 @@
 		                                                            </div>
 		                                                          </div>
 		                                                        </div>
-		                                                        <span class="jsx-644785032 nickname"><%=userid %></span>	<!-- 로그인 한 학생의 이름 -->
-		                                                        <input type="hidden" name="userId" value="<%=userid %>">
+		                                                        <span class="jsx-644785032 nickname">${userId }</span>	<!-- 로그인 한 학생의 이름 -->
+		                                                        <input type="hidden" name="userId" value="${userId }">
 		                                                      </div>
 		        
 		                                                      <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
@@ -1251,6 +1251,8 @@
 			// 가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
 			alert("수강신청하기");
 		
+			let userId = '${userId }';
+			let name = '${name }';
 			let bootcampName = '${teacher.bootcamp_name }';
 			let teacherId = '${teacher.teacher_id }';
 			let teacherName = '${teacher.teacher_name}';
@@ -1258,8 +1260,8 @@
 			let courseName = '${teacher.course_name }';
 			
 			let data2 = {
-					"userid": "<%=userid%>"
-				    , "name": "<%=name%>"
+					"userid": userId
+				    , "name": name
 					, "bootcamp_name" : bootcampName
 					, "teacher_id" : teacherId
 					, "teacher_name" : teacherName

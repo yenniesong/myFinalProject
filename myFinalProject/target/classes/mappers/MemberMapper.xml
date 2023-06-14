@@ -7,16 +7,16 @@
   	<!-- 미나 mapper.xml -->
   	<!-- 일반로그인 -->
 	<select id="memberlogin" resultType="Member"> 
-		SELECT 'b' as loginFG, userId, password 
+		SELECT 'b' as loginFG, userId, password, bootcamp_name
 		  FROM BOOTCAMP 
 		 WHERE userId = #{userId} AND password = #{password} UNION ALL 
-		SELECT 'c', userId, password 
+		SELECT 'c', userId, password, name  
 		  FROM COMPANY_INFO
 		 WHERE userId = #{userId} AND password = #{password} UNION ALL 
-		SELECT 'm', userId, password 
+		SELECT 'm', userId, password, name  
 		  FROM MEMBER
 		 WHERE userId = #{userId} AND password = #{password} UNION ALL 
-		SELECT 'A', userId, password 
+		SELECT 'A', userId, password, name  
 		  FROM ADMIN 
 		 WHERE userId = #{userId} AND password = #{password}
 	</select>

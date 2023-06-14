@@ -4,37 +4,6 @@
 <%@page import="com.human.java.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="path" value="${pageContext.request.contextPath}" />
-
-<%--     <% --%>
-
-<!-- // 	    String admin = null; -->
-<!-- // 	    String student = null; -->
-<!-- // 	    String company = null; -->
-<!-- // 	    String educator = null; -->
-
-<!-- // 	    String userId = null; -->
-<!-- // 	    String userNick = null; -->
-
-<!-- // 	    if (session.getAttribute("userId") != null) { -->
-<!-- // 	    	String loginFG = (String)session.getAttribute("loginFG"); -->
-
-<!-- // 			if (session.getAttribute("admin") != null ) { -->
-<!-- // 				admin = (String) session.getAttribute("admin");  -->
-<!-- // 			} else if (session.getAttribute("student") != null ) { -->
-<!-- // 				student = (String) session.getAttribute("student");  -->
-<!-- // 			} else if (session.getAttribute("company") != null ) { -->
-<!-- // 				company = (String) session.getAttribute("company");  -->
-<!-- // 			} else if (session.getAttribute("educator") != null) { -->
-<!-- // 				educator = (String) session.getAttribute("educator");	 -->
-<!-- // 			} -->
-
-<!-- // 	    } -->
-
-<!-- // 	    if (session.getAttribute("userNick") != null) { -->
-<!-- // 	    	userNick = (String) session.getAttribute("userNick"); -->
-<!-- // 	    } -->
-
-<%--     %>  --%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -83,8 +52,6 @@
 				<a href="main.do">
 					<img src="${path}/resources/img/soupie.png" style="margin-right: 10px; margin-bottom: 10px;">Soupie</a>
 			</h1>
-			<!-- Uncomment below if you prefer to use an image logo -->
-			<!--       <a href="mainWeb" class="logo me-auto"><img src="resources/img/soupie.png" alt="" class="img-fluid"></a> -->
 
 			<nav id="navbar" class="navbar">
 				<ul>
@@ -115,94 +82,45 @@
  
 					<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
 					<li><a class="nav-link scrollto" href="#team">Team</a></li>
-					<c:if test="${empty session}">
-					<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
-			            <ul>
-			            <li><a href="#">${userId}님 페이지</a></li>
-			            	<!-- 회원 -->
-			            	<c:if test="${loginFG == 'm'}" > 
-				              <li><a href="#">이력서</a></li>
-				              <li><a href="MembermyPage">내 정보</a></li>
-				              <li><a href="mylist">내 글 목록</a></li>
-				              <li><a href="myComment">내 댓글 목록</a></li>
-			              </c:if>
-			              <c:if test="${loginFG == 'b'}" > 
-				              <!-- 학원 -->              
-				              <li><a href="BootcampmyPage">내 정보</a></li>
-				               <li><a href="mylist">내 글 목록</a></li>
-				                <li><a href="myComment">내 댓글 목록</a></li>
-				                <li><a href="#">수강생 목록</a></li>
-				                
-			              </c:if>
-			              <c:if test="${loginFG == 'c'}" > 
-				              <!-- 기업 -->
-			              	<li><a href="CompanymyPage">내 정보</a></li>
-			              	<li><a href="mylist">내 글 목록</a></li>
-			              	 <li><a href="myComment">내 댓글 목록</a></li>
-			              </c:if>
-			              <c:if test="${loginFG == 'a'}" > 
-			              <!-- 관리자-->
-			              <li><a href="#">관리자 페이지</a></li>
-			              </c:if>
-			            </ul>
-		          </li>
-		          <li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
-		          </c:if>
-		          <li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
+					<c:if test="${userId != null}">
+						<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
+							<ul>
+								<li><a href="#">${userId}님 페이지</a></li>
+								<!-- 회원 -->
+								<c:if test="${loginFG == 'm'}">
+									<li><a href="#">이력서</a></li>
+									<li><a href="MembermyPage">내 정보</a></li>
+									<li><a href="mylist">내 글 목록</a></li>
+									<li><a href="myComment">내 댓글 목록</a></li>
+								</c:if>
+								<c:if test="${loginFG == 'b'}">
+									<!-- 학원 -->
+									<li><a href="BootcampmyPage">내 정보</a></li>
+									<li><a href="mylist">내 글 목록</a></li>
+									<li><a href="myComment">내 댓글 목록</a></li>
+									<li><a href="#">수강생 목록</a></li>
+
+								</c:if>
+								<c:if test="${loginFG == 'c'}">
+									<!-- 기업 -->
+									<li><a href="CompanymyPage">내 정보</a></li>
+									<li><a href="mylist">내 글 목록</a></li>
+									<li><a href="myComment">내 댓글 목록</a></li>
+								</c:if>
+								<c:if test="${loginFG == 'a'}">
+									<!-- 관리자-->
+									<li><a href="#">관리자 페이지</a></li>
+								</c:if>
+							</ul>
+						</li>
+						<li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
+					</c:if>
+					<li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
 						<ul>
 					       <li><a href="login">로그인</a></li>
 					       <li><a href="join">회원가입</a></li>
 						</ul>
-		          </li>
-<!-- 					          <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
-<%-- 					           <% --%>
-<!-- 					//     	if (userId == null) { -->
-
-<%-- 					    		%> --%>
-					
-<%-- 					<c:if test="${loginFG eq null }"> --%>
-<!-- 						<li class="dropdown"> -->
-<!-- 							<a href="#"> -->
-<!-- 								<span>Get online</span> -->
-<!-- 								<i class="bi bi-chevron-down"></i> -->
-<!-- 							</a> -->
-<!-- 							<ul> -->
-<!-- 								<li><a href="login">로그인</a></li> -->
-<!-- 								<li><a href="join">회원가입</a></li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<%-- 					</c:if> --%>
-<%-- 					        <% } else { %> --%>
-<%-- 					        <% if (admin.equals("admin") ) { %> --%>
-<%-- 					<c:if test="${loginFG == 'a'}"> --%>
-<!-- 						<li class="dropdown" id="getonline"> -->
-<!-- 							<a href="#"> -->
-<!-- 								<span>Get Online</span> -->
-<!-- 								<i class="bi bi-chevron-down"></i> -->
-<!-- 							</a> -->
-<!-- 							<ul> -->
-<!-- 								<li><a href="badComment">신고글 관리페이지</a></li> -->
-<!-- 								<li><a href="logoutAction">로그아웃</a></li> -->
-<!-- 							</ul> -->
-<!-- 						</li> -->
-<%-- 					</c:if> --%>
-<%-- 					          <% } else { %> --%>
-
-<!-- 					<li class="dropdown" id="getonline"> -->
-<!-- 						<a href="#"> -->
-<!-- 							<span>Get Online</span>  -->
-<!-- 							<i class="bi bi-chevron-down"></i> -->
-<!-- 						</a> -->
-<!-- 						<ul> -->
-<%-- 							<li><a href="#">${userId}페이지</a></li> --%>
-<!-- 							<li><a href="logout">로그아웃</a></li> -->
-<!-- 						</ul> -->
-<!-- 					</li> -->
-<%-- 					          	<%} %> --%>
-<%-- 					          <%} %> --%>
-<!-- 					          <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
-<!-- 				</ul> -->
-				<!--         <i class="bi bi-list mobile-nav-toggle"></i> -->
+		          	</li>
 			</nav>
 			<!-- .navbar -->
 
