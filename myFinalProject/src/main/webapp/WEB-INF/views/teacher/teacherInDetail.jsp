@@ -849,6 +849,7 @@
           
                     <div class="jsx-216214598 flex-right">
 	          			<c:if test="${loginFg eq 'b'}">
+	          			<!-- 해당 학원일 경우에만 수정하기 버튼 및 삭제 버튼 기능 살리기 -->
 		                      <div class="jsx-216214598 title">
 		                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
 		                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
@@ -868,12 +869,12 @@
 									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 									      </div>
 									      <div class="modal-body">
-									        ...
+									        	선생님을 삭제하시겠습니까?
 									      </div>
 									      <div class="modal-footer">
 									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 									        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">
-									        <button type="submit" class="btn btn-primary deleteTeacher">Understood</button>
+									        <button type="submit" class="btn btn-primary deleteTeacher">삭제</button>
 									      </div>
 									    </div>
 									  </div>
