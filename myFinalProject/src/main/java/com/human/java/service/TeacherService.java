@@ -2,6 +2,7 @@ package com.human.java.service;
 
 import java.util.List;
 
+import com.human.java.domain.EnrollmentVO;
 import com.human.java.domain.TeacherVO;
 
 public interface TeacherService {
@@ -29,5 +30,8 @@ public interface TeacherService {
 
 	// 포지션 별 선생님 리스트 조회
 	List<TeacherVO> searchPositionList(TeacherVO vo);
+
+	// 선생님에게 강좌가 있는지 없는지 확인
+	TeacherVO chkCourse(TeacherVO tVo);
 
 }

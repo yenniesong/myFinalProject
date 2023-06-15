@@ -49,12 +49,4 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 		return result;
 	}
 
-	@Override
-	public int chkCourse(int teacherId) {
-		int chk = 0;
-		chk = enrollmentDAO.chkCourse(teacherId);
-		
-		return chk;
-	}
-
 }

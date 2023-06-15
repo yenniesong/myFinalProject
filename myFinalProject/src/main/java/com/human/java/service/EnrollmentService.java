@@ -10,7 +10,4 @@ public interface EnrollmentService {
 
 	int insertEnrollment(EnrollmentVO vo);
 
-	// 현재 선생님의 강좌가 존재하는지 확인
-	int chkCourse(int teacherId);
-
 }

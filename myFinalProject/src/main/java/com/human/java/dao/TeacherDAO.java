@@ -23,8 +23,14 @@ public interface TeacherDAO {
 	// 선생님 삭제
 	void deleteTeacher(TeacherVO vo);
 
+	// 학원리스트 조회
 	List<TeacherVO> searchBootcampList(TeacherVO vo);
 
+	// 포지션 조회
 	List<TeacherVO> searchPositionList(TeacherVO vo);
+
+	// 선생님이 현재 수업을 하고 있는지 조회
+	TeacherVO chkCourse(TeacherVO tVo);
+
 
 }

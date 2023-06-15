@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.human.java.dao.TeacherDAO;
+import com.human.java.domain.EnrollmentVO;
 import com.human.java.domain.TeacherVO;
 
 @Service("TeacherService")
@@ -63,5 +64,12 @@ public class TeacherServiceImpl implements TeacherService {
 		return teacherDAO.searchPositionList(vo);
 	}
 
+	@Override
+	public TeacherVO chkCourse(TeacherVO tVo) {
+		System.out.println("## chkCourse service 진입 ##");	
+		return teacherDAO.chkCourse(tVo);
+	}
+
 
 }
+ 

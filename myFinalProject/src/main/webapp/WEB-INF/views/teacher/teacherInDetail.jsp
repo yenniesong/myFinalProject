@@ -1106,7 +1106,7 @@
 	                            	</c:otherwise>
                             	 </c:choose>
                             	 </div>
-		                         </div>
+	                         </div>
 <!--                             </form> -->
                          
                           </div>
@@ -1241,16 +1241,10 @@
 		alert("1");
 	})
 
-// 	btn_enroll.addEventListener("click", function() {
-// 		alert("수강신청");
-<%-- <%-- 		location.href = 'insertEnrollment.do?userId='+<%=userId%>; --%> 
-// 		/* ajax로 해야할듯 */
-		
-// 	})
 	
 	$(function() {
 		$(".btn-enroll").click(function() {
-			// 가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
+// 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
 			alert("수강신청하기");
 		
 			let userId = '${userId }';

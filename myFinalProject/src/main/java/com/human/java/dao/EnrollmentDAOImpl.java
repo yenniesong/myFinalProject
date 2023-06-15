@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.human.java.domain.EnrollmentVO;
+import com.human.java.domain.TeacherVO;
 
 @Repository("EnrollmentDAO")
 public class EnrollmentDAOImpl implements EnrollmentDAO {
@@ -45,14 +46,5 @@ public class EnrollmentDAOImpl implements EnrollmentDAO {
 		return result;
 		
 	}
-
-	@Override
-	public int chkCourse(int teacherId) {
-		int chk = 0;
-		
-		chk = mybatis.selectOne("EnrollmentDAO.chkCourse", teacherId);
-		return chk;
-	}
-
 
 }

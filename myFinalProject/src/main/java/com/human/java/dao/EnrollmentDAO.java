@@ -14,6 +14,4 @@ public interface EnrollmentDAO {
 	
 	int cntCEnroll(EnrollmentVO vo);
 
-	int chkCourse(int teacherId);
-
 }
