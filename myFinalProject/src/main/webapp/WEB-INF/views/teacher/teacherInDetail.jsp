@@ -8,7 +8,7 @@
 	HttpSession tSession = request.getSession();
 	
 	String userId = (String)tSession.getAttribute("userId");
-	String userName = (String)tSession.getAttribute("name");
+	String userName = (String)tSession.getAttribute("name");	/* 학원은 학원 명, 학생은 학생 명, 기업은 기업 명을 가져와야함 */
 	String loginFG = (String)tSession.getAttribute("loginFG");
 	
 	System.out.println("userId : " + userId);
@@ -850,6 +850,7 @@
                     <div class="jsx-216214598 flex-right">
 	          			<c:if test="${loginFg eq 'b'}">
 	          			<!-- 해당 학원일 경우에만 수정하기 버튼 및 삭제 버튼 기능 살리기 -->
+<%-- 	          			 <c:if test=""></c:if> --%>
 		                      <div class="jsx-216214598 title">
 		                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
 		                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
@@ -1277,7 +1278,12 @@
 				dataType: "text", 
 				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
 				success : function (json) {
-					alert("수강신청이 완료되었습니다.");
+					
+					if (json > 0) {
+						alert('이미 신청되었습니다.');
+					} else {
+						alert("수강신청이 완료되었습니다.");
+					}
 				},
 				Error: function () {
 					alert("실패");

@@ -51,13 +51,15 @@ public class EnrollmentController {
 		System.out.println("====> teacher_name : " + vo.getTeacher_name());
 		System.out.println("====> course_id : " + vo.getCourse_id());
 		System.out.println("====> course_name : " + vo.getCourse_name());
-	    
 		
-		enrollmentService.insertEnrollment(vo);
+		// 선생님 강좌가 있는지 체크하기
+		int chk = enrollmentService.chkCourse(vo.getTeacher_id());
+		
+		int result = enrollmentService.insertEnrollment(vo);
 		
 		session.setAttribute("loginFg", "b");
 		session.getAttribute("loginFg");
 		
-		return "";
+		return result + "";
 	}
 }

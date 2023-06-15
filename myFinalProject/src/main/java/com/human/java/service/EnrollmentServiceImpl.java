@@ -21,9 +21,40 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 	}
 
 	@Override
-	public void insertEnrollment(EnrollmentVO vo) {
-		System.out.println("## insertEnrollment service 진입 ##");
-		enrollmentDAO.insertEnrollment(vo);
+	public int insertEnrollment(EnrollmentVO vo) {
+		System.out.println("## insertTEnrollment service 진입 ##");
+
+		int result = 0;
+		
+		if (vo.getTeacher_id() > 0) {	// 선생님이 프로필에서 강좌를 하면 (더 줄일 수 있으면 줄이기)
+			result = enrollmentDAO.cntTEnroll(vo);
+			
+			if (result > 0) {
+				return result;
+			} else {
+				enrollmentDAO.insertEnrollment(vo);
+				result = 0;
+			}
+			
+		} else if (vo.getCourse_id() > 0){
+			result = enrollmentDAO.cntCEnroll(vo);
+			
+			if (result > 0) {
+				return result;
+			} else {
+				enrollmentDAO.insertEnrollment(vo);
+				result = 0;
+			}
+		}
+		return result;
+	}
+
+	@Override
+	public int chkCourse(int teacherId) {
+		int chk = 0;
+		chk = enrollmentDAO.chkCourse(teacherId);
+		
+		return chk;
 	}
 
 }

@@ -20,6 +20,8 @@ public class CourseVO {
 	private int price;
 	private int bootcamp_id;
 	private String bootcamp_name;
+	private String teacher_id;
+	private String teacher_name;
 	private String userId;
 	private String course_period;
 	private int position_id;
