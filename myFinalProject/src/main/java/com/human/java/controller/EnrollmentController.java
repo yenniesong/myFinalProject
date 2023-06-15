@@ -63,6 +63,9 @@ public class EnrollmentController {
 		// 선생님 강좌가 있는지 체크하기
 		teacherService.chkCourse(tVo);
 		// 만약에 강좌가 없으면 어떻게 할지 고민해보기
+		if (teacherService.chkCourse(tVo) == null) {
+			
+		}
 		
 		
 		int result = enrollmentService.insertEnrollment(vo);
