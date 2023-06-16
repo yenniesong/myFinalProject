@@ -1273,10 +1273,12 @@
 				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
 				success : function (json) {
 					
-					if (json > 0) {
-						alert('이미 신청되었습니다.');
+					if (json  = 0) {
+						alert('선생님의 강좌가 아직 열리지 않았어요!');
+					} else if (json > 0) {
+						alert('이미 신청되었어요!');
 					} else {
-						alert("수강신청이 완료되었습니다.");
+						alert("수강신청이 완료되었어요!");
 					}
 				},
 				Error: function () {

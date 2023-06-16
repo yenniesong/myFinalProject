@@ -2,6 +2,7 @@ package com.human.java.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,7 @@ public class EnrollmentController {
 	
 	@ResponseBody
 	@RequestMapping("insertEnrollment.do")
-	public String insertEnrollment(EnrollmentVO vo, HttpSession session, TeacherVO tVo) {
+	public String insertEnrollment(EnrollmentVO vo, HttpSession session, HttpServletResponse response, TeacherVO tVo) {
 		System.out.println("## insertEnrollment.do 진입 ##");
 		
 		System.out.println("====> userId : " + vo.getUserId());
@@ -61,18 +62,22 @@ public class EnrollmentController {
 		tVo.setTeacher_name(vo.getTeacher_name());
 		
 		// 선생님 강좌가 있는지 체크하기
-		teacherService.chkCourse(tVo);
+		TeacherVO chkResult = teacherService.chkCourse(tVo);
 		// 만약에 강좌가 없으면 어떻게 할지 고민해보기
-		if (teacherService.chkCourse(tVo) == null) {
+		if (chkResult == null || chkResult.getCourse_id() == 0) {
+			int intChkResult = 0;
+			return intChkResult + "";
 			
+		} else {
+			// 있으면 수강신청하기
+			int result = enrollmentService.insertEnrollment(vo);
+			
+//			session.setAttribute("loginFg", "b");
+//			session.getAttribute("loginFg");
+			
+			return result + "";
 		}
 		
 		
-		int result = enrollmentService.insertEnrollment(vo);
-		
-		session.setAttribute("loginFg", "b");
-		session.getAttribute("loginFg");
-		
-		return result + "";
 	}
 }
