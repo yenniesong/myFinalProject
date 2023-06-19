@@ -18,4 +18,7 @@ public interface CourseDAO {
 
 	void deleteCourse(CourseVO vo);
 
+	List<CourseVO> searchRegionList(CourseVO vo);
+
+
 }

@@ -20,4 +20,6 @@ public interface CourseService {
 
 	void deleteCourse(CourseVO vo);
 
+	List<CourseVO> searchRegionList(CourseVO vo);
+
 }

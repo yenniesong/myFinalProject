@@ -23,9 +23,7 @@ public class CourseDAOImpl implements CourseDAO {
 	@Override
 	public CourseVO getCourse(CourseVO vo) {
 		System.out.println("## getCourse dao 진입 ##");
-		
 		System.out.println("getCourse vo : " + vo);
-		
 		return mybatis.selectOne("CourseDAO.getCourse", vo);
 	}
 
@@ -52,5 +50,11 @@ public class CourseDAOImpl implements CourseDAO {
 	public void deleteCourse(CourseVO vo) {
 		System.out.println("## deleteCourse dao 진입 ##");
 		mybatis.delete("CourseDAO.deleteCourse", vo);
+	}
+
+	@Override
+	public List<CourseVO> searchRegionList(CourseVO vo) {
+		System.out.println("## searchRegionList dao 진입 ##");
+		return mybatis.selectList("CourseDAO.searchRegionList", vo);
 	}
 }

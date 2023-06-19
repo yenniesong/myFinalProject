@@ -1,5 +1,6 @@
 package com.human.java.controller;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.CourseVO;
 import com.human.java.domain.ReviewVO;
@@ -145,6 +147,21 @@ public class CourseController {
 		
 		return "redirect:/teacher/getTeacherList.do";
 		
+	}
+	
+	// 지역별 검색
+	@RequestMapping("searchRegionList.do") 
+	@ResponseBody
+	public HashMap<String, List<CourseVO>> searchRegionList(CourseVO vo) {
+		System.out.println("## ajax를 이용한 searchRegionList.do 진입 ##");
+		System.out.println("bootcamp_name: " + vo.getBootcamp_name());
+		
+		List<CourseVO> cousreGetregionList = courseService.searchRegionList(vo);
+		
+		HashMap<String, List<CourseVO>> map = new HashMap<String, List<CourseVO>>();
+		map.put("regionList", cousreGetregionList);
+		
+		return map;
 	}
 	
 }

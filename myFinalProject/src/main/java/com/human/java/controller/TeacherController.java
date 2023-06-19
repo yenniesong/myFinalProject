@@ -61,7 +61,7 @@ public class TeacherController {
 	
 	// 강사 상세페이지 조회하기
 	@RequestMapping("getTeacher.do")
-	public String getTeacher(TeacherVO vo, Model model, ReviewVO rVo, HttpSession session) {
+	public String getTeacher(TeacherVO vo, Model model, ReviewVO rVo, BootcampVO bVo, HttpSession session) {
 		System.out.println("## getTeacher.do 진입 ##");
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
 		
@@ -74,6 +74,10 @@ public class TeacherController {
 		List<ReviewVO> rList = reviewService.getTReviewList(rVo);
 		System.out.println(rList.size());
 		model.addAttribute("rList", rList);
+		
+//		bVo.setBootcamp_name(vo.getBootcamp_name());
+		
+//		BootcampVO getBUserId = bootcampService.
 		
 		return "/teacher/teacherInDetail";
 	}

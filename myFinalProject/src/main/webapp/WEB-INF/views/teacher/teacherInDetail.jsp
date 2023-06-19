@@ -848,40 +848,46 @@
                     </div>
           
                     <div class="jsx-216214598 flex-right">
-	          			<c:if test="${loginFg eq 'b'}">
-	          			<!-- 해당 학원일 경우에만 수정하기 버튼 및 삭제 버튼 기능 살리기 -->
-<%-- 	          			 <c:if test=""></c:if> --%>
-		                      <div class="jsx-216214598 title">
-		                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
-		                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
-		                        </button>
-		                        <button class="jsx-3857673807 btn-evaluation" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
-		                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
-		                        </button>	
-		                      </div>
-		                      
-								<!-- Modal -->
-								<form action="deleteTeacher.do" method="post" style="margin: 0px;">
-									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-									  <div class="modal-dialog">
-									    <div class="modal-content">
-									      <div class="modal-header">
-									        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-									      </div>
-									      <div class="modal-body">
-									        	선생님을 삭제하시겠습니까?
-									      </div>
-									      <div class="modal-footer">
-									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-									        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">
-									        <button type="submit" class="btn btn-primary deleteTeacher">삭제</button>
-									      </div>
-									    </div>
-									  </div>
-									</div>
-								</form>
-	                      </c:if>
+                    	<c:choose>
+                    		<c:when test="${loginFg == 'b'}">
+                    		
+		          			<c:if test="${userId}">
+		          			
+		          			<!-- 해당 학원일 경우에만 수정하기 버튼 및 삭제 버튼 기능 살리기 / 세션의 아이디와 작성한 학원의 userId 가 같을대 살려기 -->
+	<%-- 	          			 <c:if test=""></c:if> --%>
+			                      <div class="jsx-216214598 title">
+			                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
+			                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
+			                        </button>
+			                        <button class="jsx-3857673807 btn-evaluation" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
+			                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
+			                        </button>	
+			                      </div>
+			                      
+									<!-- Modal -->
+									<form action="deleteTeacher.do" method="post" style="margin: 0px;">
+										<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+										  <div class="modal-dialog">
+										    <div class="modal-content">
+										      <div class="modal-header">
+										        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+										      </div>
+										      <div class="modal-body">
+										        	선생님을 삭제하시겠습니까?
+										      </div>
+										      <div class="modal-footer">
+										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+										        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">
+										        <button type="submit" class="btn btn-primary deleteTeacher">삭제</button>
+										      </div>
+										    </div>
+										  </div>
+										</div>
+									</form>
+		                      </c:if>
+                    		</c:when>
+                    	</c:choose>
 	          
 	                      <div class="jsx-2255129348 real-time-evaluation">
 	                        <div class="jsx-2255129348 scroll-box">

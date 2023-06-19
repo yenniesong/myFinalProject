@@ -12,9 +12,6 @@
   	</select>
   	
   	<select id="getTeacher" parameterType="teacher" resultType="teacher">
-<!--   		SELECT *  -->
-<!--   		  FROM teacher -->
-<!--   		 WHERE teacher_id = #{teacher_id} -->
 		SELECT t.teacher_id, t.bootcamp_id, t. teacher_name, t.bootcamp_name, c.course_id, c.course_name, t.short_description, t.description, t.fname, t.fname_en, t.fsize, p.position_id, p.position
   		  FROM teacher t, position p, course c
   		 WHERE t.teacher_id = #{teacher_id} AND t.position_id = p.position_id AND t.course_id = c.course_id

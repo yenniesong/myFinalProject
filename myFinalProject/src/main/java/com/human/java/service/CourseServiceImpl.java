@@ -49,5 +49,11 @@ public class CourseServiceImpl implements CourseService {
 	public void deleteCourse(CourseVO vo) {
 		System.out.println("## deleteCourse service 진입 ##");
 		courseDAO.deleteCourse(vo);
+	} 
+
+	@Override
+	public List<CourseVO> searchRegionList(CourseVO vo) {
+		System.out.println("## searchRegionList service 진입 ##");
+		return courseDAO.searchRegionList(vo);
 	}
 } 

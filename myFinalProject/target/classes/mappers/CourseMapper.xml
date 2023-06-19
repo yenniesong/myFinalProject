@@ -58,6 +58,20 @@
   		DELETE FROM course 
   		 WHERE course_id = #{course_id} 
   	</delete>
+  	
+  	<select id="searchRegionList" parameterType="course" resultType="course">
+  		SELECT * 
+  		  FROM course
+  		 WHERE bootcamp_name LIKE '%${bootcamp_name}%'
+  		 ORDER BY course_id ASC
+  	</select>
+  	
+  	<select id="searchPositionList" parameterType="course" resultType="course">
+  		SELECT c.course_id, c.course_name, c.description, c.price, c.bootcamp_id, c.bootcamp_name, c.userId, c.course_period, p.position_id, p.position, c.fname, c.fname_en, c.fsize
+ 		  FROM course c, position p
+         WHERE c.position_id = p.position_id p.position LIKE '%' || #{position} || '%'	
+  		 ORDER BY course_id ASC
+  	</select>
   </mapper>
   
 
