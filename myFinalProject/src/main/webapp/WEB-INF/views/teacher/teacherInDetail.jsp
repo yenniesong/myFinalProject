@@ -1042,7 +1042,7 @@
                                             </div>
                                             <div class="jsx-644785032 ">
                                               <div class="jsx-644785032 info">
-                                              	<c:if test="${loginFg eq 's'}">
+                                              	<c:if test="${loginFg == 'm'}">
 	                                                <span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
 	                                                <!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
 	                                                <!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
