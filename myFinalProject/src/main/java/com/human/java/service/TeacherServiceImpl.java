@@ -67,6 +67,7 @@ public class TeacherServiceImpl implements TeacherService {
 	@Override
 	public TeacherVO chkCourse(TeacherVO tVo) {
 		System.out.println("## chkCourse service 진입 ##");	
+		System.out.println("tVo : " + tVo);
 		return teacherDAO.chkCourse(tVo);
 	}
 

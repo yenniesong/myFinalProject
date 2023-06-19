@@ -72,9 +72,6 @@ public class EnrollmentController {
 			// 있으면 수강신청하기
 			int result = enrollmentService.insertEnrollment(vo);
 			
-//			session.setAttribute("loginFg", "b");
-//			session.getAttribute("loginFg");
-			
 			return result + "";
 		}
 		

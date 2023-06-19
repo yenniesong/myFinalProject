@@ -1247,8 +1247,8 @@
 // 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
 			alert("수강신청하기");
 		
-			let userId = '${userId }';
-			let name = '${name }';
+			let userId = '<%=userId%>';
+			let name = '<%=userName%>';
 			let bootcampName = '${teacher.bootcamp_name }';
 			let teacherId = '${teacher.teacher_id }';
 			let teacherName = '${teacher.teacher_name}';
@@ -1256,7 +1256,7 @@
 			let courseName = '${teacher.course_name }';
 			
 			let data2 = {
-					"userid": userId
+					"userId": userId
 				    , "name": name
 					, "bootcamp_name" : bootcampName
 					, "teacher_id" : teacherId
@@ -1297,7 +1297,7 @@
 
 	
 	let btn_writing_review1 = document.querySelector('.btnWritingReview1');
-	let tSessionExists = <%= tSession != null %>;
+	let tSessionExists = <%= tSession != null %>; 
 	
 	btn_writing_review1.addEventListener("click", function () {
 	    alert("1");
