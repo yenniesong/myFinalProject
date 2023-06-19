@@ -29,7 +29,8 @@ public class EnrollmentDAOImpl implements EnrollmentDAO {
 
 	@Override
 	public int cntTEnroll(EnrollmentVO vo) {
-		System.out.println("## cntEnroll dao 진입 ##");
+		System.out.println("## cntTEnroll dao 진입 ##");
+		System.out.println("vo : " + vo);
 		int result = 0;
 		
 		result = mybatis.selectOne("EnrollmentDAO.cntTEnroll", vo);

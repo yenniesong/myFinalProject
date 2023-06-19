@@ -30,5 +30,10 @@ public class BootcampServiceImpl implements BootcampService {
 		return bootcampDAO.bootcampList();
 	}
 
+	@Override
+	public BootcampVO bootcampInfo(String userId) {
+		return bootcampDAO.bootcampInfo(userId);
+	}
+
 
 }

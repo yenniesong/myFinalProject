@@ -12,11 +12,11 @@
 	</select>
 	
 	<insert id="insertEnrollment" parameterType="enroll">
-		INSERT INTO ENROLLMENT (ENROLLMENT_ID, USERID, NAME, TEACHER_ID, TEACHER_NAME, COURSE_ID, COURSE_NAME, ENROLLMENT_DATE)
-		VALUES (seq_enrollment_enrollment_id.NEXTVAL, #{userId}, #{name}, #{teacher_id}, #{teacher_name}, #{course_id}, #{course_name}, SYSDATE)
+		INSERT INTO ENROLLMENT (ENROLLMENT_ID, USERID, NAME, TEACHER_ID, TEACHER_NAME, COURSE_ID, COURSE_NAME, ENROLLMENT_DATE, BOOTCAMP_NAME)
+		VALUES (seq_enrollment_enrollment_id.NEXTVAL, #{userId}, #{name}, #{teacher_id}, #{teacher_name}, #{course_id}, #{course_name}, SYSDATE, #{bootcamp_name})
 	</insert>
 	
-	<select id="cntTEnroll" parameterType="enroll" resultType="enroll">
+	<select id="cntTEnroll" parameterType="enroll" resultType="int">
 		SELECT COUNT(*) 
   		  FROM enrollment 
   		 WHERE userId = #{userId} AND teacher_id = #{teacher_id}

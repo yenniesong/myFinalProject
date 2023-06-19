@@ -1248,7 +1248,8 @@
 			alert("수강신청하기");
 		
 			let userId = '<%=userId%>';
-			let name = '<%=userName%>';
+<%-- 			let name = '<%=userName%>'; --%>
+			let name = '신청자';
 			let bootcampName = '${teacher.bootcamp_name }';
 			let teacherId = '${teacher.teacher_id }';
 			let teacherName = '${teacher.teacher_name}';
@@ -1272,8 +1273,8 @@
 				dataType: "text", 
 				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
 				success : function (json) {
-					
-					if (json  = 0) {
+					console.log(json);
+					if (json == 0) {
 						alert('선생님의 강좌가 아직 열리지 않았어요!');
 					} else if (json > 0) {
 						alert('이미 신청되었어요!');

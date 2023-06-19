@@ -13,5 +13,8 @@ public interface BootcampService {
 	
 	public List<BootcampVO> bootcampList();
 
+	public BootcampVO bootcampInfo(String userId);
+
+
 	
 }

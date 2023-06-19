@@ -7,16 +7,16 @@
   	<!-- 미나 mapper.xml -->
   	<!-- 일반로그인 -->
 	<select id="memberlogin" resultType="Member"> 
-		SELECT 'b' as loginFG, userId, password, bootcamp_name
+		SELECT 'b' as loginFG, userId, password
 		  FROM BOOTCAMP 
 		 WHERE userId = #{userId} AND password = #{password} UNION ALL 
-		SELECT 'c', userId, password, name  
+		SELECT 'c', userId, password
 		  FROM COMPANY_INFO
 		 WHERE userId = #{userId} AND password = #{password} UNION ALL 
-		SELECT 'm', userId, password, name  
+		SELECT 'm', userId, password
 		  FROM MEMBER
 		 WHERE userId = #{userId} AND password = #{password} UNION ALL 
-		SELECT 'A', userId, password, name  
+		SELECT 'A', userId, password
 		  FROM ADMIN 
 		 WHERE userId = #{userId} AND password = #{password}
 	</select>
@@ -103,17 +103,17 @@
 	<select id="idCheck" parameterType="String" resultType="int">
 		SELECT
 		COUNT(*) FROM (
-		SELECT userId FROM member
-		UNION ALL
-		SELECT userId FROM
-		bootcamp
-		UNION ALL
-		SELECT userId FROM company_info
-		UNION ALL
-		SELECT userId
-		FROM admin
+			SELECT userId FROM member
+			UNION ALL
+			SELECT userId FROM
+			bootcamp
+			UNION ALL
+			SELECT userId FROM company_info
+			UNION ALL
+			SELECT userId
+			FROM admin
 		) combined
-		WHERE userId = #{userId}
+		WHERE userId = #{value}
 	</select>
 
 

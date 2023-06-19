@@ -1,12 +1,14 @@
 package com.human.java.controller;
 
 import java.net.URLEncoder;
+import java.nio.file.ClosedWatchServiceException;
 
 import javax.inject.Inject;
 //import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.Company_infoVO;
 import com.human.java.domain.MemberVO;
+import com.human.java.service.BootcampService;
 import com.human.java.service.MemberService;
 
 @Controller
@@ -32,6 +35,9 @@ public class MemberController {
 
 	@Inject
 	private MemberService service;
+	@Autowired
+	private BootcampService bService;
+	
 	
 	@RequestMapping("/{url}")
 	public String viewPage(@PathVariable String url) {
@@ -75,16 +81,31 @@ public class MemberController {
 
 		} else {
 			
-//			if ( login.getLoginFG().equals('m') ) {
-//				session.setAttribute("userId", login.getUserid()); // 로그인 정보 세션에 저장
-//				session.setAttribute("loginFG", login.getLoginFG());
-//			} else if ( login.getLoginFG().equals('b') ) {
-//				bootcampVO vo = service.메소드명(userid) 
-//			}
+			if ( login.getLoginFG().equals('m') ) {
+				MemberVO getName = service.getMemberByUserId(memberVO.getUserId());
+				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
+				session.setAttribute("name", getName.getName());
+				session.setAttribute("loginFG", login.getLoginFG());
+			} else if ( login.getLoginFG().equals('b') ) {
+				BootcampVO getBName = bService.bootcampInfo(memberVO.getUserId());
+				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
+				session.setAttribute("name", getBName.getBootcamp_name());
+				session.setAttribute("loginFG", login.getLoginFG());
+			} else if (login.getLoginFG().equals('c')) {
+				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
+				
+//				Company_infoVO getCName = cService.companyInfo(memberVO.getUserId());
+				
+				session.setAttribute("name", login.getName());
+				session.setAttribute("loginFG", login.getLoginFG());
+
+			} else if (login.getLoginFG().equals('A')) {
+				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
+				session.setAttribute("name", login.getName());
+				session.setAttribute("loginFG", login.getLoginFG());
+				
+			}
 			
-			session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
-			session.setAttribute("name", login.getName());
-			session.setAttribute("loginFG", login.getLoginFG());
 			
 			// 로그인 완료하면 가는 경로
 			return "member/main";

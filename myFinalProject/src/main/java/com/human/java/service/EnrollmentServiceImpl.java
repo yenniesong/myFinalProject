@@ -22,7 +22,8 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 
 	@Override
 	public int insertEnrollment(EnrollmentVO vo) {
-		System.out.println("## insertTEnrollment service 진입 ##");
+		System.out.println("## insertEnrollment service 진입 ##");
+		System.out.println("vo : " + vo);
 
 		int result = 0;
 		

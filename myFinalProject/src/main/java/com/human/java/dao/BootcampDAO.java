@@ -24,4 +24,6 @@ public interface BootcampDAO {
 	
 	public List<BootcampVO> bootcampList();
 
+	BootcampVO bootcampInfo(String userId);
+
 }

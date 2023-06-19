@@ -41,5 +41,10 @@ public class BootcampDAOImpl implements BootcampDAO {
 		return mybatis.selectList("BootcampDAO.bootcampList");
 	}
 
+	@Override
+	public BootcampVO bootcampInfo(String userId) {
+		return mybatis.selectOne("BootcampDAO.bootcampInfo", userId);
+	}
+
 
 }
