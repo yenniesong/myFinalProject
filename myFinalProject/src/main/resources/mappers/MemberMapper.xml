@@ -103,17 +103,17 @@
 	<select id="idCheck" parameterType="String" resultType="int">
 		SELECT
 		COUNT(*) FROM (
-		SELECT userId FROM member
-		UNION ALL
-		SELECT userId FROM
-		bootcamp
-		UNION ALL
-		SELECT userId FROM company_info
-		UNION ALL
-		SELECT userId
-		FROM admin
+			SELECT userId FROM member
+			UNION ALL
+			SELECT userId FROM
+			bootcamp
+			UNION ALL
+			SELECT userId FROM company_info
+			UNION ALL
+			SELECT userId
+			FROM admin
 		) combined
-		WHERE userId = #{userId}
+		WHERE userId = #{value}
 	</select>
 
 

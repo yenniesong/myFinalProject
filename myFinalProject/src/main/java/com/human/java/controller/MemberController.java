@@ -136,7 +136,7 @@ public class MemberController {
 	@RequestMapping(value = "/idCheck", method = RequestMethod.POST)
 	public int idCheck(String userId) throws Exception {
 		System.out.println("아이디중복체크 들어오기");
-
+		
 		int idCheck = service.idCheck(userId);
 
 		int result = 0;

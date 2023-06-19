@@ -46,14 +46,13 @@ bootcampRadioButton.addEventListener('change', (event) => {
 
 // 일반회원 아이디 중복검사
 $("#student-fields .idCheck").click(function() {
-	var userId = $("#student-fields #userid").val();
+	var userId = $("#student-fields #userId").val();
 
   if (userId === "") {
     alert("아이디를 입력해주세요.");
     return;
   }
-
-  var query = { userid: userId };
+  var query = { 'userId': userId };
 
   $.ajax({
     url: "/member/idCheck",
@@ -78,7 +77,7 @@ $("#student-fields .idCheck").click(function() {
 
 // 학원아이디 중복검사
 $("#bootcamp-fields .idCheck").click(function() {
-	var userId = $("#bootcamp-fields #userid").val();  // 수정: 변수명을
+	var userId = $("#bootcamp-fields #userId").val();  // 수정: 변수명을
 														// bootcampUserId로 변경
 
   if (userId === "") {
@@ -86,7 +85,7 @@ $("#bootcamp-fields .idCheck").click(function() {
     return;
   }
 
-  var query = { userid: userId };
+  var query = { userId: userId };
 
   $.ajax({
     url: "/member/idCheck",
@@ -110,14 +109,14 @@ $("#bootcamp-fields .idCheck").click(function() {
 
 // 기업아이디 중복검사
 $("#company-fields .idCheck").click(function() {
-	  var userId = $("#company-fields #userid").val();
+	  var userId = $("#company-fields #userId").val();
 
   if (userId === "") {
     alert("아이디를 입력해주세요.");
     return;
   }
 
-  var query = { userid: userId };
+  var query = { userId: userId };
 
   $.ajax({
     url: "/member/idCheck",
