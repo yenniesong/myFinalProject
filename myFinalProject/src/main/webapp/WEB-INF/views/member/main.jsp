@@ -115,12 +115,14 @@
 						</li>
 						<li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
 					</c:if>
-					<li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
-						<ul>
-					       <li><a href="login">로그인</a></li>
-					       <li><a href="join">회원가입</a></li>
-						</ul>
-		          	</li>
+					<c:if test="${userId == null}">
+						<li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
+							<ul>
+						       <li><a href="login">로그인</a></li>
+						       <li><a href="join">회원가입</a></li>
+							</ul>
+			          	</li>
+					</c:if>
 			</nav>
 			<!-- .navbar -->
 

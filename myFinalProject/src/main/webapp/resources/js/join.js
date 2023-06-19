@@ -177,11 +177,19 @@ $("#company-fields .idCheck").click(function() {
  });
 
 // 비밀번호 검사
- function checkPassword() {
-	  var password = document.querySelector(".password").value;
-	  var passwordConfirm = document.querySelector(".password_confirm").value;
-	  var passwordCheckResult = document.querySelector(".passwordCheckResult");
+ function checkPassword(elem) {
+	 console.log(elem.parentElement.parentElement.parentElement.parentElement);
+	 
+	 	let parent = elem.parentElement.parentElement.parentElement.parentElement
+	  var password = parent.querySelector(".password").value;
+	  var passwordConfirm = parent.querySelector(".password_confirm").value;
+	  var passwordCheckResult = parent.querySelector(".passwordCheckResult");
 
+	  console.log('test');
+	  console.log(document.querySelector(".password"));
+	  console.log(password);
+	  console.log(passwordConfirm);
+	  
 	  if (password.trim() === '' || passwordConfirm.trim() === '') {
 		  alert("비밀번호를 입력하고 눌러주세요.");
 	    passwordCheckResult.textContent = "비밀번호를 입력하고 눌러주세요.";

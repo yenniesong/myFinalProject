@@ -152,7 +152,7 @@
 									class="password_confirm" name="password_confirm" required>
 									<br>
 									<button type="button" id="passwordbtn"
-										onclick="checkPassword()">비밀번호 확인</button> <span
+										onclick="checkPassword(this)">비밀번호 확인</button> <span
 									id="passwordCheckResult" class="passwordCheckResult"></span></td>
 							</tr>
 							<tr>
@@ -223,7 +223,7 @@
 							<tr>
 								<th><label for="password">비밀번호</label></th>
 								<td><input type="password" id="password" class="password"
-									name="password" placeholder="8자리 이상 써주세요" oninput="checkPw()"></td>
+									name="password" placeholder="8자리 이상 써주세요"></td>
 							</tr>
 							<tr>
 								<th><label for="password_confirm">비밀번호 확인</label></th>
@@ -231,7 +231,7 @@
 									class="password_confirm" name="password_confirm" required>
 									<br>
 									<button type="button" id="passwordbtn"
-										onclick="checkPassword()">비밀번호 확인</button> <span
+										onclick="checkPassword(this)">비밀번호 확인</button> <span
 									id="passwordCheckResult" class="passwordCheckResult"></span></td>
 							</tr>
 							<tr>
@@ -288,9 +288,10 @@
 										확인해주세요</span>
 									<button type="button" id="idCheck" class="idCheck">중복확인</button></td>
 							</tr>
+							<tr>
 							<th><label for="password">비밀번호</label></th>
 							<td><input type="password" id="password" class="password"
-								name="password" placeholder="8자리 이상 써주세요" oninput="checkPw()"></td>
+								name="password" placeholder="8자리 이상 써주세요"></td>
 							</tr>
 							<tr>
 								<th><label for="password_confirm">비밀번호 확인</label></th>
@@ -298,7 +299,7 @@
 									class="password_confirm" name="password_confirm" required>
 									<br>
 									<button type="button" id="passwordbtn"
-										onclick="checkPassword()">비밀번호 확인</button> <span
+										onclick="checkPassword(this)">비밀번호 확인</button> <span
 									id="passwordCheckResult" class="passwordCheckResult"></span></td>
 							</tr>
 							<tr>
