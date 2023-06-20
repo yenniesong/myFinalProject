@@ -20,5 +20,7 @@ public interface CourseDAO {
 
 	List<CourseVO> searchRegionList(CourseVO vo);
 
+	List<CourseVO> searchPositionList(CourseVO vo);
+
 
 }

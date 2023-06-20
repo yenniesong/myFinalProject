@@ -56,4 +56,10 @@ public class CourseServiceImpl implements CourseService {
 		System.out.println("## searchRegionList service 진입 ##");
 		return courseDAO.searchRegionList(vo);
 	}
+
+	@Override
+	public List<CourseVO> searchPositionList(CourseVO vo) {
+		System.out.println("## searchPositionList service 진입 ##");
+		return courseDAO.searchPositionList(vo);
+	}
 } 

@@ -22,4 +22,6 @@ public interface CourseService {
 
 	List<CourseVO> searchRegionList(CourseVO vo);
 
+	List<CourseVO> searchPositionList(CourseVO vo);
+
 }

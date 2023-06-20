@@ -1509,7 +1509,7 @@ img.jsx-2891290942 {
 		location.href = 'goCourseForUpdating.do?course_id=' + ${course.course_id};
 	});
 	
-	btn_enroll.addEventListener('click'. function () {
+	btn_enroll.addEventListener("click", function () {
 		alert('강좌 신청');
 		/* 학생의 정보와 이 강좌의 정보를 같이 보내야함 */
 	

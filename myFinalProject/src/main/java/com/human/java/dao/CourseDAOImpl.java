@@ -57,4 +57,10 @@ public class CourseDAOImpl implements CourseDAO {
 		System.out.println("## searchRegionList dao 진입 ##");
 		return mybatis.selectList("CourseDAO.searchRegionList", vo);
 	}
+
+	@Override
+	public List<CourseVO> searchPositionList(CourseVO vo) {
+		System.out.println("## searchPositionList dao 진입 ##");
+		return mybatis.selectList("CourseDAO.searchPositionList", vo);
+	}
 }

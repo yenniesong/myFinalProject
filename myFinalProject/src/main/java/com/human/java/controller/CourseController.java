@@ -164,4 +164,20 @@ public class CourseController {
 		return map;
 	}
 	
+	// 포지션별 검색
+	@RequestMapping("searchPositionList.do")
+	@ResponseBody
+	public HashMap<String, List<CourseVO>> searchPositionList(CourseVO vo) {
+		System.out.println("## ajax를 이용한 searchPositionList.do 진입 ##");
+		System.out.println("position: " + vo.getPosition());
+		
+		List<CourseVO> positionList = courseService.searchPositionList(vo);
+		System.out.println(positionList.size());
+		
+		HashMap<String, List<CourseVO>> map = new HashMap<String, List<CourseVO>>();
+		map.put("positionList", positionList);
+		
+		return map;
+	}
+	
 }
