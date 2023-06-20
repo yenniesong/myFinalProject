@@ -157,6 +157,8 @@ public class CourseController {
 		System.out.println("bootcamp_name: " + vo.getBootcamp_name());
 		
 		List<CourseVO> cousreGetregionList = courseService.searchRegionList(vo);
+		System.out.println(cousreGetregionList.size());
+		System.out.println(cousreGetregionList);
 		
 		HashMap<String, List<CourseVO>> map = new HashMap<String, List<CourseVO>>();
 		map.put("regionList", cousreGetregionList);

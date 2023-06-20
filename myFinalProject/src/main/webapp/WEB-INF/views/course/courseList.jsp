@@ -1691,9 +1691,9 @@ li.jsx-3824006232 button.jsx-3824006232 {
                     <h4 class="jsx-2595981909">과목</h4>
                     <button type="button" class="jsx-2595981909 btn-all on">전체</button>
                     <ul class="jsx-2595981909">
-                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">프론트엔드</button></li>
-                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">백엔드</button></li>
-                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 ">풀스택</button></li>
+                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 position front" value="front">프론트엔드</button></li>
+                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 position back" value="back">백엔드</button></li>
+                      <li class="jsx-2749561681"><button type="button" class="jsx-2749561681 position full" value="full">풀스택</button></li>
                     </ul>
                   </div>
                 </li>
@@ -1722,9 +1722,9 @@ li.jsx-3824006232 button.jsx-3824006232 {
                     </button>
                   </div>
 
-				  <c:forEach items="${cList }" var="course">
                   <ul class="jsx-2875758176 tutors">
-                    <li class="jsx-2875758176">
+				  <c:forEach items="${cList }" var="course">
+                    <li class="jsx-2875758176 tutorsLi">
                       <a class="jsx-2875758176" href="getCourse.do?course_id=${course.course_id }">
                         <div tabindex="0" class="jsx-445560552 card">
                           <div class="jsx-445560552 content">
@@ -1753,8 +1753,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
                       </a>
                     </li>
 
-                  </ul>
                   </c:forEach>
+                  </ul>
 
                   <div class="jsx-786344230 btn-view-more">
                     <button type="button" class="jsx-1662442796 seeMore">더보기</button>
@@ -1892,7 +1892,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 				, data : data
 				, dataType : "JSON"
 				, success : function (json) {
-					console.log(json);
+					console.log("json: " + json);
 					
 					let resultUl = document.querySelector(".tutors");
 					resultUl.textContent = "";
@@ -2014,7 +2014,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		$(".position").click(function() {
 			let btnPosition = $(this).attr('value');
 			
-			console.log(btnPosition);
+			console.log("position" + btnPosition);
 			
 			// 전송할 데이터
 			let data = { 'position' : btnPosition };
@@ -2025,7 +2025,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 				data: data,
 				dataType: "JSON",
 				success: function (json) {
-					console.log(json);
+					console.log("json: " + json);
 					 
 					let resultUl = document.querySelector(".tutors");
 					resultUl.textContent = "";
@@ -2033,11 +2033,11 @@ li.jsx-3824006232 button.jsx-3824006232 {
 					
 					for (var i = 0; i < resultPositions.length; i++) {
 						let li = document.createElement("li");
-						li.classList.add("jsx-2875758176", "tutorsLi");
-						li.setAttribute("style", 'display: list-item;');
+						li.classList.add("jsx-2875758176");
+						
 						let a = document.createElement("a");
 						a.classList.add("jsx-2875758176");
-						a.href = "getTeacher.do?teacher_id=" + resultPositions[i].teacher_id;
+						a.href = "getCourse.do?course_id=" + resultPositions[i].course_id;
 						
 						let divCard = document.createElement("div");
 						divCard.tabIndex = 0;
@@ -2051,7 +2051,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						
 						let hiddenInput1 = document.createElement("input");
 						hiddenInput1.type = "hidden";
-						hiddenInput1.value = resultPositions[i].teacher_id;
+						hiddenInput1.value = resultPositions[i].course_id;
 						
 						let hiddenInput2 = document.createElement("input");
 						hiddenInput2.type = "hidden";
@@ -2059,16 +2059,21 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						
 						let h3 = document.createElement("h3");
 						h3.classList.add("jsx-445560552");
-						h3.textContent = resultPositions[i].teacher_name;
+						h3.textContent = resultPositions[i].course_name;
 						
-						let p = document.createElement("p");
-						p.classList.add("jsx-445560552");
-						p.textContent = resultPositions[i].bootcamp_name;
+						let p1 = document.createElement("p");
+						p1.classList.add("jsx-445560552");
+						p1.textContent = resultPositions[i].bootcamp_name;
+						
+						let p2 = document.createElement("p");
+						p2.classList.add("jsx-445560552");
+						p2.textContent = resultPositions[i].price;
 						
 						divInfo.appendChild(hiddenInput1);
 						divInfo.appendChild(hiddenInput2);
 						divInfo.appendChild(h3);
-						divInfo.appendChild(p); 
+						divInfo.appendChild(p1); 
+						divInfo.appendChild(p2); 
 						
 						divContent.appendChild(divInfo);
 						
@@ -2096,7 +2101,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						let star5 = document.createElement("div");
 						star5.classList.add("jsx-2704879397","star", "star-0");
-
+						
 						starsDiv.appendChild(star1);
 						starsDiv.appendChild(star2);
 						starsDiv.appendChild(star3);
@@ -2105,7 +2110,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						starBox.appendChild(starSpan);
 						starBox.appendChild(starsDiv);
-
+						
 						let profileImageDiv = document.createElement("div");
 						profileImageDiv.classList.add("jsx-445560552", "profile-image", "tutor");
 
