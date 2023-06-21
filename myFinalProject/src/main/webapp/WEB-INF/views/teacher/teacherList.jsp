@@ -1531,16 +1531,12 @@ li.jsx-3824006232 button.jsx-3824006232 {
 									<!-- 로그인 플래그가 b일 경우 -->
 									<c:choose>
 										<c:when test="${loginFG == 'b'}">
-<%-- 									<c:if test="${loginFG == 'b'}"><!-- c:choose로 해보기 --> --%>
-<%-- 									<% if(loginFG.equals("b")) { %> --%>
 											<div class="jsx-786344230 btn-add-teacher mb-3">
 												<span class="jsx-786344230">새로운 선생님을 등록하실 건가요?</span>
 												<button type="button" class="jsx-3375816330 addTeacher" style="width: 140px;">
 													<img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">선생님 추가하기
 												</button>
 											</div>
-<%-- 									<% } %> --%>
-<%-- 									</c:if> --%>
 					
 											<ul class="jsx-2875758176 tutors">
 												<c:forEach items="${tList}" var="teacher">

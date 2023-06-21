@@ -4,9 +4,18 @@
 
 <c:set var="path" value="${pageContext.request.contextPath}" />
 <%
-	HttpSession bootSession = request.getSession();
-	int bootcamp_id = (Integer) bootSession.getAttribute("bootcamp_id");
-	String bootcamp_name = (String) bootSession.getAttribute("bootcamp_name");
+	HttpSession cSession = request.getSession();
+
+	int bootcamp_id = (Integer) cSession.getAttribute("bootcamp_id");
+	String bootcamp_name = (String) cSession.getAttribute("bootcamp_name");
+	
+	String userId = (String)cSession.getAttribute("userId");
+	String userName = (String)cSession.getAttribute("name");	/* 학원은 학원 명, 학생은 학생 명, 기업은 기업 명을 가져와야함 */
+	String loginFG = (String)cSession.getAttribute("loginFG");
+	
+	System.out.println("userId : " + userId);
+	System.out.println("userName : " + userName);
+	System.out.println("loginFG : " + loginFG);
 %>
 <!DOCTYPE html>
 <html>
@@ -1069,83 +1078,92 @@ img.jsx-2891290942 {
 													<input type="hidden" name="bootcamp_id" value="${course.bootcamp_id }"> 
 													<input type="hidden" name="position_id" value="${course.position_id }"> 
 													<input type="hidden" name="position" value="${course.position }">
+													<input type="hidden" name="userId" value="${course.userId }">
 												</div>
 											</div>
 										</div>
 
 										<div class="jsx-216214598 flex-right">
-
-											<div class="jsx-216214598 title">
-												<button class="jsx-3857673807 btn-evaluation updatingCourse" type="button">
-													수정하기 <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
-												</button>
-												<form action="deleteCourse.do" method="post">
-													<input type="hidden" name="course_id" value="${course.course_id }">
-													<button class="jsx-3857673807 btn-evaluation deleteCourse" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px;">
-														<img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px">
-													</button>
-													
-													<!-- Modal -->
-													<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-													  <div class="modal-dialog">
-													    <div class="modal-content">
-													      <div class="modal-header">
-													        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-													        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-													      </div>
-													      <div class="modal-body">
-													        ...
-													      </div>
-													      <div class="modal-footer">
-													        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-													        <button type="button" class="btn btn-primary">Understood</button>
-													      </div>
-													    </div>
-													  </div>
-													</div>
-
-												</form>
-											</div>
-
-											<!-- 상세 페이지의 간단 설명 부분 -->
-											<div class="jsx-2255129348 real-time-evaluation">
-												<div class="jsx-2255129348 scroll-box">
-													<ul class="jsx-2255129348">
-														<li class="jsx-2255129348">
-															<h4 class="jsx-2255129348">강의명</h4>
-														</li>
-														<li class="jsx-3839070939 tutor">
-															<div class="jsx-3839070939 board-item">
-																<div class="jsx-3839070939 title">
-																	<h4 class="jsx-3839070939">${course.course_name }</h4>
+											<c:choose>
+												<c:when test="${loginFG == 'b' }">
+													  <c:if test="${course.userId eq userId }">
+													  
+														<div class="jsx-216214598 title">
+															<button class="jsx-3857673807 btn-evaluation updatingCourse" type="button">
+																수정하기 
+																<img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
+															</button>
+															<form action="deleteCourse.do" method="post">
+																<input type="hidden" name="course_id" value="${course.course_id }">
+																<button class="jsx-3857673807 btn-evaluation deleteCourse" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px;">
+																	<img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px">
+																</button>
+																
+																<!-- Modal -->
+																<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+																  <div class="modal-dialog">
+																    <div class="modal-content">
+																      <div class="modal-header">
+																        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+																        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+																      </div>
+																      <div class="modal-body">
+																        	해당 강좌를 삭제하시겠습니까?
+																      </div>
+																      <input type="hidden" name="course_id" value="${course.course_id }">
+																      <div class="modal-footer">
+																        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+																        <button type="submit" class="btn btn-primary">삭제</button>
+																      </div>
+																    </div>
+																  </div>
 																</div>
+			
+															</form>
+														</div>
+			
+														<!-- 상세 페이지의 간단 설명 부분 -->
+														<div class="jsx-2255129348 real-time-evaluation">
+															<div class="jsx-2255129348 scroll-box">
+																<ul class="jsx-2255129348">
+																	<li class="jsx-2255129348">
+																		<h4 class="jsx-2255129348">강의명</h4>
+																	</li>
+																	<li class="jsx-3839070939 tutor">
+																		<div class="jsx-3839070939 board-item">
+																			<div class="jsx-3839070939 title">
+																				<h4 class="jsx-3839070939">${course.course_name }</h4>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="jsx-2255129348 horizontal-rule"></li>
+																	<li class="jsx-2255129348">
+																		<h4 class="jsx-2255129348">별점</h4>
+																	</li>
+																	<li class="jsx-1434886323 ">
+																		<div class="jsx-1434886323 board-item">
+																			<div class="jsx-1434886323 title">
+																				<h4 class="jsx-1434886323">별점 샤샥</h4>
+																			</div>
+																		</div>
+																	</li>
+																	<li class="jsx-2255129348 horizontal-rule"></li>
+																	<li class="jsx-2255129348">
+																		<h4 class="jsx-2255129348">학원명</h4>
+																	</li>
+																	<li class="jsx-1434886323 ">
+																		<div class="jsx-1434886323 board-item">
+																			<div class="jsx-1434886323 title">
+																				<h4 class="jsx-1434886323">${course.bootcamp_name }</h4>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
 															</div>
-														</li>
-														<li class="jsx-2255129348 horizontal-rule"></li>
-														<li class="jsx-2255129348">
-															<h4 class="jsx-2255129348">별점</h4>
-														</li>
-														<li class="jsx-1434886323 ">
-															<div class="jsx-1434886323 board-item">
-																<div class="jsx-1434886323 title">
-																	<h4 class="jsx-1434886323">별점 샤샥</h4>
-																</div>
-															</div>
-														</li>
-														<li class="jsx-2255129348 horizontal-rule"></li>
-														<li class="jsx-2255129348">
-															<h4 class="jsx-2255129348">학원명</h4>
-														</li>
-														<li class="jsx-1434886323 ">
-															<div class="jsx-1434886323 board-item">
-																<div class="jsx-1434886323 title">
-																	<h4 class="jsx-1434886323">${course.bootcamp_name }</h4>
-																</div>
-															</div>
-														</li>
-													</ul>
-												</div>
-											</div>
+														</div>
+													  </c:if>
+												</c:when>
+											</c:choose>
 										</div>
 									</div>
 								</div>
@@ -1177,6 +1195,7 @@ img.jsx-2891290942 {
 																	<c:choose>
 
 																		<c:when test="${not empty cRList }">
+																			<c:if test="${empty userId }"></c:if><!-- 만약에 로그인 세션이 없다면 아래 로그인 팝업 on 제거하기 -->
 																			<c:forEach items="${cRList }" var="cReview">
 																				<!-- 후기 내용이 들어가는 부분 (바뀌어야하는 부분) -->
 																				<div class="jsx-4149508951 review-box">
@@ -1244,7 +1263,7 @@ img.jsx-2891290942 {
 																					</div>
 																					<div class="jsx-644785032 ">
 																						<div class="jsx-644785032 info">
-																							<c:if test="${loginFg eq 's'}">
+																							<c:if test="${loginFG eq 'm'}">
 																								<!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
 																								<span class="jsx-644785032 nickname goWriting"><a href="#">후기 작성하기</a></span>
 																							</c:if>
@@ -1316,7 +1335,7 @@ img.jsx-2891290942 {
 																		</div>
 																	</div>
 																	<div class="cd-floating__buttons">
-																		<button class="ac-button is-lg is-solid is-primary floating__main-button e-enrol " data-type="cart">수강신청 하기</button>
+																		<button class="ac-button is-lg is-solid is-primary floating__main-button e-enrol btn_enroll" data-type="cart">수강신청 하기</button>
 																		<button class="ac-button is-lg is-outlined is-gray floating__main-button e-add-cart " data-type="add-cart">바구니에 담기</button>
 																	</div>
 																	<div class="cd-floating__sub-buttons">
@@ -1471,12 +1490,14 @@ img.jsx-2891290942 {
 	let showReviewArea = document.querySelector(".reviewArea");
 	let btn_enroll = document.querySelector("e-enrol");
 
-// 	btn_signUp.addEventListener("click", function() {
-// 		alert('1');
-// 	});
-// 	btn_login.addEventListener("click", function() {
-// 		alert('1');
-// 	});
+	btn_signUp.addEventListener("click", function() {
+		alert('sign up');
+		location.href = 'member/join';
+	});
+	btn_login.addEventListener("click", function() {
+		alert('1');
+		location.href = 'member/login';
+	});
 	
 	btn_description.addEventListener("click", function() {
 		
@@ -1509,10 +1530,58 @@ img.jsx-2891290942 {
 		location.href = 'goCourseForUpdating.do?course_id=' + ${course.course_id};
 	});
 	
-	btn_enroll.addEventListener("click", function () {
-		alert('강좌 신청');
-		/* 학생의 정보와 이 강좌의 정보를 같이 보내야함 */
+// 	btn_enroll.addEventListener("click", function () {
+// 		alert('강좌 신청');
+// 		/* 학생의 정보와 이 강좌의 정보를 같이 보내야함 */
 	
+// 	});
+	
+	$(function() {
+		$(".btn_enroll").click(function() {
+// 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
+			alert("수강신청하기");
+		
+			let userId = '<%=userId%>';
+			let name = '<%=userName%>';
+// 			let name = '신청자';
+			let bootcampName = '${course.bootcamp_name }';
+			let teacherId = '${teacher.teacher_id }';
+			let teacherName = '${teacher.teacher_name}';
+			let courseId = '${course.course_id}';
+			let courseName = '${course.course_name }';
+			
+			let data2 = {
+					"userId": userId
+				    , "name": name
+					, "bootcamp_name" : bootcampName
+					, "teacher_id" : teacherId
+					, "teacher_name" : teacherName
+					, "course_id" : courseId
+					, "course_name" : courseName
+			};
+			
+			$.ajax({
+				url : "/enrollment/insertEnrollment.do",
+				type: "POST",
+				data: data2,
+				dataType: "text", 
+				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
+				success : function (json) {
+					console.log(json);
+					if (json == 0) {
+						alert('선생님의 강좌가 아직 열리지 않았어요!');
+					} else if (json > 0) {
+						alert('이미 신청되었어요!');
+					} else {
+						alert("수강신청이 완료되었어요!");
+					}
+				},
+				Error: function () {
+					alert("실패");
+				}
+			});
+			
+		});
 	});
 	
 	

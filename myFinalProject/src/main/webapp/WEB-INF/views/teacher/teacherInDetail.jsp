@@ -849,9 +849,9 @@
           
                     <div class="jsx-216214598 flex-right">
                     	<c:choose>
-                    		<c:when test="${loginFg == 'b'}">
+                    		<c:when test="${loginFG == 'b'}">
                     		
-		          			<c:if test="${userId}">
+		          			<c:if test="${teacher.bootcamp_name eq userName}"> <!-- db에 저장된 학원이름과 세션에 등록된 name과 같으면 수정할 수 있음 -->
 		          			
 		          			<!-- 해당 학원일 경우에만 수정하기 버튼 및 삭제 버튼 기능 살리기 / 세션의 아이디와 작성한 학원의 userId 가 같을대 살려기 -->
 	<%-- 	          			 <c:if test=""></c:if> --%>
@@ -1255,7 +1255,7 @@
 		
 			let userId = '<%=userId%>';
 <%-- 			let name = '<%=userName%>'; --%>
-			let name = '신청자';
+			let name = '<%=userName%>';
 			let bootcampName = '${teacher.bootcamp_name }';
 			let teacherId = '${teacher.teacher_id }';
 			let teacherName = '${teacher.teacher_name}';
