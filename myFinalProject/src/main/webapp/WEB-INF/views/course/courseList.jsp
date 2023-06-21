@@ -401,7 +401,7 @@
         -webkit-flex:1 1 auto;
         -ms-flex:1 1 auto;
         flex:1 1 auto;
-        padding-top: 200px;
+        padding-top: 180px;
     }
     h3.jsx-445560552 {
         font-size:22px;
@@ -462,7 +462,7 @@
     .profile-image.tutor.jsx-445560552,.profile-image.university.jsx-445560552,.profile-image.institute.jsx-445560552 {
         /* right:24px; */
         /*top:22px;*/
-        width:266.3px;
+        width:88.5%;
         height:154px;
     }
     .profile-image.institute.jsx-445560552>span.jsx-445560552 {
@@ -1734,7 +1734,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                             <div class="jsx-445560552 info">
                             	<input type="hidden" value="${course.course_id }">
                             	<input type="hidden" value="${course.bootcamp_id }">
-                              <h3 class="jsx-445560552">${course.course_name }</h3>
+                              <h6 class="jsx-445560552">${course.course_name }</h6>
                               <p class="jsx-445560552">${course.bootcamp_name }</p>
                               <p class="jsx-445560552">${course.price } 원</p>
                             </div>
@@ -1960,8 +1960,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 												hiddenInput2.type = "hidden";
 												hiddenInput2.value = resultRegions[i].bootcamp_id;
 
-												let h3 = document
-														.createElement("h3");
+												let h6 = document
+														.createElement("h6");
 												h3.classList
 														.add("jsx-445560552");
 												h3.textContent = resultRegions[i].course_name;
@@ -1982,7 +1982,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 														.appendChild(hiddenInput1);
 												divInfo
 														.appendChild(hiddenInput2);
-												divInfo.appendChild(h3);
+												divInfo.appendChild(h6);
 												divInfo.appendChild(p1);
 												divInfo.appendChild(p2);
 
@@ -2085,193 +2085,189 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		console.log(btnPosition[i].value);
 	}
 
+	
 	$(function() {
-		$(".position")
-				.click(
-						function() {
-							let btnPosition = $(this).attr('value');
+		$(".position").click(function() {
+			let btnPosition = $(this).attr('value');
 
-							console.log("position" + btnPosition);
+			console.log("position" + btnPosition);
 
-							// 전송할 데이터
-							let data = {
-								'position' : btnPosition
-							};
+			// 전송할 데이터
+			let data = {'position' : btnPosition};
 
-							$
-									.ajax({
-										url : "searchPositionList.do",
-										type : "POST",
-										data : data,
-										dataType : "JSON",
-										success : function(json) {
-											console.log("json: " + json);
+			$.ajax({
+					url : "searchPositionList.do",
+					type : "POST",
+					data : data,
+					dataType : "JSON",
+					success : function(json) {
+						console.log("json: " + json);
 
-											let resultUl = document
-													.querySelector(".tutors");
-											resultUl.textContent = "";
-											let resultPositions = json.positionList;
+						let resultUl = document
+								.querySelector(".tutors");
+						resultUl.textContent = "";
+						let resultPositions = json.positionList;
 
-											for (var i = 0; i < resultPositions.length; i++) {
-												let li = document
-														.createElement("li");
-												li.classList
-														.add("jsx-2875758176");
+						for (var i = 0; i < resultPositions.length; i++) {
+							let li = document
+									.createElement("li");
+							li.classList
+									.add("jsx-2875758176");
 
-												let a = document
-														.createElement("a");
-												a.classList
-														.add("jsx-2875758176");
-												a.href = "getCourse.do?course_id="
-														+ resultPositions[i].course_id;
+							let a = document
+									.createElement("a");
+							a.classList
+									.add("jsx-2875758176");
+							a.href = "getCourse.do?course_id="
+									+ resultPositions[i].course_id;
 
-												let divCard = document
-														.createElement("div");
-												divCard.tabIndex = 0;
-												divCard.classList
-														.add("jsx-445560552",
-																"card");
+							let divCard = document
+									.createElement("div");
+							divCard.tabIndex = 0;
+							divCard.classList
+									.add("jsx-445560552",
+											"card");
 
-												let divContent = document
-														.createElement("div");
-												divContent.classList.add(
-														"jsx-445560552",
-														"content");
+							let divContent = document
+									.createElement("div");
+							divContent.classList.add(
+									"jsx-445560552",
+									"content");
 
-												let divInfo = document
-														.createElement("div");
-												divInfo.classList
-														.add("jsx-445560552",
-																"info");
+							let divInfo = document
+									.createElement("div");
+							divInfo.classList
+									.add("jsx-445560552",
+											"info");
 
-												let hiddenInput1 = document
-														.createElement("input");
-												hiddenInput1.type = "hidden";
-												hiddenInput1.value = resultPositions[i].course_id;
+							let hiddenInput1 = document
+									.createElement("input");
+							hiddenInput1.type = "hidden";
+							hiddenInput1.value = resultPositions[i].course_id;
 
-												let hiddenInput2 = document
-														.createElement("input");
-												hiddenInput2.type = "hidden";
-												hiddenInput2.value = resultPositions[i].bootcamp_id;
+							let hiddenInput2 = document
+									.createElement("input");
+							hiddenInput2.type = "hidden";
+							hiddenInput2.value = resultPositions[i].bootcamp_id;
 
-												let h3 = document
-														.createElement("h3");
-												h3.classList
-														.add("jsx-445560552");
-												h3.textContent = resultPositions[i].course_name;
+							let h6 = document
+									.createElement("h6");
+							h3.classList
+									.add("jsx-445560552");
+							h3.textContent = resultPositions[i].course_name;
 
-												let p1 = document
-														.createElement("p");
-												p1.classList
-														.add("jsx-445560552");
-												p1.textContent = resultPositions[i].bootcamp_name;
+							let p1 = document
+									.createElement("p");
+							p1.classList
+									.add("jsx-445560552");
+							p1.textContent = resultPositions[i].bootcamp_name;
 
-												let p2 = document
-														.createElement("p");
-												p2.classList
-														.add("jsx-445560552");
-												p2.textContent = resultPositions[i].price;
+							let p2 = document
+									.createElement("p");
+							p2.classList
+									.add("jsx-445560552");
+							p2.textContent = resultPositions[i].price;
 
-												divInfo
-														.appendChild(hiddenInput1);
-												divInfo
-														.appendChild(hiddenInput2);
-												divInfo.appendChild(h3);
-												divInfo.appendChild(p1);
-												divInfo.appendChild(p2);
+							divInfo
+									.appendChild(hiddenInput1);
+							divInfo
+									.appendChild(hiddenInput2);
+							divInfo.appendChild(h6);
+							divInfo.appendChild(p1);
+							divInfo.appendChild(p2);
 
-												divContent.appendChild(divInfo);
+							divContent.appendChild(divInfo);
 
-												let starBox = document
-														.createElement("div");
-												starBox.classList.add(
-														"jsx-445560552",
-														"star-box");
+							let starBox = document
+									.createElement("div");
+							starBox.classList.add(
+									"jsx-445560552",
+									"star-box");
 
-												let starSpan = document
-														.createElement("span");
-												starSpan.classList
-														.add("jsx-445560552");
-												starSpan.textContent = "7.6";
+							let starSpan = document
+									.createElement("span");
+							starSpan.classList
+									.add("jsx-445560552");
+							starSpan.textContent = "7.6";
 
-												let starsDiv = document
-														.createElement("div");
-												starsDiv.classList.add(
-														"jsx-2704879397",
-														"stars");
+							let starsDiv = document
+									.createElement("div");
+							starsDiv.classList.add(
+									"jsx-2704879397",
+									"stars");
 
-												let star1 = document
-														.createElement("div");
-												star1.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
+							let star1 = document
+									.createElement("div");
+							star1.classList.add(
+									"jsx-2704879397",
+									"star", "star-2");
 
-												let star2 = document
-														.createElement("div");
-												star2.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
+							let star2 = document
+									.createElement("div");
+							star2.classList.add(
+									"jsx-2704879397",
+									"star", "star-2");
 
-												let star3 = document
-														.createElement("div");
-												star3.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
+							let star3 = document
+									.createElement("div");
+							star3.classList.add(
+									"jsx-2704879397",
+									"star", "star-2");
 
-												let star4 = document
-														.createElement("div");
-												star4.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
+							let star4 = document
+									.createElement("div");
+							star4.classList.add(
+									"jsx-2704879397",
+									"star", "star-2");
 
-												let star5 = document
-														.createElement("div");
-												star5.classList.add(
-														"jsx-2704879397",
-														"star", "star-0");
+							let star5 = document
+									.createElement("div");
+							star5.classList.add(
+									"jsx-2704879397",
+									"star", "star-0");
 
-												starsDiv.appendChild(star1);
-												starsDiv.appendChild(star2);
-												starsDiv.appendChild(star3);
-												starsDiv.appendChild(star4);
-												starsDiv.appendChild(star5);
+							starsDiv.appendChild(star1);
+							starsDiv.appendChild(star2);
+							starsDiv.appendChild(star3);
+							starsDiv.appendChild(star4);
+							starsDiv.appendChild(star5);
 
-												starBox.appendChild(starSpan);
-												starBox.appendChild(starsDiv);
+							starBox.appendChild(starSpan);
+							starBox.appendChild(starsDiv);
 
-												let profileImageDiv = document
-														.createElement("div");
-												profileImageDiv.classList.add(
-														"jsx-445560552",
-														"profile-image",
-														"tutor");
+							let profileImageDiv = document
+									.createElement("div");
+							profileImageDiv.classList.add(
+									"jsx-445560552",
+									"profile-image",
+									"tutor");
 
-												let profileImageSpan = document
-														.createElement("span");
-												profileImageSpan.classList
-														.add("jsx-445560552");
-												profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
+							let profileImageSpan = document
+									.createElement("span");
+							profileImageSpan.classList
+									.add("jsx-445560552");
+							profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
 
-												profileImageDiv
-														.appendChild(profileImageSpan);
+							profileImageDiv
+									.appendChild(profileImageSpan);
 
-												divContent.appendChild(starBox);
-												divContent
-														.appendChild(profileImageDiv);
+							divContent.appendChild(starBox);
+							divContent
+									.appendChild(profileImageDiv);
 
-												divCard.appendChild(divContent);
-												a.appendChild(divCard);
-												li.appendChild(a);
-												resultUl.appendChild(li);
-											}
+							divCard.appendChild(divContent);
+							a.appendChild(divCard);
+							li.appendChild(a);
+							resultUl.appendChild(li);
+						}
 
-										},
-										error : function() {
-											alert('실패');
-										}
+					},
+					error : function() {
+						alert('실패');
+					}
 
-									});
-						});
+				});
+		});
 	});
 </script>
 </html>
