@@ -7,6 +7,8 @@
 <%
 	HttpSession tSession = request.getSession();
 
+	System.out.println("come in" );
+
 	String userId = (String)tSession.getAttribute("userId");
 	String loginFG = (String)tSession.getAttribute("loginFG");
 	

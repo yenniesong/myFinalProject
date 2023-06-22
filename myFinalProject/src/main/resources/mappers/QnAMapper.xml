@@ -27,22 +27,6 @@
 		    ORDER BY rn
      
   	</select>
-<!-- 	<select id="getQnAList" parameterType="paging" resultType="com.human.java.domain.QnAVO">  -->
-<!--   		SELECT * -->
-<!-- 		FROM ( -->
-<!-- 			  SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') AS created_at, q.view_cnt, -->
-<!-- 			    ( -->
-<!-- 			      SELECT COUNT(*) -->
-<!-- 			        FROM answer -->
-<!-- 			       WHERE question_id = q.question_id -->
-<!-- 			    ) AS answer_count, -->
-<!-- 			    ROWNUM AS rn -->
-<!-- 			  FROM question q INNER JOIN category c ON q.category_id = c.category_id -->
-<!-- 			  ORDER BY q.question_id DESC -->
-<!-- 			) -->
-<!-- 		WHERE rn BETWEEN #{startPage} AND #{endPage} ; -->
-
-<!--   	</select> -->
   	
   	<select id="getQnAListCount" parameterType="String" resultType="paging">
   		<!-- 리스트를 카운트 -->
@@ -50,14 +34,6 @@
   		  FROM question
   		   WHERE name like '%${value}%'
   	</select>
-  	
-<!--   	<select id="getQnAList" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO"> -->
-<!--   		SELECT q.question_id, c.category_id, c.category_name, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt -->
-<!--   		  FROM question q, category c -->
-<!--  		 WHERE q.category_id = c.category_id -->
-<!--  		 ORDER BY q.question_id DESC -->
-<!--   	</select> -->
-  	
   	
   	<select id="chkPwd" parameterType="qna" resultType="qna">
   		SELECT * 

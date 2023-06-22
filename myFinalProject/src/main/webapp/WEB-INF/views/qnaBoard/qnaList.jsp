@@ -4,7 +4,17 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
+<%
+	HttpSession tSession = request.getSession();
 
+	System.out.println("come in" );
+
+	String userId = (String)tSession.getAttribute("userId");
+	String loginFG = (String)tSession.getAttribute("loginFG");
+	
+	System.out.println("userId : " + userId);
+	System.out.println("loginFG : " + loginFG);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -598,7 +608,7 @@
 	                </ul>
 	                
 	                <%-- 	                <% if(se) %> 세선이 있다면 ! --%>
-	                <c:if test="${loginFg eq 's'}">
+	                <c:if test="${loginFG eq 'm'}">
 		                <div class="jsx-4203269740 btn-write fix-position">
 		                  <button class="jsx-4203269740 writeQna">글쓰기</button>
 		                </div>
@@ -728,9 +738,16 @@
   
 	$(document).ready(function() {
 		$('div.jsx-989812570.col-title > a').click(function() {
-			q_id = $(this).parent().prev().prev().text();
-			$('#hidden_question_id').val(q_id);
-			$("#staticBackdrop").modal("show");
+			if (loginFG == 'b') {
+				/* 해당 학원의 질문이면 확인 */
+				location.href = 'chkMyBname.do';
+			} else {
+				q_id = $(this).parent().prev().prev().text();
+				$('#hidden_question_id').val(q_id);
+				$("#staticBackdrop").modal("show");
+
+			}
+			
 
 		});
 
