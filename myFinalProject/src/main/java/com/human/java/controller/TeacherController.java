@@ -43,7 +43,11 @@ public class TeacherController {
 	public String getTeacherList(TeacherVO vo, Model model, HttpSession session, BootcampVO bVO) {
 		System.out.println("## getTeacherList.do 진입 ##");
 		String userId = (String)session.getAttribute("userId");
+		int bootcamp_id = (Integer)session.getAttribute("bootcamp_id");
+		String bootcamp_name = (String)session.getAttribute("bootcamp_name");
 		System.out.println("===> userId : " + userId);
+		System.out.println("===> bootcamp_id : " + bootcamp_id);
+		System.out.println("===> bootcamp_name : " + bootcamp_name);
 		
 		vo.setUserId(userId);
 		

@@ -91,6 +91,11 @@ public class MemberController {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
 				session.setAttribute("name", getBName.getBootcamp_name());
 				session.setAttribute("loginFG", login.getLoginFG());
+				
+				session.setAttribute("bootcamp_id", getBName.getBootcamp_id());
+				session.setAttribute("bootcamp_name", getBName.getBootcamp_name());
+				
+				
 			} else if (login.getLoginFG().equals("c")) {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
 				

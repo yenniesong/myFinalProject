@@ -76,7 +76,7 @@
 						<ul>
 							<li><a href="/teacher/getTeacherList.do">Teacher</a></li>
 							<li><a href="/course/getCourseList.do">Course</a></li>
-							<li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
+							<li><a href="/qnaBoard/getQnAList.do">Teacher | Course Q&A</a></li>
 						</ul>
 					</li>
  
