@@ -52,7 +52,14 @@
 
 <style>
 aside {
-	display: block;
+    position: -webkit-sticky;
+    position: fixed;
+    bottom: 0px;
+    margin: auto;
+    border: 1px solid;
+    width: 66.5%;
+    background: #1dc078;
+    border-radius: 6px;
 }
 
 .pg___course-slug .cd-floating {
@@ -347,7 +354,12 @@ button.jsx-1487464557 {
 .ac-ct-12 .cd-floating {
 	position: -webkit-sticky;
 	position: fixed;
-	top: 840px;
+	bottom: 0px;
+	margin: auto;
+	border: 1px solid;
+	width: 100%;
+	background: #1dc078;
+    border-radius: 6px;
 	/* margin: 0 34px 20px auto; */
 	/* margin: 20px; */
 }
@@ -365,11 +377,11 @@ button.jsx-1487464557 {
 
 .flex-half.right.jsx-4119538605 {
 	width: 100%;
-	margin-right: 10px;
+/* 	margin-right: 10px; */
 }
 
 .flex-half.jsx-4119538605 {
-	width: 50%;
+/* 	width: 50%; */
 }
 
 .flex-half.jsx-4119538605:last-child, .flex-triple.jsx-4119538605:last-child
@@ -392,6 +404,7 @@ button.jsx-1487464557 {
 
 .content-box.jsx-2656936329 {
 	overflow: hidden;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 }
@@ -1195,7 +1208,7 @@ img.jsx-2891290942 {
 																	<c:choose>
 
 																		<c:when test="${not empty cRList }">
-																			<c:if test="${empty userId }"></c:if><!-- 만약에 로그인 세션이 없다면 아래 로그인 팝업 on 제거하기 -->
+<%-- 																			<c:if test="${empty userId }"></c:if><!-- 만약에 로그인 세션이 없다면 아래 로그인 팝업 on 제거하기 --> --%>
 																			<c:forEach items="${cRList }" var="cReview">
 																				<!-- 후기 내용이 들어가는 부분 (바뀌어야하는 부분) -->
 																				<div class="jsx-4149508951 review-box">
