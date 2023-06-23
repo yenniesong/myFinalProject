@@ -14,6 +14,11 @@
 	
 	System.out.println("userId : " + userId);
 	System.out.println("loginFG : " + loginFG);
+	
+	if(loginFG == "b") {
+		String bootcamp_name = (String)tSession.getAttribute("bootcamp_name");
+		System.out.println("bootcamp_name : " + bootcamp_name);
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -515,6 +520,7 @@
 	                <c:forEach items="${qnaList }" var="qna">
 		                <ul class="jsx-1779968077 list-body">
 		                  <li tabindex="0" class="jsx-989812570 ">
+		                  	<input type="hidden" name="academy" value="${qna.academy }">
 		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
 		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
 		                    <div class="jsx-989812570 col-title" style="max-width: 382px;">
@@ -735,12 +741,15 @@
 
 <script>
 	console.log($('#hidden_userId').val());
+	
+	let question_id = "${qna.question_id}";
+	let bootcamp_name = '<%=bootcamp_name%>';
   
 	$(document).ready(function() {
 		$('div.jsx-989812570.col-title > a').click(function() {
-			if (loginFG == 'b') {
+			if (bootcamp_name === "${qna.academy}") {
 				/* 해당 학원의 질문이면 확인 */
-				location.href = 'chkMyBname.do';
+				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
 			} else {
 				q_id = $(this).parent().prev().prev().text();
 				$('#hidden_question_id').val(q_id);
