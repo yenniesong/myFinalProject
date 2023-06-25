@@ -151,6 +151,40 @@
     form {
     	margin: 0px;
     }
+    
+    .rating {
+        position: relative;
+        width: 180px;
+        background: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: .3em;
+        padding: 5px;
+        overflow: hidden;
+    }
+
+    .rating__result {
+	    position: absolute;
+	    top: 0;
+	    left: 0;
+	    transform: translateY(-10px) translateX(-5px);
+	    z-index: -9;
+	    font: 3em Arial, Helvetica, sans-serif;
+	    color: #ebebeb8e;
+	    pointer-events: none;
+    }
+
+    .rating__star {
+	    font-size: 1.3em;
+	    cursor: pointer;
+	    color: #dabd18b2;
+	    transition: filter linear .3s;
+    }
+
+    .rating__star:hover {
+    	filter: drop-shadow(1px 1px 4px gold);
+    }		
 </style>
 <style id="__jsx-1629185219">
     .search-result.jsx-1629185219 {
@@ -930,6 +964,14 @@
 	                                               <div class="adminArea mb-3 showWritingInput1 on">
 	                                                   <div class="input-group mb-3">
 	                                                     <input type="text" class="form-control" name="content" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+	                                                     <div class="rating">
+												              <span class="rating__result"></span> 
+												              <i class="rating__star far fa-star"></i>
+												              <i class="rating__star far fa-star"></i>
+												              <i class="rating__star far fa-star"></i>
+												              <i class="rating__star far fa-star"></i>
+												              <i class="rating__star far fa-star"></i>
+												          </div>
 	                                                     <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="submit" id="button-addon2">작성</button>
 	                                                   </div>
 	                                               </div>
@@ -1180,6 +1222,41 @@
 // 	btn_writingReviewWComment.addEventListener("click", function () {
 // 		alert("12");
 // 	});
+	
+	// 별점
+	const ratingStars = [...document.getElementsByClassName("rating__star")];
+    const ratingResult = document.querySelector(".rating__result");
+
+    printRatingResult(ratingResult);
+
+    function executeRating(stars, result) {
+    const starClassActive = "rating__star fas fa-star";
+    const starClassUnactive = "rating__star far fa-star";
+    const starsLength = stars.length;
+    let i;
+    stars.map((star) => {
+        star.onclick = () => {
+            i = stars.indexOf(star);
+
+            if (star.className.indexOf(starClassUnactive) !== -1) {
+                printRatingResult(result, i + 1);
+                for (i; i >= 0; --i) stars[i].className = starClassActive;
+            } else {
+                printRatingResult(result, i);
+                for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
+            }
+        };
+    });
+    }
+
+    
+    function printRatingResult(result, starScore = 0) {
+        // result.textContent = `${num}/5`;
+        console.log(starScore);
+        // alert(num);
+    }
+
+    executeRating(ratingStars, ratingResult);
 	
 
 
