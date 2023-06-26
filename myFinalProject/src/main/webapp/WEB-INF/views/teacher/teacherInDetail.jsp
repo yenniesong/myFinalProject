@@ -944,7 +944,7 @@
 	                              		<div class="jsx-4149508951 review-box">
                                           <div class="jsx-644785032 review-item">
                                             <div class="jsx-644785032 title writingArea1">
-                                            <form action="writingReview.do" method="post">
+<!--                                             <form action="writingReview.do" method="post"> -->
 	                                              <div class="jsx-644785032 info info1" style="display: block; text-align: center; border-bottom: none;">
 	                                              	<span class="jsx-644785032 nickname btnWritingReview1"><a href="#">후기 작성하기</a></span>
 	                                                
@@ -963,8 +963,8 @@
 	                                              <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
 	                                               <div class="adminArea mb-3 showWritingInput1 on">
 	                                                   <div class="input-group mb-3">
-	                                                     <input type="text" class="form-control" name="content" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
-	                                                     <div class="rating">
+	                                                     <input type="text" class="form-control reviewInput" name="content" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+	                                                     <div class="rating starPoint">
 												              <span class="rating__result"></span> 
 												              <i class="rating__star far fa-star"></i>
 												              <i class="rating__star far fa-star"></i>
@@ -972,10 +972,10 @@
 												              <i class="rating__star far fa-star"></i>
 												              <i class="rating__star far fa-star"></i>
 												          </div>
-	                                                     <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="submit" id="button-addon2">작성</button>
+	                                                     <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
 	                                                   </div>
 	                                               </div>
-                                               </form>
+<!--                                                </form> -->
                                               </div>
                                             </div>
                                           </div>
@@ -1223,40 +1223,87 @@
 // 		alert("12");
 // 	});
 	
-	// 별점
-	const ratingStars = [...document.getElementsByClassName("rating__star")];
-    const ratingResult = document.querySelector(".rating__result");
-
-    printRatingResult(ratingResult);
-
-    function executeRating(stars, result) {
-    const starClassActive = "rating__star fas fa-star";
-    const starClassUnactive = "rating__star far fa-star";
-    const starsLength = stars.length;
-    let i;
-    stars.map((star) => {
-        star.onclick = () => {
-            i = stars.indexOf(star);
-
-            if (star.className.indexOf(starClassUnactive) !== -1) {
-                printRatingResult(result, i + 1);
-                for (i; i >= 0; --i) stars[i].className = starClassActive;
-            } else {
-                printRatingResult(result, i);
-                for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
-            }
-        };
-    });
-    }
-
-    
-    function printRatingResult(result, starScore = 0) {
-        // result.textContent = `${num}/5`;
-        console.log(starScore);
-        // alert(num);
-    }
-
-    executeRating(ratingStars, ratingResult);
+	// 리뷰 작성 버튼
+	$(function() {
+		$(".review_post").click(function() {
+			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
+			var userId = <%=userId%>;
+			if (userId === null || userId === undefined || userId === '') {
+				$(".auth-popup").removeClass("popup_on");
+			} else {
+	
+				alert("리뷰 작성");
+						
+			
+				let userId = '<%=userId%>';
+				let name = '<%=userName%>';
+				let teacherId = '${teacher.teacher_id }';
+				let content =  '$("#reviewInput").val()';
+	
+				// 별점
+				const ratingStars = [...document.getElementsByClassName("rating__star")];
+			    const ratingResult = document.querySelector(".rating__result");
+			
+			    printRatingResult(ratingResult);
+			
+			    function executeRating(stars, result) {
+				    const starClassActive = "rating__star fas fa-star";
+				    const starClassUnactive = "rating__star far fa-star";
+				    const starsLength = stars.length;
+				    let i;
+				    stars.map((star) => {
+				        star.onclick = () => {
+				            i = stars.indexOf(star);
+				
+				            if (star.className.indexOf(starClassUnactive) !== -1) {
+				                printRatingResult(result, i + 1);
+				                for (i; i >= 0; --i) stars[i].className = starClassActive;
+				            } else {
+				                printRatingResult(result, i);
+				                for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
+				            }
+				        };
+				    });
+			    }
+			
+			    
+			    function printRatingResult(result, starScore = 0) {
+			        // result.textContent = `${num}/5`;
+			        console.log(starScore);
+			        // alert(num);
+			    }
+			
+			    executeRating(ratingStars, ratingResult);		
+			    
+			    let startPoint = starScore;
+	
+				let data2 = {
+						"userId": userId
+					    , "name": name
+						, "teacher_id" : teacherId
+						, "content" : content
+						, "star_point" : startPoint
+				};
+				
+				$.ajax({
+					url : "writingReview.do",
+					type: "POST",
+					data: data2,
+					dataType: "Text", 
+					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
+					success : function (json) {
+						console.log(json);
+						alert("리뷰가 등록되었어요!");
+					},
+					Error: function () {
+						alert("실패");
+					}
+				});
+			}
+		});
+	});
+	
+	
 	
 
 
