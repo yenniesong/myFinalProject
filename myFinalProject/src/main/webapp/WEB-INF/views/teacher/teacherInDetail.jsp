@@ -48,6 +48,7 @@
 
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
 <style>
     .content.jsx-245464177 {
@@ -1098,8 +1099,8 @@
 	let btn_follow = document.querySelector(".btn-follow");
 	let btn_enroll = document.querySelector(".btn-enroll");
 	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
-	let btn_review_post = document.querySelector(".review_post");
 	let btn_deleteTeacher = document.querySelector(".deleteTeacher");
+// 	let btn_review_post = document.querySelector(".review_post");
 // 	let btn_writingReviewWComment = document.querySelector(".btnWritingReviewWComment");
 
 	btn_follow.addEventListener("click", function() {
@@ -1214,21 +1215,13 @@
 	  });
 	});
 	
-	
-	btn_review_post.addEventListener("click", function() {
-		alert("1");
-	})
-	
-// 	btn_writingReviewWComment.addEventListener("click", function () {
-// 		alert("12");
-// 	});
-	
 	// 리뷰 작성 버튼
 	$(function() {
 		$(".review_post").click(function() {
 			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
-			var userId = <%=userId%>;
-			if (userId === null || userId === undefined || userId === '') {
+<%-- 			var userId = <%=userId%>; --%>
+// 			if (userId === null || userId === undefined || userId === '') {
+			if (!tSessionExists) {
 				$(".auth-popup").removeClass("popup_on");
 			} else {
 	
@@ -1238,7 +1231,8 @@
 				let userId = '<%=userId%>';
 				let name = '<%=userName%>';
 				let teacherId = '${teacher.teacher_id }';
-				let content =  '$("#reviewInput").val()';
+				let content =  $("#reviewInput").val();
+				console.log(content);
 	
 				// 별점
 				const ratingStars = [...document.getElementsByClassName("rating__star")];

@@ -853,6 +853,9 @@ li.jsx-1546215327 button.jsx-1546215327 {
 	background-color: rgb(255, 255, 255);
 	padding: 0px;
 }
+button.jsx-1546215327 {
+	background-color: #1dc078;
+}
 </style>
 <style id="__jsx-644785032">
 .info.jsx-644785032 {
