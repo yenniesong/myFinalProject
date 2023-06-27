@@ -1527,7 +1527,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 																	</div>
 										                            
 																	<div class="jsx-445560552 star-box">
-																		<span class="jsx-445560552">2.3</span>
+																		<span class="jsx-445560552">${teacher.star_point }</span>
 																		<div class="jsx-2704879397 stars">
 																			<div class="jsx-2704879397 star star-2"></div>
 																			<div class="jsx-2704879397 star star-2"></div>

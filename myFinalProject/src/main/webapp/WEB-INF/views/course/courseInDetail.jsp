@@ -76,13 +76,6 @@ aside {
 	margin: 0px 20px;
 }
 
-.cd-floating__card--top>div {
-	/* lex: 1; 각 div 요소가 동일한 너비로 설정됩니다 */
-	/* display: flex;
-            flex-direction: column; */
-	
-}
-
 .pg___course-slug .cd-floating {
 	position: -webkit-sticky;
 	position: sticky;
@@ -460,6 +453,10 @@ button.jsx-1487464557 {
 
 .contentsOn {
 	display: none;
+}
+
+.input-group {
+	margin-top: 12px;
 }
 </style>
 <style id="__jsx-1629185219">

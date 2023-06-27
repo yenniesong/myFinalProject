@@ -155,7 +155,7 @@
     
     .rating {
         position: relative;
-        width: 180px;
+/*         width: 180px; */
         background: transparent;
         display: flex;
         justify-content: center;
@@ -186,6 +186,9 @@
     .rating__star:hover {
     	filter: drop-shadow(1px 1px 4px gold);
     }		
+    .input-group {
+		margin-top: 12px;
+	}
 </style>
 <style id="__jsx-1629185219">
     .search-result.jsx-1629185219 {
@@ -262,6 +265,7 @@
         overflow: hidden;
         margin-right: 4px;
         background-size: cover;
+        margin-bottom: 8px;
     }
 </style>
 <style id="__jsx-3239872667">
@@ -767,17 +771,17 @@
                       	<p class="jsx-1020960270">${teacher.short_description }</p>
                     </div>
                     <div class="jsx-1020960270 rating">
-                      <span class="jsx-1020960270 score">
-                        <span class="jsx-1020960270">7.6</span> 
-                        / 10
-                      </span>
                       <div class="jsx-2007872434 stars">
                         <div class="jsx-2007872434 star star-2"></div>
-                        <div class="jsx-2007872434 star star-2"></div>
-                        <div class="jsx-2007872434 star star-2"></div> 
-                        <div class="jsx-2007872434 star star-2"></div>
-                        <div class="jsx-2007872434 star star-0"></div>
+<!--                         <div class="jsx-2007872434 star star-2"></div> -->
+<!--                         <div class="jsx-2007872434 star star-2"></div>  -->
+<!--                         <div class="jsx-2007872434 star star-2"></div> -->
+<!--                         <div class="jsx-2007872434 star star-0"></div> -->
                       </div>
+                      <span class="jsx-1020960270 score">
+                        <span class="jsx-1020960270">${teacher.star_point }</span> 
+                        / 5
+                      </span>
                     </div>
                   </div>
           
@@ -1094,6 +1098,8 @@
 <!-- Template Main JS File -->
 <script src="${path}/resources/assets/js/main.js"></script>
 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
 <script>
 	
 	let btn_follow = document.querySelector(".btn-follow");
@@ -1103,6 +1109,8 @@
 // 	let btn_review_post = document.querySelector(".review_post");
 // 	let btn_writingReviewWComment = document.querySelector(".btnWritingReviewWComment");
 
+	let tSessionExists = <%= tSession != null %>; 
+
 	btn_follow.addEventListener("click", function() {
 		alert("1");
 	})
@@ -1111,8 +1119,7 @@
 	$(function() {
 		$(".btn-enroll").click(function() {
 // 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
-			var userId = <%=userId%>;
-			if (userId === null || userId === undefined || userId === '') {
+			if (!tSessionExists) {
 				$(".auth-popup").removeClass("popup_on");
 			} else {
 	
@@ -1170,7 +1177,6 @@
 
 	
 	let btn_writing_review1 = document.querySelector('.btnWritingReview1');
-	let tSessionExists = <%= tSession != null %>; 
 	
 	btn_writing_review1.addEventListener("click", function () {
 	    alert("리뷰 작성하기");
@@ -1215,6 +1221,40 @@
 	  });
 	});
 	
+	// 벌점 기능 구현
+	const ratingStars = [...document.getElementsByClassName("rating__star")];
+    const ratingResult = document.querySelector(".rating__result");
+
+    printRatingResult(ratingResult);
+
+    function executeRating(stars, result) {
+        const starClassActive = "rating__star fas fa-star";
+        const starClassUnactive = "rating__star far fa-star";
+        const starsLength = stars.length;
+        let i;
+        stars.map((star) => {
+            star.onclick = () => {
+                i = stars.indexOf(star);
+
+                if (star.className.indexOf(starClassUnactive) !== -1) {
+                    printRatingResult(result, i + 1);
+                    for (i; i >= 0; --i) stars[i].className = starClassActive;
+                } else {
+                    printRatingResult(result, i);
+                    for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
+                }
+            };
+        });
+    }
+
+    function printRatingResult(result, num = 0) {
+//         result.textContent = `${num}/5`;
+		console.log("별점 : " + num);
+        $(".review_post").data("star-point", num);
+    }
+
+    executeRating(ratingStars, ratingResult);
+	
 	// 리뷰 작성 버튼
 	$(function() {
 		$(".review_post").click(function() {
@@ -1231,65 +1271,31 @@
 				let userId = '<%=userId%>';
 				let name = '<%=userName%>';
 				let teacherId = '${teacher.teacher_id }';
-				let content =  $("#reviewInput").val();
+				let content =  $(".reviewInput").val();
 				console.log(content);
-	
-				// 별점
-				const ratingStars = [...document.getElementsByClassName("rating__star")];
-			    const ratingResult = document.querySelector(".rating__result");
-			
-			    printRatingResult(ratingResult);
-			
-			    function executeRating(stars, result) {
-				    const starClassActive = "rating__star fas fa-star";
-				    const starClassUnactive = "rating__star far fa-star";
-				    const starsLength = stars.length;
-				    let i;
-				    stars.map((star) => {
-				        star.onclick = () => {
-				            i = stars.indexOf(star);
-				
-				            if (star.className.indexOf(starClassUnactive) !== -1) {
-				                printRatingResult(result, i + 1);
-				                for (i; i >= 0; --i) stars[i].className = starClassActive;
-				            } else {
-				                printRatingResult(result, i);
-				                for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
-				            }
-				        };
-				    });
-			    }
-			
-			    
-			    function printRatingResult(result, starScore = 0) {
-			        // result.textContent = `${num}/5`;
-			        console.log(starScore);
-			        // alert(num);
-			    }
-			
-			    executeRating(ratingStars, ratingResult);		
-			    
-			    let startPoint = starScore;
-	
-				let data2 = {
+				let starPoint = $(".review_post").data("star-point");
+					
+				let review = {
 						"userId": userId
 					    , "name": name
 						, "teacher_id" : teacherId
 						, "content" : content
-						, "star_point" : startPoint
+						, "star_point" : starPoint
 				};
+				
+				console.log(review);
 				
 				$.ajax({
 					url : "writingReview.do",
 					type: "POST",
-					data: data2,
+					data: review,
 					dataType: "Text", 
 					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
 					success : function (json) {
 						console.log(json);
 						alert("리뷰가 등록되었어요!");
 					},
-					Error: function () {
+					error: function () {
 						alert("실패");
 					}
 				});
