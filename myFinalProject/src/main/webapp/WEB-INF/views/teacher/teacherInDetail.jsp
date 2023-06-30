@@ -312,7 +312,7 @@
     align-items: flex-start;
     -webkit-box-pack: justify;
     justify-content: space-between;
-    padding-bottom: 16px;
+/*     padding-bottom: 16px; */
     margin-bottom: 24px;
     border-bottom: 1px solid rgb(223, 223, 223);
   }
@@ -850,10 +850,11 @@
 	          
 	                      <div class="jsx-2255129348 real-time-evaluation">
 	                        <div class="jsx-2255129348 scroll-box">
-	                          <ul class="jsx-2255129348">
+	                          <ul class="jsx-2255129348" style="padding: 0px;">
 	                            <li class="jsx-2255129348">
-	                            	
-	                              <span class="jsx-2255129348">${teacher.position }</span>
+	                            	<h1 style="font-size: 26px; font-weight: 700; letter-spacing: -.3px;">
+	                            		<span class="jsx-2255129348">${teacher.course_name }</span>
+	                            	</h1>
 	                            </li>
 	                            <li class="jsx-3839070939 tutor">
 	                              <div class="jsx-3839070939 board-item">
@@ -864,7 +865,7 @@
 	                            </li>
 	                            <li class="jsx-2255129348 horizontal-rule"></li>
 	                            <li class="jsx-2255129348">
-	                              <span class="jsx-2255129348">${teacher.course_name }</span>
+	                              <span class="jsx-2255129348">${teacher.position }</span>
 	                            </li>
 	                            <li class="jsx-1434886323 ">
 	                              <div class="jsx-1434886323 board-item">
