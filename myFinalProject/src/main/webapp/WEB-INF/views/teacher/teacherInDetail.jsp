@@ -497,7 +497,7 @@
       height: 342px;
   }
   .scroll-box.jsx-2255129348 {
-      padding: 12px;
+      padding: 30px;
   }
   ul.jsx-2255129348 {
       overflow: hidden;
