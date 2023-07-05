@@ -952,7 +952,8 @@
 	                              		<div class="jsx-4149508951 review-box">
                                           <div class="jsx-644785032 review-item">
                                             <div class="jsx-644785032 title writingArea1">
-<!--                                             <form action="writingReview.do" method="post"> -->
+                                            <form action="writingReview.do" method="post">
+<!--                                              가져가야할 데이터 : userId, teacher_id, name, content, star_point -->
 	                                              <div class="jsx-644785032 info info1" style="display: block; text-align: center; border-bottom: none;">
 	                                              	<span class="jsx-644785032 nickname btnWritingReview1"><a href="#">후기 작성하기</a></span>
 	                                                
@@ -980,10 +981,11 @@
 												              <i class="rating__star far fa-star"></i>
 												              <i class="rating__star far fa-star"></i>
 												          </div>
+												          <input type="hidden" name="star_pint" class="star_pint" value="">
 	                                                     <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
 	                                                   </div>
 	                                               </div>
-<!--                                                </form> -->
+                                               </form>
                                               </div>
                                             </div>
                                           </div>
@@ -1002,7 +1004,7 @@
                                             <div class="jsx-644785032 ">
                                               <div class="jsx-644785032 info">
                                               	<c:if test="${loginFG == 'm'}">
-	                                                <span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
+	                                                <span class="jsx-644785032 nickname btnWritingReview1"><a href="#">후기 작성하기</a></span>
                                                 </c:if>
                                               </div>
                                             </div>
@@ -1254,59 +1256,63 @@
 //         result.textContent = `${num}/5`;
 		console.log("별점 : " + num);
         $(".review_post").data("star-point", num);
+        
+        
+        // form 태그 안에 해당 value 값 추가해주기
+        $('input[name=star_point]').attr('value', num);
     }
 
     executeRating(ratingStars, ratingResult);
 	
 	// 리뷰 작성 버튼
-	$(function() {
-		$(".review_post").click(function() {
-			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
-<%-- 			var userId = <%=userId%>; --%>
-// 			if (userId === null || userId === undefined || userId === '') {
-			if (!tSessionExists) {
-				$(".auth-popup").removeClass("popup_on");
-			} else {
+// 	$(function() {
+// 		$(".review_post").click(function() {
+// 			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
+<%-- 			var userId = <%=userId%>; --%> 
+// // 			if (userId === null || userId === undefined || userId === '') {
+// 			if (!tSessionExists) {
+// 				$(".auth-popup").removeClass("popup_on");
+// 			} else {
 	
-				alert("리뷰 작성");
+// 				alert("리뷰 작성");
 						
 			
-				let userId = '<%=userId%>';
-				let name = '<%=userName%>';
-				let teacherId = '${teacher.teacher_id }';
-				let content =  $(".reviewInput").val();
-				console.log(content);
-				let starPoint = $(".review_post").data("star-point");
+<%-- 				let userId = '<%=userId%>'; --%>
+<%-- 				let name = '<%=userName%>'; --%>
+// 				let teacherId = '${teacher.teacher_id }';
+// 				let content =  $(".reviewInput").val();
+// 				console.log(content);
+// 				let starPoint = $(".review_post").data("star-point");
 					
-				let review = {
-						"userId": userId
-					    , "name": name
-						, "teacher_id" : teacherId
-						, "content" : content
-						, "star_point" : starPoint
-				};
+// 				let review = {
+// 						"userId": userId
+// 					    , "name": name
+// 						, "teacher_id" : teacherId
+// 						, "content" : content
+// 						, "star_point" : starPoint
+// 				};
 				
-				$.ajax({
-					url : "writingReview.do",
-					type: "POST",
-					data: review,
-					dataType: "Text", 
-					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
-					success : function (json) {
-						console.log(json);
-						alert("리뷰가 등록되었어요!");
+// 				$.ajax({
+// 					url : "writingReview.do",
+// 					type: "POST",
+// 					data: review,
+// 					dataType: "Text", 
+// 					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
+// 					success : function (json) {
+// 						console.log(json);
+// 						alert("리뷰가 등록되었어요!");
 						
-						if (json == 1) {
-							location.href='getTeacher.do?teacher_id=' + teacherId;
-						}
-					},
-					error: function () {
-						alert("실패");
-					}
-				});
-			}
-		});
-	});
+// 						if (json == 1) {
+// 							location.href='getTeacher.do?teacher_id=' + teacherId;
+// 						}
+// 					},
+// 					error: function () {
+// 						alert("실패");
+// 					}
+// 				});
+// 			}
+// 		});
+// 	});
 	
 	
 	

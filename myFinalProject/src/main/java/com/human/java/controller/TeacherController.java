@@ -153,7 +153,6 @@ public class TeacherController {
 	
 	// 댓글 등록
 	@RequestMapping("writingReview.do")
-	@ResponseBody
 	public String WritingReview(ReviewVO vo) {
 		System.out.println("## WritingReview.do 진입 ##");
 		
@@ -165,7 +164,7 @@ public class TeacherController {
 		
 		reviewService.writingReview(vo);
 		
-		return "1";
+		return "redirect:/teacher/getTeacher.do?teacher_id" + vo.getTeacher_id();
 		
 	}
 	

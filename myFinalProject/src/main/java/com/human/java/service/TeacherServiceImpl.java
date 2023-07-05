@@ -25,6 +25,11 @@ public class TeacherServiceImpl implements TeacherService {
 	public TeacherVO getTeacher(TeacherVO vo) {
 		System.out.println("## getTeacher service 진입 ##");
 		System.out.println("getTeacher vo : " + vo);
+		
+		if (vo.getCourse_id() == 0 || vo.getCourse_name() == null) {
+			vo.setCourse_name("-");
+		}
+		
 		return teacherDAO.getTeacher(vo);
 	}
 
