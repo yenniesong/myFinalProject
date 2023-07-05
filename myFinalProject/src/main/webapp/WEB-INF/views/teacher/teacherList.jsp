@@ -1478,10 +1478,10 @@ li.jsx-3824006232 button.jsx-3824006232 {
 																	<div class="jsx-445560552 star-box">
 																		<span class="jsx-445560552">${teacher.star_point }</span>
 																		<div class="jsx-2704879397 stars">
-																			<div class="jsx-2704879397 star star-2"></div>
-																			<div class="jsx-2704879397 star star-2"></div>
-																			<div class="jsx-2704879397 star star-2"></div>
-																			<div class="jsx-2704879397 star star-2"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
 																			<div class="jsx-2704879397 star star-0"></div>
 																		</div>
 																	</div>
@@ -1529,9 +1529,9 @@ li.jsx-3824006232 button.jsx-3824006232 {
 																	<div class="jsx-445560552 star-box">
 																		<span class="jsx-445560552">${teacher.star_point }</span>
 																		<div class="jsx-2704879397 stars">
-																			<div class="jsx-2704879397 star star-2"></div>
-																			<div class="jsx-2704879397 star star-2"></div>
-																			<div class="jsx-2704879397 star star-2"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
 																			<div class="jsx-2704879397 star star-1"></div>
 																			<div class="jsx-2704879397 star star-0"></div>
 																		</div>
@@ -1606,6 +1606,32 @@ li.jsx-3824006232 button.jsx-3824006232 {
 // 		location.href='teacherAdding.do';
 // 	});
 
+	function startSetting(){
+		
+		let starBox = $('.jsx-445560552.star-box');
+// 		console.log(starBox);
+// 		console.log(typeof starBox);
+		
+		starBox.each(function (index, star){
+			console.log($(this))	// 본체
+// 			console.log( $(this).find('span').text())	// 본체
+			let starPoint = $(this).find('span').text();
+			
+			console.log(starPoint);
+			console.log($(this).find('.stars').children());
+			
+			console.log('------');
+			for( let i = 0 ; i < starPoint ; i++) {
+				console.log($(this).find('.stars > .star:eq('+i+')'));
+				$(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
+			}
+			console.log('------');
+			
+			
+		});
+		
+	}
+
 	document.addEventListener("DOMContentLoaded", function() { 
 	  let btn_add_teacher = document.querySelector(".addTeacher");
 	
@@ -1616,6 +1642,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 	
 	$(function(){
+		 	startSetting();
 	      $(".tutorsLi").slice(0, 6).show(); // 초기갯수
 	      $(".seeMore").click(function(e){ // 클릭시 more
 	          e.preventDefault();
@@ -1703,16 +1730,16 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						starsDiv.classList.add("jsx-2704879397", "stars");
 
 						let star1 = document.createElement("div");
-						star1.classList.add("jsx-2704879397", "star", "star-2");
+						star1.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star2 = document.createElement("div");
-						star2.classList.add("jsx-2704879397", "star", "star-2");
+						star2.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star3 = document.createElement("div");
-						star3.classList.add("jsx-2704879397", "star", "star-2");
+						star3.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star4 = document.createElement("div");
-						star4.classList.add("jsx-2704879397", "star", "star-2");
+						star4.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star5 = document.createElement("div");
 						star5.classList.add("jsx-2704879397","star", "star-0");
@@ -1744,6 +1771,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						resultUl.appendChild(li);
 					}
 					
+					 startSetting();
 				},
 				error: function () {
 					alert('실패');
@@ -1838,16 +1866,16 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						starsDiv.classList.add("jsx-2704879397", "stars");
 
 						let star1 = document.createElement("div");
-						star1.classList.add("jsx-2704879397", "star", "star-2");
+						star1.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star2 = document.createElement("div");
-						star2.classList.add("jsx-2704879397", "star", "star-2");
+						star2.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star3 = document.createElement("div");
-						star3.classList.add("jsx-2704879397", "star", "star-2");
+						star3.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star4 = document.createElement("div");
-						star4.classList.add("jsx-2704879397", "star", "star-2");
+						star4.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star5 = document.createElement("div");
 						star5.classList.add("jsx-2704879397","star", "star-0");
