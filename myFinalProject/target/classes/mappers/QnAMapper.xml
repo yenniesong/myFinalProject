@@ -23,7 +23,7 @@
 		              answer a
 				WHERE rn BETWEEN #{startPage} AND #{endPage}
 		    )
-		    GROUP BY rn,question_id, category_id, category_name, title, name, created_at, view_cnt
+		    GROUP BY rn,question_id, category_id, category_name, academy, title, name, created_at, view_cnt
 		    ORDER BY rn
      
   	</select>

@@ -1609,23 +1609,13 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	function startSetting(){
 		
 		let starBox = $('.jsx-445560552.star-box');
-// 		console.log(starBox);
-// 		console.log(typeof starBox);
 		
 		starBox.each(function (index, star){
-			console.log($(this))	// 본체
-// 			console.log( $(this).find('span').text())	// 본체
 			let starPoint = $(this).find('span').text();
 			
-			console.log(starPoint);
-			console.log($(this).find('.stars').children());
-			
-			console.log('------');
 			for( let i = 0 ; i < starPoint ; i++) {
-				console.log($(this).find('.stars > .star:eq('+i+')'));
 				$(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
 			}
-			console.log('------');
 			
 			
 		});

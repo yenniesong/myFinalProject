@@ -632,6 +632,7 @@
       width: 100%;
       font-size: 17px;
       margin-top: 12px;
+      justify-content: center;
   }
   h4.jsx-644785032 > span.jsx-644785032 {
       text-overflow: ellipsis;
@@ -645,7 +646,8 @@
       align-items: center;
       padding: 8px 0px;
       font-size: 14px;
-      border-bottom: 1px solid rgb(236, 236, 236);
+      border-bottom: 1px solid rgb(236, 236, 236); 
+      justify-content: center;
   }
   .info.jsx-644785032 .nickname.jsx-644785032 {
       color: rgb(33, 33, 33);
@@ -999,7 +1001,7 @@
                                             </div>
                                             <div class="jsx-644785032 ">
                                               <div class="jsx-644785032 info">
-                                              	<c:if test="${loginFg == 'm'}">
+                                              	<c:if test="${loginFG == 'm'}">
 	                                                <span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
                                                 </c:if>
                                               </div>
@@ -1284,8 +1286,6 @@
 						, "star_point" : starPoint
 				};
 				
-				console.log(review);
-				
 				$.ajax({
 					url : "writingReview.do",
 					type: "POST",
@@ -1295,6 +1295,10 @@
 					success : function (json) {
 						console.log(json);
 						alert("리뷰가 등록되었어요!");
+						
+						if (json == 1) {
+							location.href='getTeacher.do?teacher_id=' + teacherId;
+						}
 					},
 					error: function () {
 						alert("실패");

@@ -113,13 +113,13 @@
 								</c:if>
 							</ul>
 						</li>
-						<li><a class="getstarted scrollto" href="member/logout">로그아웃</a></li>
+						<li><a class="getstarted scrollto" href="/member/logout">로그아웃</a></li>
 					</c:if>
 					<c:if test="${userId == null}">
 						<li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
 							<ul>
-						       <li><a href="login">로그인</a></li>
-						       <li><a href="join">회원가입</a></li>
+						       <li><a href="/member/login">로그인</a></li>
+						       <li><a href="/member/join">회원가입</a></li>
 							</ul>
 			          	</li>
 					</c:if>
