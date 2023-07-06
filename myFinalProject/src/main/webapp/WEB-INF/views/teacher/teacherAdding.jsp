@@ -777,7 +777,7 @@ h4.jsx-1434886323 {
 	                                                            </select>
 	                                                        </div>
 	                                                        <div class="jsx-599077571 input-title">
-	                                                            <input name="course_name" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="" style="width: 360px; margin-left: 23px;">
+	                                                            <input name="course_id" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="" style="width: 360px; margin-left: 23px;">
 	                                                        </div>
 	                                                    </div>
 	                                                </div>

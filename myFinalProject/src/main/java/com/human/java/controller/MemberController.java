@@ -1,7 +1,6 @@
 package com.human.java.controller;
 
 import java.net.URLEncoder;
-import java.nio.file.ClosedWatchServiceException;
 
 import javax.inject.Inject;
 //import javax.mail.internet.MimeMessage;

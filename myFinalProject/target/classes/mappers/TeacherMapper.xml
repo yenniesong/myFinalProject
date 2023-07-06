@@ -36,12 +36,12 @@
   	</select>
   	
   	<insert id="insertTeacher" parameterType="com.human.java.domain.TeacherVO">
-  		 INSERT INTO TEACHER (TEACHER_ID, BOOTCAMP_ID, TEACHER_NAME, BOOTCAMP_NAME, COURSE_NAME, SHORT_DESCRIPTION, DESCRIPTION
+  		 INSERT INTO TEACHER (TEACHER_ID, BOOTCAMP_ID, TEACHER_NAME, BOOTCAMP_NAME, COURSE_ID, SHORT_DESCRIPTION, DESCRIPTION
   		 	<if test="fname != null">
   		 		, FNAME, FNAME_EN, FSIZE
   		 	</if>
   		 , POSITION_ID)
-		 VALUES (seq_teacher_teacher_id.NEXTVAL, #{bootcamp_id}, #{teacher_name}, #{bootcamp_name}, #{course_name}, #{short_description}, #{description}
+		 VALUES (seq_teacher_teacher_id.NEXTVAL, #{bootcamp_id}, #{teacher_name}, #{bootcamp_name}, #{course_id}, #{short_description}, #{description}
 		 	<if test="fname != null">
 		 	, #{fname}, #{fname_en}, #{fsize}
 		 	</if>

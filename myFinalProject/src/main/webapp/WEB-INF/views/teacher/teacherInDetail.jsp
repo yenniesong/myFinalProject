@@ -855,7 +855,7 @@
 	                          <ul class="jsx-2255129348" style="padding: 0px;">
 	                            <li class="jsx-2255129348">
 	                            	<h1 style="font-size: 26px; font-weight: 700; letter-spacing: -.3px;">
-	                            		<span class="jsx-2255129348">${teacher.course_name }</span>
+	                            		<span class="jsx-2255129348">${teacher.course_id }</span>
 	                            	</h1>
 	                            </li>
 	                            <li class="jsx-3839070939 tutor">
@@ -1117,7 +1117,7 @@
 	let tSessionExists = <%= tSession != null %>; 
 
 	btn_follow.addEventListener("click", function() {
-		alert("1");
+		alert("준비중입니다요..");
 	})
 
 	
@@ -1181,50 +1181,55 @@
 // 	});
 
 	
-	let btn_writing_review1 = document.querySelector('.btnWritingReview1');
+	let btn_writing_review1 = document.querySelectorAll('.btnWritingReview1');
 	
-	btn_writing_review1.addEventListener("click", function () {
-	    alert("리뷰 작성하기");
-	    
-	    // 세션이 없을 때 로그인 팝업 표시
-	    if (!tSessionExists) {
-	    	let popup = document.querySelector('.auth-popup');
-	        popup.classList.add('popup_on'); // 팝업을 표시하기 위해 클래스 추가
-		} else {
-
-	// 	    let writing_area1 = document.querySelector('.writingArea1');
-			let info1 = document.querySelector('.info1');
-			let avatar1 = document.querySelector('.avatar1');
-			let nickname1 = document.querySelector('.nickname1');
-		    let showWritingInput1 = document.querySelector('.showWritingInput1');
-	// 	    let noAnswer = document.querySelector('.noAnswer');
+	for (var i = 0; i < btn_writing_review1.length; i++) {
 		
-		    btn_writing_review1.classList.add('on');
-	// 	    writing_area1.classList.remove('on');
-		    avatar1.classList.remove('on');
-		    nickname1.classList.remove('on');
-		    showWritingInput1.classList.remove('on');
-	// 	    noAnswer.classList.add('on');
+		btn_writing_review1.addEventListener("click", function () {
+		    alert("리뷰 작성하기");
+		    
+		    // 세션이 없을 때 로그인 팝업 표시
+		    if (!tSessionExists) {
+		    	let popup = document.querySelector('.auth-popup');
+		        popup.classList.add('popup_on'); // 팝업을 표시하기 위해 클래스 추가
+			} else {
 	
-			info1.removeAttribute('style');
-		}
-	    
-    });
+		// 	    let writing_area1 = document.querySelector('.writingArea1');
+				let info1 = document.querySelector('.info1');
+				let avatar1 = document.querySelector('.avatar1');
+				let nickname1 = document.querySelector('.nickname1');
+			    let showWritingInput1 = document.querySelector('.showWritingInput1');
+		// 	    let noAnswer = document.querySelector('.noAnswer');
+			
+			    btn_writing_review1.classList.add('on');
+		// 	    writing_area1.classList.remove('on');
+			    avatar1.classList.remove('on');
+			    nickname1.classList.remove('on');
+			    showWritingInput1.classList.remove('on');
+		// 	    noAnswer.classList.add('on');
+		
+				info1.removeAttribute('style');
+			}
+		    
+	    });
+	}
 	
-	let btn_writing_review = document.querySelectorAll('.btnWritingReview');
 	
-	btn_writing_review.forEach(function (btn) {
-	  btn.addEventListener("click", function () {
-	    alert("1");
-	    let writing_review = document.querySelector('.writingArea');
-	    let btn_review_post = document.querySelector('.review_post');
-	    let noAnswer = document.querySelector('.noAnswer');
 	
-	    writing_review.classList.remove('on');
-	    btn_review_post.classList.remove('on');
-	    noAnswer.classList.add('on');
-	  });
-	});
+// 	let btn_writing_review = document.querySelectorAll('.btnWritingReview');
+	
+// 	btn_writing_review.forEach(function (btn) {
+// 	  btn.addEventListener("click", function () {
+// 	    alert("1");
+// 	    let writing_review = document.querySelector('.writingArea');
+// 	    let btn_review_post = document.querySelector('.review_post');
+// 	    let noAnswer = document.querySelector('.noAnswer');
+	
+// 	    writing_review.classList.remove('on');
+// 	    btn_review_post.classList.remove('on');
+// 	    noAnswer.classList.add('on');
+// 	  });
+// 	});
 	
 	// 벌점 기능 구현
 	const ratingStars = [...document.getElementsByClassName("rating__star")];

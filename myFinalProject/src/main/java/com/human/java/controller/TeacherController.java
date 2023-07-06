@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.BootcampVO;
-import com.human.java.domain.MemberVO;
 import com.human.java.domain.ReviewVO;
 import com.human.java.domain.TeacherVO;
 import com.human.java.service.BootcampService;
@@ -93,7 +92,7 @@ public class TeacherController {
 		System.out.println("## insertTeacher.do 진입 ##");
 		System.out.println("====> Bootcamp_id : " + vo.getBootcamp_id());
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
-		System.out.println("====> Course_name : " + vo.getCourse_name());
+		System.out.println("====> Course_id : " + vo.getCourse_id());
 		System.out.println("====> Short_description : " + vo.getShort_description());
 		System.out.println("====> position : " + vo.getPosition_id()); 
 		System.out.println("## 파일 이름 : " + vo.getFname() + " ##"); 
