@@ -1722,42 +1722,80 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                      <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">과정 추가하기
 	                    </button>
 	                  </div>
-				  	</c:when>
+<%-- 				  	</c:when> --%>
+<%-- 				  </c:choose> --%>
+
+		                  <ul class="jsx-2875758176 tutors">
+						  <c:forEach items="${cList }" var="course">
+		                    <li class="jsx-2875758176 tutorsLi">
+		                      <a class="jsx-2875758176" href="getCourse.do?course_id=${course.course_id }">
+		                        <div tabindex="0" class="jsx-445560552 card">
+		                          <div class="jsx-445560552 content">
+		                            <div class="jsx-445560552 info">
+		                            	<input type="hidden" value="${course.course_id }">
+		                            	<input type="hidden" value="${course.bootcamp_id }">
+		                              <h6 class="jsx-445560552">${course.course_name }</h6>
+		                              <p class="jsx-445560552">${course.bootcamp_name }</p>
+		                              <p class="jsx-445560552">${course.price } 원</p>
+		                            </div>
+		                            <div class="jsx-445560552 star-box">
+		                              <span class="jsx-445560552">7.6</span>
+		                              <div class="jsx-2704879397 stars">
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-0"></div>
+		                              </div>
+		                            </div>
+		                            <div class="jsx-445560552 profile-image tutor">
+		                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+		                            </div>
+		                          </div>
+		                        </div>
+		                      </a>
+		                    </li>
+		
+		                  </c:forEach>
+		                  </ul>	
+                  	</c:when>
+                  	
+                  	<c:otherwise>
+                  		<ul class="jsx-2875758176 tutors">
+						  <c:forEach items="${cList }" var="course">
+		                    <li class="jsx-2875758176 tutorsLi">
+		                      <a class="jsx-2875758176" href="getCourse.do?course_id=${course.course_id }">
+		                        <div tabindex="0" class="jsx-445560552 card">
+		                          <div class="jsx-445560552 content">
+		                            <div class="jsx-445560552 info">
+		                            	<input type="hidden" value="${course.course_id }">
+		                            	<input type="hidden" value="${course.bootcamp_id }">
+		                              <h6 class="jsx-445560552">${course.course_name }</h6>
+		                              <p class="jsx-445560552">${course.bootcamp_name }</p>
+		                              <p class="jsx-445560552">${course.price } 원</p>
+		                            </div>
+		                            <div class="jsx-445560552 star-box">
+		                              <span class="jsx-445560552">7.6</span>
+		                              <div class="jsx-2704879397 stars">
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-2"></div>
+		                                <div class="jsx-2704879397 star star-0"></div>
+		                              </div>
+		                            </div>
+		                            <div class="jsx-445560552 profile-image tutor">
+		                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+		                            </div>
+		                          </div>
+		                        </div>
+		                      </a>
+		                    </li>
+		
+		                  </c:forEach>
+		                 </ul>	
+                  	</c:otherwise>
 				  </c:choose>
-
-                  <ul class="jsx-2875758176 tutors">
-				  <c:forEach items="${cList }" var="course">
-                    <li class="jsx-2875758176 tutorsLi">
-                      <a class="jsx-2875758176" href="getCourse.do?course_id=${course.course_id }">
-                        <div tabindex="0" class="jsx-445560552 card">
-                          <div class="jsx-445560552 content">
-                            <div class="jsx-445560552 info">
-                            	<input type="hidden" value="${course.course_id }">
-                            	<input type="hidden" value="${course.bootcamp_id }">
-                              <h6 class="jsx-445560552">${course.course_name }</h6>
-                              <p class="jsx-445560552">${course.bootcamp_name }</p>
-                              <p class="jsx-445560552">${course.price } 원</p>
-                            </div>
-                            <div class="jsx-445560552 star-box">
-                              <span class="jsx-445560552">7.6</span>
-                              <div class="jsx-2704879397 stars">
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-2"></div>
-                                <div class="jsx-2704879397 star star-0"></div>
-                              </div>
-                            </div>
-                            <div class="jsx-445560552 profile-image tutor">
-                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-                            </div>
-                          </div>
-                        </div>
-                      </a>
-                    </li>
-
-                  </c:forEach>
-                  </ul>
 
                   <div class="jsx-786344230 btn-view-more">
                     <button type="button" class="jsx-1662442796 seeMore">더보기</button>
