@@ -236,7 +236,7 @@
         height: 42px;
         line-height: 42px;
         border-radius: 26px;
-        background-color: #3f60cc;
+        background-color: #1dc078;
         color: #ffffff;
         -webkit-transition: background-color 0.3s;
         transition: background-color 0.3s;
@@ -324,24 +324,30 @@
           text-align: center;
       }
       .list-header.jsx-1779968077 li.jsx-1779968077 {
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-align-items: center;
-          -webkit-box-align: center;
-          -ms-flex-align: center;
-          align-items: center;
-          height: 42px;
-          font-size: 15px;
-          font-weight: normal;
-/*           border-top: 1px solid #212121; */
-    	  background-color: #f2f2f1;
-          border-bottom: 1px solid #ececec;
+           display: -webkit-box;
+           display: -webkit-flex; 
+           display: -ms-flexbox; 
+           display: flex; 
+           -webkit-align-items: center; 
+           -webkit-box-align: center; 
+           -ms-flex-align: center; 
+           align-items: center; 
+           height: 42px; 
+           font-size: 15px; 
+           font-weight: normal; 
+     	   background-color: #f2f2f1; 
+           border-bottom: 1px solid #ececec; 
       }
       .list-header.jsx-1779968077 li.jsx-1779968077>div.jsx-1779968077 {
           width: 100%;
       }
+      
+      /* 해당 div 요소에 width 속성을 추가하여 꽉 차게 표시 */
+	.list-header.jsx-1779968077 li.jsx-1779968077 div {
+	    width: calc(100% / 6); /* 6개의 열이 있으므로, 각 열의 너비는 100% / 6 입니다. */
+	    box-sizing: border-box; /* width에 padding과 border가 포함되도록 box-sizing 설정 */
+	    padding: 5px; /* 원하는 여백 설정 */
+	}
     </style>
 <style id="__jsx-989812570">
       li.jsx-989812570 {
@@ -429,7 +435,7 @@
 		            
 	              </div>
 	              <div class="jsx-1779968077 board-list-box">
-	                <ul class="jsx-1779968077 list-header">
+	                <ul class="jsx-1779968077 list-header" style="padding-left: 0px;">
 	                  <li class="jsx-1779968077">
 	                    <div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 	                    <div class="jsx-1779968077" style="max-width: 120px;">분류</div>
@@ -441,7 +447,7 @@
 	                </ul>
 	                
 	                <c:forEach items="${qnaList }" var="qna">
-		                <ul class="jsx-1779968077 list-body">
+		                <ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
 		                  <li tabindex="0" class="jsx-989812570 ">
 		                  	<input type="hidden" name="academy" value="${qna.academy }">
 		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
