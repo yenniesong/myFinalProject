@@ -439,7 +439,7 @@
 	                  <li class="jsx-1779968077">
 	                    <div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 	                    <div class="jsx-1779968077" style="max-width: 120px;">분류</div>
-	                    <div class="jsx-1779968077" style="max-width: 400px;">제목</div>
+	                    <div class="jsx-1779968077" style="max-width: 100%;">제목</div>
 	                    <div class="jsx-1779968077" style="max-width: 100px;">작성자</div>
 	                    <div class="jsx-1779968077" style="max-width: 100px;">등록일</div>
 	                    <div class="jsx-1779968077" style="max-width: 100px;">답변상태</div>
@@ -452,9 +452,9 @@
 		                  	<input type="hidden" name="academy" value="${qna.academy }">
 		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
 		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
-		                    <div class="jsx-989812570 col-title" style="max-width: 382px;">
+		                    <div class="jsx-989812570 col-title">
 	<%-- 	                      <a class="jsx-989812570" href="getQnABoard.do?question_id=${qna.question_id }" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a> --%>
-		                      <a class="jsx-989812570" href="#" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a>
+		                      <a class="jsx-989812570" href="#" style="color: rgb(102, 102, 102);">${qna.title }</a>
 		                      <span class="jsx-989812570 comment-number hide-on-desktop">0
 		                        <span class="jsx-989812570">댓글</span>
 		                      </span>
@@ -600,21 +600,40 @@
 
 <script>
 	console.log($('#hidden_userId').val());
-	
-	let question_id = "${qna.question_id}";
-	let bootcamp_name = "<%=bootcamp_name%>";
   
 	$(document).ready(function() {
+		
 		$('div.jsx-989812570.col-title > a').click(function() {
-			if (bootcamp_name === "${qna.academy}") {
-				/* 해당 학원의 질문이면 확인 */
-				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
+			let question_id = $(this).parent().prev().prev().text();
+			let bootcamp_name = "<%=bootcamp_name%>";
+			let selecteBootcampName = $('li.jsx-989812570 > input[name="academy"]');
+			
+			// 선택된 제목의 question_id
+// 			console.log(question_id);
+			
+			// 선택된 글을 쓴 학생의 학원명
+// 			console.log($('li.jsx-989812570 > input[name="academy"]').val());
+			
+			// 제목
+// 			console.log(document.querySelector('div.jsx-989812570.col-title > a').innerText);
+			
+			if (selecteBootcampName == bootcamp_name) {
+				alert("우리 학원");
+// 				$("#staticBackdrop").modal("show");
+// 				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
 			} else {
-				q_id = $(this).parent().prev().prev().text();
-				$('#hidden_question_id').val(q_id);
-				$("#staticBackdrop").modal("show");
-
+				alert("남의 학원");
 			}
+			
+// 			if (bootcamp_name === "${qna.academy}") {
+// 				/* 해당 학원의 질문이면 확인 */
+// 				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
+// 			} else {
+// 				q_id = $(this).parent().prev().prev().text();
+// 				$('#hidden_question_id').val(q_id);
+// 				$("#staticBackdrop").modal("show");
+
+// 			}
 			
 
 		});
