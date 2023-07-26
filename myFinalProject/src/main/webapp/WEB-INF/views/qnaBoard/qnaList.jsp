@@ -17,7 +17,7 @@
 	
 	String bootcamp_name = "";
 	
-	if(loginFG == "b") {
+	if(loginFG != null && loginFG.equals("b")) {	// 문자열을 비교할때에는 == 보다는 equals()를 쓰는게 더 좋음
 		bootcamp_name = (String)tSession.getAttribute("bootcamp_name");
 		System.out.println("bootcamp_name : " + bootcamp_name);
 	}
@@ -558,7 +558,7 @@
   	</main><!-- End #main -->  
 
 	<!-- modal -->	<!-- ajax로 하기 -->
-	<form action="chkPwd.do" method="post">
+	<form action="/qna/chkPwd.do" method="post">
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -605,21 +605,23 @@
 		
 		$('div.jsx-989812570.col-title > a').click(function() {
 			let question_id = $(this).parent().prev().prev().text();
-			let bootcamp_name = "<%=bootcamp_name%>";
-			let selecteBootcampName = $('li.jsx-989812570 > input[name="academy"]');
+<%-- 			let bootcamp_name = "<%=bootcamp_name%>"; --%>
+			let selecteBootcampName = $('li.jsx-989812570 > input[name="academy"]').val();
+			// 클릭한 제목의 학원명을 가져와야하는데 안가져와짐
 			
 			// 선택된 제목의 question_id
 // 			console.log(question_id);
 			
 			// 선택된 글을 쓴 학생의 학원명
-// 			console.log($('li.jsx-989812570 > input[name="academy"]').val());
+			console.log($('li.jsx-989812570 > input[name="academy"]').val());
+			console.log("<%=bootcamp_name%>");
 			
 			// 제목
 // 			console.log(document.querySelector('div.jsx-989812570.col-title > a').innerText);
 			
-			if (selecteBootcampName == bootcamp_name) {
+			if (selecteBootcampName === "<%=bootcamp_name%>") {
 				alert("우리 학원");
-// 				$("#staticBackdrop").modal("show");
+				$("#staticBackdrop").modal("show");
 // 				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
 			} else {
 				alert("남의 학원");
