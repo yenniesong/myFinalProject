@@ -558,7 +558,8 @@
   	</main><!-- End #main -->  
 
 	<!-- modal -->	<!-- ajax로 하기 -->
-	<form action="chkPwd.do" method="post">
+<!-- 	<form action="chkPwd.do" method="post"> -->
+	<form id="formChkPwd">
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -572,7 +573,7 @@
 		        <input type="hidden" name="userId" value="${qna.userId}" id='hidden_userId'>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="submit" class="btn btn-primary">확인</button>
+		        <button type="button" class="btn btn-primary btnChkPwd">확인</button>
 		      </div>
 		    </div>
 		  </div>
@@ -664,6 +665,32 @@
 		$('li.jsx-2507860227.disabled a').removeAttr('href');
 
 	});
+	
+	// 비밀번호 입력시 ajax로 넘기기
+	$(document).ready(function() {
+	  // 폼 제출 버튼 클릭 시 AJAX 요청
+	  $(".btnChkPwd").click(function() {
+	    // 폼 데이터 수집
+	    var formData = $("#formChkPwd").serialize();
+	    
+	    // AJAX 요청
+	    $.ajax({
+	      type: "POST", // 또는 "GET" 등 서버 요청 방식 선택
+	      url: "chkPwd.do", // 서버로 데이터를 전송할 URL 경로
+	      data: formData, // 폼 데이터 전송
+	      success: function(response) {
+	        // 서버 응답 처리
+	        alert("서버 응답: " + response);
+	        // 필요한 동작 수행
+	      },
+	      error: function(xhr, status, error) {
+	        // 에러 처리
+	        alert("에러 발생: " + error);
+	      }
+	    });
+	  });
+	});
+	
 
 	let goWriting = document.querySelector('.writeQna');
 	let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
