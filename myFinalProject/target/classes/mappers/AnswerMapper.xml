@@ -11,16 +11,32 @@
   	</select>
   	
   	<insert id="writingAnswer" parameterType="answer">
-  		INSERT INTO ANSWER (ANSWER_ID, QUESTION_ID, BOOTCAMP_ID, CONTENT, BOOTCAMP_NAME, CREATED_AT)
-		VALUES (seq_answer_answer_id.NEXTVAL, #{question_id}, #{bootcamp_id}, #{content}, #{bootcamp_name}, SYSDATE)
+<!--   		INSERT INTO ANSWER (ANSWER_ID, QUESTION_ID, BOOTCAMP_ID, CONTENT, BOOTCAMP_NAME, CREATED_AT) -->
+<!-- 		VALUES (seq_answer_answer_id.NEXTVAL, #{question_id}, #{bootcamp_id}, #{content}, #{bootcamp_name}, SYSDATE) -->
+		INSERT INTO ANSWER (ANSWER_ID, QUESTION_ID, BOOTCAMP_ID, CONTENT, BOOTCAMP_NAME, CREATED_AT)
+		VALUES (seq_answer_answer_id.NEXTVAL, #{question_id}, 
+        			(
+        				SELECT bootcamp_id 
+        				  FROM bootcamp 
+        				 WHERE bootcamp_name = #{bootcamp_name}
+        			) , #{content}, #{bootcamp_name}, SYSDATE)
   		
   	</insert>
   	
   	<select id="getAnswerList" parameterType="answer" resultType="answer">
-  		SELECT answer_id, question_id, bootcamp_id, content, bootcamp_name, TO_CHAR(created_at, 'YYYY-MM-DD') as created_at
-  		  FROM answer 
-  		 WHERE question_id = #{question_id}
-  		 ORDER BY ANSWER_ID DESC
+<!--   		SELECT answer_id, question_id, bootcamp_id, content, bootcamp_name, TO_CHAR(created_at, 'YYYY-MM-DD') as created_at -->
+<!--   		  FROM answer  -->
+<!--   		 WHERE question_id = #{question_id} -->
+<!--   		 ORDER BY ANSWER_ID DESC -->
+		SELECT answer_id, question_id, 
+			( 
+				SELECT bootcamp_id 
+				  FROM bootcamp 
+				 WHERE bootcamp_name = #{bootcamp_name}
+			) as bootcamp_id, content, bootcamp_name, TO_CHAR(created_at, 'YYYY-MM-DD') as created_at
+		  FROM answer 
+		 WHERE question_id = #{question_id}
+		 ORDER BY ANSWER_ID DESC
   	</select>
   	
   	<select id="getAnswerCount" parameterType="answer" resultType="answer">

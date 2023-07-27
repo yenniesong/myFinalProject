@@ -167,7 +167,7 @@ public class QnAController {
 		System.out.println("## writingAnswer.do 진입 ##");
 
 		System.out.println("====> question_id : " + vo.getQuestion_id());
-		System.out.println("====> bootcamp_id : " + vo.getBootcamp_id());
+//		System.out.println("====> bootcamp_id : " + vo.getBootcamp_id());
 		System.out.println("====> bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> content : " + vo.getContent());
 		
