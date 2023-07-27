@@ -558,8 +558,7 @@
   	</main><!-- End #main -->  
 
 	<!-- modal -->	<!-- ajax로 하기 -->
-<!-- 	<form action="chkPwd.do" method="post"> -->
-	<form id="formChkPwd">
+	<form action="chkPwd.do" method="post">
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -573,7 +572,7 @@
 		        <input type="hidden" name="userId" value="${qna.userId}" id='hidden_userId'>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary btnChkPwd">확인</button>
+		        <button type="submit" class="btn btn-primary btnChkPwd">확인</button>
 		      </div>
 		    </div>
 		  </div>
@@ -621,13 +620,16 @@
 			
 			// 세션의 값과 게시글의 학원명에서 공통된 글자 개수를 구하는 함수
 			function countCommonCharacters(str1, str2) {
-			  var count = 0;
-			  for (var i = 0; i < str1.length; i++) {
-			    if (str2.indexOf(str1[i]) !== -1) {
-			      count++;
-			    }
-			  }
-			  return count;
+				var count = 0;
+				var minLength = Math.min(str1.length, str2.length);
+				for (var i = 0; i < minLength; i++) {
+				    if (str1[i] === str2[i]) {
+				      count++;
+				    } else {
+				      break; // 앞에서부터 비교하므로 글자가 다르면 루프 종료
+				    }
+				}
+			  	return count;
 			}
 			
 			// 일부 글자가 겹치는지 확인
@@ -641,22 +643,11 @@
 			
 			if (isOverlap) {
 				alert("우리 학원");
-				$("#staticBackdrop").modal("show");
-// 				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
+// 				$("#staticBackdrop").modal("show");
+				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
 			} else {
 				alert("남의 학원");
 			}
-			
-// 			if (bootcamp_name === "${qna.academy}") {
-// 				/* 해당 학원의 질문이면 확인 */
-// 				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
-// 			} else {
-// 				q_id = $(this).parent().prev().prev().text();
-// 				$('#hidden_question_id').val(q_id);
-// 				$("#staticBackdrop").modal("show");
-
-// 			}
-			
 
 		});
 		
@@ -666,30 +657,30 @@
 
 	});
 	
-	// 비밀번호 입력시 ajax로 넘기기
-	$(document).ready(function() {
-	  // 폼 제출 버튼 클릭 시 AJAX 요청
-	  $(".btnChkPwd").click(function() {
-	    // 폼 데이터 수집
-	    var formData = $("#formChkPwd").serialize();
+// 	// 비밀번호 입력시 ajax로 넘기기
+// 	$(document).ready(function() {
+// 	  // 폼 제출 버튼 클릭 시 AJAX 요청
+// 	  $(".btnChkPwd").click(function() {
+// 	    // 폼 데이터 수집
+// 	    var formData = $("#formChkPwd").serialize();
 	    
-	    // AJAX 요청
-	    $.ajax({
-	      type: "POST", // 또는 "GET" 등 서버 요청 방식 선택
-	      url: "chkPwd.do", // 서버로 데이터를 전송할 URL 경로
-	      data: formData, // 폼 데이터 전송
-	      success: function(response) {
-	        // 서버 응답 처리
-	        alert("서버 응답: " + response);
-	        // 필요한 동작 수행
-	      },
-	      error: function(xhr, status, error) {
-	        // 에러 처리
-	        alert("에러 발생: " + error);
-	      }
-	    });
-	  });
-	});
+// 	    // AJAX 요청
+// 	    $.ajax({
+// 	      type: "POST", // 또는 "GET" 등 서버 요청 방식 선택
+// 	      url: "chkPwd.do", // 서버로 데이터를 전송할 URL 경로
+// 	      data: formData, // 폼 데이터 전송
+// 	      success: function(response) {
+// 	        // 서버 응답 처리
+// 	        alert("서버 응답: " + response);
+// 	        // 필요한 동작 수행
+// 	      },
+// 	      error: function(xhr, status, error) {
+// 	        // 에러 처리
+// 	        alert("에러 발생: " + error);
+// 	      }
+// 	    });
+// 	  });
+// 	});
 	
 
 	let goWriting = document.querySelector('.writeQna');

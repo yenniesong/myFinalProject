@@ -27,6 +27,9 @@ public class QnADAOImpl implements QnADAO {
 	@Override
 	public QnAVO getQnABoard(QnAVO vo) {
 		System.out.println("## getQnABoard dao 진입 ##");
+		System.out.println("게시글 번호 in dao : " + vo.getQuestion_id());
+		
+		System.out.println("QnaVo : " + vo);
 		return mybatis.selectOne("QnADAO.getQnABoard", vo);
 	}
 

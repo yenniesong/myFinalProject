@@ -25,6 +25,7 @@ public class QnAServiceImpl implements QnAService {
 	@Override
 	public QnAVO getQnABoard(QnAVO vo) {
 		System.out.println("## getQnABoard service 진입 ##");
+		System.out.println("게시글 번호 in service : " + vo.getQuestion_id());
 		
 		return qnaDAO.getQnABoard(vo);
 	}

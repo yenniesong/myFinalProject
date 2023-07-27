@@ -51,10 +51,6 @@
 	 		 WHERE q.question_id = #{question_id}
 	 		 ORDER BY q.question_id DESC
 	 		 
-<!--   		SELECT q.question_id, c.category_id, c.category_name, q.title, q.content, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt -->
-<!-- 	      FROM question q INNER JOIN category c ON q.category_id = c.category_id -->
-<!-- 	     WHERE q.question_id = #{question_id} -->
-<!-- 	     ORDER BY q.question_id DESC -->
   	</select>
   	
   	<insert id="insertQnABoard" parameterType="qna">

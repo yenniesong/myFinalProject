@@ -57,7 +57,7 @@ aside {
 	bottom: 2px;
 	margin: 0px;
 	border: 1px solid;
-	width: 66.5%;
+	width: 49.8%;
 	background: white;
 	border-radius: 6px;
 	height: 68px;
