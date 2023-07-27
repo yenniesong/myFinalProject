@@ -449,7 +449,7 @@
 	                <c:forEach items="${qnaList }" var="qna">
 		                <ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
 		                  <li tabindex="0" class="jsx-989812570 ">
-		                  	<input type="hidden" name="academy" value="${qna.academy }">
+		                  	<input type="hidden" class="academyName" name="academy" value="${qna.academy }">
 		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
 		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
 		                    <div class="jsx-989812570 col-title">
@@ -558,7 +558,7 @@
   	</main><!-- End #main -->  
 
 	<!-- modal -->	<!-- ajax로 하기 -->
-	<form action="/qna/chkPwd.do" method="post">
+	<form action="chkPwd.do" method="post">
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -600,26 +600,45 @@
 
 <script>
 	console.log($('#hidden_userId').val());
-  
+	
 	$(document).ready(function() {
-		
+			
 		$('div.jsx-989812570.col-title > a').click(function() {
 			let question_id = $(this).parent().prev().prev().text();
-<%-- 			let bootcamp_name = "<%=bootcamp_name%>"; --%>
-			let selecteBootcampName = $('li.jsx-989812570 > input[name="academy"]').val();
-			// 클릭한 제목의 학원명을 가져와야하는데 안가져와짐
-			
-			// 선택된 제목의 question_id
-// 			console.log(question_id);
+			// 게시글의 학원명
+			let selecteBootcampName = $(this).parent().prev().prev().prev().val();
 			
 			// 선택된 글을 쓴 학생의 학원명
-			console.log($('li.jsx-989812570 > input[name="academy"]').val());
-			console.log("<%=bootcamp_name%>");
+			console.log("선택된 글을 쓴 학생의 학원명 : " + selecteBootcampName);
+			console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
 			
 			// 제목
 // 			console.log(document.querySelector('div.jsx-989812570.col-title > a').innerText);
 			
-			if (selecteBootcampName === "<%=bootcamp_name%>") {
+			// 세션의 값
+			var sessionBootcampName = "<%=bootcamp_name%>";
+			
+			// 세션의 값과 게시글의 학원명에서 공통된 글자 개수를 구하는 함수
+			function countCommonCharacters(str1, str2) {
+			  var count = 0;
+			  for (var i = 0; i < str1.length; i++) {
+			    if (str2.indexOf(str1[i]) !== -1) {
+			      count++;
+			    }
+			  }
+			  return count;
+			}
+			
+			// 일부 글자가 겹치는지 확인
+			var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
+			
+			// 특정 기준 이상의 글자가 겹치는지 여부 확인 (예: 2개 이상의 글자가 겹치면 참)
+			var threshold = 4;
+			var isOverlap = commonCharacterCount >= threshold;
+			
+			console.log(isOverlap); // true or false (일부 글자가 겹치면 true, 아니면 false)
+			
+			if (isOverlap) {
 				alert("우리 학원");
 				$("#staticBackdrop").modal("show");
 // 				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
@@ -639,6 +658,8 @@
 			
 
 		});
+		
+		
 
 		$('li.jsx-2507860227.disabled a').removeAttr('href');
 
