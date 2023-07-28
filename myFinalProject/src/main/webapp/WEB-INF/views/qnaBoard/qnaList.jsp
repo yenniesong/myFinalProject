@@ -607,46 +607,55 @@
 			let question_id = $(this).parent().prev().prev().text();
 			// 게시글의 학원명
 			let selecteBootcampName = $(this).parent().prev().prev().prev().val();
+			// 게시글의 작성자
+			let selecteWriter = $(this).parent().val();
 			
 			// 선택된 글을 쓴 학생의 학원명
 			console.log("선택된 글을 쓴 학생의 학원명 : " + selecteBootcampName);
-			console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
 			
-			// 제목
-// 			console.log(document.querySelector('div.jsx-989812570.col-title > a').innerText);
-			
-			// 세션의 값
-			var sessionBootcampName = "<%=bootcamp_name%>";
-			
-			// 세션의 값과 게시글의 학원명에서 공통된 글자 개수를 구하는 함수
-			function countCommonCharacters(str1, str2) {
-				var count = 0;
-				var minLength = Math.min(str1.length, str2.length);
-				for (var i = 0; i < minLength; i++) {
-				    if (str1[i] === str2[i]) {
-				      count++;
-				    } else {
-				      break; // 앞에서부터 비교하므로 글자가 다르면 루프 종료
-				    }
+			if ("<%=loginFG%>" == 'm' ) {
+				console.log("난 학생이어요");
+				console.log("이 글의 작성자는 : " + selecteWriter);
+			} else if ("<%=loginFG%>" == 'b') {
+				
+				console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
+				
+				// 제목
+	// 			console.log(document.querySelector('div.jsx-989812570.col-title > a').innerText);
+				
+				// 세션의 값
+				var sessionBootcampName = "<%=bootcamp_name%>";
+				
+				// 세션의 값과 게시글의 학원명에서 공통된 글자 개수를 구하는 함수
+				function countCommonCharacters(str1, str2) {
+					var count = 0;
+					var minLength = Math.min(str1.length, str2.length);
+					for (var i = 0; i < minLength; i++) {
+					    if (str1[i] === str2[i]) {
+					      count++;
+					    } else {
+					      break; // 앞에서부터 비교하므로 글자가 다르면 루프 종료
+					    }
+					}
+				  	return count;
 				}
-			  	return count;
-			}
-			
-			// 일부 글자가 겹치는지 확인
-			var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
-			
-			// 특정 기준 이상의 글자가 겹치는지 여부 확인 (예: 2개 이상의 글자가 겹치면 참)
-			var threshold = 4;
-			var isOverlap = commonCharacterCount >= threshold;
-			
-			console.log(isOverlap); // true or false (일부 글자가 겹치면 true, 아니면 false)
-			
-			if (isOverlap) {
-				alert("우리 학원");
-// 				$("#staticBackdrop").modal("show");
-				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
-			} else {
-				alert("남의 학원");
+				
+				// 일부 글자가 겹치는지 확인
+				var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
+				
+				// 특정 기준 이상의 글자가 겹치는지 여부 확인 (예: 2개 이상의 글자가 겹치면 참)
+				var threshold = 4;
+				var isOverlap = commonCharacterCount >= threshold;
+				
+				console.log(isOverlap); // true or false (일부 글자가 겹치면 true, 아니면 false)
+				
+				if (isOverlap) {
+					alert("우리 학원");
+	// 				$("#staticBackdrop").modal("show");
+					location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
+				} else {
+					alert("남의 학원");
+				}
 			}
 
 		});

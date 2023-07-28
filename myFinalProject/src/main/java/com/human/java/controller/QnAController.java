@@ -111,6 +111,8 @@ public class QnAController {
 		model.addAttribute("qna", qnaService.getQnABoard(vo));
 		
 		System.out.println("aVO : " + aVo);
+		System.out.println((String) session.getAttribute("bootcamp_name"));
+		aVo.setBootcamp_name((String) session.getAttribute("bootcamp_name"));
 		
 		List<AnswerVO> aList = answerService.getAnswerList(aVo);
 		
