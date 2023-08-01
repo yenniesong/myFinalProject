@@ -569,7 +569,7 @@
 		        <p style="text-align: center;">비밀번호 입력</p>
 		        <input type="password" name="password" title="비밀번호 입력" placeholder="비밀번호를 입력해 주세요." class="jsx-599077571 password" value="" style="width: 300px;">
 		        <input type="hidden" name="question_id" id='hidden_question_id'>
-		        <input type="hidden" name="userId" value="${qna.userId}" id='hidden_userId'>
+		        <input type="hidden" name="userId" value="<%=userId %>" id='hidden_userId'>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-primary btnChkPwd">확인</button>
@@ -602,8 +602,8 @@
 	console.log($('#hidden_userId').val());
 	
 	$(document).ready(function() {
-			
 		$('div.jsx-989812570.col-title > a').click(function() {
+			
 			let question_id = $(this).parent().prev().prev().text();
 			// 게시글의 학원명
 			let selecteBootcampName = $(this).parent().prev().prev().prev().val();
@@ -622,7 +622,9 @@
 	 				$("#staticBackdrop").modal("show");
 				} else {
 					console.log("넘의 글");
+					alert("내 글이 아니에요");
 				}
+				
 			} else if ("<%=loginFG%>" == 'b') {
 				
 				console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
@@ -649,12 +651,14 @@
 				
 				// 일부 글자가 겹치는지 확인
 				
-					alert("우리 학원");
-	// 				$("#staticBackdrop").modal("show");
-					location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
-				} else {
-					alert("남의 학원");var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
+				alert("우리 학원");
+// 				$("#staticBackdrop").modal("show");
+				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
 				
+			} else {
+				alert("남의 학원");
+				var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
+			
 				// 특정 기준 이상의 글자가 겹치는지 여부 확인 (예: 2개 이상의 글자가 겹치면 참)
 				var threshold = 4;
 				var isOverlap = commonCharacterCount >= threshold;
@@ -662,53 +666,76 @@
 				console.log(isOverlap); // true or false (일부 글자가 겹치면 true, 아니면 false)
 				
 				if (isOverlap) {
+					alert("우리 학원");
+	// 				$("#staticBackdrop").modal("show");
+					location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
+				} else {
+					alert("남의 학원");
 				}
 			}
 
+			window.question_id = question_id;
+			window.selecteBootcampName = selecteBootcampName;
 		});
-		
 		
 
 		$('li.jsx-2507860227.disabled a').removeAttr('href');
 
+		// 비밀번호 입력시 ajax로 넘기기
+		$(".btnChkPwd").click(function() {
+			let mySessionId = "<%=userId%>";
+			let enteredPwd = $(".password").val();
+			let selectedQuestionId = window.question_id;
+			let userAcademy = window.selecteBootcampName;
+			
+// 			console.log("이 글을 누른 사람 : " + mySessionId);
+// 			console.log("이 글의 번호 : " + selectedQuestionId);
+// 			console.log("입력한 비밀번호 : " + enteredPwd);
+// 			console.log("이 사람의 학원 : " + userAcademy);
+			alert("이 사람의 학원 : " + userAcademy);
+			
+			let data = {
+					'userId' : mySessionId
+					, 'password' : enteredPwd
+					, 'question_id' : selectedQuestionId
+			};
+			
+			// AJAX 요청
+	 	    $.ajax({
+	 	    	url : "chkPwd.do"
+	 	    	, type: "POST"
+	 	    	, data: data
+	 	    	, dataType: "text"
+	 	      	, success: function(resp) {
+	 	        	// 서버 응답 처리
+// 	 	        	alert("서버 응답: " + resp);
+	 	        	console.log("서버 응답: " + resp);
+	 	        	// 필요한 동작 수행
+	 	        	if (resp == "null") {
+	 	        		alert('비밀번호가 일치하지 않습니다.');
+	 	        		location.href='/qnaBoard/getQnAList.do';
+					} else {
+						location.href='/qnaBoard/getQnABoard.do?question_id=' + selectedQuestionId + '&academy=' + userAcademy;
+	 	      		}
+	 	      	}
+	 	      	, error: function() {
+	 	        	// 에러 처리
+	 	        	console.log("에러 발생: " + error);
+	 	      	}
+	 	    });
+		});
+		  
 	});
 	
-	// 비밀번호 입력시 ajax로 넘기기
-	$(document).ready(function() {
-	  // 폼 제출 버튼 클릭 시 AJAX 요청
-	  $(".btnChkPwd").click(function() {
-	    // 폼 데이터 수집
-	    var formData = $("#formChkPwd").serialize();
-	    
-	    // AJAX 요청
-	    $.ajax({
-	      type: "POST", // 또는 "GET" 등 서버 요청 방식 선택
-	      url: "chkPwd.do", // 서버로 데이터를 전송할 URL 경로
-	      data: formData, // 폼 데이터 전송
-	      success: function(response) {
-	        // 서버 응답 처리
-	        alert("서버 응답: " + response);
-	        // 필요한 동작 수행
-	      },
-	      error: function(xhr, status, error) {
-	        // 에러 처리
-	        alert("에러 발생: " + error);
-	      }
-	    });
-	  });
-	});
 	
 
 	let goWriting = document.querySelector('.writeQna');
 	let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
 
 	goWriting.addEventListener("click", function() {
-		location.href = 'qnaWriting.do';
+// 		location.href = 'qnaWriting.do';
+		location.href = 'goingToWriting.do';
 	});
-
-// 	btn_myQna.addEventListener("click", function() {
-// 		location.href = 'findMyQuestion.do';
-// 	});
 
 	function findMyQuestion() {
 		let userId = '<%= session.getAttribute("userId") %>';

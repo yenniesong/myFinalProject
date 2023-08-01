@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.AnswerVO;
 import com.human.java.domain.PagingVO;
@@ -65,6 +66,7 @@ public class QnAController {
 	}
 	
 	@RequestMapping("chkPwd.do")
+	@ResponseBody
 	public String chkPwd(QnAVO vo, HttpServletResponse response, HttpSession session) throws IOException  {
 		System.out.println("## chkPwd.do 진입 ##");
 		vo.setUserId((String)session.getAttribute("userId"));
@@ -75,44 +77,28 @@ public class QnAController {
 		
 		QnAVO result = qnaService.chkPwd(vo);
 		
-		if (result == null || result.getPassword() == null) {
-			response.setCharacterEncoding("UTF-8");
-
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-
-			out.println("<script language='javascript'>");
-			out.println("alert('비밀번호가 일치하지 않습니다.');");
-			out.println("location.href='/qnaBoard/getQnAList.do';");
-			out.println("</script>");
-			out.close();
-			
-		} else if (result.getUserId() == null) {
-			response.setCharacterEncoding("UTF-8");
-
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter out = response.getWriter();
-
-			out.println("<script language='javascript'>");
-			out.println("alert('본인이 아닙니다.);");
-			out.println("location.href='/qnaBoard/getQnAList.do';");
-			out.println("</script>");
-			out.close();
-		}
-		
-		return "redirect:/qnaBoard/getQnABoard.do?question_id="+vo.getQuestion_id();	
+		return result + "";	
 	}
 	
 	@RequestMapping("getQnABoard.do")
-	public String getQnABoard(QnAVO vo, Model model, AnswerVO aVo, HttpSession session) {
+	public String getQnABoard(QnAVO vo, @RequestParam("academy") String academy, Model model, AnswerVO aVo, HttpSession session) {
 		System.out.println("## getQnABoard.do 진입 ##");
 		System.out.println("## 게시글 번호 : " + vo.getQuestion_id() + " ##");
+		System.out.println("## 학원 번호 : " + academy + " ##");
 		
 		model.addAttribute("qna", qnaService.getQnABoard(vo));
 		
 		System.out.println("aVO : " + aVo);
-		System.out.println((String) session.getAttribute("bootcamp_name"));
-		aVo.setBootcamp_name((String) session.getAttribute("bootcamp_name"));
+		
+		if ((String) session.getAttribute("bootcamp_name") != null) {
+			
+			System.out.println((String) session.getAttribute("bootcamp_name"));
+			aVo.setBootcamp_name((String) session.getAttribute("bootcamp_name"));
+			
+		} else if (academy != null) {
+			
+			aVo.setBootcamp_name(academy);
+		}
 		
 		List<AnswerVO> aList = answerService.getAnswerList(aVo);
 		
