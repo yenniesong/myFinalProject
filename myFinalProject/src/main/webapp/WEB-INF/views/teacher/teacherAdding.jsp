@@ -8,7 +8,7 @@
 	System.out.print("test");
 	HttpSession bSession = request.getSession();
 	String userId = (String)bSession.getAttribute("userId");
-	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
+// 	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
 	String bootcamp_name = (String)bSession.getAttribute("bootcamp_name");
 	System.out.print("test");
 %>
@@ -757,7 +757,7 @@ h4.jsx-1434886323 {
 	                                                    <div class="jsx-401750031 info-box">
 	                                                        <div class="col input-group">
 	                                                        	<input type="hidden" name="userId" value="<%=userId%>">
-	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
+<%-- 	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>"> --%>
 	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
 	                                                        	<span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=bootcamp_name%></span>
 <%-- 	                                                            <input title="학원 명 입력" name="bootcamp_name" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${bootcamp_name }" readonly="readonly"> --%>

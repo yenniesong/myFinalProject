@@ -364,7 +364,7 @@
                                                 <div class="jsx-3763643514 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_08@2x.png&quot;);">
                                                 </div>
                                             </div>
-                                            <span class="jsx-401750031">${qna.name }</span>
+                                            <span class="jsx-401750031">${qna.userId }</span>
                                             <span class="jsx-401750031 division-line"></span>
                                             <span class="jsx-401750031 bootcamp-name" style="margin: 0px; color: #90d487;">${qna.academy }</span>
                                         </div>

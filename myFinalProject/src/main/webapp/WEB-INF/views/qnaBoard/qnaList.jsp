@@ -459,7 +459,7 @@
 		                        <span class="jsx-989812570">댓글</span>
 		                      </span>
 		                    </div>
-		                    <div class="jsx-989812570 col-nickname" style="max-width: 100px;">${qna.name }</div>
+		                    <div class="jsx-989812570 col-userId" style="max-width: 100px;">${qna.userId }</div>
 		                    <div class="jsx-989812570 col-created" style="max-width: 100px;">${qna.created_at }</div>
 		                    <div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
 		                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
@@ -558,7 +558,7 @@
   	</main><!-- End #main -->  
 
 	<!-- modal -->	<!-- ajax로 하기 -->
-	<form action="chkPwd.do" method="post">
+<!-- 	<form action="chkPwd.do" method="post"> -->
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -572,12 +572,12 @@
 		        <input type="hidden" name="userId" value="${qna.userId}" id='hidden_userId'>
 		      </div>
 		      <div class="modal-footer">
-		        <button type="submit" class="btn btn-primary btnChkPwd">확인</button>
+		        <button type="button" class="btn btn-primary btnChkPwd">확인</button>
 		      </div>
 		    </div>
 		  </div>
 		</div>
-	</form>
+<!-- 	</form> -->
 	
 	<!-- ======= Footer ======= -->
 	<%@include file="../includes/footer.jsp" %>
@@ -608,7 +608,7 @@
 			// 게시글의 학원명
 			let selecteBootcampName = $(this).parent().prev().prev().prev().val();
 			// 게시글의 작성자
-			let selecteWriter = $(this).parent().val();
+			let selecteWriter = $(this).parent().next().text();
 			
 			// 선택된 글을 쓴 학생의 학원명
 			console.log("선택된 글을 쓴 학생의 학원명 : " + selecteBootcampName);
@@ -616,6 +616,13 @@
 			if ("<%=loginFG%>" == 'm' ) {
 				console.log("난 학생이어요");
 				console.log("이 글의 작성자는 : " + selecteWriter);
+				
+				if (selecteWriter === "<%=userId%>") {
+					console.log("내 글");
+	 				$("#staticBackdrop").modal("show");
+				} else {
+					console.log("넘의 글");
+				}
 			} else if ("<%=loginFG%>" == 'b') {
 				
 				console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
@@ -641,7 +648,12 @@
 				}
 				
 				// 일부 글자가 겹치는지 확인
-				var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
+				
+					alert("우리 학원");
+	// 				$("#staticBackdrop").modal("show");
+					location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
+				} else {
+					alert("남의 학원");var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
 				
 				// 특정 기준 이상의 글자가 겹치는지 여부 확인 (예: 2개 이상의 글자가 겹치면 참)
 				var threshold = 4;
@@ -650,11 +662,6 @@
 				console.log(isOverlap); // true or false (일부 글자가 겹치면 true, 아니면 false)
 				
 				if (isOverlap) {
-					alert("우리 학원");
-	// 				$("#staticBackdrop").modal("show");
-					location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
-				} else {
-					alert("남의 학원");
 				}
 			}
 
@@ -666,30 +673,30 @@
 
 	});
 	
-// 	// 비밀번호 입력시 ajax로 넘기기
-// 	$(document).ready(function() {
-// 	  // 폼 제출 버튼 클릭 시 AJAX 요청
-// 	  $(".btnChkPwd").click(function() {
-// 	    // 폼 데이터 수집
-// 	    var formData = $("#formChkPwd").serialize();
+	// 비밀번호 입력시 ajax로 넘기기
+	$(document).ready(function() {
+	  // 폼 제출 버튼 클릭 시 AJAX 요청
+	  $(".btnChkPwd").click(function() {
+	    // 폼 데이터 수집
+	    var formData = $("#formChkPwd").serialize();
 	    
-// 	    // AJAX 요청
-// 	    $.ajax({
-// 	      type: "POST", // 또는 "GET" 등 서버 요청 방식 선택
-// 	      url: "chkPwd.do", // 서버로 데이터를 전송할 URL 경로
-// 	      data: formData, // 폼 데이터 전송
-// 	      success: function(response) {
-// 	        // 서버 응답 처리
-// 	        alert("서버 응답: " + response);
-// 	        // 필요한 동작 수행
-// 	      },
-// 	      error: function(xhr, status, error) {
-// 	        // 에러 처리
-// 	        alert("에러 발생: " + error);
-// 	      }
-// 	    });
-// 	  });
-// 	});
+	    // AJAX 요청
+	    $.ajax({
+	      type: "POST", // 또는 "GET" 등 서버 요청 방식 선택
+	      url: "chkPwd.do", // 서버로 데이터를 전송할 URL 경로
+	      data: formData, // 폼 데이터 전송
+	      success: function(response) {
+	        // 서버 응답 처리
+	        alert("서버 응답: " + response);
+	        // 필요한 동작 수행
+	      },
+	      error: function(xhr, status, error) {
+	        // 에러 처리
+	        alert("에러 발생: " + error);
+	      }
+	    });
+	  });
+	});
 	
 
 	let goWriting = document.querySelector('.writeQna');

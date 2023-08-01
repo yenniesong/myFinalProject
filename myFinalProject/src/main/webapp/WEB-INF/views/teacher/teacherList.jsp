@@ -1632,7 +1632,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 	
 	$(function(){
-		 	startSetting();
+		  startSetting();
 	      $(".tutorsLi").slice(0, 6).show(); // 초기갯수
 	      $(".seeMore").click(function(e){ // 클릭시 more
 	          e.preventDefault();
