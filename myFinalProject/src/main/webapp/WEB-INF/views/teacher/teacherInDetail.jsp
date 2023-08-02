@@ -64,7 +64,7 @@
         position: relative;
         display: flex;
         overflow: hidden;
-        border: 1px solid rgb(223, 223, 223);
+/*         border: 1px solid rgb(223, 223, 223); */
 	    border-radius: 10px;
 	    margin-bottom: 2px;
     }
@@ -646,7 +646,7 @@
       align-items: center;
       padding: 8px 0px;
       font-size: 14px;
-      border-bottom: 1px solid rgb(236, 236, 236); 
+/*       border-bottom: 1px solid rgb(236, 236, 236);  */
       justify-content: center;
   }
   .info.jsx-644785032 .nickname.jsx-644785032 {
@@ -775,10 +775,6 @@
                     <div class="jsx-1020960270 rating">
                       <div class="jsx-2007872434 stars">
                         <div class="jsx-2007872434 star star-2"></div>
-<!--                         <div class="jsx-2007872434 star star-2"></div> -->
-<!--                         <div class="jsx-2007872434 star star-2"></div>  -->
-<!--                         <div class="jsx-2007872434 star star-2"></div> -->
-<!--                         <div class="jsx-2007872434 star star-0"></div> -->
                       </div>
                       <span class="jsx-1020960270 score">
                         <span class="jsx-1020960270">${teacher.star_point }</span> 
@@ -904,6 +900,7 @@
           
 	                          <div class="jsx-1546215327 content">
 	                            <div title="강사리뷰" class="jsx-4149508951">
+	                            
                                 <!-- 댓글이 있을 경우 -->
                                 <c:choose>
                                   <c:when test="${not empty rList }">
@@ -953,10 +950,10 @@
 	                              		<div class="jsx-4149508951 review-box">
                                           <div class="jsx-644785032 review-item">
                                             <div class="jsx-644785032 title writingArea1">
-                                            <form action="writingReview.do" method="post">
+<!--                                             <form action="writingReview.do" method="post"> -->
 <!--                                              가져가야할 데이터 : userId, teacher_id, name, content, star_point -->
 	                                              <div class="jsx-644785032 info info1" style="display: block; text-align: center; border-bottom: none;">
-	                                              	<span class="jsx-644785032 nickname btnWritingReview1"><a href="#">후기 작성하기</a></span>
+	                                              	<span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
 	                                                
 	                                                <div class="jsx-644785032 ">
 	                                                  <div class="jsx-1397353033 avatar avatar1 on">
@@ -970,23 +967,23 @@
 	                                                <input type="hidden" name="userId" value="${userId }">
 	                                              </div>
 	
-	                                              <!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
-	                                               <div class="adminArea mb-3 showWritingInput1 on">
-	                                                   <div class="input-group mb-3">
-	                                                     <input type="text" class="form-control reviewInput" name="content" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
-	                                                     <div class="rating starPoint">
-												              <span class="rating__result"></span> 
-												              <i class="rating__star far fa-star"></i>
-												              <i class="rating__star far fa-star"></i>
-												              <i class="rating__star far fa-star"></i>
-												              <i class="rating__star far fa-star"></i>
-												              <i class="rating__star far fa-star"></i>
-												          </div>
-												          <input type="hidden" name="star_pint" class="star_pint" value="">
-	                                                     <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
-	                                                   </div>
-	                                               </div>
-                                               </form>
+<!-- 	                                             	 해당 수강생이 답글 작성하기 눌렀을 때 -->
+<!-- 	                                               <div class="adminArea mb-3 showWritingInput1 on"> -->
+<!-- 	                                                   <div class="input-group mb-3"> -->
+<!-- 	                                                     <input type="text" class="form-control reviewInput" name="content" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2"> -->
+<!-- 	                                                     <div class="rating starPoint"> -->
+<!-- 												              <span class="rating__result"></span>  -->
+<!-- 												              <i class="rating__star far fa-star"></i> -->
+<!-- 												              <i class="rating__star far fa-star"></i> -->
+<!-- 												              <i class="rating__star far fa-star"></i> -->
+<!-- 												              <i class="rating__star far fa-star"></i> -->
+<!-- 												              <i class="rating__star far fa-star"></i> -->
+<!-- 												          </div> -->
+<!-- 												          <input type="hidden" name="star_pint" class="star_pint" value=""> -->
+<!-- 	                                                     <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button> -->
+<!-- 	                                                   </div> -->
+<!-- 	                                               </div> -->
+<!--                                                </form> -->
                                               </div>
                                             </div>
                                           </div>
@@ -1002,10 +999,10 @@
                                                 <span class="jsx-644785032">아직 후기가 없어요</span>
                                               </h4>
                                             </div>
-                                            <div class="jsx-644785032 ">
+                                            <div class="jsx-644785032 btnWritingArea">
                                               <div class="jsx-644785032 info">
                                               	<c:if test="${loginFG == 'm'}">
-	                                                <span class="jsx-644785032 nickname btnWritingReview1"><a href="#">후기 작성하기</a></span>
+	                                                <span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
                                                 </c:if>
                                               </div>
                                             </div>
@@ -1013,21 +1010,21 @@
 
 											<!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
 											<!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
-											<div class="jsx-4149508951 auth-popup popup_on">
-												<div class="jsx-133251687 content">
-													<h5 class="jsx-133251687">로그인하고 전체보기</h5>
-													<div class="jsx-133251687 btn-box">
-														<div class="jsx-133251687 btn-join">
-															<button type="button" class="jsx-520855050 ">회원가입</button>
-														</div>
-														<div class="jsx-133251687 btn-login">
-															<button type="button" class="jsx-1487464557 ">로그인</button>
-														</div>
-													</div>
-												</div>
-											</div>
+<!-- 											<div class="jsx-4149508951 auth-popup popup_on"> -->
+<!-- 												<div class="jsx-133251687 content"> -->
+<!-- 													<h5 class="jsx-133251687">로그인하고 전체보기</h5> -->
+<!-- 													<div class="jsx-133251687 btn-box"> -->
+<!-- 														<div class="jsx-133251687 btn-join"> -->
+<!-- 															<button type="button" class="jsx-520855050 ">회원가입</button> -->
+<!-- 														</div> -->
+<!-- 														<div class="jsx-133251687 btn-login"> -->
+<!-- 															<button type="button" class="jsx-1487464557 ">로그인</button> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
 
-																		<!-- 후기가 없을때 -->
+<!-- 											후기가 없을때 -->
 <!--                                           <div class="jsx-644785032 review-item writingArea2 on"> -->
 <!-- 	                                          <div class="jsx-1546215327 content"> -->
 <!-- 	                                            <div title="강사리뷰" class="jsx-4149508951"> -->
@@ -1048,7 +1045,7 @@
 <%-- 		                                                        <input type="hidden" name="userId" value="${userId }"> --%>
 <!-- 		                                                      </div> -->
 		        
-<!-- 		                                                      해당 수강생이 답글 작성하기 눌렀을 때 -->
+<!-- 		                                                      	해당 수강생이 답글 작성하기 눌렀을 때 -->
 <!-- 		                                                       <div class="adminArea mb-3"> -->
 <!-- 		                                                           <div class="input-group mb-3"> -->
 <!-- 		                                                             <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2"> -->
@@ -1112,8 +1109,6 @@
 	let btn_enroll = document.querySelector(".btn-enroll");
 	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
 	let btn_deleteTeacher = document.querySelector(".deleteTeacher");
-// 	let btn_review_post = document.querySelector(".review_post");
-// 	let btn_writingReviewWComment = document.querySelector(".btnWritingReviewWComment");
 
 	let tSessionExists = <%= tSession != null %>; 
 
@@ -1175,46 +1170,216 @@
 		});
 	});
 	
+	let btnWritingReview = document.querySelectorAll('.btnWritingReview');
 	
+	for (var i = 0; i < btnWritingReview.length; i++) {
+		btnWritingReview[i].addEventListener("click", function() {
+			alert("후기 작성하기 버튼 활성화!");
+			
+// 			세션이 없을 때 로그인 팝업 표시
+		    if (!tSessionExists) {
+// 		    	let popup = document.querySelector('.auth-popup');
+// 		        popup.classList.add('popup_on'); // 팝업을 표시하기 위해 클래스 추가
+				alert("세션 없다");
+			} else {
+				alert("세션 있다");
+				let divToRemove = document.querySelector('.jsx-644785032.title');
+				divToRemove.innerHTML = '';
+				
+				let divBtnToRemove = document.querySelector('.jsx-644785032.btnWritingArea');
+				divBtnToRemove.innerHTML = '';
+				
+				let showReviewForm = document.querySelector(".review-item");
+				
+				const form = document.createElement('form');
+				form.action = 'writingReview.do';
+				form.method = 'post';
 
+				const divInfo = document.createElement('div');
+				divInfo.className = 'jsx-644785032 info';
+
+				const divAvatar = document.createElement('div');
+				divAvatar.className = 'jsx-644785032';
+
+				const divCircle = document.createElement('div');
+				divCircle.className = 'jsx-1397353033 avatar';
+
+				const divCircleBg = document.createElement('div');
+				divCircleBg.className = 'jsx-1397353033 circle';
+				divCircleBg.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&f=webp")';
+
+				const inputUserId = document.createElement('input');
+				inputUserId.type = 'hidden';
+				inputUserId.name = 'userId';
+				inputUserId.value = '${userId}';
+
+				divCircle.appendChild(divCircleBg);
+				divAvatar.appendChild(divCircle);
+				divInfo.appendChild(divAvatar);
+				divInfo.appendChild(inputUserId);
+
+				form.appendChild(divInfo);
+
+				const divAdminArea = document.createElement('div');
+				divAdminArea.className = 'adminArea mb-3';
+
+				const divInputGroup = document.createElement('div');
+				divInputGroup.className = 'input-group mb-3';
+
+				const inputReview = document.createElement('input');
+				inputReview.type = 'text';
+				inputReview.className = 'form-control';
+				inputReview.placeholder = '답글 쓰기';
+				inputReview.setAttribute('aria-label', "Recipient's username");
+				inputReview.setAttribute('aria-describedby', 'button-addon2');
+
+				const buttonSubmit = document.createElement('button');
+				buttonSubmit.type = 'submit';
+				buttonSubmit.className = 'btn btn-outline-secondary gap-2 col-2 mx-auto review_post';
+				buttonSubmit.id = 'button-addon2';
+				buttonSubmit.textContent = '작성';
+
+				// Append the input and button elements to the div with class "input-group mb-3"
+				divInputGroup.appendChild(inputReview);
+				divInputGroup.appendChild(buttonSubmit);
+
+				// Append the div with class "input-group mb-3" to the div with class "adminArea mb-3"
+				divAdminArea.appendChild(divInputGroup);
+
+				// Append the div with class "adminArea mb-3" to the form
+				form.appendChild(divAdminArea);
+
+				// Append the form to the dynamicFormContainer div
+				showReviewForm.appendChild(form);
+
+		// 	    let writing_area1 = document.querySelector('.writingArea1');
+// 				let info1 = document.querySelector('.info1');
+// 				let avatar1 = document.querySelector('.avatar1');
+// 				let nickname1 = document.querySelector('.nickname1');
+// 			    let showWritingInput1 = document.querySelector('.showWritingInput1');
+// 		// 	    let noAnswer = document.querySelector('.noAnswer');
+			
+// 			    this.classList.add('on');
+// 		// 	    writing_area1.classList.remove('on');
+// 			    avatar1.classList.remove('on');
+// 			    nickname1.classList.remove('on');
+// 			    showWritingInput1.classList.remove('on');
+// 		// 	    noAnswer.classList.add('on');
+		
+// 				info1.removeAttribute('style');
+			}
+			
+// 			<div class="jsx-4149508951 review-box">
+//             <div class="jsx-644785032 review-item noAnswer">
+//               <div class="jsx-644785032 title">
+                
+//                 <h4 class="jsx-644785032">
+//                   <span class="jsx-644785032">아직 후기가 없어요</span>
+//                 </h4>
+//               </div>
+//               <div class="jsx-644785032 ">
+//                 <div class="jsx-644785032 info">
+//                 	<c:if test="${loginFG == 'm'}">
+//                       <span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
+//                   </c:if>
+//                 </div>
+//               </div>
+//             </div>
+
+				<!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
+				<!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
+<!-- 											<div class="jsx-4149508951 auth-popup popup_on"> -->
+<!-- 												<div class="jsx-133251687 content"> -->
+<!-- 													<h5 class="jsx-133251687">로그인하고 전체보기</h5> -->
+<!-- 													<div class="jsx-133251687 btn-box"> -->
+<!-- 														<div class="jsx-133251687 btn-join"> -->
+<!-- 															<button type="button" class="jsx-520855050 ">회원가입</button> -->
+<!-- 														</div> -->
+<!-- 														<div class="jsx-133251687 btn-login"> -->
+<!-- 															<button type="button" class="jsx-1487464557 ">로그인</button> -->
+<!-- 														</div> -->
+<!-- 													</div> -->
+<!-- 												</div> -->
+<!-- 											</div> -->
+
+<!-- 											후기가 없을때 -->
+<!--                                           <div class="jsx-644785032 review-item writingArea2 on"> -->
+<!-- 	                                          <div class="jsx-1546215327 content"> -->
+<!-- 	                                            <div title="강사리뷰" class="jsx-4149508951"> -->
+                    
+<!-- 	                                                <div class="jsx-4149508951 review-box"> -->
+<!-- 	                                                  <div class="jsx-644785032 review-item"> -->
+<!-- 	                                                    <div class="jsx-644785032 title"> -->
+                          
+<!-- 	                                                      <form action="writingReview.do" method="post"> -->
+<!-- 		                                                      <div class="jsx-644785032 info"> -->
+<!-- 		                                                        <div class="jsx-644785032"> -->
+<!-- 		                                                          <div class="jsx-1397353033 avatar"> -->
+<!-- 		                                                            <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);"> -->
+<!-- 		                                                            </div> -->
+<!-- 		                                                          </div> -->
+<!-- 		                                                        </div> -->
+<%-- 		                                                        <span class="jsx-644785032 nickname">${userId }</span>	<!-- 로그인 한 학생의 이름 --> --%>
+<%-- 		                                                        <input type="hidden" name="userId" value="${userId }"> --%>
+<!-- 		                                                      </div> -->
+
+<!-- 		                                                      	해당 수강생이 답글 작성하기 눌렀을 때 -->
+<!-- 		                                                       <div class="adminArea mb-3"> -->
+<!-- 		                                                           <div class="input-group mb-3"> -->
+<!-- 		                                                             <input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2"> -->
+<!-- 		                                                             <button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="submit" id="button-addon2">작성</button> -->
+<!-- 		                                                           </div> -->
+<!-- 		                                                       </div> -->
+<!-- 	                                                       </form> -->
+<!-- 	                                                      </div> -->
+<!-- 	                                                    </div> -->
+<!-- 	                                                  </div> -->
+<!-- 	                                              </div> -->
+<!-- 	                                            </div> -->
+<!-- 	                                          </div> -->
+            
+//           </div>
+		});
+	}
+	
+	
 // 	btn_update_teacher_info.addEventListener("click", function() {
 // 		location.href = 'getTeacherForUpdating.do?teacher_id='+ ${teacher.teacher_id };
 // 	});
 
 	
-	let btn_writing_review1 = document.querySelectorAll('.btnWritingReview1');
+// 	let btn_writing_review1 = document.querySelectorAll('.btnWritingReview1');
 	
-	for (var i = 0; i < btn_writing_review1.length; i++) {
+// 	for (var i = 0; i < btn_writing_review1.length; i++) {
 		
-		btn_writing_review1.addEventListener("click", function () {
-		    alert("리뷰 작성하기");
+// 		btn_writing_review1[i].addEventListener("click", function () {
+// 		    alert("리뷰 작성하기");
 		    
-		    // 세션이 없을 때 로그인 팝업 표시
-		    if (!tSessionExists) {
-		    	let popup = document.querySelector('.auth-popup');
-		        popup.classList.add('popup_on'); // 팝업을 표시하기 위해 클래스 추가
-			} else {
+// 		    // 세션이 없을 때 로그인 팝업 표시
+// 		    if (!tSessionExists) {
+// 		    	let popup = document.querySelector('.auth-popup');
+// 		        popup.classList.add('popup_on'); // 팝업을 표시하기 위해 클래스 추가
+// 			} else {
 	
-		// 	    let writing_area1 = document.querySelector('.writingArea1');
-				let info1 = document.querySelector('.info1');
-				let avatar1 = document.querySelector('.avatar1');
-				let nickname1 = document.querySelector('.nickname1');
-			    let showWritingInput1 = document.querySelector('.showWritingInput1');
-		// 	    let noAnswer = document.querySelector('.noAnswer');
+// 		// 	    let writing_area1 = document.querySelector('.writingArea1');
+// 				let info1 = document.querySelector('.info1');
+// 				let avatar1 = document.querySelector('.avatar1');
+// 				let nickname1 = document.querySelector('.nickname1');
+// 			    let showWritingInput1 = document.querySelector('.showWritingInput1');
+// 		// 	    let noAnswer = document.querySelector('.noAnswer');
 			
-			    btn_writing_review1.classList.add('on');
-		// 	    writing_area1.classList.remove('on');
-			    avatar1.classList.remove('on');
-			    nickname1.classList.remove('on');
-			    showWritingInput1.classList.remove('on');
-		// 	    noAnswer.classList.add('on');
+// 			    this.classList.add('on');
+// 		// 	    writing_area1.classList.remove('on');
+// 			    avatar1.classList.remove('on');
+// 			    nickname1.classList.remove('on');
+// 			    showWritingInput1.classList.remove('on');
+// 		// 	    noAnswer.classList.add('on');
 		
-				info1.removeAttribute('style');
-			}
+// 				info1.removeAttribute('style');
+// 			}
 		    
-	    });
-	}
-	
+// 	    });
+// 	}
 	
 	
 // 	let btn_writing_review = document.querySelectorAll('.btnWritingReview');

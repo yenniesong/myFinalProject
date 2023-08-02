@@ -9,7 +9,7 @@
 
 	HttpSession bSession = request.getSession();
 	String userId = (String)bSession.getAttribute("userId");
-	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
+// 	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
 	String bootcamp_name = (String)bSession.getAttribute("bootcamp_name");
 %>
 <!DOCTYPE html>
@@ -750,7 +750,7 @@ h4.jsx-1434886323 {
 <%-- 	                                                            <input title="학원 명 입력" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${teacher.bootcamp_name }"> --%>
 	                                                            <input type="hidden" name="teacher_id" value="<%=teacher_id%>">
 	                                                            <input type="hidden" name="userId" value="<%=userId%>">
-	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
+<%-- 	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>"> --%>
 	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
 	                                                        	
 	                                                        	
