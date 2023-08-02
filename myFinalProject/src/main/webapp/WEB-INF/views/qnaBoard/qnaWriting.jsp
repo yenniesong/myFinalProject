@@ -369,19 +369,21 @@
 	                                    </div>
 	                                    
 	                                    <div class="jsx-401750031 header-info">
-	                                        <div class="jsx-401750031 avatar-box">
-	                                            <div class="jsx-3763643514 avatar">
-	                                                <div class="jsx-3763643514 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_08@2x.png&quot;);">
-	                                                </div>
-	                                            </div>
-												
-												<input type="hidden" value="<%=userId %>" name="userId">
-												<input type="hidden" value="<%=name %>" name="name">
-<%-- 												<input type="hidden" value="<%=academy %>" name="academy"> --%>
-	                                            <span class="jsx-401750031"><%=userId %></span>
-	                                            <span class="jsx-401750031 division-line"></span>
-	                                            <span class="jsx-401750031 bootcamp-name" style="margin: 0px; color: #90d487;">학원 명</span>
-	                                        </div>
+<%-- 	                                    	<c:forEach items="${userInfo }" var="userInfo"> --%>
+		                                        <div class="jsx-401750031 avatar-box">
+		                                            <div class="jsx-3763643514 avatar">
+		                                                <div class="jsx-3763643514 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_08@2x.png&quot;);">
+		                                                </div>
+		                                            </div>
+													
+													<input type="hidden" value="${userInfo.userId }" name="userId">
+													<input type="hidden" value="${userInfo.name }" name="name">
+													<input type="hidden" value="${userInfo.academy }" name="academy">
+		                                            <span class="jsx-401750031"><%=userId %></span>
+		                                            <span class="jsx-401750031 division-line"></span>
+		                                            <span class="jsx-401750031 bootcamp-name" style="margin: 0px; color: #90d487;">${userInfo.academy }</span>
+		                                        </div>
+<%-- 	                                        </c:forEach> --%>
 	                                        <div class="jsx-401750031 info-box">
 	                                            <div class="col input-group">
 	                                                <input type="password" title="비밀번호 입력" id="password" name="password" placeholder="비밀번호" class="jsx-599077571 password" value="">

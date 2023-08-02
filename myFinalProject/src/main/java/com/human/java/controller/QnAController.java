@@ -53,7 +53,7 @@ public class QnAController {
 		System.out.println("시작 페이지번호 : " + pVO.getPageNum() );
 		
 		// 총 페이지에 대한 개념
-		PagingVO pInfoVo = qnaService.getQnAListCount(pVO.getGroupNum(),pVO.getUserId() );	// 얘는 조회만 하면 되서 넘겨주는게 없음
+		PagingVO pInfoVo = qnaService.getQnAListCount(pVO.getGroupNum(), pVO.getUserId());	// 얘는 조회만 하면 되서 넘겨주는게 없음
 		
 		// pVo : startPageNum / endPage 
 		List<QnAVO> qnaList = qnaService.getQnAList(pVO);
@@ -114,7 +114,6 @@ public class QnAController {
 		
 		session.setAttribute("MyQuestion", userId);
 		
-		
 		return "redirect:/qnaBoard/getQnAList.do";
 	}
 	
@@ -125,6 +124,16 @@ public class QnAController {
 		session.removeAttribute("MyQuestion");
 		
 		return "redirect:/qnaBoard/getQnAList.do";
+	}
+	
+	@RequestMapping("goingToWriting.do")
+	public String goingToWriting(QnAVO vo, Model model) {
+		System.out.println("## goingToWriting.do 진입 ##");
+		System.out.println("## 강좌 번호 : " + vo.getUserId() + " ##");
+		
+		model.addAttribute("userInfo", qnaService.goingToWriting(vo));
+		
+		return "/qnaBoard/qnaWriting";
 	}
 	
 	@RequestMapping("insertQnABoard.do")
@@ -139,12 +148,6 @@ public class QnAController {
 		System.out.println("====> content : " + vo.getContent());
 		
 		qnaService.insertQnABoard(vo);
-		vo.setName((String)session.getAttribute("nickName"));
-		// 나중에 지울것
-		session.setAttribute("loginFg","s"); // ABC
-		
-		session.getAttribute("loginFg"); // ABC 
-		System.out.println("====> name : " + vo.getName());
 		
 		return "redirect:/qnaBoard/getQnAList.do";
 	}

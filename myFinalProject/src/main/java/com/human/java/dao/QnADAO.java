@@ -22,4 +22,7 @@ public interface QnADAO {
 	PagingVO getQnAListCount(String userId);
 
 	List<QnAVO> findMyQuestion(QnAVO vo);
+
+	// 글 등록 페이지로 가기 위한 데이터 전달 및 조
+	QnAVO goingToWriting(QnAVO vo);
 }

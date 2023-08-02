@@ -83,7 +83,6 @@ public class QnAServiceImpl implements QnAService {
 		vo.setGroupStartPage(groupStartPage);
 		vo.setGroupEndPage(groupEndPage);
 		
-		
 		return vo;
 	}
 
@@ -97,6 +96,12 @@ public class QnAServiceImpl implements QnAService {
 	public List<QnAVO> findMyQuestion(QnAVO vo) {
 		System.out.println("## findMyQuestion service 진입 ##");
 		return qnaDAO.findMyQuestion(vo);
+	}
+
+	@Override
+	public QnAVO goingToWriting(QnAVO vo) {
+		System.out.println("## goingToWriting service 진입 ##");
+		return qnaDAO.goingToWriting(vo);
 	}
 
 }

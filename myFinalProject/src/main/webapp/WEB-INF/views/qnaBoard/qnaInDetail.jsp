@@ -528,8 +528,8 @@
     btnBackToList.addEventListener("click", function () {
        
         // 모달로 사용할지 아예 없앨지 고민
-       
-        history.back();   
+//         history.back();  - 비밀번호 창으로 돌아감 
+    	location.href='/qnaBoard/getQnAList.do';
     });
     
     // 답글 없을 경우 버튼 누르고 활성화

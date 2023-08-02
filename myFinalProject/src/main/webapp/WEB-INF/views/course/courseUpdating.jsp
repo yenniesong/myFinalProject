@@ -9,7 +9,7 @@
 
 	HttpSession bSession = request.getSession();
 	String userId = (String)bSession.getAttribute("userId");
-	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
+// 	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
 	String bootcamp_name = (String)bSession.getAttribute("bootcamp_name");
 %>
 <!DOCTYPE html>
@@ -719,7 +719,7 @@
 		                          <div class="col input-group">
 		                          	<input type="hidden" name="course_id" value="<%=course_id%>">
 		                          	<input type="hidden" name="userId" value="<%=userId%>">
-	                               	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
+<%-- 	                               	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>"> --%>
 	                               	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
 		                            <input type="text" name="course_name" title="강의명" placeholder="강의명을 작성해주세요" class="jsx-599077571" value="" style="width: 100%;">
 		                            <input type="text" name="price" title="가격" placeholder="훈련비를 작성해주세요" class="jsx-599077571" value="">

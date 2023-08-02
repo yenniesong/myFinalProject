@@ -16,7 +16,7 @@
 				      			SELECT q.question_id, q.userId, c.category_id, c.category_name, q.academy, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
 				                  FROM question q, category c
 				                 WHERE q.category_id = c.category_id
-				                 	AND q.name like '%${userId}%'
+				                 	AND q.userId like '%${userId}%'
 				                 ORDER BY q.question_id DESC
 				            ) e 
 				      )  q,
@@ -39,6 +39,12 @@
   		SELECT * 
   		  FROM question 
   		 WHERE userId = #{userId} AND password = #{password} AND question_id = #{question_id}
+  	</select>
+  	
+  	<select id="goingToWriting" parameterType="qna" resultType="qna">
+  		SELECT * 
+  		  FROM member
+  		 WHERE userId = #{userId}
   	</select>
   	
   	<select id="getQnABoard" parameterType="com.human.java.domain.QnAVO" resultType="com.human.java.domain.QnAVO">

@@ -727,30 +727,17 @@
 		  
 	});
 	
-	
 
 	let goWriting = document.querySelector('.writeQna');
 	let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
-
+	let userIdFSession = "<%=userId%>";
+	
 	goWriting.addEventListener("click", function() {
-// 		location.href = 'qnaWriting.do';
-		location.href = 'goingToWriting.do';
+		location.href = 'goingToWriting.do?userId=' + userIdFSession;
 	});
 
 	function findMyQuestion() {
 		let userId = '<%= session.getAttribute("userId") %>';
-		
-// 		var xhr = new XMLHttpRequest();
-// 		xhr.open('POST', 'findMyQuestion.do', true);
-// 		xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-		
-// // 		xhr.onload = function() {
-// // 			if (xhr.status === 200) {
-// // 				var response = JSON.parse(xhr.responseText);
-// // 				showMyQuestionList(response);
-// // 			}
-// // 		}
-// 		xhr.send('userId=' + userId);
 		
 		location.href='findMyQuestion.do?userId='+ userId;
 	}
@@ -776,24 +763,6 @@
 		
 	});
 	
-// 	function showMyQuestionList(questions) {
-// 		let qnaUl = document.querySelector('.list-body');
-// 		let qna_q_id = document.querySelector('.q_id');
-// 		let qna_q_category_name = document.querySelector('.q_category_name');
-// 		let qna_q_title = document.querySelector('.q_title');
-// 		let qna_q_name = document.querySelector('.q_name');
-// 		let qna_q_created_at = document.querySelector('.q_created_at');
-// 		let qna_q_answer_count = document.querySelector('.q_answer_count');
-		
-		
-// 		for (var i = 0; i < questions.length; i++) {
-// 			var question = questions[i];
-			
-// 			let 
-			
-// 		}
-		
-// 	}
 
 </script>
 </html>

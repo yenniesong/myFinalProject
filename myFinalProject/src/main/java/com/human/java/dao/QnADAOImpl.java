@@ -20,7 +20,6 @@ public class QnADAOImpl implements QnADAO {
 	public void insertQnABoard(QnAVO vo) {
 		System.out.println("## insertQnABoard dao 진입 ##");
 		mybatis.insert("QnADAO.insertQnABoard", vo);
-		
 	} 
 
 	// 상세 보기
@@ -56,6 +55,12 @@ public class QnADAOImpl implements QnADAO {
 	public List<QnAVO> findMyQuestion(QnAVO vo) {
 		System.out.println("## findMyQuestion dao 진입 ##");
 		return mybatis.selectList("QnADAO.findMyQuestion", vo);
+	}
+
+	@Override
+	public QnAVO goingToWriting(QnAVO vo) {
+		System.out.println("## goingToWriting dao 진입 ##");
+		return mybatis.selectOne("QnADAO.goingToWriting", vo);
 	}
 	
 }
