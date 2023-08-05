@@ -140,7 +140,9 @@ public class MemberController {
 
 		// BootcampForm 데이터를 이용하여 Bootcamp 객체 생성 및 데이터 저장 로직 수행
 		// BootcampService를 사용하여 데이터 저장
-		service.insertBootcamp(bootcampVO);
+		System.out.println("학원 회원가입 중");
+		System.out.println("## 학원 아이디 : " + bootcampVO.getUserId());
+		bService.bootcampInsert(bootcampVO);
 		System.out.println("학원회원가입 완");
 		return "redirect:/";
 	}
@@ -308,7 +310,7 @@ public class MemberController {
 		memberVO.setTel(tel);
 
 		BootcampVO bootcampVO = new BootcampVO();
-		bootcampVO.setBootcamp_Manager(name);
+		bootcampVO.setBootcamp_manager(name);
 		bootcampVO.setTel(tel);
 
 		Company_infoVO company_infoVO = new Company_infoVO();

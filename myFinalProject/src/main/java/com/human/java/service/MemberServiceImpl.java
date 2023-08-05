@@ -3,6 +3,7 @@ package com.human.java.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.human.java.dao.BootcampDAO;
 import com.human.java.dao.MemberDAO;
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.Company_infoVO;
@@ -13,6 +14,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Autowired
 	MemberDAO dao;
+	BootcampDAO bootDAO;
 
 	// 로그인
 	@Override

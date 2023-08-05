@@ -963,7 +963,7 @@
 	                                                </div>
 	                                                <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">			
 	                   								<input type="hidden" name="name" value="${userName }">
-	                                                <span class="jsx-644785032 nickname nickname1 on" >${userId }</span>	<!-- 로그인 한 학생의 이름 -->
+	                                                <span class="jsx-644785032 nickname nickname1" >${userId }</span>	<!-- 로그인 한 학생의 이름 -->
 	                                                <input type="hidden" name="userId" value="${userId }">
 	                                              </div>
 	
@@ -1212,11 +1212,17 @@
 				inputUserId.type = 'hidden';
 				inputUserId.name = 'userId';
 				inputUserId.value = '${userId}';
+				
+				const spanUserId = document.createElement('span');
+				spanUserId.className = 'jsx-644785032 nickname';
+				spanUserId.textContent = '${userId}'; // userId 로 써도 됨
+				
 
 				divCircle.appendChild(divCircleBg);
 				divAvatar.appendChild(divCircle);
 				divInfo.appendChild(divAvatar);
 				divInfo.appendChild(inputUserId);
+				divInfo.appendChild(spanUserId);
 
 				form.appendChild(divInfo);
 
@@ -1233,15 +1239,39 @@
 				inputReview.setAttribute('aria-label', "Recipient's username");
 				inputReview.setAttribute('aria-describedby', 'button-addon2');
 
+				// 별점 요소 생성
+				const ratingDiv = document.createElement('div');
+				ratingDiv.classList.add('rating', 'starPoint');
+
+				for (let i = 0; i < 5; i++) {
+				    const starIcon = document.createElement('i');
+				    starIcon.classList.add('rating__star', 'far', 'fa-star');
+				    ratingDiv.appendChild(starIcon);
+				}
+
+				const ratingResultSpan = document.createElement('span');
+				ratingResultSpan.classList.add('rating__result');
+				ratingDiv.appendChild(ratingResultSpan);
+
+				// hidden input 요소 생성
+				const hiddenInput = document.createElement('input');
+				hiddenInput.type = 'hidden';
+				hiddenInput.name = 'star_pint';
+				hiddenInput.classList.add('star_pint');
+				hiddenInput.value = '';
+				
 				const buttonSubmit = document.createElement('button');
 				buttonSubmit.type = 'submit';
 				buttonSubmit.className = 'btn btn-outline-secondary gap-2 col-2 mx-auto review_post';
 				buttonSubmit.id = 'button-addon2';
 				buttonSubmit.textContent = '작성';
 
-				// Append the input and button elements to the div with class "input-group mb-3"
+				// Append the input and ratingDiv elements to the div with class "input-group mb-3"
 				divInputGroup.appendChild(inputReview);
-				divInputGroup.appendChild(buttonSubmit);
+				divInputGroup.appendChild(ratingDiv); // Adding the ratingDiv
+
+				// Append the hiddenInput element to the div with class "rating starPoint"
+				ratingDiv.appendChild(hiddenInput); // Adding the hiddenInput
 
 				// Append the div with class "input-group mb-3" to the div with class "adminArea mb-3"
 				divAdminArea.appendChild(divInputGroup);
@@ -1251,6 +1281,10 @@
 
 				// Append the form to the dynamicFormContainer div
 				showReviewForm.appendChild(form);
+
+				// Append the form to the div with class "jsx-644785032.btnWritingArea" (button container)
+				divBtnToRemove.appendChild(buttonSubmit); // Append the form to the button container
+
 
 		// 	    let writing_area1 = document.querySelector('.writingArea1');
 // 				let info1 = document.querySelector('.info1');

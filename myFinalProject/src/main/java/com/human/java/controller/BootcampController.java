@@ -50,7 +50,7 @@ public class BootcampController {
 			
 			session.setAttribute("userId", result.getUserId());
 			session.setAttribute("bootcamp_name", result.getBootcamp_name());
-			session.setAttribute("bootcamp_Manager", result.getBootcamp_Manager());
+			session.setAttribute("bootcamp_Manager", result.getBootcamp_manager());
 			session.setAttribute("bootcamp_id", result.getBootcamp_id());
 			
 			session.setAttribute("sessionTime", new Date().toLocaleString());
