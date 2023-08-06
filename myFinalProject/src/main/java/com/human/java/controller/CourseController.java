@@ -83,7 +83,7 @@ public class CourseController {
 		
 		courseService.insertCourse(vo);
 		vo.setUserId((String)session.getAttribute("userId"));
-		vo.setBootcamp_id((Integer)session.getAttribute("bootcamp_id"));
+//		vo.setBootcamp_id((Integer)session.getAttribute("bootcamp_id"));
 		vo.setBootcamp_name((String)session.getAttribute("bootcamp_name"));
 		
 		return "redirect:/course/getCourseList.do";

@@ -616,87 +616,8 @@
 <body>
 
 	<!-- ======= Header ======= -->
-	<header id="header" class="fixed-top ">
-		<div class="container d-flex align-items-center">
-
-			<h1 class="logo me-auto">
-				<a href="main.do">
-					<img src="${path}/resources/img/soupie.png" style="margin-right: 10px; margin-bottom: 10px;">Soupie</a>
-			</h1>
-
-			<nav id="navbar" class="navbar">
-				<ul>
-					<li><a class="nav-link scrollto active" href="main.do">Home</a></li>
-					<li><a class="nav-link scrollto" href="#about">About</a></li>
-					<li class="dropdown">
-						<a class="nav-link scrollto" href="#announcements">
-							<span>Announcements</span>
-							<i class="bi bi-chevron-down"></i>
-						</a>
-						<ul>
-							<li><a href="adminBoard.do">공지사항</a></li>
-							<li><a href="faqsBoard">FAQs</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="#">
-							<span>Teacher | Course</span> 
-							<i class="bi bi-chevron-down"></i>
-						</a>
-						<ul>
-							<li><a href="/teacher/getTeacherList.do">Teacher</a></li>
-							<li><a href="/course/getCourseList.do">Course</a></li>
-							<li><a href="/qnaBoard/getQnAList.do">Teacher | Course Q&A</a></li>
-						</ul>
-					</li>
- 
-					<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
-					<li><a class="nav-link scrollto" href="#team">Team</a></li>
-					<c:if test="${userId != null}">
-						<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
-							<ul>
-								<li><a href="#">${userId}님 페이지</a></li>
-								<!-- 회원 -->
-								<c:if test="${loginFG == 'm'}">
-									<li><a href="#">이력서</a></li>
-									<li><a href="MembermyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">내 댓글 목록</a></li>
-								</c:if>
-								<c:if test="${loginFG == 'b'}">
-									<!-- 학원 -->
-									<li><a href="BootcampmyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">내 댓글 목록</a></li>
-									<li><a href="#">수강생 목록</a></li>
-
-								</c:if>
-								<c:if test="${loginFG == 'c'}">
-									<!-- 기업 -->
-									<li><a href="CompanymyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">내 댓글 목록</a></li>
-								</c:if>
-								<c:if test="${loginFG == 'a'}">
-									<!-- 관리자-->
-									<li><a href="#">관리자 페이지</a></li>
-								</c:if>
-							</ul>
-						</li>
-						<li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
-					</c:if>
-					<li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
-						<ul>
-					       <li><a href="login">로그인</a></li>
-					       <li><a href="join">회원가입</a></li>
-						</ul>
-		          	</li>
-			</nav>
-			<!-- .navbar -->
-
-		</div>
-	</header><!-- End Header -->
+	<%@include file="../includes/header.jsp" %>
+	<!-- End Header -->
 
 	<main id="main">
 	
