@@ -850,9 +850,10 @@
 	                      <div class="jsx-2255129348 real-time-evaluation">
 	                        <div class="jsx-2255129348 scroll-box">
 	                          <ul class="jsx-2255129348" style="padding: 0px;">
-	                            <li class="jsx-2255129348">
+	                            <li class="jsx-2255129348" style="padding-bottom: 10px;">
 	                            	<h1 style="font-size: 26px; font-weight: 700; letter-spacing: -.3px;">
-	                            		<span class="jsx-2255129348">${teacher.course_id }</span>
+<%-- 	                            		<span class="jsx-2255129348">${teacher.course_id }</span> --%>
+	                            		<span class="jsx-2255129348">T KEYWORD</span>
 	                            	</h1>
 	                            </li>
 	                            <li class="jsx-3839070939 tutor">
@@ -863,9 +864,17 @@
 	                              </div>
 	                            </li>
 	                            <li class="jsx-2255129348 horizontal-rule"></li>
-	                            <li class="jsx-2255129348">
-	                              <span class="jsx-2255129348">${teacher.position }</span>
+	                            <li class="jsx-1434886323 ">
+	                              <div class="jsx-1434886323 board-item">
+	                                <div class="jsx-1434886323 title">
+	                                  <span class="jsx-1434886323">${teacher.position }</span>
+	                                </div>
+	                              </div>
 	                            </li>
+	                            <li class="jsx-2255129348 horizontal-rule"></li>
+<!-- 	                            <li class="jsx-2255129348"> -->
+<%-- 	                              <span class="jsx-2255129348">${teacher.position }</span> --%>
+<!-- 	                            </li> -->
 	                            <li class="jsx-1434886323 ">
 	                              <div class="jsx-1434886323 board-item">
 	                                <div class="jsx-1434886323 title">
@@ -873,7 +882,7 @@
 	                                </div>
 	                              </div>
 	                            </li>
-	                            <li class="jsx-2255129348 horizontal-rule"></li>
+<!-- 	                            <li class="jsx-2255129348 horizontal-rule"></li> -->
 	                          </ul>
 	                        </div>
 	                      </div>
