@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.human.java.domain.BootcampVO;
 import com.human.java.domain.ReviewVO;
@@ -90,7 +92,6 @@ public class TeacherController {
 	public String insertTeacher(TeacherVO vo, HttpSession session) {
 		// 학원 아이디 등록해주기 세션에
 		System.out.println("## insertTeacher.do 진입 ##");
-		System.out.println("====> Bootcamp_id : " + vo.getBootcamp_id());
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> Course_id : " + vo.getCourse_id());
 		System.out.println("====> Short_description : " + vo.getShort_description());
@@ -101,7 +102,6 @@ public class TeacherController {
 		
 		teacherService.insertTeacher(vo);
 		vo.setUserId((String)session.getAttribute("userId"));
-		vo.setBootcamp_id((Integer)session.getAttribute("bootcamp_id"));
 		vo.setBootcamp_name((String)session.getAttribute("bootcamp_name"));
 		
 		return "redirect:/teacher/getTeacherList.do";

@@ -746,8 +746,6 @@ h4.jsx-1434886323 {
 	                                            </div>
 	                                            <label class="input_file_button" for="file">프로필 업로드</label>
 	                                            <input type="file" id="file" name="file" style="display: none;" accept="image/*" onchange="previewImage(event);" required="required"> 
-	                                            
-	                          
 	                                        </div>
 	                          
 	                                        <div class="jsx-216214598 flex-right">
@@ -757,10 +755,8 @@ h4.jsx-1434886323 {
 	                                                    <div class="jsx-401750031 info-box">
 	                                                        <div class="col input-group">
 	                                                        	<input type="hidden" name="userId" value="<%=userId%>">
-<%-- 	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>"> --%>
 	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
 	                                                        	<span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=bootcamp_name%></span>
-<%-- 	                                                            <input title="학원 명 입력" name="bootcamp_name" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${bootcamp_name }" readonly="readonly"> --%>
 	                                                            <input type="text" name="teacher_name" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="">
 	                                                            <input type="text" name="short_description" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="" style="width: 100%; margin-top: 10px;">
 	                                                        </div>
@@ -776,9 +772,9 @@ h4.jsx-1434886323 {
 	                                                                <option class="position full" value="3">full stack</option>
 	                                                            </select>
 	                                                        </div>
-	                                                        <div class="jsx-599077571 input-title">
-	                                                            <input name="course_id" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="" style="width: 360px; margin-left: 23px;">
-	                                                        </div>
+<!-- 	                                                        <div class="jsx-599077571 input-title"> -->
+<!-- 	                                                            <input name="course_name" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="" style="width: 360px; margin-left: 23px;"> -->
+<!-- 	                                                        </div> -->
 	                                                    </div>
 	                                                </div>
 	                                            </div>

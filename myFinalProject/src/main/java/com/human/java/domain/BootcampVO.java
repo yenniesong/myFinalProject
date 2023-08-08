@@ -7,7 +7,7 @@ public class BootcampVO {
 	private int bootcamp_id;
 	private String userId;
 	private String password;
-	private String bootcamp_Manager;
+	private String bootcamp_manager;
 	private String bootcamp_name;
 	private String tel;
 	private String representative;

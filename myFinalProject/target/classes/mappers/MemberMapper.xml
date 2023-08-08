@@ -98,6 +98,13 @@
 		#{location}, #{position},
 		#{academy}, #{employed})
 	</insert>
+	
+	<!-- 학원 회원가입 -->
+	<insert id="insertBootcamp" parameterType="bootcamp">
+<!-- 		INSERT INTO bootcamp(userId, name, nickname, email, password, tel, bootcamp_id,bootcamp_name, representative,bootcamp_manager,bootcamp_add,bootcamp_site, manager_email) VALUES (#{userId},#{name},#{nickname},#{email},#{password},#{tel},#{bootcamp_id}, #{bootcamp_name}, #{representative},#{bootcamp_manager},#{bootcamp_add}, #{bootcamp_site},#{manager_email}) </insert> -->
+		INSERT INTO bootcamp (BOOTCAMP_ID, USERID, PASSWORD, TEL, BOOTCAMP_NAME, REPRESENTATIVE, BOOTCAMP_MANAGER, BOOTCAMP_ADD, BOOTCAMP_SITE, EMAIL)
+		     VALUES (seq_bootcamp_bootcamp_id.NEXTVAL, #{userId}, #{password}, #{tel}, #{bootcamp_name}, #{representative}, #{bootcamp_manager}, #{bootcamp_add}, #{bootcamp_site}, #{email}) 
+	</insert>
 
 	<!-- 아이디 중복검사 -->
 	<select id="idCheck" parameterType="String" resultType="int">
