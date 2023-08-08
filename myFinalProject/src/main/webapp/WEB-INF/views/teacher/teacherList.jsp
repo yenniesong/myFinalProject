@@ -1626,7 +1626,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	  let btn_add_teacher = document.querySelector(".addTeacher");
 	
 	  btn_add_teacher.addEventListener("click", function() {
-	    location.href='teacherAdding.do';
+	    location.href='teacherAdding.do?';
 	  });
 	});
 	

@@ -71,18 +71,17 @@ public class TeacherController {
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
 		
 		vo = teacherService.getTeacher(vo);
+		
+		// bootcamp_id 추출
+	    System.out.println("bootcamp_id: " + vo.getBootcamp_id());
 		model.addAttribute("teacher", teacherService.getTeacher(vo));
 		
 		System.out.println("teacher vo : " + vo);
 		System.out.println("rVO : " + rVo); 
 		
 		List<ReviewVO> rList = reviewService.getTReviewList(rVo);
-		System.out.println(rList.size());
+		System.out.println("댓글 수 : " + rList.size());
 		model.addAttribute("rList", rList);
-		
-//		bVo.setBootcamp_name(vo.getBootcamp_name());
-		
-//		BootcampVO getBUserId = bootcampService.
 		
 		return "/teacher/teacherInDetail";
 	}
@@ -92,6 +91,9 @@ public class TeacherController {
 	public String insertTeacher(TeacherVO vo, HttpSession session) {
 		// 학원 아이디 등록해주기 세션에
 		System.out.println("## insertTeacher.do 진입 ##");
+		
+		teacherService.selectBootcamp_id((String)session.getAttribute("userId"));
+		
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> Course_id : " + vo.getCourse_id());
 		System.out.println("====> Short_description : " + vo.getShort_description());
@@ -112,6 +114,7 @@ public class TeacherController {
 	public String getTeacherForUpdating(TeacherVO vo, Model model) {
 		System.out.println("## getTeacherForUpdating.do 진입 ##");
 		System.out.println("## 선생님 번호 : " + vo.getTeacher_id() + " ##");
+		System.out.println("## 선생님의 학원 번호 : " + vo.getBootcamp_id() + " ##");
 		
 		model.addAttribute("teacher", teacherService.getTeacherForUpdating(vo));
 		

@@ -1116,8 +1116,10 @@
 	let tSessionExists = <%= tSession != null %>; 
 	
 	btn_update_teacher_info.addEventListener("click", function() {
+		
 		alert("수정하기 버튼 활성화");
-		location.href = 'getTeacherForUpdating.do?teacher_id=' + ${teacher.teacher_id};
+		alert("${teacher.bootcamp_id}");
+		location.href = 'getTeacherForUpdating.do?teacher_id=' + ${teacher.teacher_id} + '&bootcamp_id=' + ${teacher.bootcamp_id};
 	})
 
 	btn_follow.addEventListener("click", function() {
@@ -1139,7 +1141,7 @@
 				let bootcampName = '${teacher.bootcamp_name }';
 				let teacherId = '${teacher.teacher_id }';
 				let teacherName = '${teacher.teacher_name}';
-				let courseId = '${teacher.course_id}';
+				let courseId = '${teacher.course_id}'; 
 				let courseName = '${teacher.course_name }';
 				
 				let data2 = {
@@ -1323,7 +1325,7 @@
 //                 	<c:if test="${loginFG == 'm'}">
 //                       <span class="jsx-644785032 nickname btnWritingReview"><a href="#">후기 작성하기</a></span>
 //                   </c:if>
-//                 </div>
+//                 </div> 
 //               </div>
 //             </div>
 

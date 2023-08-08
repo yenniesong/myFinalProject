@@ -6,11 +6,12 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
 	int teacher_id = Integer.parseInt(request.getParameter("teacher_id"));
+	int bootcamp_id = Integer.parseInt(request.getParameter("bootcamp_id"));
 
 	HttpSession bSession = request.getSession();
 	String userId = (String)bSession.getAttribute("userId");
-// 	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
-	String bootcamp_name = (String)bSession.getAttribute("bootcamp_name");
+	String loginFG = (String)bSession.getAttribute("loginFG");
+	String userName = (String)bSession.getAttribute("name");
 %>
 <!DOCTYPE html>
 <html>
@@ -750,11 +751,11 @@ h4.jsx-1434886323 {
 <%-- 	                                                            <input title="학원 명 입력" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${teacher.bootcamp_name }"> --%>
 	                                                            <input type="hidden" name="teacher_id" value="<%=teacher_id%>">
 	                                                            <input type="hidden" name="userId" value="<%=userId%>">
-<%-- 	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>"> --%>
-	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
+	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
+	                                                        	<input type="hidden" name="bootcamp_name" value="<%=userName%>">
 	                                                        	
 	                                                        	
-	                                                            <span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=bootcamp_name%></span>
+	                                                            <span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=userName%></span>
 	                                                            <input name="teacher_name" type="text" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="${teacher.teacher_name }">
 	                                                            <input name="short_description" type="text" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="${teacher.short_description }" style="width: 500px;">
 	                                                        </div>
