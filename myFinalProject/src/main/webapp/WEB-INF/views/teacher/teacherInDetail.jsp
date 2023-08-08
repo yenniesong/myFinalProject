@@ -805,20 +805,16 @@
                     </div>
           
                     <div class="jsx-216214598 flex-right">
-                    	<c:choose>
-<%--                     		<c:when test="${loginFG == 'b'}"> --%>
-                    		<c:when test="${teacher.bootcamp_name eq userName}">
-                    		
-<%-- 		          			<c:if test="${teacher.bootcamp_name eq userName}"> <!-- db에 저장된 학원이름과 세션에 등록된 name과 같으면 수정할 수 있음 --> --%>
+						<c:set var="sessionUserName" value="<%=userName %>"/>
+	          			<c:if test="${teacher.bootcamp_name eq sessionUserName}"> <!-- db에 저장된 학원이름과 세션에 등록된 name과 같으면 수정할 수 있음 -->
 		          			
 		          			<!-- 해당 학원일 경우에만 수정하기 버튼 및 삭제 버튼 기능 살리기 / 세션의 아이디와 작성한 학원의 userId 가 같을대 살려기 -->
-	<%-- 	          			 <c:if test=""></c:if> --%>
 			                      <div class="jsx-216214598 title">
 			                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
 			                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
 			                        </button>
 			                        <button class="jsx-3857673807 btn-evaluation" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
-			                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-top: 14px; margin-right: 2px;">
+			                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-right: 2px;">
 			                        </button>	
 			                      </div>
 			                      
@@ -843,9 +839,7 @@
 										  </div>
 										</div>
 									</form>
-<%-- 		                      </c:if> --%>
-                    		</c:when>
-                    	</c:choose>
+		                      </c:if>
 	          
 	                      <div class="jsx-2255129348 real-time-evaluation">
 	                        <div class="jsx-2255129348 scroll-box">
@@ -1120,6 +1114,11 @@
 	let btn_deleteTeacher = document.querySelector(".deleteTeacher");
 
 	let tSessionExists = <%= tSession != null %>; 
+	
+	btn_update_teacher_info.addEventListener("click", function() {
+		alert("수정하기 버튼 활성화");
+		location.href = 'getTeacherForUpdating.do?teacher_id=' + ${teacher.teacher_id};
+	})
 
 	btn_follow.addEventListener("click", function() {
 		alert("준비중입니다요..");
@@ -1136,7 +1135,6 @@
 				alert("수강신청하기");
 			
 				let userId = '<%=userId%>';
-	<%-- 			let name = '<%=userName%>'; --%>
 				let name = '<%=userName%>';
 				let bootcampName = '${teacher.bootcamp_name }';
 				let teacherId = '${teacher.teacher_id }';

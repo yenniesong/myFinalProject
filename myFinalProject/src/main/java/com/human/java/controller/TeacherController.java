@@ -127,7 +127,6 @@ public class TeacherController {
 		System.out.println("## 선생님 이름 : " + vo.getTeacher_name() + " ##");
 		System.out.println("====> Bootcamp_id : " + vo.getBootcamp_id());
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
-		System.out.println("====> Course_name : " + vo.getCourse_name());
 		System.out.println("====> Short_description : " + vo.getShort_description());
 		System.out.println("====> position : " + vo.getPosition_id());
 		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");

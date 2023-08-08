@@ -770,9 +770,6 @@ h4.jsx-1434886323 {
 	                                                                <option class="position full" value="3">full stack</option>
 	                                                            </select>
 	                                                        </div>
-	                                                        <div class="jsx-599077571 input-title">
-	                                                            <input name="course_name" title="강의명 입력" placeholder="강의명을 입력해 주세요." class="jsx-599077571" value="${teacher.course_name }" style="width: 390px; margin-left: 23px;">
-	                                                        </div>
 	                                                    </div>
 	                                                </div>
 	                                                

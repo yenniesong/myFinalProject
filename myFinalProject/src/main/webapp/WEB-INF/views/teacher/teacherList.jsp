@@ -1629,7 +1629,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	    location.href='teacherAdding.do';
 	  });
 	});
-
 	
 	$(function(){
 		  startSetting();
