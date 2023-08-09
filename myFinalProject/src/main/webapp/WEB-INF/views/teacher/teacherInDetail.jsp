@@ -1345,7 +1345,7 @@
 <!-- 												</div> -->
 <!-- 											</div> -->
 
-<!-- 											후기가 없을때 -->
+<!-- 											후기가 없을때 --> 
 <!--                                           <div class="jsx-644785032 review-item writingArea2 on"> -->
 <!-- 	                                          <div class="jsx-1546215327 content"> -->
 <!-- 	                                            <div title="강사리뷰" class="jsx-4149508951"> -->

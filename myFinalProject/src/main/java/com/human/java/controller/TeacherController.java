@@ -131,6 +131,7 @@ public class TeacherController {
 		System.out.println("====> Bootcamp_id : " + vo.getBootcamp_id());
 		System.out.println("====> Bootcamp_name : " + vo.getBootcamp_name());
 		System.out.println("====> Short_description : " + vo.getShort_description());
+		System.out.println("====> description : " + vo.getDescription());
 		System.out.println("====> position : " + vo.getPosition_id());
 		System.out.println("## 파일 이름 : " + vo.getFname() + " ##");
 		System.out.println("## 파일 영어 이름 : " + vo.getFname_en() + " ##");

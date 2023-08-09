@@ -11,9 +11,15 @@
 
 	String userId = (String)tSession.getAttribute("userId");
 	String loginFG = (String)tSession.getAttribute("loginFG");
+	String userName = (String)tSession.getAttribute("name");
+	Integer bootcamp_id = (Integer)tSession.getAttribute("bootcamp_id");
 	
 	System.out.println("userId : " + userId);
 	System.out.println("loginFG : " + loginFG);
+	System.out.println("userName : " + userName);
+	System.out.println("bootcamp_id : " + bootcamp_id);
+	
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -1461,7 +1467,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 												</button>
 											</div>
 					
-											<ul class="jsx-2875758176 tutors">
+											<ul class="jsx-2875758176 tutors" style="padding-left: 0px;">
 												<c:forEach items="${tList}" var="teacher">
 													<li class="jsx-2875758176 tutorsLi">
 														<a class="jsx-2875758176" href="getTeacher.do?teacher_id=${teacher.teacher_id }">
@@ -1626,7 +1632,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	  let btn_add_teacher = document.querySelector(".addTeacher");
 	
 	  btn_add_teacher.addEventListener("click", function() {
-	    location.href='teacherAdding.do?';
+	    location.href='teacherAdding.do?bootcamp_id=' + <%=bootcamp_id%>;
 	  });
 	});
 	

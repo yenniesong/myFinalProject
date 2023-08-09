@@ -5,12 +5,15 @@
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
-	System.out.print("test");
 	HttpSession bSession = request.getSession();
+
 	String userId = (String)bSession.getAttribute("userId");
-// 	int bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
-	String bootcamp_name = (String)bSession.getAttribute("bootcamp_name");
-	System.out.print("test");
+	Integer bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
+	String bootcamp_name = (String)bSession.getAttribute("name");
+   
+	System.out.println("userId : " + userId);
+	System.out.println("bootcamp_id : " + bootcamp_id);
+	System.out.println("bootcamp_name : " + bootcamp_name);
 %>
 <!DOCTYPE html>
 <html>
@@ -755,6 +758,7 @@ h4.jsx-1434886323 {
 	                                                    <div class="jsx-401750031 info-box">
 	                                                        <div class="col input-group">
 	                                                        	<input type="hidden" name="userId" value="<%=userId%>">
+	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
 	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
 	                                                        	<span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=bootcamp_name%></span>
 	                                                            <input type="text" name="teacher_name" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="">

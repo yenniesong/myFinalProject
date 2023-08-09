@@ -237,6 +237,13 @@ input.jsx-599077571 {
 	width: 250px;
 }
 
+.bootcamp_name.jsx-599077571 {
+    height: 42px;
+    border-bottom: solid 1px #dfdfdf;
+    margin-right: 23px;
+    width: 250px;
+}
+
 .select.jsx-2019229575 {
 	max-width: 160px;
 	width: 100%;
@@ -481,6 +488,8 @@ button.jsx-3357072104 {
 	margin-bottom: 16px;
 	border: 1px solid rgb(238, 239, 244);
 	border-radius: 6px;
+	display: flex;
+    align-items: center;
 }
 
 .rank.jsx-216214598 {
@@ -734,12 +743,10 @@ h4.jsx-1434886323 {
 	                                    <div class="jsx-216214598 content">
 	                                        <div class="jsx-216214598 flex-left">
 	                                            <div class="jsx-216214598 profile">
-	                                                <img id="preview fname_en" src="/resources/upload/${teacher.fname_en}" alt="" style="width: 300px;"> 
+	                                                <img id="preview" src="/resources/upload/${teacher.fname_en}" alt=""> 
 	                                            </div>
 	                                            <label class="input_file_button" for="file">프로필 업로드</label>
 	                                            <input type="file" id="file" name="file" style="display: none;" accept="image/*" onchange="previewImage(event);" required="required"> 
-	                                            
-	                          
 	                                        </div>
 	                          
 	                                        <div class="jsx-216214598 flex-right">
@@ -757,7 +764,7 @@ h4.jsx-1434886323 {
 	                                                        	
 	                                                            <span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=userName%></span>
 	                                                            <input name="teacher_name" type="text" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="${teacher.teacher_name }">
-	                                                            <input name="short_description" type="text" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="${teacher.short_description }" style="width: 500px;">
+	                                                            <input name="short_description" type="text" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="${teacher.short_description }" style="width: 100%; margin-top: 10px;">
 	                                                        </div>
 	                                                    </div>
 	                                                </div>
@@ -855,6 +862,7 @@ h4.jsx-1434886323 {
 			var reader = new FileReader();
 			reader.onload = function(e) {
 				var imagePreview = document.getElementById("preview");
+
 				imagePreview.src = e.target.result;
 			};
 			reader.readAsDataURL(input.files[0]);

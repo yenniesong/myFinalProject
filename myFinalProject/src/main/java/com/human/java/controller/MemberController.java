@@ -92,7 +92,9 @@ public class MemberController {
 				session.setAttribute("loginFG", login.getLoginFG());
 				
 				session.setAttribute("bootcamp_id", getBName.getBootcamp_id());
-				session.setAttribute("bootcamp_name", getBName.getBootcamp_name());
+				System.out.println("bootcamp_id: " + session.getAttribute("bootcamp_id"));
+//				session.setAttribute("bootcamp_name", getBName.getBootcamp_name());
+//				System.out.println("bootcamp_name: " + session.getAttribute("bootcamp_name"));
 				
 				
 			} else if (login.getLoginFG().equals("c")) {

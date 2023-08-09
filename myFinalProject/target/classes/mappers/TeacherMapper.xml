@@ -60,7 +60,6 @@
 			BOOTCAMP_ID = #{bootcamp_id},
 			TEACHER_NAME = #{teacher_name},
 			BOOTCAMP_NAME = #{bootcamp_name},
-			COURSE_NAME = #{course_name},
 			SHORT_DESCRIPTION = #{short_description},
 			DESCRIPTION = #{description}
 		<if test="fname != null">

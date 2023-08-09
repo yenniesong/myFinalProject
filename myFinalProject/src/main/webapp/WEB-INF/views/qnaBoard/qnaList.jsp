@@ -18,7 +18,7 @@
 	String bootcamp_name = "";
 	
 	if(loginFG != null && loginFG.equals("b")) {	// 문자열을 비교할때에는 == 보다는 equals()를 쓰는게 더 좋음
-		bootcamp_name = (String)tSession.getAttribute("bootcamp_name");
+		bootcamp_name = (String)tSession.getAttribute("name");
 		System.out.println("bootcamp_name : " + bootcamp_name);
 	}
 %>
