@@ -1502,7 +1502,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 										<%-- 											  <%= teacher.fname_en %> --%>
 										<!-- 											</span> -->
 																				<span class="jsx-445560552">
-																					<img class="fname_en" src="/resources/upload/${teacher.fname_en}" alt="#"/>
+																					<img class="fname_en" src="${path}/resources/upload/${teacher.fname_en}" alt="#"/>
 																				</span>
 																			</c:otherwise>
 																		</c:choose>

@@ -787,7 +787,7 @@
                     <div class="jsx-216214598 flex-left">
                       <div class="jsx-216214598 profile">
                         <div class="jsx-216214598 tutor-image">
-              				<img class=fname_en src="/resources/upload/${teacher.fname_en}" alt="#"/>
+              				<img class=fname_en src="${path}/resources/upload/${teacher.fname_en}" alt="#"/>
                         </div>
                       </div>
           

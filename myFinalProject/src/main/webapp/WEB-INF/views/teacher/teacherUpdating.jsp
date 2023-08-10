@@ -6,12 +6,21 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
 	int teacher_id = Integer.parseInt(request.getParameter("teacher_id"));
-	int bootcamp_id = Integer.parseInt(request.getParameter("bootcamp_id"));
+// 	int bootcamp_id = Integer.parseInt(request.getParameter("bootcamp_id"));
 
 	HttpSession bSession = request.getSession();
+	
 	String userId = (String)bSession.getAttribute("userId");
 	String loginFG = (String)bSession.getAttribute("loginFG");
-	String userName = (String)bSession.getAttribute("name");
+	String bootcamp_name = (String)bSession.getAttribute("name");
+	Integer bootcamp_id = (Integer)bSession.getAttribute("bootcamp_id");
+	
+	System.out.println("userId : " + userId);
+	System.out.println("loginFG : " + loginFG);
+	System.out.println("bootcamp_name : " + bootcamp_name);
+	System.out.println("bootcamp_id : " + bootcamp_id);
+	System.out.println("teacher_id : " + teacher_id);
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -41,7 +50,7 @@
 <link href="${path}/resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="${path}/resources/assets/css/style.css" rel="stylesheet">
+<link href="${path}/resources/css/style.css" rel="stylesheet">
 
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
@@ -739,11 +748,11 @@ h4.jsx-1434886323 {
 
 								<form action="updateTeacher.do" method="post" enctype="multipart/form-data">
 	                                <div class="jsx-401750031 board-header">
-	
 	                                    <div class="jsx-216214598 content">
 	                                        <div class="jsx-216214598 flex-left">
 	                                            <div class="jsx-216214598 profile">
-	                                                <img id="preview" src="/resources/upload/${teacher.fname_en}" alt=""> 
+	                                                <img id="preview" src="${path}/resources/upload/${teacher.fname_en}" alt=""> 
+<!-- 	                                                <img id="preview" src="#" alt="">  -->
 	                                            </div>
 	                                            <label class="input_file_button" for="file">프로필 업로드</label>
 	                                            <input type="file" id="file" name="file" style="display: none;" accept="image/*" onchange="previewImage(event);" required="required"> 
@@ -752,19 +761,14 @@ h4.jsx-1434886323 {
 	                                        <div class="jsx-216214598 flex-right">
 	                                            <div class="jsx-401750031">
 	                                                <div class="jsx-401750031 header-info">
-	                                                    
 	                                                    <div class="jsx-401750031 info-box">
 	                                                        <div class="col input-group">
-<%-- 	                                                            <input title="학원 명 입력" placeholder="학원 명을 입력해 주세요." class="jsx-599077571" value="${teacher.bootcamp_name }"> --%>
 	                                                            <input type="hidden" name="teacher_id" value="<%=teacher_id%>">
-	                                                            <input type="hidden" name="userId" value="<%=userId%>">
 	                                                        	<input type="hidden" name="bootcamp_id" value="<%=bootcamp_id%>">
-	                                                        	<input type="hidden" name="bootcamp_name" value="<%=userName%>">
-	                                                        	
-	                                                        	
-	                                                            <span name="bootcamp_name" class="jsx-599077571 bootcamp_name"><%=userName%></span>
-	                                                            <input name="teacher_name" type="text" title="선생님 이름 입력" placeholder="선생님 이름을 입력해주세요" class="jsx-599077571" value="${teacher.teacher_name }">
-	                                                            <input name="short_description" type="text" title="한마디 입력" placeholder="선생님의 코멘트" class="jsx-599077571" value="${teacher.short_description }" style="width: 100%; margin-top: 10px;">
+	                                                        	<input type="hidden" name="bootcamp_name" value="<%=bootcamp_name%>">
+	                                                        	<span class="jsx-599077571 bootcamp_name"><%=bootcamp_name%></span>
+	                                                            <input type="text" name="teacher_name" title="선생님 이름 입력" class="jsx-599077571" value="${teacher.teacher_name}">
+	                                                            <input type="text" name="short_description" title="한마디 입력" class="jsx-599077571" value="${teacher.short_description}" style="width: 100%; margin-top: 10px;">
 	                                                        </div>
 	                                                    </div>
 	                                                </div>
@@ -780,24 +784,18 @@ h4.jsx-1434886323 {
 	                                                        </div>
 	                                                    </div>
 	                                                </div>
-	                                                
-	                                                
 	                                            </div>
-	                                            
 	                                        </div>
 	                                    </div>
-	
 	                                </div>	
                                 
 	                                <div class="jsx-4064263859 comment">
-	                                    
 	                                    <div class="jsx-4129687755 write-comment-box">
 	                                        <div class="jsx-394409708 write-comment-wrap">
 	                                            <div class="jsx-394409708 write-comment">
 	                                                <label class="jsx-4265535288 textarea">
-	                                                    <textarea name="description" class="jsx-4265535288 " placeholder="간단한 강의 설명" style="height: 200px;">${teacher.description }</textarea>
+	                                                    <textarea name="description" class="jsx-4265535288 " style="height: 200px;">${teacher.description }</textarea>
 	                                                </label>
-	                                                
 	                                            </div>
 	                                        </div>
 	                                    </div>
@@ -811,7 +809,6 @@ h4.jsx-1434886323 {
 	                                    </div>
 	                                </div>
                             	</form>
-                            
                             </div>
                         </div>
                     </div>
@@ -852,7 +849,39 @@ h4.jsx-1434886323 {
 	});
 	
 	btnFinish.addEventListener("click", function () {
+		alert("수정하기 버튼!");
+		
+		// 폼 요소를 가져옵니다 (폼의 id를 사용하여 가져올 수도 있습니다)
+		var form = document.querySelector('form');
+
+		// 폼 내부의 모든 요소를 가져옵니다
+		var formElements = form.elements;
+
+		// 요소들을 순회하면서 값이나 내용을 확인합니다
+		for (var i = 0; i < formElements.length; i++) {
+		    var element = formElements[i];
+		    
+		    // input, textarea 등의 요소들에 대해 값을 가져옵니다
+		    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+		        var value = element.value;
+		        alert(element.name + ": " + value);
+		    }
+		    
+		    // select 요소에 대해 선택된 옵션 값을 가져옵니다
+		    else if (element.tagName === 'SELECT') {
+		        var selectedOption = element.options[element.selectedIndex];
+		        alert(element.name + ": " + selectedOption.value);
+		    }
+		    
+		    // 기타 요소들에 대한 처리
+		    // ...
+		}
+		
+		
+		
 		location.href = 'updateTeacher.do';
+		
+		
 	});
 
 	
