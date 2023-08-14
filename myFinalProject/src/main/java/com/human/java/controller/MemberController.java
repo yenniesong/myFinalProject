@@ -85,6 +85,9 @@ public class MemberController {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
 				session.setAttribute("name", getName.getName());
 				session.setAttribute("loginFG", login.getLoginFG());
+				session.setAttribute("academy", getName.getAcademy());
+				
+				System.out.println("academy : " + getName.getAcademy());
 			} else if ( login.getLoginFG().equals("b") ) {
 				BootcampVO getBName = bService.bootcampInfo(memberVO.getUserId());
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
@@ -93,9 +96,6 @@ public class MemberController {
 				
 				session.setAttribute("bootcamp_id", getBName.getBootcamp_id());
 				System.out.println("bootcamp_id: " + session.getAttribute("bootcamp_id"));
-//				session.setAttribute("bootcamp_name", getBName.getBootcamp_name());
-//				System.out.println("bootcamp_name: " + session.getAttribute("bootcamp_name"));
-				
 				
 			} else if (login.getLoginFG().equals("c")) {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
