@@ -165,8 +165,9 @@ public class TeacherController {
 		System.out.println("====> star_point : " + vo.getStar_point());
 		
 		reviewService.writingReview(vo);
+		System.out.println("====> teacher_id : " + vo.getTeacher_id());
 		
-		return "redirect:/teacher/getTeacher.do?teacher_id" + vo.getTeacher_id();
+		return "redirect:/teacher/getTeacher.do?teacher_id=" + vo.getTeacher_id();
 		
 	}
 	
