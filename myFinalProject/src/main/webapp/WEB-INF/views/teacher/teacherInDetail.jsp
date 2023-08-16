@@ -1035,48 +1035,43 @@
 	</div>
 	
 	<!-- 댓글 창 -->
-<!-- 	<div class="jsx-4149508951 writingReview-box on"> -->
-		<div class="jsx-644785032 writingReview-item on">
-			<div class="jsx-644785032 title">
-			
-<!-- 				<form action="writingReview.do" method="post"> -->
-					<div class="jsx-644785032 info">
-						<div class="jsx-644785032">
-							<div class="jsx-1397353033 avatar">
-								<div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
-								</div>
-							</div>
+	<div class="jsx-644785032 writingReview-item on">
+		<div class="jsx-644785032 title">
+			<div class="jsx-644785032 info">
+				<div class="jsx-644785032">
+					<div class="jsx-1397353033 avatar">
+						<div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
 						</div>
-						<span class="jsx-644785032 nickname">${userId }</span>	<!-- 로그인 한 학생의 이름 -->
-						<input type="hidden" name="userId" value="${userId }">
+					</div>
+				</div>
+				<span class="jsx-644785032 nickname">${userId }</span>	<!-- 로그인 한 학생의 이름 -->
+				<input type="hidden" name="userId" value="${userId }">
+			</div>
+			
+<!-- 				해당 수강생이 답글 작성하기 눌렀을 때 -->
+			<div class="adminArea mb-3">
+				<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+					
+					<div class="adminArea showWritingInput" style="border: 1px solid #ced4da;">
+						<div>
+							<div class="rating starPoint">
+								<span class="rating__result"></span> 
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+							</div>
+							<input type="hidden" name="star_pint" class="star_pint" value="">
+						</div>
 					</div>
 					
-	<!-- 				해당 수강생이 답글 작성하기 눌렀을 때 -->
-					<div class="adminArea mb-3">
-						<div class="input-group mb-3">
-							<input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
-							
-							<div class="adminArea showWritingInput" style="border: 1px solid #ced4da;">
-								<div>
-									<div class="rating starPoint">
-										<span class="rating__result"></span> 
-										<i class="rating__star far fa-star"></i>
-										<i class="rating__star far fa-star"></i>
-										<i class="rating__star far fa-star"></i>
-										<i class="rating__star far fa-star"></i>
-										<i class="rating__star far fa-star"></i>
-									</div>
-									<input type="hidden" name="star_pint" class="star_pint" value="">
-								</div>
-							</div>
-							
-							<button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
-						</div>
-					</div>
-<!-- 				</form> -->
+					<button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
+				</div>
 			</div>
 		</div>
-<!-- 	</div> -->
+	</div>
 
   </main><!-- End #main -->
 
@@ -1102,13 +1097,6 @@
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
 
 <script>
-	
-// 	let btn_follow = document.querySelector(".btn-follow");
-// 	let btn_enroll = document.querySelector(".btn-enroll");
-// 	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
-// 	let btn_deleteTeacher = document.querySelector(".deleteTeacher");
-	
-	var tSessionExists = <%= tSession != null %>; 
 	
 	let btnWritingReview = document.querySelectorAll('.btnWritingReview a');
 	console.log("btnWritingReview : " + btnWritingReview);
@@ -1154,11 +1142,8 @@
 					showDiv.classList.remove('on');
 		            originalDiv.parentNode.insertBefore(showDiv, originalDiv.nextSibling);
 				}
-				
 			}
-
 		});
-
 	}
 	
 	function counting(cnt) {
@@ -1219,7 +1204,7 @@
 
     executeRating(ratingStars, ratingResult);
     
- // 리뷰 작성 버튼 
+ 	// 리뷰 작성 버튼 
 	$(function() {
 		$(".review_post").click(function() {
 			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
@@ -1264,29 +1249,23 @@
 		});
 	});
  
- 	
-    
-    
-    
     let btn_follow = document.querySelector(".btn-follow");
 	let btn_enroll = document.querySelector(".btn-enroll");
-	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
-	
-	btn_update_teacher_info.addEventListener("click", function() {
-		
-		alert("수정하기 버튼 활성화");
-		alert("${teacher.bootcamp_id}");
-		location.href = 'getTeacherForUpdating.do?teacher_id=' + ${teacher.teacher_id} + '&bootcamp_id=' + ${teacher.bootcamp_id};
-	});
 
 	btn_follow.addEventListener("click", function() {
 		alert("준비중입니다요..");
 	});
     
+	let loginUser = <%= userId %>; 
+	
 	$(function() {
 		$(".btn-enroll").click(function() {
 // 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
-			if (!tSessionExists) {
+			alert("수강신청하기 버튼 활성화");
+			alert("loginUser : " + loginUser);
+		
+			if (loginUser === null) {
+				alert("loginUser is null");
 				$(".auth-popup").removeClass("popup_on");
 			} else {
 	
@@ -1338,53 +1317,53 @@
 	// 리뷰 작성 버튼 
 	$(function() {
 		$(".review_post").click(function() {
-			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
-// 			if (userId === null || userId === undefined || userId === '') {
-// 			if (!tSessionExists) {
-// 				$(".auth-popup").removeClass("popup_on");
-// 			} else {
-	
-				alert("리뷰 작성");
-						
 			
-				let userId = '<%=userId%>';
-				let name = '<%=userName%>';
-				let teacherId = '${teacher.teacher_id }';
-				let content =  $(".reviewInput").val();
-				console.log(content);
-				let starPoint = $(".review_post").data("star-point");
-					
-				let review = {
-						"userId": userId
-					    , "name": name
-						, "teacher_id" : teacherId
-						, "content" : content
-						, "star_point" : starPoint
-				};
+			alert("리뷰 작성");
+		
+			let userId = '<%=userId%>';
+			let name = '<%=userName%>';
+			let teacherId = '${teacher.teacher_id }';
+			let content =  $(".reviewInput").val();
+			console.log(content);
+			let starPoint = $(".review_post").data("star-point");
 				
-				$.ajax({
-					url : "writingReview.do",
-					type: "POST",
-					data: review,
-					dataType: "Text", 
-					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
-					success : function (json) {
-						console.log(json);
-						alert("리뷰가 등록되었어요!");
-						
-						if (json == 1) {
-							location.href='getTeacher.do?teacher_id=' + teacherId;
-						}
-					},
-					error: function () {
-						alert("실패");
+			let review = {
+					"userId": userId
+				    , "name": name
+					, "teacher_id" : teacherId
+					, "content" : content
+					, "star_point" : starPoint
+			};
+			
+			$.ajax({
+				url : "writingReview.do",
+				type: "POST",
+				data: review,
+				dataType: "Text", 
+				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
+				success : function (json) {
+					console.log(json);
+					alert("리뷰가 등록되었어요!");
+					
+					if (json == 1) {
+						location.href='getTeacher.do?teacher_id=' + teacherId;
 					}
-				});
-// 			}
+				},
+				error: function () {
+					alert("실패");
+				}
+			});
 		});
 	});
 	
+	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
 	
+	btn_update_teacher_info.addEventListener("click", function() {
+		
+		alert("수정하기 버튼 활성화");
+		alert("${teacher.bootcamp_id}");
+		location.href = 'getTeacherForUpdating.do?teacher_id=' + ${teacher.teacher_id} + '&bootcamp_id=' + ${teacher.bootcamp_id};
+	});
 	
 
 
