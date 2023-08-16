@@ -691,7 +691,7 @@
 /*       border-right: 1px solid rgb(223, 223, 223); */
       content: "";
   }
-  .review-item.jsx-644785032 {
+  .review-item.jsx-644785032, .reviewItem {
       padding: 24px 32px 32px;
       width: 100%;
       cursor: pointer;
@@ -924,12 +924,12 @@
                                   <c:when test="${not empty rList }">
                                   	<c:forEach items="${rList }" var="reviewList">
                                   	<input type="hidden" class="rListData" value="${rList}" />
-	                              	<div class="jsx-4149508951 review-box">
+	                              	<div class="jsx-4149508951 review-box" style="border: 1px solid rgb(223, 223, 223); margin: 5px;">
 	                              
 		                                <div class="jsx-644785032 review-item">
 		                                
-			                                  <div class="jsx-644785032 ">
-			                                    <div class="jsx-644785032 info">
+			                                  <div class="jsx-644785032">
+			                                    <div class="jsx-644785032 info"style="border-bottom : 1px solid rgb(236, 236, 236);">
 			                                      <div class="jsx-644785032">
 			                                        <div class="jsx-1397353033 avatar">
 			                                          <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
@@ -954,7 +954,7 @@
 			                                      
 			                                    </div>
 			                                  </div>
-			                                  <div class="jsx-644785032 title">
+			                                  <div class="jsx-644785032 reviewContent" style="padding: 8px 0px;">
 			                                    <h4 class="jsx-644785032">
 			                                      “ 
 			                                      <span class="jsx-644785032">${reviewList.content }</span>
@@ -966,8 +966,8 @@
 	                              		
 	                              		</c:forEach>
 	                              		
-	                              		<div class="jsx-4149508951 review-box">
-                                          <div class="jsx-644785032 review-item">
+	                              		<div class="jsx-4149508951 reviewBtn">
+                                          <div class="jsx-644785032 reviewItem">
                                             <div class="jsx-644785032 title writingArea">
 	                                              <div class="jsx-644785032 info info1" style="display: block; text-align: center; border-bottom: none;">
 	                                              	<c:if test="${loginFG == 'm'}">
@@ -977,7 +977,7 @@
 	
                                               </div>
                                             </div>
-                                          </div>
+                                        </div>
 	         					 	</c:when>
 	         					 	
 	         					 	<c:otherwise>
@@ -1116,36 +1116,36 @@
 	var rListInput = document.querySelector('.rListData');
 	
 	for (var i = 0; i < btnWritingReview.length; i++) {
+		
 		btnWritingReview[i].addEventListener("click", function() {
 			alert("후기 작성하기 버튼 활성화!");
 			
-// 			세션이 없을 때 로그인 팝업 표시
-		    if (!tSessionExists) {
-				alert("세션 없다");
-				
-		    	let popup = document.querySelector('.auth-popup');
-		        popup.classList.add('popup_on'); // 팝업을 표시하기 위해 클래스 추가
+			alert("세션 있다");
+						
+			let thisBootCamp = document.querySelector('.tBootcampName').innerText;
+			let userAcademy = '<%=academy%>';
+			console.log("thisBootCamp : " + thisBootCamp);
+			console.log("userAcademy : " + userAcademy);
+			let clickTheBtn = 0;
+			
+			if (thisBootCamp != userAcademy) {
+				alert('우리 학원생 아닌데 너 뉘기야');
 			} else {
-				alert("세션 있다");
+				alert('큼 ㅋ 우리 학원생 이내요 ㅋ');
 				
-				let thisBootCamp = document.querySelector('.tBootcampName').innerText;
-				let userAcademy = '<%=academy%>';
-				console.log("thisBootCamp : " + thisBootCamp);
-				console.log("userAcademy : " + userAcademy);
-				
-				if (thisBootCamp != userAcademy) {
-					alert('우리 학원생 아닌데 너 뉘기야');
+				if (rListInput) {
+				    var rList = rListInput.value;
+				    var rListSize = rList.length;
+				    console.log("no null have review"); // 리뷰가 있을때
+				    
+				    clickTheBtn++;
+				    
+				    counting(clickTheBtn);
+				    
+				    
 				} else {
-					alert('큼 ㅋ 우리 학원생 이내요 ㅋ');
-					
-					if (rListInput) {
-					    var rList = rListInput.value;
-					    var rListSize = rList.length;
-					    console.log("no null have review"); // 리뷰가 있을때
-					} else {
-					    console.log("yes null have no review"); // 리뷰 없을때
-					}
-					
+				    console.log("yes null have no review"); // 리뷰 없을때
+				    
 					let originalDiv = document.querySelector('.review-item');
 					let showDiv = document.querySelector('.writingReview-item');
 					
@@ -1154,11 +1154,32 @@
 					showDiv.classList.remove('on');
 		            originalDiv.parentNode.insertBefore(showDiv, originalDiv.nextSibling);
 				}
-
+				
 			}
-			
+
 		});
-	};
+
+	}
+	
+	function counting(cnt) {
+		alert('counting 메소드 활성화');
+		
+		console.log("cnt : " + cnt);
+		
+		if (cnt > 0) {
+			let originalDiv = document.querySelector('.reviewBtn');
+			let originalItemDiv = document.querySelector('.reviewItem');
+			let showDiv = document.querySelector('.writingReview-item');
+			let offTheBtn = document.querySelector('.btnWritingReview');
+			
+			originalItemDiv.style.display = 'none';		
+			
+			showDiv.classList.remove('on');
+			offTheBtn.style.display = 'none';		
+			originalDiv.insertAdjacentElement('afterend', showDiv);
+		}
+		
+	}
 	
 	// 벌점 기능 구현
 	const ratingStars = [...document.getElementsByClassName("rating__star")];
@@ -1202,54 +1223,48 @@
 	$(function() {
 		$(".review_post").click(function() {
 			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
-// 			if (userId === null || userId === undefined || userId === '') {
-// 			if (!tSessionExists) {
-// 				$(".auth-popup").removeClass("popup_on");
-// 			} else {
-	
-				alert("리뷰 작성");
-			
-				let userId = '<%=userId%>';
-				let name = '<%=userName%>';
-				let teacherId = '${teacher.teacher_id }';
-				console.log("userId : " + userId);
-				console.log("name : " + name);
-				console.log("teacherId : " + teacherId);
-				let content =  document.querySelector(".form-control").value;
-				console.log("content : " + content);
-				let starPoint = $(".review_post").data("star-point");
-				console.log("starPoint : " + starPoint);
+			alert("리뷰 작성");
+		
+			let userId = '<%=userId%>';
+			let name = '<%=userName%>';
+			let teacherId = '${teacher.teacher_id }';
+			console.log("userId : " + userId);
+			console.log("name : " + name);
+			console.log("teacherId : " + teacherId);
+			let content =  document.querySelector(".form-control").value;
+			console.log("content : " + content);
+			let starPoint = $(".review_post").data("star-point");
+			console.log("starPoint : " + starPoint);
 					
-				let review = {
-						"userId": userId
-					    , "name": name
-						, "teacher_id" : teacherId
-						, "content" : content
-						, "star_point" : starPoint
-				};
+			let review = {
+					"userId": userId
+				    , "name": name
+					, "teacher_id" : teacherId
+					, "content" : content
+					, "star_point" : starPoint
+			};
 				
-				$.ajax({
-					url : "writingReview.do",
-					type: "POST",
-					data: review,
-					dataType: "Text", 
-					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
-					success : function (json) {
-						console.log("json : " + json);
-						alert("리뷰가 등록되었어요!");
-						
-						location.href='getTeacher.do?teacher_id=' + teacherId;
-// 						if (json == 1) {
-// 						}
-					},
-					error: function () {
-						alert("실패");
-						
-					}
-				});
-// 			}
+			$.ajax({
+				url : "writingReview.do",
+				type: "POST",
+				data: review,
+				dataType: "Text", 
+				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
+				success : function (json) {
+					console.log("json : " + json);
+					alert("리뷰가 등록되었어요!");
+					
+					location.href='getTeacher.do?teacher_id=' + teacherId;
+				},
+				error: function () {
+					alert("실패");
+					
+				}
+			});
 		});
 	});
+ 
+ 	
     
     
     
