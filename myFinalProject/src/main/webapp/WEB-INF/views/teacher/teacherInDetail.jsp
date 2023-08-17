@@ -71,7 +71,7 @@
 	    margin-bottom: 2px;
     }
     .auth-popup.jsx-4149508951 {
-        position: absolute;
+        position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
@@ -115,7 +115,7 @@
         height: 42px;
         line-height: 40px;
         border-radius: 26px;
-        background-color: rgb(63, 96, 204);
+        background-color: #1dc078;
         color: rgb(255, 255, 255);
         border: none;
         transition: background-color 0.3s ease 0s;
@@ -824,37 +824,37 @@
 	          			<c:if test="${teacher.bootcamp_name eq sessionUserName}"> <!-- db에 저장된 학원이름과 세션에 등록된 name과 같으면 수정할 수 있음 -->
 		          			
 		          			<!-- 해당 학원일 경우에만 수정하기 버튼 및 삭제 버튼 기능 살리기 / 세션의 아이디와 작성한 학원의 userId 가 같을대 살려기 -->
-			                      <div class="jsx-216214598 title">
-			                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
-			                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
-			                        </button>
-			                        <button class="jsx-3857673807 btn-evaluation" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
-			                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-right: 2px;">
-			                        </button>	
-			                      </div>
-			                      
-									<!-- Modal -->
-									<form action="deleteTeacher.do" method="post" style="margin: 0px;">
-										<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-										  <div class="modal-dialog">
-										    <div class="modal-content">
-										      <div class="modal-header">
-										        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-										        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-										      </div>
-										      <div class="modal-body">
-										        	선생님을 삭제하시겠습니까?
-										      </div>
-										      <div class="modal-footer">
-										        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-										        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">
-										        <button type="submit" class="btn btn-primary deleteTeacher">삭제</button>
-										      </div>
-										    </div>
-										  </div>
-										</div>
-									</form>
-		                      </c:if>
+		                      <div class="jsx-216214598 title">
+		                        <button class="jsx-3857673807 btn-evaluation updateTeacherInfo" type="button"> 수정하기
+		                          <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_page/icon_writing01.png" alt="" class="jsx-216214598">
+		                        </button>
+		                        <button class="jsx-3857673807 btn-evaluation" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;"> 
+		                          <img src="${path}/resources/imgs/xmark.png" alt="" class="jsx-216214598" style="margin-right: 2px;">
+		                        </button>	
+		                      </div>
+		                      
+								<!-- Modal -->
+								<form action="deleteTeacher.do" method="post" style="margin: 0px;">
+									<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									  <div class="modal-dialog">
+									    <div class="modal-content">
+									      <div class="modal-header">
+									        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+									        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+									      </div>
+									      <div class="modal-body">
+									        	선생님을 삭제하시겠습니까?
+									      </div>
+									      <div class="modal-footer">
+									        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+									        <input type="hidden" name="teacher_id" value="${teacher.teacher_id }">
+									        <button type="submit" class="btn btn-primary deleteTeacher">삭제</button>
+									      </div>
+									    </div>
+									  </div>
+									</div>
+								</form>
+	                      </c:if>
 	          
 	                      <div class="jsx-2255129348 real-time-evaluation">
 	                        <div class="jsx-2255129348 scroll-box">
@@ -1025,10 +1025,10 @@
 			<h5 class="jsx-133251687">로그인하고 전체보기</h5>
 			<div class="jsx-133251687 btn-box">
 				<div class="jsx-133251687 btn-join">
-					<button type="button" class="jsx-520855050 ">회원가입</button>
+					<button type="button" class="jsx-520855050 joinBtn">회원가입</button>
 				</div>
 				<div class="jsx-133251687 btn-login">
-					<button type="button" class="jsx-1487464557 ">로그인</button>
+					<button type="button" class="jsx-1487464557 loginBtn">로그인</button>
 				</div>
 			</div>
 		</div>
@@ -1355,6 +1355,22 @@
 			});
 		});
 	});
+	
+	let btn_join = document.querySelector(".joinBtn");
+	let btn_login = document.querySelector(".loginBtn");
+	
+	btn_join.addEventListener("click", function() {
+		alert("회원가입 버튼 활성화");
+		location.href='/member/join.do';
+	});
+	
+	btn_login.addEventListener("click", function() {
+		
+		alert("로그인 버튼 활성화");
+		location.href='/member/login.do';
+	});
+	
+	
 	
 	let btn_update_teacher_info = document.querySelector(".updateTeacherInfo");
 	

@@ -56,6 +56,9 @@
 
 
 <style id="__jsx-1629185219">
+	.tutors {
+		padding: 0px;
+	}
     .search-result.jsx-1629185219 {
         margin-top: 8px;
         background-color: rgb(255, 255, 255);
@@ -1467,7 +1470,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 												</button>
 											</div>
 					
-											<ul class="jsx-2875758176 tutors" style="padding-left: 0px;">
+											<ul class="jsx-2875758176 tutors">
 												<c:forEach items="${tList}" var="teacher">
 													<li class="jsx-2875758176 tutorsLi">
 														<a class="jsx-2875758176" href="getTeacher.do?teacher_id=${teacher.teacher_id }">
@@ -1538,7 +1541,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 																			<div class="jsx-2704879397 star star-0"></div>
 																			<div class="jsx-2704879397 star star-0"></div>
 																			<div class="jsx-2704879397 star star-0"></div>
-																			<div class="jsx-2704879397 star star-1"></div>
+																			<div class="jsx-2704879397 star star-0"></div>
 																			<div class="jsx-2704879397 star star-0"></div>
 																		</div>
 																	</div>
@@ -1553,7 +1556,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 										<%-- 											  <%= teacher.fname_en %> --%>
 										<!-- 											</span> -->
 																				<span class="jsx-445560552">
-																					<img class="fname_en" src="/resources/upload/${teacher.fname_en}" alt="#"/>
+																					<img class="fname_en" src="${path}/resources/upload/${teacher.fname_en}" alt="#"/>
 																				</span>
 																			</c:otherwise>
 																		</c:choose>
@@ -1605,15 +1608,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 <!-- my js -->
 <script>
-// 	let btn_add_teacher = document.querySelector(".addTeacher");
-	
-	
-// 	btn_add_teacher.addEventListener("click", function() {
-// 		location.href='teacherAdding.do';
-// 	});
 
 	function startSetting(){
-		
 		let starBox = $('.jsx-445560552.star-box');
 		
 		starBox.each(function (index, star){
@@ -1622,10 +1618,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 			for( let i = 0 ; i < starPoint ; i++) {
 				$(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
 			}
-			
-			
 		});
-		
 	}
 
 	document.addEventListener("DOMContentLoaded", function() { 
@@ -1777,8 +1770,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	});
 
 	let bootcamp_names = document.querySelectorAll(".bootcampName");
+	
 	for (var i = 0; i < bootcamp_names.length; i++) {
-		
 		console.log(bootcamp_names[i].innerHTML);
 	}
 	
@@ -1910,6 +1903,23 @@ li.jsx-3824006232 button.jsx-3824006232 {
 			});
 		});
 	});
+	
+	let btnShowAll = document.querySelectorAll('.btn-all');
+	
+	btnShowAll.forEach(button => {
+	    button.addEventListener("click", function() {
+	        alert('전체 버튼 활성화');
+	        
+	        location.href='getTeacherList.do';
+	    });
+	});
+	
+// 	for (let i = 0; i < btnShowAll.length; i++) {
+// 	    btnShowAll[i].addEventListener("click", function() {
+// 	        alert('전체 버튼 활성화');
+// 	    });
+// 	}
+	
 
 	
 

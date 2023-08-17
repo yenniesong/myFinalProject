@@ -1509,14 +1509,14 @@ li.jsx-3824006232 button.jsx-3824006232 {
                       <li class="jsx-3824006232">
                         <button type="button" class="jsx-3824006232 regionBtn">
                           <span class="jsx-3824006232 logo">
-							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">                          </span>
+							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232"></span>
                           <div class="jsx-3824006232 name">경기도</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
                         <button type="button" class="jsx-3824006232 regionBtn">
                           <span class="jsx-3824006232 logo">
-							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">                          </span>
+							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232"></span>
                           <div class="jsx-3824006232 name">인천</div>
                         </button>
                       </li>
@@ -1531,7 +1531,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                       <li class="jsx-3824006232">
                         <button type="button" class="jsx-3824006232 regionBtn">
                           <span class="jsx-3824006232 logo">
-							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">                          </span>
+							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232"></span>
                           <div class="jsx-3824006232 name">세종</div>
                         </button>
                       </li>
@@ -1699,13 +1699,13 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                              <p class="jsx-445560552">${course.price } 원</p>
 		                            </div>
 		                            <div class="jsx-445560552 star-box">
-		                              <span class="jsx-445560552">7.6</span>
+		                              <span class="jsx-445560552">${course.star_point }</span>
 		                              <div class="jsx-2704879397 stars">
-		                                <div class="jsx-2704879397 star star-2"></div>
-		                                <div class="jsx-2704879397 star star-2"></div>
-		                                <div class="jsx-2704879397 star star-2"></div>
-		                                <div class="jsx-2704879397 star star-2"></div>
 		                                <div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
 		                              </div>
 		                            </div>
 		                            <div class="jsx-445560552 profile-image tutor">
@@ -1759,12 +1759,18 @@ li.jsx-3824006232 button.jsx-3824006232 {
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-	let btn_addCourse = document.querySelector(".addCourse");
-	
-	btn_addCourse.addEventListener("click", function () {
-		location.href='courseAdding.do';
-	});
-	
+
+	function startSetting(){
+		let starBox = $('.jsx-445560552.star-box');
+		
+		starBox.each(function (index, star){
+			let starPoint = $(this).find('span').text();
+			
+			for( let i = 0 ; i < starPoint ; i++) {
+				$(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
+			}
+		});
+	}
 	
 	$(function() {
 		$(".tutorsLi").slice(0, 6).show(); // 초기갯수
@@ -1788,190 +1794,130 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	}
 
 	$(function() {
-		$(".regionBtn")
-				.click(
-						function() {
-							let btnRegion = $(this).find(".name").html();
-
-							console.log(btnRegion);
-
-							let data = {
-								'bootcamp_name' : btnRegion
-							};
-
-							$
-									.ajax({
-										url : "searchRegionList.do",
-										type : "POST",
-										data : data,
-										dataType : "JSON",
-										success : function(json) {
-											console.log("json: " + json);
-
-											let resultUl = document
-													.querySelector(".tutors");
-											resultUl.textContent = "";
-											let resultRegions = json.regionList;
-
-											for (var i = 0; i < resultRegions.length; i++) {
-												let li = document
-														.createElement("li");
-												li.classList
-														.add("jsx-2875758176");
-
-												let a = document
-														.createElement("a");
-												a.classList
-														.add("jsx-2875758176");
-												a.href = "getCourse.do?course_id="
-														+ resultRegions[i].course_id;
-
-												let divCard = document
-														.createElement("div");
-												divCard.tabIndex = 0;
-												divCard.classList
-														.add("jsx-445560552",
-																"card");
-
-												let divContent = document
-														.createElement("div");
-												divContent.classList.add(
-														"jsx-445560552",
-														"content");
-
-												let divInfo = document
-														.createElement("div");
-												divInfo.classList
-														.add("jsx-445560552",
-																"info");
-
-												let hiddenInput1 = document
-														.createElement("input");
-												hiddenInput1.type = "hidden";
-												hiddenInput1.value = resultRegions[i].course_id;
-
-												let hiddenInput2 = document
-														.createElement("input");
-												hiddenInput2.type = "hidden";
-												hiddenInput2.value = resultRegions[i].bootcamp_id;
-
-												let h6 = document
-														.createElement("h6");
-												h3.classList
-														.add("jsx-445560552");
-												h3.textContent = resultRegions[i].course_name;
-
-												let p1 = document
-														.createElement("p");
-												p1.classList
-														.add("jsx-445560552");
-												p1.textContent = resultRegions[i].bootcamp_name;
-
-												let p2 = document
-														.createElement("p");
-												p2.classList
-														.add("jsx-445560552");
-												p2.textContent = resultRegions[i].price;
-
-												divInfo
-														.appendChild(hiddenInput1);
-												divInfo
-														.appendChild(hiddenInput2);
-												divInfo.appendChild(h6);
-												divInfo.appendChild(p1);
-												divInfo.appendChild(p2);
-
-												divContent.appendChild(divInfo);
-
-												let starBox = document
-														.createElement("div");
-												starBox.classList.add(
-														"jsx-445560552",
-														"star-box");
-
-												let starSpan = document
-														.createElement("span");
-												starSpan.classList
-														.add("jsx-445560552");
-												starSpan.textContent = "7.6";
-
-												let starsDiv = document
-														.createElement("div");
-												starsDiv.classList.add(
-														"jsx-2704879397",
-														"stars");
-
-												let star1 = document
-														.createElement("div");
-												star1.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
-
-												let star2 = document
-														.createElement("div");
-												star2.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
-
-												let star3 = document
-														.createElement("div");
-												star3.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
-
-												let star4 = document
-														.createElement("div");
-												star4.classList.add(
-														"jsx-2704879397",
-														"star", "star-2");
-
-												let star5 = document
-														.createElement("div");
-												star5.classList.add(
-														"jsx-2704879397",
-														"star", "star-0");
-
-												starsDiv.appendChild(star1);
-												starsDiv.appendChild(star2);
-												starsDiv.appendChild(star3);
-												starsDiv.appendChild(star4);
-												starsDiv.appendChild(star5);
-
-												starBox.appendChild(starSpan);
-												starBox.appendChild(starsDiv);
-
-												let profileImageDiv = document
-														.createElement("div");
-												profileImageDiv.classList.add(
-														"jsx-445560552",
-														"profile-image",
-														"tutor");
-
-												let profileImageSpan = document
-														.createElement("span");
-												profileImageSpan.classList
-														.add("jsx-445560552");
-												profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
-												//                      <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-
-												profileImageDiv
-														.appendChild(profileImageSpan);
-
-												divContent.appendChild(starBox);
-												divContent
-														.appendChild(profileImageDiv);
-
-												divCard.appendChild(divContent);
-												a.appendChild(divCard);
-												li.appendChild(a);
-												resultUl.appendChild(li);
-											}
-										},
-										error : function() {
-											alert('실패');
-										}
-									});
-						});
+		$(".regionBtn").click(
+			function() {
+				let btnRegion = $(this).find(".name").html();
+				
+				console.log(btnRegion);
+				
+				let data = { 'bootcamp_name' : btnRegion };
+				
+				$.ajax({
+					url : "searchRegionList.do"
+					, type : "POST"
+					, data : data
+					, dataType : "JSON"
+					, success : function(json) {
+						console.log("json: " + json);
+				
+						let resultUl = document.querySelector(".tutors");
+						resultUl.textContent = "";
+						let resultRegions = json.regionList;
+					
+						for (var i = 0; i < resultRegions.length; i++) {
+						let li = document.createElement("li");
+						li.classList.add("jsx-2875758176");
+						
+						let a = document.createElement("a");
+						a.classList.add("jsx-2875758176");
+						a.href = "getCourse.do?course_id="+ resultRegions[i].course_id;
+					
+						let divCard = document.createElement("div");
+						divCard.tabIndex = 0;
+						divCard.classList.add("jsx-445560552", "card");
+						
+						let divContent = document.createElement("div");
+						divContent.classList.add("jsx-445560552", "content");
+					
+						let divInfo = document.createElement("div");
+						divInfo.classList.add("jsx-445560552", "info");
+						
+						let hiddenInput1 = document.createElement("input");
+						hiddenInput1.type = "hidden";
+						hiddenInput1.value = resultRegions[i].course_id;
+						
+						let hiddenInput2 = document.createElement("input");
+						hiddenInput2.type = "hidden";
+						hiddenInput2.value = resultRegions[i].bootcamp_id;
+						
+						let h6 = document.createElement("h6");
+						h3.classList.add("jsx-445560552");
+						h3.textContent = resultRegions[i].course_name;
+						
+						let p1 = document.createElement("p");
+						p1.classList.add("jsx-445560552");
+						p1.textContent = resultRegions[i].bootcamp_name;
+						
+						let p2 = document.createElement("p");
+						p2.classList.add("jsx-445560552");
+						p2.textContent = resultRegions[i].price;
+						
+						divInfo.appendChild(hiddenInput1);
+						divInfo.appendChild(hiddenInput2);
+						divInfo.appendChild(h6);
+						divInfo.appendChild(p1);
+						divInfo.appendChild(p2);
+						
+						divContent.appendChild(divInfo);
+						
+						let starBox = document.createElement("div");
+						starBox.classList.add("jsx-445560552", "star-box");
+						
+						let starSpan = document.createElement("span");
+						starSpan.classList.add("jsx-445560552");
+						starSpan.textContent = "7.6";
+						
+						let starsDiv = document.createElement("div");
+						starsDiv.classList.add("jsx-2704879397", "stars");
+						
+						let star1 = document.createElement("div");
+						star1.classList.add("jsx-2704879397","star", "star-0");
+						
+						let star2 = document.createElement("div");
+						star2.classList.add("jsx-2704879397", "star", "star-0");
+						
+						let star3 = document.createElement("div");
+						star3.classList.add("jsx-2704879397", "star", "star-0");
+						
+						let star4 = document.createElement("div");
+						star4.classList.add("jsx-2704879397", "star", "star-0");
+						
+						let star5 = document.createElement("div");
+						star5.classList.add("jsx-2704879397", "star", "star-0");
+						
+						starsDiv.appendChild(star1);
+						starsDiv.appendChild(star2);
+						starsDiv.appendChild(star3);
+						starsDiv.appendChild(star4);
+						starsDiv.appendChild(star5);
+						
+						starBox.appendChild(starSpan);
+						starBox.appendChild(starsDiv);
+						
+						let profileImageDiv = document.createElement("div");
+						profileImageDiv.classList.add("jsx-445560552", "profile-image", "tutor");
+						
+						let profileImageSpan = document.createElement("span");
+						profileImageSpan.classList.add("jsx-445560552");
+						profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
+						//                      <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+						
+						profileImageDiv.appendChild(profileImageSpan);
+						
+						divContent.appendChild(starBox);
+						divContent.appendChild(profileImageDiv);
+						
+						divCard.appendChild(divContent);
+						a.appendChild(divCard);
+						li.appendChild(a);
+						resultUl.appendChild(li);
+					}
+				},
+				error : function() {
+					alert('실패');
+				}
+			});
+		});
 	});
 
 	let btnPosition = document.querySelectorAll(".position");
@@ -1979,7 +1925,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	for (var i = 0; i < btnPosition.length; i++) {
 		console.log(btnPosition[i].value);
 	}
-
 	
 	$(function() {
 		$(".position").click(function() {
@@ -1991,178 +1936,138 @@ li.jsx-3824006232 button.jsx-3824006232 {
 			let data = {'position' : btnPosition};
 
 			$.ajax({
-					url : "searchPositionList.do",
-					type : "POST",
-					data : data,
-					dataType : "JSON",
-					success : function(json) {
-						console.log("json: " + json);
+				url : "searchPositionList.do",
+				type : "POST",
+				data : data,
+				dataType : "JSON",
+				success : function(json) {
+					console.log("json: " + json);
 
-						let resultUl = document
-								.querySelector(".tutors");
-						resultUl.textContent = "";
-						let resultPositions = json.positionList;
+					let resultUl = document.querySelector(".tutors");
+					resultUl.textContent = "";
+					let resultPositions = json.positionList;
 
-						for (var i = 0; i < resultPositions.length; i++) {
-							let li = document
-									.createElement("li");
-							li.classList
-									.add("jsx-2875758176");
+					for (var i = 0; i < resultPositions.length; i++) {
+						let li = document.createElement("li");
+						li.classList.add("jsx-2875758176");
 
-							let a = document
-									.createElement("a");
-							a.classList
-									.add("jsx-2875758176");
-							a.href = "getCourse.do?course_id="
-									+ resultPositions[i].course_id;
+						let a = document.createElement("a");
+						a.classList.add("jsx-2875758176");
+						a.href = "getCourse.do?course_id=" + resultPositions[i].course_id;
 
-							let divCard = document
-									.createElement("div");
-							divCard.tabIndex = 0;
-							divCard.classList
-									.add("jsx-445560552",
-											"card");
+						let divCard = document.createElement("div");
+						divCard.tabIndex = 0;
+						divCard.classList.add("jsx-445560552", "card");
 
-							let divContent = document
-									.createElement("div");
-							divContent.classList.add(
-									"jsx-445560552",
-									"content");
+						let divContent = document.createElement("div");
+						divContent.classList.add("jsx-445560552", "content");
 
-							let divInfo = document
-									.createElement("div");
-							divInfo.classList
-									.add("jsx-445560552",
-											"info");
+						let divInfo = document.createElement("div");
+						divInfo.classList.add("jsx-445560552", "info");
 
-							let hiddenInput1 = document
-									.createElement("input");
-							hiddenInput1.type = "hidden";
-							hiddenInput1.value = resultPositions[i].course_id;
+						let hiddenInput1 = document.createElement("input");
+						hiddenInput1.type = "hidden";
+						hiddenInput1.value = resultPositions[i].course_id;
 
-							let hiddenInput2 = document
-									.createElement("input");
-							hiddenInput2.type = "hidden";
-							hiddenInput2.value = resultPositions[i].bootcamp_id;
+						let hiddenInput2 = document.createElement("input");
+						hiddenInput2.type = "hidden";
+						hiddenInput2.value = resultPositions[i].bootcamp_id;
 
-							let h6 = document
-									.createElement("h6");
-							h3.classList
-									.add("jsx-445560552");
-							h3.textContent = resultPositions[i].course_name;
+						let h6 = document.createElement("h6");
+						h3.classList.add("jsx-445560552");
+						h3.textContent = resultPositions[i].course_name;
 
-							let p1 = document
-									.createElement("p");
-							p1.classList
-									.add("jsx-445560552");
-							p1.textContent = resultPositions[i].bootcamp_name;
+						let p1 = document.createElement("p");
+						p1.classList.add("jsx-445560552");
+						p1.textContent = resultPositions[i].bootcamp_name;
 
-							let p2 = document
-									.createElement("p");
-							p2.classList
-									.add("jsx-445560552");
-							p2.textContent = resultPositions[i].price;
+						let p2 = document.createElement("p");
+						p2.classList.add("jsx-445560552");
+						p2.textContent = resultPositions[i].price;
 
-							divInfo
-									.appendChild(hiddenInput1);
-							divInfo
-									.appendChild(hiddenInput2);
-							divInfo.appendChild(h6);
-							divInfo.appendChild(p1);
-							divInfo.appendChild(p2);
+						divInfo.appendChild(hiddenInput1);
+						divInfo.appendChild(hiddenInput2);
+						divInfo.appendChild(h6);
+						divInfo.appendChild(p1);
+						divInfo.appendChild(p2);
 
-							divContent.appendChild(divInfo);
+						divContent.appendChild(divInfo);
 
-							let starBox = document
-									.createElement("div");
-							starBox.classList.add(
-									"jsx-445560552",
-									"star-box");
+						let starBox = document.createElement("div");
+						starBox.classList.add("jsx-445560552", "star-box");
 
-							let starSpan = document
-									.createElement("span");
-							starSpan.classList
-									.add("jsx-445560552");
-							starSpan.textContent = "7.6";
+						let starSpan = document.createElement("span");
+						starSpan.classList.add("jsx-445560552");
+						starSpan.textContent = "7.6";
 
-							let starsDiv = document
-									.createElement("div");
-							starsDiv.classList.add(
-									"jsx-2704879397",
-									"stars");
+						let starsDiv = document.createElement("div");
+						starsDiv.classList.add("jsx-2704879397", "stars");
 
-							let star1 = document
-									.createElement("div");
-							star1.classList.add(
-									"jsx-2704879397",
-									"star", "star-2");
+						let star1 = document.createElement("div");
+						star1.classList.add("jsx-2704879397", "star", "star-2");
 
-							let star2 = document
-									.createElement("div");
-							star2.classList.add(
-									"jsx-2704879397",
-									"star", "star-2");
+						let star2 = document.createElement("div");
+						star2.classList.add("jsx-2704879397", "star", "star-2");
 
-							let star3 = document
-									.createElement("div");
-							star3.classList.add(
-									"jsx-2704879397",
-									"star", "star-2");
+						let star3 = document.createElement("div");
+						star3.classList.add("jsx-2704879397", "star", "star-2");
 
-							let star4 = document
-									.createElement("div");
-							star4.classList.add(
-									"jsx-2704879397",
-									"star", "star-2");
+						let star4 = document.createElement("div");
+						star4.classList.add("jsx-2704879397", "star", "star-2");
 
-							let star5 = document
-									.createElement("div");
-							star5.classList.add(
-									"jsx-2704879397",
-									"star", "star-0");
+						let star5 = document.createElement("div");
+						star5.classList.add("jsx-2704879397", "star", "star-0");
 
-							starsDiv.appendChild(star1);
-							starsDiv.appendChild(star2);
-							starsDiv.appendChild(star3);
-							starsDiv.appendChild(star4);
-							starsDiv.appendChild(star5);
+						starsDiv.appendChild(star1);
+						starsDiv.appendChild(star2);
+						starsDiv.appendChild(star3);
+						starsDiv.appendChild(star4);
+						starsDiv.appendChild(star5);
 
-							starBox.appendChild(starSpan);
-							starBox.appendChild(starsDiv);
+						starBox.appendChild(starSpan);
+						starBox.appendChild(starsDiv);
 
-							let profileImageDiv = document
-									.createElement("div");
-							profileImageDiv.classList.add(
-									"jsx-445560552",
-									"profile-image",
-									"tutor");
+						let profileImageDiv = document.createElement("div");
+						profileImageDiv.classList.add("jsx-445560552", "profile-image", "tutor");
 
-							let profileImageSpan = document
-									.createElement("span");
-							profileImageSpan.classList
-									.add("jsx-445560552");
-							profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
+						let profileImageSpan = document.createElement("span");
+						profileImageSpan.classList.add("jsx-445560552");
+						profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
 
-							profileImageDiv
-									.appendChild(profileImageSpan);
+						profileImageDiv.appendChild(profileImageSpan);
 
-							divContent.appendChild(starBox);
-							divContent
-									.appendChild(profileImageDiv);
+						divContent.appendChild(starBox);
+						divContent.appendChild(profileImageDiv);
 
-							divCard.appendChild(divContent);
-							a.appendChild(divCard);
-							li.appendChild(a);
-							resultUl.appendChild(li);
-						}
-
-					},
-					error : function() {
-						alert('실패');
+						divCard.appendChild(divContent);
+						a.appendChild(divCard);
+						li.appendChild(a);
+						resultUl.appendChild(li);
 					}
 
-				});
+				},
+				error : function() {
+					alert('실패');
+				}
+			});
 		});
 	});
+	
+	let btn_addCourse = document.querySelector(".addCourse");
+	
+	btn_addCourse.addEventListener("click", function () {
+		location.href='courseAdding.do';
+	});
+	
+	let btnShowAll = document.querySelectorAll('.btn-all');
+	
+	
+	for (let i = 0; i < btnShowAll.length; i++) {
+	    btnShowAll[i].addEventListener("click", function() {
+	        alert('전체 버튼 활성화');
+	        location.href='getCourseList.do';
+	    });
+	}
+	
 </script>
 </html>
