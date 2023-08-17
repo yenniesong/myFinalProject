@@ -401,7 +401,7 @@
         -webkit-flex:1 1 auto;
         -ms-flex:1 1 auto;
         flex:1 1 auto;
-        padding-top: 180px;
+        padding-top: 160px;
     }
     h3.jsx-445560552 {
         font-size:22px;
@@ -1663,13 +1663,13 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                              <p class="jsx-445560552">${course.price } 원</p>
 		                            </div>
 		                            <div class="jsx-445560552 star-box">
-		                              <span class="jsx-445560552">7.6</span>
+		                              <span class="jsx-445560552">${course.star_point }</span>
 		                              <div class="jsx-2704879397 stars">
-		                                <div class="jsx-2704879397 star star-2"></div>
-		                                <div class="jsx-2704879397 star star-2"></div>
-		                                <div class="jsx-2704879397 star star-2"></div>
-		                                <div class="jsx-2704879397 star star-2"></div>
 		                                <div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
 		                              </div>
 		                            </div>
 		                            <div class="jsx-445560552 profile-image tutor">
@@ -1702,10 +1702,10 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                              <span class="jsx-445560552">${course.star_point }</span>
 		                              <div class="jsx-2704879397 stars">
 		                                <div class="jsx-2704879397 star star-0"></div>
-											<div class="jsx-2704879397 star star-0"></div>
-											<div class="jsx-2704879397 star star-0"></div>
-											<div class="jsx-2704879397 star star-0"></div>
-											<div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
+										<div class="jsx-2704879397 star star-0"></div>
 		                              </div>
 		                            </div>
 		                            <div class="jsx-445560552 profile-image tutor">

@@ -5,8 +5,18 @@
   
   <mapper namespace="CourseDAO">
   	<select id="getCourseList" parameterType="course" resultType="course">
-  		SELECT * 
-  		  FROM course
+<!--   		SELECT *  -->
+<!--   		  FROM course -->
+<!--   		 ORDER BY course_id ASC -->
+		SELECT nvl(star_point,0) as star_point, c.course_id, c.course_name, c.description, c.price, c.bootcamp_id, c.bootcamp_name, c.userId, c.course_period, c.position_id, c.fname, c.fname_en, c.fsize, t.teacher_id, t.teacher_name
+  		  FROM teacher t, course c, 
+  		  		(
+  		  			SELECT course_id, avg(star_point) as star_point 
+  		  		      FROM review
+         	         GROUP BY course_id
+         	     ) star
+         WHERE c.teacher_id = t.teacher_id(+)
+           AND c.course_id = star.course_id(+)
   		 ORDER BY course_id ASC
   	</select>
   	
