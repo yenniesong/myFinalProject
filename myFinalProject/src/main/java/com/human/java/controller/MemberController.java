@@ -23,9 +23,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.human.java.domain.BootcampVO;
-import com.human.java.domain.Company_infoVO;
+import com.human.java.domain.CompanyInfoVO;
 import com.human.java.domain.MemberVO;
 import com.human.java.service.BootcampService;
+import com.human.java.service.CompanyInfoService;
 import com.human.java.service.MemberService;
 
 @Controller
@@ -36,6 +37,8 @@ public class MemberController {
 	private MemberService service;
 	@Autowired
 	private BootcampService bService;
+	@Autowired
+	private CompanyInfoService cService;
 	
 	
 	@RequestMapping("/{url}")
@@ -85,9 +88,6 @@ public class MemberController {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
 				session.setAttribute("name", getName.getName());
 				session.setAttribute("loginFG", login.getLoginFG());
-				session.setAttribute("academy", getName.getAcademy());
-				
-				System.out.println("academy : " + getName.getAcademy());
 			} else if ( login.getLoginFG().equals("b") ) {
 				BootcampVO getBName = bService.bootcampInfo(memberVO.getUserId());
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
@@ -95,7 +95,8 @@ public class MemberController {
 				session.setAttribute("loginFG", login.getLoginFG());
 				
 				session.setAttribute("bootcamp_id", getBName.getBootcamp_id());
-				System.out.println("bootcamp_id: " + session.getAttribute("bootcamp_id"));
+				session.setAttribute("bootcamp_name", getBName.getBootcamp_name());
+				
 				
 			} else if (login.getLoginFG().equals("c")) {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
@@ -151,11 +152,13 @@ public class MemberController {
 
 	// 기업회원가입 완
 	@PostMapping("/company")
-	public String joinCompany(@ModelAttribute Company_infoVO companyVO) throws Exception {
+	public String joinCompany(@ModelAttribute CompanyInfoVO companyVO) throws Exception {
 
 		// CompanyForm 데이터를 이용하여 Company 객체 생성 및 데이터 저장 로직 수행
 		// CompanyService를 사용하여 데이터 저장
-		service.insertCompanyInfo(companyVO);
+		System.out.println("## 기업 회원가입 중 ##");
+		System.out.println("## 기업 아이디: "+companyVO.getComapny_id());
+		cService.CompanyInsert(companyVO);
 		System.out.println("기업회원가입 완");
 		return "redirect:/";
 	}
@@ -252,7 +255,7 @@ public class MemberController {
 	public String companyModify(Model model, HttpSession session) throws Exception {
 		System.out.println("기업 정보수정 들어가요");
 		String userId = (String) session.getAttribute("userId"); // id
-		Company_infoVO companyInfo = service.getCompanyByUserId(userId);
+		CompanyInfoVO companyInfo = service.getCompanyByUserId(userId);
 
 		// 조회된 회원 정보를 Model에 저장하여 뷰로 전달
 		model.addAttribute("companyInfo", companyInfo);
@@ -267,13 +270,13 @@ public class MemberController {
 
 	// 기업정보 수정 post
 	@PostMapping("/updatecompany")
-	public String updateCompanyInfo(@ModelAttribute("companyInfo") Company_infoVO companyInfo, Model model,
+	public String updateCompanyInfo(@ModelAttribute("companyInfo") CompanyInfoVO companyInfo, Model model,
 			HttpSession session) throws Exception {
 		// 수정된 회원 정보를 데이터베이스에 저장
 		service.updatecompany(companyInfo);
 
 		// 수정된 정보를 다시 조회하여 Model에 저장하여 뷰로 전달
-		Company_infoVO updatedCompanyInfo = service.getCompanyByUserId(companyInfo.getUserId());
+		CompanyInfoVO updatedCompanyInfo = service.getCompanyByUserId(companyInfo.getUserId());
 
 		model.addAttribute("companyInfo", updatedCompanyInfo);
 
@@ -315,13 +318,13 @@ public class MemberController {
 		bootcampVO.setBootcamp_manager(name);
 		bootcampVO.setTel(tel);
 
-		Company_infoVO company_infoVO = new Company_infoVO();
+		CompanyInfoVO company_infoVO = new CompanyInfoVO();
 		company_infoVO.setCompany_manager(name);
 		company_infoVO.setTel(tel);
 
 		MemberVO memberuserId = service.memberIdSearch(memberVO);
 		BootcampVO bootcampuserId = service.bootcampIdSearch(bootcampVO);
-		Company_infoVO companyuserId = service.companyIdSearch(company_infoVO);
+		CompanyInfoVO companyuserId = service.companyIdSearch(company_infoVO);
 
 		// 조회한 아이디 값을 모델에 추가
 		model.addAttribute("member", memberuserId);
@@ -357,14 +360,14 @@ public class MemberController {
 		bootcampVO.setUserId(userId);
 		bootcampVO.setEmail(email);
 				
-		Company_infoVO company_infoVO = new Company_infoVO();
+		CompanyInfoVO company_infoVO = new CompanyInfoVO();
 		company_infoVO.setUserId(userId);
 		company_infoVO.setCompany_manager_email(email);
 
 		MemberVO memberpw = service.memberPwCheck(memberVO);
 		System.out.println("memberpw : " + memberpw);
 		BootcampVO bootcamppw = service.bootcampPwCheck(bootcampVO);
-		Company_infoVO companypw = service.companyPwCheck(company_infoVO);
+		CompanyInfoVO companypw = service.companyPwCheck(company_infoVO);
 
 		// 조회한 아이디 값을 모델에 추가
 		model.addAttribute("member", memberpw);
@@ -384,7 +387,7 @@ public class MemberController {
 
 	// 회원탈퇴 진행
 	@PostMapping("/DeleteView2")
-	public String memberdelete(HttpSession session, MemberVO memberVO, BootcampVO bootcampVO, Company_infoVO companyVO,
+	public String memberdelete(HttpSession session, MemberVO memberVO, BootcampVO bootcampVO, CompanyInfoVO companyVO,
 			RedirectAttributes rttr) throws Exception {
 
 		String userId = (String) session.getAttribute("userId"); // id

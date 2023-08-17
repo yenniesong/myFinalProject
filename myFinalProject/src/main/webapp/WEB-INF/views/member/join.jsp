@@ -105,7 +105,7 @@
 							value="bootcamp"> <label for="bootcamp">학원</label>
 					</div>
 					<div class="checkbtn-company">
-						<input type="radio" id="company" name="user-type" value="company">
+						<input type="radio" id="company" name="user-type" value="companyInfo">
 						<label for="company">기업</label>
 					</div>
 					<div class="checkbtn-student">
@@ -332,11 +332,6 @@
 									name="company_manager_email" placeholder="이메일@example.com"
 									required></td>
 							</tr>
-							<tr>
-								<th><label for="company_add">주소</label></th>
-								<td><input type="text" name="company_add" id="company_add"
-									placeholder="주소"></td>
-							</tr>
 
 							<tr>
 								<th><label for="employee_cnt">종사자 수</label></th>
@@ -351,7 +346,7 @@
 							<tr>
 								<th><label for="insurances">보험 가입 여부</label></th>
 								<td><select id="insurances" name="insurances" required>
-										<option value="" disabled selected>선택헤주세요</option>
+										<option value="" disabled selected>선택해주세요</option>
 										<option value="Y">네</option>
 										<option value="N">아니오</option>
 								</select></td>

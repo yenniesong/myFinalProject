@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RecruitDAO">
+	<select id="getRecruitList" parameterType="recruit" resultType="recruit">
+		SELECT * FROM job_ad ORDER BY ad_id ASC
+	</select>
+
+	<select id="getRecruit" parameterType="recruit" resultType="recruit">
+		SELECT * FROM job_ad WHERE ad_id = #{ad_id}
+	</select>
+
+	<insert id="insertRecruit" parameterType="recruit">
+		INSERT INTO JOB_AD (
+		AD_ID, USERID,
+		<if test= "company_logo !=null">
+		COMPANY_LOGO, COMPANY_LOGO_EN,
+		</if>
+		COMPANY_NAME, JOB_EXPERIENCE, JOB_EDUCATION, JOB_POSITION, PROGRAMMING_LANGUAGES,
+		HIRE_TYPE, JOB_SALARY, WORKING_DAYS, WORKING_HOURS, PROBATION_PERIOD,
+		CODING_TEST, JOB_DESCRIPTION, CONTACT_EMAIL, APPLICATION_DEADLINE, REGDATE,
+		AD_TITLE, MANAGER_NAME, COMPANY_ID, COMPANY_ROAD, COMPANY_DETAIL, COMPANY_EXTRA
+		)
+		VALUES (seq_job_ad_ad_id.NEXTVAL, #{userId},
+		<if test="company_logo != null">
+		#{company_logo}, #{company_logo_en},
+		</if>
+		#{company_name}, #{job_experience}, #{job_education}, #{job_position}, #{programming_languages},
+		#{hire_type}, #{job_salary}, #{working_days}, #{working_hours},
+		#{probation_period}, #{coding_test}, #{job_description}, #{contact_email},
+		#{application_deadline}, SYSDATE, #{ad_title}, #{manager_name},
+		#{company_id}, #{company_road}, #{company_detail}, #{company_extra})
+	</insert>
+
+</mapper>
+  
+
+

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.human.java.domain.BootcampVO;
-import com.human.java.domain.Company_infoVO;
+import com.human.java.domain.CompanyInfoVO;
 import com.human.java.domain.MemberVO;
 
 @Repository
@@ -33,8 +33,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업회원 회원가입
 	@Override
-	public void insertCompanyInfo(Company_infoVO companyvo) throws Exception {
-		sql.insert("company_info.insertCompanyInfo", companyvo);
+	public void insertCompanyInfo(CompanyInfoVO companyvo) throws Exception {
+		sql.insert("companyInfo.insertCompanyInfo", companyvo);
 
 	}
 
@@ -63,8 +63,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업회원 마이페이지
 	@Override
-	public Company_infoVO getCompanyByUserId(String userId) throws Exception {
-		return sql.selectOne("company_info.selectCompany", userId);
+	public CompanyInfoVO getCompanyByUserId(String userId) throws Exception {
+		return sql.selectOne("companyInfo.selectCompany", userId);
 	}
 
 	// 일반회원정보수정
@@ -81,8 +81,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업회원정보수정
 	@Override
-	public int updatecompany(Company_infoVO company_info) throws Exception {
-		return sql.update("company_info.companymodify", company_info);
+	public int updatecompany(CompanyInfoVO company_info) throws Exception {
+		return sql.update("companyInfo.companymodify", company_info);
 	}
 
 	// 멤버 아이디 찾기
@@ -102,9 +102,9 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업 아이디 찾기
 	@Override
-	public Company_infoVO companyIdSearch(Company_infoVO companyVO) throws Exception {
+	public CompanyInfoVO companyIdSearch(CompanyInfoVO companyVO) throws Exception {
 		System.out.println("dao. 아이디 찾으러간다");
-		return sql.selectOne("company_info.companyIdSearch", companyVO);
+		return sql.selectOne("companyInfo.companyIdSearch", companyVO);
 	}
 
 	// 멤버 비밀번호 찾기
@@ -121,8 +121,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업 비밀번호 찾기
 	@Override
-	public Company_infoVO companyPwCheck(Company_infoVO companyVO) throws Exception {
-		return sql.selectOne("company_info.companyPwCheck", companyVO);
+	public CompanyInfoVO companyPwCheck(CompanyInfoVO companyVO) throws Exception {
+		return sql.selectOne("companyInfo.companyPwCheck", companyVO);
 	}
 
 	// 멤버 비밀번호 찾고 새비밀번호
@@ -141,8 +141,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업 비밀번호 찾고 새비밀번호
 	@Override
-	public void companyPwUpdate(Company_infoVO companyVO) throws Exception {
-		sql.update("company_info.companyPwUpdate", companyVO);
+	public void companyPwUpdate(CompanyInfoVO companyVO) throws Exception {
+		sql.update("companyInfo.companyPwUpdate", companyVO);
 
 	}
 
@@ -162,8 +162,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업 회원탈퇴
 	@Override
-	public void companyDelete(Company_infoVO companyVO) throws Exception {
-		sql.delete("company_info.companyDelete", companyVO);
+	public void companyDelete(CompanyInfoVO companyVO) throws Exception {
+		sql.delete("companyInfo.companyDelete", companyVO);
 
 	}
 	
@@ -181,8 +181,8 @@ public class MemberDAOImpl implements MemberDAO {
 
 	// 기업 회원 비밀번호 메일인증 
 	@Override
-	public Company_infoVO companyfindByEmail(String email) throws Exception {
-		 return sql.selectOne("company_info.findByEmail", email);
+	public CompanyInfoVO companyfindByEmail(String email) throws Exception {
+		 return sql.selectOne("companyInfo.findByEmail", email);
 	}
 
 }

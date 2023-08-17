@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="CompanyInfoDAO">
+	<select id="companyList" parameterType="companyInfo" resultType="companyInfo">
+	SELECT * FROM company_info
+	</select>
+	
+	<!-- 미나 mapper.xml -->
+	<select id="companyLogin" resultType="companyInfo">
+	<!-- bootcamp -->
+	SELECT 'b' as loginFG, userId, password
+	FROM BOOTCAMP
+	WHERE userId = #{userId} and password = #{password} UNION ALL
+	<!-- company -->
+	SELECT 'c' as loginFG, userId, password
+	FROM COMPANY_INFO
+	WHERE userId=#{userId} and password = #{password} UNION ALL
+	<!-- member -->
+	SELECT 'm' as loginFG, userId, password
+	FROM MEMBER
+	WHERE userId = #{userId} AND password = #{password} UNION ALL
+	<!-- admin -->
+	SELECT 'A', userId, password
+	WHERE userId = #{userId} AND password = #{password}
+	</select>
+	
+	<!-- 회사 정보 수정 -->
+	<update id="companyModify" parameterType="companyInfo">
+	UPDATE COMPANY_INFO
+	SET company_id = #{company_id}, password = #{password}, tel = #{tel},
+	company_name = #{company_name}, comapny_postcode = #{company_postcode},
+	company_road = #{company_road}, company_detail = #{company_detail}, company_site = #{company_site},
+	company_representative = #{company_representative}, company_manager = #{company_manager}, company_manager_email = #{company_manager_email},
+	employee_cnt = #{employee_cnt}, establishment_date = #{establishment_date}, insurances = #{insurances}, company_type = #{company_type}, sales = #{sales}
+	WHERE userId = #{userId}
+	</update>
+	
+	<!-- 회사 정보 찾기 -->
+	<select id="companyInformation" resultType="companyInfo" parameterType="String">
+	SELECT * FROM COMPANY_INFO WHERE userId = #{userId}
+	</select>
+	
+	<!-- 회사 회원가입 -->
+	<insert id="companyInsert" parameterType="companyInfo">
+	INSERT INTO COMPANY_INFO (COMPANY_ID, USERID, PASSWORD, TEL, COMPANY_NAME, COMPANY_SITE, COMPANY_REPRESENTATIVE, COMPANY_MANAGER,
+	COMPANY_MANAGER_EMAIL, EMPLOYEE_CNT, ESTABLISHMENT_DATE, INSURANCES, COMPANY_TYPE, SALES)
+	VALUES (COMPANY_ID_SEQ.NEXTVAL, #{userId}, #{password}, #{tel}, #{company_name}, #{company_site}, #{company_representative}, #{company_manager},
+	#{company_manager_email}, #{employee_cnt}, #{establishment_date}, #{insurances}, #{company_type}, #{sales})
+	</insert>
+	
+	<!-- 회사 아이디 찾기 -->
+	<select id="pwCheck" resultType="int" parameterType="String">
+	SELECT userId FROM COMPANY_INFO WHERE userId = #{userId} AND password = #{password}
+	</select>
+	
+	<select id="companyIdSearch" resultType="companyInfo">
+	SELECT userId FROM COMPANY_INFO WHERE name = #{company_name} AND tel = #{tel}
+	</select>
+	
+	<!-- 회사 비밀번호 찾기 -->
+	<select id="companyPwCheck" resultType="companyInfo" parameterType="companyInfo">
+	SELECT PASSWORD FROM COMPANY_INFO WHERE userId = #{userId} AND email = #{email}
+	</select>
+	
+	<!-- 회사 비밀번호 찾기 업데이트  -->
+	<update id="companyPwUpdate" parameterType="companyInfo">
+	UPDATE COMPANY_INFO
+	SET password = #{password}
+	WHERE name = #{name} AND userId = #{userId} AND email = #{company_manager_email}
+	</update>
+	
+	<!-- 회원탈퇴 -->
+	<delete id="companyDelete">
+	DELETE COMPANY_INFO
+	WHERE userId = #{userId} AND password = #{password}
+	</delete>
+	
+	<!-- 비밀번호 메일 인증 -->
+	<select id="findByEmail" resultType="companyInfo" parameterType="String">
+	SELECT * FROM COMPANY_INFO WHERE email = #{email}
+	</select>
+</mapper>

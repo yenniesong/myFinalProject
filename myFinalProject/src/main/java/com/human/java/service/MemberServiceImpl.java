@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.human.java.dao.BootcampDAO;
 import com.human.java.dao.MemberDAO;
 import com.human.java.domain.BootcampVO;
-import com.human.java.domain.Company_infoVO;
+import com.human.java.domain.CompanyInfoVO;
 import com.human.java.domain.MemberVO;
 
 @Service
@@ -38,7 +38,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 기업 회원가입
 	@Override
-	public void insertCompanyInfo(Company_infoVO companyVO) throws Exception {
+	public void insertCompanyInfo(CompanyInfoVO companyVO) throws Exception {
 		dao.insertCompanyInfo(companyVO);
 	}
 
@@ -63,7 +63,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 기업페이지 멤버
 	@Override
-	public Company_infoVO getCompanyByUserId(String userId) throws Exception {
+	public CompanyInfoVO getCompanyByUserId(String userId) throws Exception {
 		return dao.getCompanyByUserId(userId);
 	}
 
@@ -82,8 +82,8 @@ public class MemberServiceImpl implements MemberService {
 
 	// 기업 회원정보 수정
 	@Override
-	public int updatecompany(Company_infoVO company_info) throws Exception {
-		return dao.updatecompany(company_info);
+	public int updatecompany(CompanyInfoVO companyVO) throws Exception {
+		return dao.updatecompany(companyVO);
 	}
 
 
@@ -103,7 +103,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 기업 아이디 찾기 
 	@Override
-	public Company_infoVO companyIdSearch(Company_infoVO companyVO) throws Exception {
+	public CompanyInfoVO companyIdSearch(CompanyInfoVO companyVO) throws Exception {
 		System.out.println("아이디 찾으러간다");
 		  return dao.companyIdSearch(companyVO);
 	}
@@ -122,7 +122,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 기업 비밀번호 찾기 
 	@Override
-	public Company_infoVO companyPwCheck(Company_infoVO companyVO) throws Exception {
+	public CompanyInfoVO companyPwCheck(CompanyInfoVO companyVO) throws Exception {
 		return dao.companyPwCheck(companyVO);
 	}
 	
@@ -142,7 +142,7 @@ public class MemberServiceImpl implements MemberService {
 	
 	// 기업 비밀번호 찾고 새비밀번호
 	@Override
-	public void companyPwUpdate(Company_infoVO companyVO) throws Exception {
+	public void companyPwUpdate(CompanyInfoVO companyVO) throws Exception {
 		dao.companyPwUpdate(companyVO);
 		
 	}
@@ -163,7 +163,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 기업 회원탈퇴
 	@Override
-	public void companyDelete(Company_infoVO companyVO) throws Exception {
+	public void companyDelete(CompanyInfoVO companyVO) throws Exception {
 		dao.companyDelete(companyVO);
 		
 	}
@@ -182,7 +182,7 @@ public class MemberServiceImpl implements MemberService {
 
 	// 기업회원 비밀번호 메일인증 
 	@Override
-	public Company_infoVO companyfindByEmail(String email) throws Exception {
+	public CompanyInfoVO companyfindByEmail(String email) throws Exception {
 		  return dao.companyfindByEmail(email);
 	}
 

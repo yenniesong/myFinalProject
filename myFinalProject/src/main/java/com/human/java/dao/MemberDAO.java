@@ -2,7 +2,7 @@ package com.human.java.dao;
 
 //import com.human.java.domain.AdminVO;
 import com.human.java.domain.BootcampVO;
-import com.human.java.domain.Company_infoVO;
+import com.human.java.domain.CompanyInfoVO;
 import com.human.java.domain.MemberVO;
 
 public interface MemberDAO {
@@ -14,7 +14,7 @@ public interface MemberDAO {
 	public void insertBootcamp(BootcampVO bootcampvo) throws Exception;
 
 	// 기업회원가입 -- mapper에 있는 id와 같게
-	public void insertCompanyInfo(Company_infoVO companyvo) throws Exception;
+	public void insertCompanyInfo(CompanyInfoVO companyvo) throws Exception;
 
 	// 일반 로그인
 	public MemberVO memberlogin(MemberVO memberVO) throws Exception;
@@ -29,7 +29,7 @@ public interface MemberDAO {
 	public BootcampVO getBootcampByUserId(String userId) throws Exception;
 
 	// 기업페이지 멤버
-	public Company_infoVO getCompanyByUserId(String userId) throws Exception;
+	public CompanyInfoVO getCompanyByUserId(String userId) throws Exception;
 
 	// 일반회원정보 수정
 	public int updatemember(MemberVO member) throws Exception;
@@ -38,7 +38,7 @@ public interface MemberDAO {
 	public int updatebootcamp(BootcampVO bootcamp) throws Exception;
 
 	// 기업회원정보 수정
-	public int updatecompany(Company_infoVO company_info) throws Exception;
+	public int updatecompany(CompanyInfoVO company_info) throws Exception;
 
 	// 멤버 아이디 찾기
 	public MemberVO memberIdSearch(MemberVO memberVO) throws Exception;
@@ -47,7 +47,7 @@ public interface MemberDAO {
 	public BootcampVO bootcampIdSearch(BootcampVO bootcampVO) throws Exception;
 
 	// 기업 아이디 찾기
-	public Company_infoVO companyIdSearch(Company_infoVO companyVO) throws Exception;
+	public CompanyInfoVO companyIdSearch(CompanyInfoVO companyVO) throws Exception;
 
 	// 멤버 비밀번호 찾기
 	public MemberVO memberPwCheck(MemberVO memberVO) throws Exception;
@@ -56,7 +56,7 @@ public interface MemberDAO {
 	public BootcampVO bootcampPwCheck(BootcampVO bootcampVO) throws Exception;
 
 	// 기업 비밀번호 찾기
-	public Company_infoVO companyPwCheck(Company_infoVO companyVO) throws Exception;
+	public CompanyInfoVO companyPwCheck(CompanyInfoVO companyVO) throws Exception;
 
 	// 멤버 비밀번호 찾고 새비밀번호
 	public void memberPwUpdate(MemberVO memberVO) throws Exception;
@@ -65,7 +65,7 @@ public interface MemberDAO {
 	public void bootcampPwUpdate(BootcampVO bootcampVO) throws Exception;
 
 	// 기업 비밀번호 찾고 새비밀번호
-	public void companyPwUpdate(Company_infoVO companyVO) throws Exception;
+	public void companyPwUpdate(CompanyInfoVO companyVO) throws Exception;
 
 	// 멤버 회원탈퇴
 	public void memberDelete(MemberVO memberVO) throws Exception;
@@ -74,7 +74,7 @@ public interface MemberDAO {
 	public void bootcampDelete(BootcampVO bootcampVO) throws Exception;
 
 	// 기업 회원탈퇴
-	public void companyDelete(Company_infoVO companyVO) throws Exception;
+	public void companyDelete(CompanyInfoVO companyVO) throws Exception;
 
 	// 멤버 비밀번호 메일인증
 	public MemberVO memberfindByEmail(String email) throws Exception;
@@ -83,6 +83,6 @@ public interface MemberDAO {
 	public BootcampVO bootcampfindByEmail(String email) throws Exception;
 
 	// 기업 비밀번호 메일인증
-	public Company_infoVO companyfindByEmail(String email) throws Exception;
+	public CompanyInfoVO companyfindByEmail(String email) throws Exception;
 
 }

@@ -1,6 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%
+	String alertScript = request.getParameter("alertScript");
+%>
+<%
+	if (alertScript != null) {
+%>
+<%=alertScript%>
+<%
+	}
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -133,17 +145,7 @@
 							<td><input type="text" name="userId" id="userId"
 								class="userId-input" readonly value="${companyInfo.userId}"></td>
 						</tr>
-						<tr>
-							<td><label for="name">이름</label></td>
-							<td><input type="text" id="name" name="name"
-								value="${companyInfo.name}" ></td>
-						</tr>
-						<tr>
-							<td><label for="nickname">닉네임</label></td>
-							<td><input type="text" id="nickname" name="nickname"
-								required value="${companyInfo.nickname}"></td>
-						</tr>
-						<tr>
+						
 							<td><label for="email">이메일</label></td>
 							<td><input type="email" id="email" name="email"
 								onclick="checkemail()" value="${companyInfo.email}"></td>

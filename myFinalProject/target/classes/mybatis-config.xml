@@ -4,6 +4,12 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
   
   <configuration>
+  
+  <settings>
+        <setting name="jdbcTypeForNull" value="NULL" />
+    </settings>
+    
+    
   	<typeAliases>
 		<typeAlias type="com.human.java.domain.QnAVO" alias="qna"/>
 		<typeAlias type="com.human.java.domain.PagingVO" alias="paging"/>
@@ -14,7 +20,9 @@
 		<typeAlias type="com.human.java.domain.ReviewVO" alias="review"/>
 		<typeAlias type="com.human.java.domain.CourseVO" alias="course"/>
 		<typeAlias type="com.human.java.domain.EnrollmentVO" alias="enroll"/>
-		<typeAlias type="com.human.java.domain.Company_infoVO" alias="company_info"/>
+		
+		<typeAlias type="com.human.java.domain.CompanyInfoVO" alias="companyInfo"/>
+		<typeAlias type="com.human.java.domain.RecruitVO" alias="recruit"/>
 
 
   	</typeAliases>
