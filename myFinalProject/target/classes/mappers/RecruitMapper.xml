@@ -33,6 +33,43 @@
 		#{application_deadline}, SYSDATE, #{ad_title}, #{manager_name},
 		#{company_id}, #{company_road}, #{company_detail}, #{company_extra})
 	</insert>
+	
+		<update id="getRecruitForUpdating" parameterType="recruit">
+    UPDATE JOB_AD
+    SET
+    USERID = #{userId},
+    <if test="company_logo != null">
+        company_logo = #{company_logo},
+        company_logo_en = #{company_logo_en},
+    </if>
+    COMPANY_NAME = #{company_name}, <!-- 수정: COMPANY_NAME -->
+    JOB_EXPERIENCE = #{job_experience},
+    JOB_EDUCATION = #{job_education}, <!-- 수정: JOB_EDUCATION -->
+    JOB_POSITION = #{job_position},
+    PROGRAMMING_LANGUAGES = #{programming_languages},
+    HIRE_TYPE = #{hire_type},
+    JOB_SALARY = #{job_salary},
+    WORKING_DAYS = #{working_days},
+    WORKING_HOURS = #{working_hours},
+    PROBATION_PERIOD = #{probation_period},
+    CODING_TEST = #{coding_test},
+    JOB_DESCRIPTION = #{job_description},
+    CONTACT_EMAIL = #{contact_email},
+    APPLICATION_DEADLINE = #{application_deadline},
+    AD_TITLE = #{ad_title},
+    MANAGER_NAME = #{manager_name},
+    COMPANY_ID = #{company_id},
+    COMPANY_ROAD = #{company_road},
+    COMPANY_DETAIL = #{company_detail},
+    COMPANY_EXTRA = #{company_extra}
+    WHERE AD_ID = #{ad_id}
+</update>
+
+	
+	<delete id="deleteRecruit" parameterType="recruit">
+	DELETE FROM job_ad
+	WHERE ad_id = #{ad_id}
+	</delete>
 
 </mapper>
   

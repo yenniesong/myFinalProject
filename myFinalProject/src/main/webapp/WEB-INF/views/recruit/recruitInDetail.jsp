@@ -1032,10 +1032,31 @@ button:focus {
 							</script>
 							
 							<!-- 삭제 -> form tag 이용해 삭제 버튼 클릭해 삭제하게 될 경우 delete page로 이동-->
-							<button type="button" class="delete-btn">
+							<button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 								<i class="bi bi-trash3"></i>삭제
 							</button>
 			<!-- modal for delete -->
+			<form action="deleteRecruit.do" method="post">
+			<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">DELETE RECRUIT</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       공고를 삭제하시겠습니까?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <input type="hidden" name="ad_id" value="${recruit.ad_id }">
+        <button type="submit" class="btn btn-primary">삭제</button>
+      </div>
+    </div>
+  </div>
+</div>
+			</form>
 						</c:if>
 					</c:when>
 				</c:choose>

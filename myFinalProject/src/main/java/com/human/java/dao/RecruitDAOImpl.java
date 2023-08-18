@@ -55,7 +55,7 @@ public class RecruitDAOImpl implements RecruitDAO {
 	public void deleteRecruit(RecruitVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("## deleteRecruit 진입 - RecruitDAOImpl ##");
-		mybatis.delete("RecruitDAO.deleteRecruit",vo);
+		mybatis.delete("RecruitDAO.deleteRecruit", vo);
 	}
 
 	@Override
