@@ -1017,19 +1017,9 @@ button:focus {
 					<c:when test="${loginFG == 'c' }">
 						<c:if test="${recruit.userId eq userId}">
 							<!-- 수정 form tag 이용해 수정 버튼 클릭 후 모달에서도 확인 클릭 시  -->
-							<button type="button" class="update-btn" data-bs-toggle="modal" data-bs-target="#update">
+							<a href="/recruit/recruitForUpdating.do?no=${recruit.ad_id}"><button type="button" class="update-btn" data-bs-toggle="modal" data-bs-target="#update">
 								<i class="bi bi-vector-pen"></i>수정
-							</button>
-							
-							<!-- move to update page -->
-							<script type="text/javascript">
-							let btn_update = document.querySelector(".update-btn");
-							btn_update.addEventListener("click",function(){
-								alert("수정하기 버튼 활성화");
-								alert("${recruit.ad_id}");
-								location.href='getRecruitForUpdating.do?ad_id=' + ${recruit.ad_id};
-							});
-							</script>
+							</button></a>
 							
 							<!-- 삭제 -> form tag 이용해 삭제 버튼 클릭해 삭제하게 될 경우 delete page로 이동-->
 							<button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
@@ -1166,7 +1156,9 @@ button:focus {
 				</div>
 			</div>
 
-			<div class="container text-center">
+	<div class="container text-center">
+			
+			<c:if test="${loginFG eq 'm'}">
 				<div class="col">
 					<button type="button" class="apply-btn" data-bs-toggle="modal"
 						data-bs-target="#apply-modal">
@@ -1178,11 +1170,9 @@ button:focus {
 						<i class="bi bi-star" id="scrap-star"></i>스크랩&nbsp;
 					</button>
 				</div>
-
-				<!--change star color-->
-
+				</c:if>
+				
 			</div>
-			<!--modal for apply btn-->
 
 
 			<div class="row" id="detail-box">
