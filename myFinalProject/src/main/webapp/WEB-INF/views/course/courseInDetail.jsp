@@ -12,6 +12,7 @@
 	String userId = (String)cSession.getAttribute("userId");
 	String userName = (String)cSession.getAttribute("name");	/* 학원은 학원 명, 학생은 학생 명, 기업은 기업 명을 가져와야함 */
 	String loginFG = (String)cSession.getAttribute("loginFG");
+	String academy = (String)cSession.getAttribute("academy");
 	
 	System.out.println("userId : " + userId);
 	System.out.println("userName : " + userName);
@@ -991,87 +992,8 @@ img.jsx-2891290942 {
 </head>
 <body>
 	<!-- ======= Header ======= -->
-	<header id="header" class="fixed-top ">
-		<div class="container d-flex align-items-center">
-
-			<h1 class="logo me-auto">
-				<a href="main.do">
-					<img src="${path}/resources/img/soupie.png" style="margin-right: 10px; margin-bottom: 10px;">Soupie</a>
-			</h1>
-
-			<nav id="navbar" class="navbar">
-				<ul>
-					<li><a class="nav-link scrollto active" href="main.do">Home</a></li>
-					<li><a class="nav-link scrollto" href="#about">About</a></li>
-					<li class="dropdown">
-						<a class="nav-link scrollto" href="#announcements">
-							<span>Announcements</span>
-							<i class="bi bi-chevron-down"></i>
-						</a>
-						<ul>
-							<li><a href="adminBoard.do">공지사항</a></li>
-							<li><a href="faqsBoard">FAQs</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="#">
-							<span>Teacher | Course</span> 
-							<i class="bi bi-chevron-down"></i>
-						</a>
-						<ul>
-							<li><a href="/teacher/getTeacherList.do">Teacher</a></li>
-							<li><a href="/course/getCourseList.do">Course</a></li>
-							<li><a href="/qnaBorad/getQnAList.do">Teacher | Course Q&A</a></li>
-						</ul>
-					</li>
- 
-					<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
-					<li><a class="nav-link scrollto" href="#team">Team</a></li>
-					<c:if test="${userId != null}">
-						<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
-							<ul>
-								<li><a href="#">${userId}님 페이지</a></li>
-								<!-- 회원 -->
-								<c:if test="${loginFG == 'm'}">
-									<li><a href="#">이력서</a></li>
-									<li><a href="MembermyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">내 댓글 목록</a></li>
-								</c:if>
-								<c:if test="${loginFG == 'b'}">
-									<!-- 학원 -->
-									<li><a href="BootcampmyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">내 댓글 목록</a></li>
-									<li><a href="#">수강생 목록</a></li>
-
-								</c:if>
-								<c:if test="${loginFG == 'c'}">
-									<!-- 기업 -->
-									<li><a href="CompanymyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">내 댓글 목록</a></li>
-								</c:if>
-								<c:if test="${loginFG == 'a'}">
-									<!-- 관리자-->
-									<li><a href="#">관리자 페이지</a></li>
-								</c:if>
-							</ul>
-						</li>
-						<li><a class="getstarted scrollto" href="logout">로그아웃</a></li>
-					</c:if>
-					<li class="dropdown"><a class="getstarted scrollto" href="#">로그인</a>
-						<ul>
-					       <li><a href="login">로그인</a></li>
-					       <li><a href="join">회원가입</a></li>
-						</ul>
-		          	</li>
-			</nav>
-			<!-- .navbar -->
-
-		</div>
-	</header><!-- End Header -->
+	<%@include file="../includes/header.jsp" %>
+	<!-- End Header -->
 
 	<main id="main">
 
@@ -1113,7 +1035,7 @@ img.jsx-2891290942 {
 										<div class="jsx-216214598 flex-left">
 											<div class="jsx-216214598 profile">
 												<div class="jsx-216214598 tutor-image">
-													<img class="fname_en" alt="#" src="/resources/upload/${course.fname_en}"> 
+													<img class="fname_en" alt="#" src="${path}/resources/upload/${course.fname_en}"> 
 													<input type="hidden" name="course_name" value="${course.course_name }"> 
 													<input type="hidden" name="bootcamp_id" value="${course.bootcamp_id }"> 
 													<input type="hidden" name="position_id" value="${course.position_id }"> 
@@ -1430,80 +1352,10 @@ img.jsx-2891290942 {
 	</main>
 	<!-- End #main -->
 
-		<!-- ======= Footer ======= -->
-	<footer id="footer">
+	<!-- ======= Footer ======= -->
+	<%@include file="../includes/footer.jsp" %>
+	<!-- End Footer -->
 	
-	  <div class="footer-top">
-	    <div class="container">
-	      <div class="row">
-	
-	        <div class="col-lg-3 col-md-6 footer-contact">
-	          <h3>Soupie</h3>
-	          <p>
-	                  123-45 Soupie-gil<br>
-	            	Soupie-dong, Soupie-si 16167<br>
-	             Gyeongki-do <br><br>
-	            <strong>Phone:</strong> +82 031 000 0000<br>
-	            <strong>Email:</strong> admin@soupie.com<br>
-	          </p>
-	        </div>
-	
-	        <div class="col-lg-3 col-md-6 footer-links">
-	          <h4>Useful Links</h4>
-	          <ul>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-	          </ul>
-	        </div>
-	
-	        <div class="col-lg-3 col-md-6 footer-links">
-	          <h4>Our Services</h4>
-	          <ul>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-	            <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-	          </ul>
-	        </div>
-	
-	        <div class="col-lg-3 col-md-6 footer-links">
-	          <h4>Our Social Networks</h4>
-	          <p>You can explore more about Soupie!</p>
-	          <div class="social-links mt-3">
-	            <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-	            <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-	            <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-	            <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-	            <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-	          </div>
-	        </div>
-	
-	      </div>
-	    </div>
-	  </div>
-	
-	  <div class="container footer-bottom clearfix">
-	    <div class="copyright">
-	      &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
-	    </div>
-	    <div class="credits">
-	      <!-- All the links in the footer should remain intact. -->
-	      <!-- You can delete the links only if you purchased the pro version. -->
-	      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-	      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-	      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-	    </div>
-	
-	  </div>
-	</footer><!-- End Footer -->
-
-	<div id="preloader"></div>
-	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 

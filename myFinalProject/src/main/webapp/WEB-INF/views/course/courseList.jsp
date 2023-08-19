@@ -1672,8 +1672,18 @@ li.jsx-3824006232 button.jsx-3824006232 {
 										<div class="jsx-2704879397 star star-0"></div>
 		                              </div>
 		                            </div>
+		                            
 		                            <div class="jsx-445560552 profile-image tutor">
-		                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+		                            	<c:choose>
+		                            		<c:when test="${empty course.fname_en }">
+												<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+		                            		</c:when>
+		                            		<c:otherwise>
+		                            			<span class="jsx-445560552">
+													<img class="fname_en" src="${path}/resources/upload/${course.fname_en}" alt="#"/>
+												</span>
+		                            		</c:otherwise>
+		                            	</c:choose>
 		                            </div>
 		                          </div>
 		                        </div>
@@ -1681,7 +1691,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                    </li>
 		
 		                  </c:forEach>
-		                  </ul>	
+	                  </ul>	
                   	</c:when>
                   	
                   	<c:otherwise>
@@ -1709,7 +1719,16 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                              </div>
 		                            </div>
 		                            <div class="jsx-445560552 profile-image tutor">
-		                              <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+										<c:choose>
+		                            		<c:when test="${empty course.fname_en }">
+												<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+		                            		</c:when>
+		                            		<c:otherwise>
+		                            			<span class="jsx-445560552">
+													<img class="fname_en" src="${path}/resources/upload/${course.fname_en}" alt="#"/>
+												</span>
+		                            		</c:otherwise>
+		                            	</c:choose>
 		                            </div>
 		                          </div>
 		                        </div>
