@@ -1256,11 +1256,11 @@
 		alert("준비중입니다요..");
 	});
     
-	let loginUser = <%= userId %>; 
 	
 	$(function() {
 		$(".btn-enroll").click(function() {
 // 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
+			let loginUser = <%= userId %>; 
 			alert("수강신청하기 버튼 활성화");
 			alert("loginUser : " + loginUser);
 		

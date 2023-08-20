@@ -46,6 +46,11 @@
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
 
+<style>
+	.tutors{
+		padding: 0px;
+	}
+</style>
 <style id="__jsx-1629185219">
     .search-result.jsx-1629185219 {
         margin-top: 8px;
@@ -1759,9 +1764,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	<%@include file="../includes/footer.jsp" %>
 	<!-- End Footer -->
 	
-<!-- 	<div id="preloader"></div> -->
-<!-- 	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
-
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
