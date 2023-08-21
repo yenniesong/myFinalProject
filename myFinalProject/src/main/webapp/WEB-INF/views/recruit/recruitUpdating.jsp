@@ -10,9 +10,11 @@
 	
 	String userId = (String)cSession.getAttribute("userId");
 	String loginFG = (String)cSession.getAttribute("loginFG");
-	String company_name = (String)cSession.getAttribute("name");
+	String company_name = (String)cSession.getAttribute("company_name");
 	Integer company_id = (Integer)cSession.getAttribute("company_id");
-	Integer ad_id = (Integer)cSession.getAttribute("ad_id");
+// 	Integer ad_id = (Integer)cSession.getAttribute("ad_id");
+	String adIdStr = request.getParameter("no");
+	int ad_id = Integer.parseInt(adIdStr);
 	
 	System.out.println("userId : " + userId);
 	System.out.println("loginFG : " + loginFG);
@@ -132,6 +134,7 @@
         <input type="hidden" name="company_id" value="<%=company_id%>"/>
 	    <input type="hidden" name="userId" value="<%=userId%>"/>
 	    <input type="hidden" name="company_name" value="<%=company_name%>"/>
+<%-- 	    <c:out value="${param.no}" /> --%>
 	    <input type="hidden" name="ad_id" value="<%=ad_id%>"/>
 	    
         <!--제목-->

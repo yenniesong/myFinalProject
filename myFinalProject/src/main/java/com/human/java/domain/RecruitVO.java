@@ -75,8 +75,11 @@ public class RecruitVO {
 			// b_fname_en: 랜덤문자열 32자리므로 중복 없이 저장 가능
 			// 랜덤문자(b_fname_en)과 실제 파일명(b_fname)을 서로 매칭 해줘야 함 -> 따라서 데이터베이스에 둘 다 저장해야 함
 			File f = new File(
-					"C:\\Users\\97yeo\\git\\myFinalProject\\myFinalProject\\src\\main\\webapp\\resources\\company_logo\\"
+					"C:\\Users\\SONG.PS\\git\\myFinalProject\\myFinalProject\\src\\main\\webapp\\resources\\company_logo\\"
 							+ company_logo_en + fileExtension);
+//			File f = new File(
+//					"C:\\Users\\97yeo\\git\\myFinalProject\\myFinalProject\\src\\main\\webapp\\resources\\company_logo\\"
+//							+ company_logo_en + fileExtension);
 			try {
 				// 첨부파일로 받은 데이터를 File클래스로 만든 데이터로 변환
 				company_logo_file.transferTo(f);

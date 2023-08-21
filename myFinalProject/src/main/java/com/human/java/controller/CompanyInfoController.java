@@ -46,7 +46,7 @@ public class CompanyInfoController {
 			session.setAttribute("userId", result.getUserId());
 			session.setAttribute("company_name", result.getCompany_name());
 			session.setAttribute("company_manager", result.getCompany_manager());
-			session.setAttribute("company_id", result.getComapny_id());
+			session.setAttribute("company_id", result.getCompany_id());
 			
 			session.setAttribute("sessionTime", new Date().toLocaleString());
 			

@@ -7,11 +7,15 @@
 <%
 	HttpSession tSession = request.getSession();
 
-String userId = (String) tSession.getAttribute("userId");
-String loginFG = (String) tSession.getAttribute("loginFG");
-
-System.out.println("userId : " + userId);
-System.out.println("loginFG : " + loginFG);
+	String userId = (String) tSession.getAttribute("userId");
+	String loginFG = (String) tSession.getAttribute("loginFG");
+	Integer company_id = (Integer)tSession.getAttribute("company_id");
+	String company_name = (String)tSession.getAttribute("company_name");
+	
+	System.out.println("userId : " + userId);
+	System.out.println("loginFG : " + loginFG);
+	System.out.println("company_id : " + company_id);
+	System.out.println("company_name : " + company_name);
 %>
 <!DOCTYPE html>
 <html>

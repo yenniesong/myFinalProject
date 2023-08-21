@@ -47,7 +47,7 @@ public class CompanyInfoDAOImpl implements CompanyInfoDAO{
 	public CompanyInfoVO companyInfo(String userId) {
 		// TODO Auto-generated method stub
 		System.out.println("## COMPANYINFO DAO");
-		return mybatis.selectOne("CompanyInfoDAO.ComapanyInfo",userId);
+		return mybatis.selectOne("CompanyInfoDAO.companyInformation", userId);
 	}
 
 }

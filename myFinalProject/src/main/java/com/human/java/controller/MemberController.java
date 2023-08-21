@@ -101,12 +101,16 @@ public class MemberController {
 				
 				
 			} else if (login.getLoginFG().equals("c")) {
+				CompanyInfoVO getCName = cService.companyInfo(memberVO.getUserId());
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
 				
-//				Company_infoVO getCName = cService.companyInfo(memberVO.getUserId());
-				
-				session.setAttribute("name", login.getName());
+//				session.setAttribute("name", login.getName());
+				session.setAttribute("company_id", getCName.getCompany_id());
+				session.setAttribute("company_name", getCName.getCompany_name());
 				session.setAttribute("loginFG", login.getLoginFG());
+				
+				System.out.println("==> company_id : " + getCName.getCompany_id());
+				System.out.println("==> company_name : " + getCName.getCompany_name());
 
 			} else if (login.getLoginFG().equals("A")) {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
@@ -159,7 +163,7 @@ public class MemberController {
 		// CompanyForm 데이터를 이용하여 Company 객체 생성 및 데이터 저장 로직 수행
 		// CompanyService를 사용하여 데이터 저장
 		System.out.println("## 기업 회원가입 중 ##");
-		System.out.println("## 기업 아이디: "+companyVO.getComapny_id());
+		System.out.println("## 기업 아이디: "+companyVO.getCompany_id());
 		cService.CompanyInsert(companyVO);
 		System.out.println("기업회원가입 완");
 		return "redirect:/";
