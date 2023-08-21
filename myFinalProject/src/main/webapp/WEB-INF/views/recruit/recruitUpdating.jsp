@@ -6,21 +6,26 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
 
-int company_id = Integer.parseInt(request.getParameter("company_id"));
-
 	HttpSession cSession = request.getSession();
-	String userId = (String)cSession.getAttribute("userId");
-	String company_name = (String)cSession.getAttribute("company_name");
 	
-	System.out.println("recruitAddingPage session userId: "+userId);
-	System.out.println("recruitAddingPage session company name: "+company_name);
+	String userId = (String)cSession.getAttribute("userId");
+	String loginFG = (String)cSession.getAttribute("loginFG");
+	String company_name = (String)cSession.getAttribute("name");
+	Integer company_id = (Integer)cSession.getAttribute("company_id");
+	
+	System.out.println("userId : " + userId);
+	System.out.println("loginFG : " + loginFG);
+	System.out.println("company_name : " + company_name);
+	System.out.println("company_id : " + company_id);
+	
+	
 	
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Update Recruit</title>
+<title>Insert Recruit</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -116,20 +121,18 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
         
         <section class="inner-page">
               <div class="container">
-          <form action="updateRecruit.do" method="post" enctype="multipart/form-data">
-          <!--  userId / ad_id -->
-          <input type="hidden" value="<%=userId %>" name="userId">
-          <input type="hidden" value="<%=company_id %>" name="company_id">
-          <input type="hidden" value="<%=company_name %>" name="company_name">
-          
         <!--  JOB LIST - MAIN SEARCH -->
         <div class="title">
           <h4 class="jsx-1629185219" style="color: #719a60;">JOB AD</h4>
           <p class="jsx-1629185219" style="color: #878e98; font-size: small;">공고 내용을 입력하세요.</p>
         </div>
+          <form action="updateRecruit.do" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="company_id" value="<%=company_id%>"/>
+	    <input type="hidden" name="userId" value="<%=userId%>"/>
+	    <input type="hidden" name="company_name" value="<%=company_name%>"/>
         <!--제목-->
         <div class="mb-3">
-          <input type="text" class="form-control" id="ad-title" placeholder="제목을 입력하세요." name="ad_title" value="${recruit.ad_title}">
+          <input type="text" class="form-control" id="ad-title" placeholder="제목을 입력하세요." name="ad_title" value="${recruit.ad_title}"/>
         </div>
         <hr>
         <br>
@@ -145,39 +148,40 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="wrapper">
                   <p class="jsx-1629185219" style="color: #878e98; font-size: small; text-align: center;">기업 로고를 등록하세요.
                   </p>
-                  <img id="preview company_logo_en" src="/resources/company_logo/${recruit.company_logo_en}" class="image-box"
-                    alt="company-logo" />
+                  <img id="preview" src="${path}/resources/company_logo/${recruit.company_logo_en}"/>
                   <label for="file" class="upload-btn">
-                    <input id="file" type="file" accept="image/*" name="company_logo_file" />
+                    <input id="file" type="file" accept="image/*" name="company_logo_file" onchange="previewImage(event);"/>
                   </label>
                 </div>
               </div>
               <script type="text/javascript">
                 //for preview - image
-                const fileDOM = document.querySelector('#file');
-                const previews = document.querySelectorAll('.image-box');
-                fileDOM.addEventListener('change', () => {
-                  const reader = new FileReader();
-                  reader.onload = ({ target }) => {
-                    previews[0].src = target.result;
-                  };
+                	function previewImage(event) {
+		var input = event.target;
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				var imagePreview = document.getElementById("preview");
 
-                  reader.readAsDataURL(fileDOM.files[0]);
-                });
+				imagePreview.src = e.target.result;
+			};
+			reader.readAsDataURL(input.files[0]);
+		}
+	}
               </script>
               <br>
               <!--company name / contact email / manager name--->
               <div class="row">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small;">기업 정보를 입력하세요.</p><br>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="company_name" placeholder="기업명" name="company_name" value="${recruit.company_name}">
+                  <input type="text" class="form-control" id="company_name" placeholder="기업명" name="company_name" value="${recruit.company_name}"/>
                 </div>
                 <div class="col-md-4">
                   <input type="email" class="form-control" id="contact_email" placeholder="example@example.com"
-                    name="contact_email" value="${recruit.contact_email}">
+                    name="contact_email" value="${recruit.contact_email}"/>
                 </div>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="manager_name" placeholder="관리자 이름" name="manager_name" value="${recruit.manager_name}">
+                  <input type="text" class="form-control" id="manager_name" placeholder="관리자 이름" name="manager_name" value="${recruit.manager_name}"/>
                 </div>
               </div>
               <br>
@@ -186,7 +190,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small;">공고 마감일을 입력하세요.</p><br>
                 <div class="col-md">
                   <input type="date" class="form-control" id="application_deadline" name="application_deadline"
-                    style="color: #878e98;" value="${recruit.application_deadline}" required>
+                    style="color: #878e98;" value="${recruit.application_deadline}" required/>
                 </div>
               </div>
               <br>
@@ -203,16 +207,20 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
               <div class="row">
                 <div class="col-md-4">
                   <input type="text" class="form-control" id="company_road" placeholder="도로명주소"
-                    name="company_road" value="${recruit.company_road}">
+                    name="company_road" value="${recruit.company_road}"/>
                 </div>
+                <!-- <div class="col-md-3">
+                  <input type="email" class="form-control" id="company_jibunAddress" placeholder="지번주소"
+                    name="company_jibunAddress">
+                </div> -->
                 <span id="guide" style="color:#999;display:none"></span>
                 <div class="col-md-4">
                   <input type="text" class="form-control" id="company_detail" placeholder="상세주소"
-                    name="company_detail" value="${recruit.company_detail}">
+                    name="company_detail" value="${recruit.company_detail}"/>
                 </div>
                 <div class="col-md-4">
                   <input type="text" class="form-control" id="company_extra" placeholder="참고항목"
-                    name="company_extra" value="${recruit.company_extra}">
+                    name="company_extra" value="${recruit.company_extra}"/>
                 </div>
 
 
@@ -289,7 +297,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-4">
                   <div class="form-floating">
                     <select class="form-select" id="job_experience" name="job_experience"
-                      aria-label="Floating label select example" value="${recruit.job_experience}">
+                      aria-label="Floating label select example">
                       <option value="경력 무관">경력 무관</option>
                       <option value="1년 미만">1년 미만</option>
                       <option value="1년 이상 2년 미만">1년 ~ 2년</option>
@@ -304,8 +312,8 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-4">
                   <div class="form-floating">
                     <select class="form-select" id="job_education" name="job_education"
-                      aria-label="Floating label select example" value="${recruit.job_education}">
-                      <option value="경력 무관">학력 무관</option>
+                      aria-label="Floating label select example">
+                      <option value="학력 무관">학력 무관</option>
                       <option value="고등학교 졸업">고등학교 졸업</option>
                       <option value="전문학사 졸업">전문학사 졸업</option>
                       <option value="학사 학위">학사 학위</option>
@@ -319,7 +327,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-4">
                   <div class="form-floating">
                     <select class="form-select" id="job_position" name="job_position"
-                      aria-label="Floating label select example" value="${recruit.job_position}">
+                      aria-label="Floating label select example">
                       <option value="풀스택">풀스택</option>
                       <option value="백엔드">백엔드</option>
                       <option value="프론트엔드">프론트엔드</option>
@@ -335,7 +343,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small;;">프로그래밍 언어를 입력하세요. (, 또는 / 로 구분하여 입력)
                 </p><br>
                 <div class="col">
-                  <input type="text" class="form-control" name="programming_languages" value="${recruit.programming_languages}" required><br>
+                  <input type="text" class="form-control" name="programming_languages" required><br>
                 </div>
                 <br>
               </div>
@@ -345,7 +353,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-6">
                   <div class="form-floating">
                     <select class="form-select" id="probation_period" name="probation_period"
-                      aria-label="Floating label select example" value="${recruit.probation_period}">
+                      aria-label="Floating label select example">
                       <option value="O">O</option>
                       <option value="X">X</option>
                     </select>
@@ -370,7 +378,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-3">
                   <div class="form-floating">
                     <select class="form-select" id="hire_type" name="hire_type"
-                      aria-label="Floating label select example" value="${recruit.hire_type}">
+                      aria-label="Floating label select example">
                       <option value="정규직">정규직</option>
                       <option value="계약직">계약직</option>
                       <option value="인턴">인턴</option>
@@ -383,7 +391,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-3">
                   <div class="form-floating">
                     <select class="form-select" id="job_salary" name="job_salary"
-                      aria-label="Floating label select example" value="${recruit.job_salary}">
+                      aria-label="Floating label select example">
                       <option value="회사 내규에 따름">회사 내규에 따름</option>
                       <option value="면접 후 결정">면접 후 결정</option>
                       <option value="2700 이상">2700 이상</option>
@@ -397,7 +405,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-3">
                   <div class="form-floating">
                     <select class="form-select" id="working_days" name="working_days"
-                      aria-label="Floating label select example" value="${recruit.working_days}">
+                      aria-label="Floating label select example">
                       <option value="재택근무">재택</option>
                       <option value="주 4일">주 4일</option>
                       <option value="주 5일">주 5일</option>
@@ -410,7 +418,7 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
                 <div class="col-md-3">
                   <div class="form-floating">
                     <select class="form-select" id="working_hours" name="working_hours"
-                      aria-label="Floating label select example" value="${recruit.working_hours}">
+                      aria-label="Floating label select example">
                       <option value="8-5">8시 ~ 5시</option>
                       <option value="9-6">9시 ~ 6시</option>
                       <option value="10-7">10시 ~ 7시</option>
@@ -452,27 +460,46 @@ int company_id = Integer.parseInt(request.getParameter("company_id"));
               <script>
                 // 취소 버튼 클릭 시 동작
                 document.getElementById('cancel-btn').addEventListener('click', function () {
-                  var confirmed = confirm('공고 수정을 취소하시겠습니까?');
-                  if (confirmed) {
-                    // 메인 페이지로 돌아가는 동작 구현
-                    window.location.href = '메인페이지주소';
-                  } else {
-                    // 취소 클릭 시 작성중인 모달 페이지로 돌아가는 동작 구현
-                    window.location.href = '메인페이지주소';
-                  }
+                	alert('작성중인 글은 저장되지 않습니다.');
+            		history.back();
                 });
 
-                // 저장 버튼 클릭 시 동작
+             // 저장 버튼 클릭 시 동작
                 document.getElementById('save-btn').addEventListener('click', function () {
-                  var confirmed = confirm('공고 수정을 완료하시겠습니까?');
-                  if (confirmed) {
-                    // 글 등록이 완료되었습니다. 메시지 표시 후 글 목록 화면으로 이동하는 동작 구현
-                    alert('글 수정이 완료되었습니다.');
-                    window.location.href = '글목록주소';
-                  } else {
-                    // 취소 클릭 시 아무 동작 없음
-                  }
+                	alert("수정하기 버튼!");
+            		
+            		// 폼 요소를 가져옵니다 (폼의 id를 사용하여 가져올 수도 있습니다)
+            		var form = document.querySelector('form');
+
+            		// 폼 내부의 모든 요소를 가져옵니다
+            		var formElements = form.elements;
+
+            		// 요소들을 순회하면서 값이나 내용을 확인합니다
+            		for (var i = 0; i < formElements.length; i++) {
+            		    var element = formElements[i];
+            		    
+            		    // input, textarea 등의 요소들에 대해 값을 가져옵니다
+            		    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            		        var value = element.value;
+            		        alert(element.name + ": " + value);
+            		    }
+            		    
+            		    // select 요소에 대해 선택된 옵션 값을 가져옵니다
+            		    else if (element.tagName === 'SELECT') {
+            		        var selectedOption = element.options[element.selectedIndex];
+            		        alert(element.name + ": " + selectedOption.value);
+            		    }
+            		    
+            		    // 기타 요소들에 대한 처리
+            		    // ...
+            		}
+            		
+            		
+            		
+            		location.href = 'updateRecruit.do';
+            		
                 });
+
               </script>
             </div>
         </div>

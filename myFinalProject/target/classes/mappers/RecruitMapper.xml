@@ -34,7 +34,7 @@
 		#{company_id}, #{company_road}, #{company_detail}, #{company_extra})
 	</insert>
 	
-		<update id="getRecruitForUpdating" parameterType="recruit">
+		<update id="updateRecruit" parameterType="recruit">
     UPDATE JOB_AD
     SET
     USERID = #{userId},

@@ -93,9 +93,9 @@ public class RecruitController {
 	}
 	
 	//공고 수정 페이지 불러오기
-	@RequestMapping("goRecruitForUpdating.do")
+	@RequestMapping("getRecruitForUpdating.do")
 	public String goRecruitForUpdating (RecruitVO vo, Model model) {
-		System.out.println("## goRecruitForUpdating.do - controller ##");
+		System.out.println("## getRecruitForUpdating.do - controller ##");
 		System.out.println("## recruit Number: "+vo.getAd_id()+ "##");
 		model.addAttribute("recruit", recruitService.getRecruitForUpdating(vo));
 		

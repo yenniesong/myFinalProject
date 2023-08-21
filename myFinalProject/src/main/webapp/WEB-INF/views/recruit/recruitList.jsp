@@ -1265,17 +1265,16 @@ filter: alpha(opacity=50);
 											<div id="searchLog"></div>
 											<div id="searchList" class="recruitList">
 												<ul>
-													<li><a href="getRecruit.do?ad_id=${recruit.ad_id}"
-														class="listCell" target="_blank" data-gno="42132324">
+													<li><a href="getRecruit.do?ad_id=${recruit.ad_id}" class="listCell">
 														<c:choose>
 														<c:when test="${empty recruit.company_logo_en}">
 														<div class="rLogo">
-															<img class="company_logo_en" src="">
+															<span class="company_logo_en" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
 															</div>
 														</c:when>
 														<c:otherwise>
 															<div class="rLogo">
-															<img class="company_logo" name="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="#"/>
+															<img class="company_logo" name="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="${recruit.company_logo }"/>
 															</div>
 															</c:otherwise>
 															</c:choose>
@@ -1335,17 +1334,16 @@ filter: alpha(opacity=50);
 											<div id="searchLog"></div>
 											<div id="searchList" class="recruitList">
 												<ul>
-													<li><a href="getRecruit.do?ad_id=${recruit.ad_id}"
-														class="listCell" target="_blank" data-gno="42132324">
+													<li><a href="getRecruit.do?ad_id=${recruit.ad_id}" class="listCell">
 															<c:choose>
 														<c:when test="${empty recruit.company_logo_en}">
 														<div class="rLogo">
-															<img class="company_logo_en"  style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);">>
+															<span class="company_logo_en" style="background-image: url(/myFinalProject/src/main/webapp/resources/company_logo/recruit_default_img.png);"></span>
 															</div>
 														</c:when>
 														<c:otherwise>
 															<div class="rLogo">
-															<img class="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="#"/>
+															<img class="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="${recruit.company_logo }"/>
 															</div>
 															</c:otherwise>
 															</c:choose>
@@ -1359,10 +1357,7 @@ filter: alpha(opacity=50);
 																		class="rAddress">${recruit.company_extra}</span>
 																</div>
 																<div class="rSkillBox">
-																	<span class="rSkill"> <span class="tag tag-skil">영어</span>
-																		<span class="tag tag-skil">일본어</span> <span
-																		class="tag tag-benefit">반차제도</span> <span
-																		class="tag tag-benefit">노동절 휴무</span>
+																	<span class="rSkill"> <span class="tag tag-skil">${recruit.programming_languages}</span>
 																	</span>
 																</div>
 
@@ -1385,9 +1380,7 @@ filter: alpha(opacity=50);
 																		class="rPeriod">${recruit.application_deadline}</span>
 																</div>
 															</div>
-															<button class="rIcon devAddScrap str_off"
-																data-gino="44718609" data-gno="42132324"
-																data-memid="tselect11" data-memtypecode="C">
+															<button class="rIcon devAddScrap str_off">
 																<span class="skip">채용공고 스크랩</span>
 															</button>
 													</a></li>

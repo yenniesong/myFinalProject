@@ -304,7 +304,7 @@
                   <div class="form-floating">
                     <select class="form-select" id="job_education" name="job_education"
                       aria-label="Floating label select example">
-                      <option value="경력 무관">학력 무관</option>
+                      <option value="학력 무관">학력 무관</option>
                       <option value="고등학교 졸업">고등학교 졸업</option>
                       <option value="전문학사 졸업">전문학사 졸업</option>
                       <option value="학사 학위">학사 학위</option>
