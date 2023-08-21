@@ -4,11 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.human.java.dao.RecruitDAO;
 import com.human.java.domain.RecruitVO;
 
 @Service("RecruitService")
+@Transactional
 public class RecruitServiceImpl implements RecruitService{
 
 	//DAO
@@ -102,6 +104,12 @@ public class RecruitServiceImpl implements RecruitService{
 		// TODO Auto-generated method stub
 		System.out.println("## searchExtraAddrList service 진입 ##");
 		return recruitDAO.searchExtraAddrList(vo);
+	}
+
+	@Override
+	public void selectCompany_id(String attribute) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

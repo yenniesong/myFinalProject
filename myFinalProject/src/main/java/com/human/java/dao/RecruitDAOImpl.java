@@ -34,7 +34,7 @@ public class RecruitDAOImpl implements RecruitDAO {
 	public void insertRecruit(RecruitVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("## insertRecruit dao 진입 - RecruitDAOImpl ##");
-		mybatis.selectOne("RecruitDAO.insertRecruit",vo);
+		mybatis.insert("RecruitDAO.insertRecruit",vo);
 	}
 
 	@Override
@@ -46,9 +46,8 @@ public class RecruitDAOImpl implements RecruitDAO {
 
 	@Override
 	public void updateRecruit(RecruitVO vo) {
-		// TODO Auto-generated method stub
-		System.out.println("## updateRecruit dao 진입 - RecruitDAOImpl ##");
-		mybatis.update("RecruitDAO.updateRecruit",vo);
+	    System.out.println("## updateRecruit dao 진입 - RecruitDAOImpl ##");
+	    mybatis.update("RecruitDAO.updateRecruit", vo);
 	}
 
 	@Override

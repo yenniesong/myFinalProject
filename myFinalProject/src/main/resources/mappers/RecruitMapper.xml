@@ -34,6 +34,11 @@
 		#{company_id}, #{company_road}, #{company_detail}, #{company_extra})
 	</insert>
 	
+	
+	<select id="getRecruitForUpdating" parameterType="recruit" resultType="recruit">
+	SELECT * FROM JOB_AD WHERE AD_ID = #{AD_ID}
+	</select>
+	
 		<update id="updateRecruit" parameterType="recruit">
     UPDATE JOB_AD
     SET

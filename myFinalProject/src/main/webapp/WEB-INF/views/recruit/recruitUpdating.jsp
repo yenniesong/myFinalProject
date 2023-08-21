@@ -12,11 +12,13 @@
 	String loginFG = (String)cSession.getAttribute("loginFG");
 	String company_name = (String)cSession.getAttribute("name");
 	Integer company_id = (Integer)cSession.getAttribute("company_id");
+	Integer ad_id = (Integer)cSession.getAttribute("ad_id");
 	
 	System.out.println("userId : " + userId);
 	System.out.println("loginFG : " + loginFG);
 	System.out.println("company_name : " + company_name);
 	System.out.println("company_id : " + company_id);
+	System.out.println("ad_id : " + ad_id);
 	
 	
 	
@@ -126,13 +128,15 @@
           <h4 class="jsx-1629185219" style="color: #719a60;">JOB AD</h4>
           <p class="jsx-1629185219" style="color: #878e98; font-size: small;">공고 내용을 입력하세요.</p>
         </div>
-          <form action="updateRecruit.do" method="post" enctype="multipart/form-data">
+          <form id="recruit-form" action="updateRecruit.do" method="post" enctype="multipart/form-data">
         <input type="hidden" name="company_id" value="<%=company_id%>"/>
 	    <input type="hidden" name="userId" value="<%=userId%>"/>
 	    <input type="hidden" name="company_name" value="<%=company_name%>"/>
+	    <input type="hidden" name="ad_id" value="<%=ad_id%>"/>
+	    
         <!--제목-->
         <div class="mb-3">
-          <input type="text" class="form-control" id="ad-title" placeholder="제목을 입력하세요." name="ad_title" value="${recruit.ad_title}"/>
+          <input type="text" class="form-control" id="ad-title" name="ad_title" value="${recruit.ad_title}"/>
         </div>
         <hr>
         <br>
@@ -462,6 +466,16 @@
                 document.getElementById('cancel-btn').addEventListener('click', function () {
                 	alert('작성중인 글은 저장되지 않습니다.');
             		history.back();
+                });
+                
+                document.addEventListener("DOMContentLoaded", function() {
+                    const form = document.getElementById("recruit-form");
+                    const saveBtn = document.getElementById("save-btn");
+
+                    saveBtn.addEventListener("click", function(event) {
+                        event.preventDefault(); // 기본 제출 동작 방지
+                        form.submit(); // 폼 제출
+                    });
                 });
 
              // 저장 버튼 클릭 시 동작

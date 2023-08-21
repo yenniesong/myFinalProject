@@ -56,6 +56,9 @@ public class RecruitController {
 	@RequestMapping("insertRecruit.do")
 	public String insertRecruit(RecruitVO vo, HttpSession session) {
 		System.out.println("## insertRecruit.do - controller ##");
+		
+		recruitService.selectCompany_id((String)session.getAttribute("userId"));
+		
 		System.out.println("=========== Recruit Data Info ===========");
 		System.out.println("공고 번호: "+vo.getAd_id());
 		System.out.println("작성자 아이디: "+vo.getUserId());

@@ -42,4 +42,6 @@ public interface RecruitService {
 		//위치 조회 company_extra
 		List<RecruitVO> searchExtraAddrList(RecruitVO vo);
 
+		void selectCompany_id(String attribute);
+
 }
