@@ -165,6 +165,7 @@
         gap: .3em;
         padding: 5px;
         overflow: hidden;
+        margin-top: 3px;
     }
 
     .rating__result {
@@ -929,7 +930,7 @@
 		                                <div class="jsx-644785032 review-item">
 		                                
 			                                  <div class="jsx-644785032">
-			                                    <div class="jsx-644785032 info"style="border-bottom : 1px solid rgb(236, 236, 236);">
+			                                    <div class="jsx-644785032 info" style="border-bottom : 1px solid rgb(236, 236, 236);">
 			                                      <div class="jsx-644785032">
 			                                        <div class="jsx-1397353033 avatar">
 			                                          <div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);">
@@ -1256,9 +1257,9 @@
     
 	
 	$(function() {
+		let loginUser = "<%= userId %>"; 
 		$(".btn-enroll").click(function() {
 // 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
-			let loginUser = <%= userId %>; 
 			alert("수강신청하기 버튼 활성화");
 			alert("loginUser : " + loginUser);
 		

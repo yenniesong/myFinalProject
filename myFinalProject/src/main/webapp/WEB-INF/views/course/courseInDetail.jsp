@@ -51,6 +51,7 @@
 
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
 <style>
 aside {
@@ -275,9 +276,11 @@ aside {
 }
 
 .review-box.jsx-4149508951 {
-/* 	position: relative; */
+	position: relative;
 	display: flex;
 	overflow: hidden;
+	border-radius: 10px;
+	margin-bottom: 2px;
 }
 
 .auth-popup.jsx-4149508951 {
@@ -311,6 +314,12 @@ h4.jsx-644785032>span.jsx-644785032 {
 	white-space: nowrap;
 	overflow: hidden;
 	padding: 0px 5px;
+}
+
+.writingReview-item.jsx-644785032 {
+    padding: 24px 32px 32px;
+    width: 100%;
+    cursor: pointer;
 }
 
 .avatar.jsx-1397353033 {
@@ -453,6 +462,39 @@ button.jsx-1487464557 {
 .on {
     	display: none !important;
 }
+.rating {
+	position: relative;
+/*         width: 180px; */
+	background: transparent;
+	display: flex;
+/* 	justify-content: center; */
+	align-items: center;
+	gap: .3em;
+	padding: 5px;
+	overflow: hidden;
+	margin-top: 3px;
+}
+.rating__result {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-10px) translateX(-5px);
+    z-index: -9;
+    font: 3em Arial, Helvetica, sans-serif;
+    color: #ebebeb8e;
+    pointer-events: none;
+}
+
+.rating__star {
+    font-size: 1.3em;
+    cursor: pointer;
+    color: #dabd18b2;
+    transition: filter linear .3s;
+}
+
+.rating__star:hover {
+   	filter: drop-shadow(1px 1px 4px gold);
+}	
 .popup_on {
 	display: none;
 }
@@ -1196,10 +1238,10 @@ img.jsx-2891290942 {
 																			<c:forEach items="${cRList }" var="cReview">
 																			<input type="hidden" class="cListData" value="${cRList }"/>
 																				<!-- 후기 내용이 들어가는 부분 (바뀌어야하는 부분) -->
-																				<div class="jsx-4149508951 review-box">
+																				<div class="jsx-4149508951 review-box" style="border: 1px solid rgb(223, 223, 223); margin: 5px;">
 																					<div class="jsx-644785032 review-item">
 																						<div class="jsx-644785032 ">
-																							<div class="jsx-644785032 info">
+																							<div class="jsx-644785032 info" style="border-bottom : 1px solid rgb(236, 236, 236);">
 																								<div class="jsx-644785032">
 																									<div class="jsx-1397353033 avatar">
 																										<div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);"></div>
@@ -1223,7 +1265,7 @@ img.jsx-2891290942 {
 																							</div>
 																						</div>
 
-																						<div class="jsx-644785032 title">
+																						<div class="jsx-644785032 reviewContent" style="padding: 8px 0px;">
 																							<h4 class="jsx-644785032">
 																								“ <span class="jsx-644785032">${cReview.content }</span> ”
 																							</h4>
@@ -1350,12 +1392,12 @@ img.jsx-2891290942 {
 					<span class="jsx-644785032 nickname">${userId }</span>
 					<input type="hidden" name="userId" value="${userId }">
 				</div> 
-
-<!-- 				해당 수강생이 답글 작성하기 눌렀을 때 -->
+				
+				<!-- 				해당 수강생이 답글 작성하기 눌렀을 때 -->
 				<div class="adminArea mb-3">
 					<div class="input-group mb-3">
 					<input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
-					
+						
 					<div class="adminArea showWritingInput" style="border: 1px solid #ced4da;">
 						<div>
 							<div class="rating starPoint">
@@ -1369,9 +1411,9 @@ img.jsx-2891290942 {
 							<input type="hidden" name="star_pint" class="star_pint" value="">
 						</div>
 					</div>
-					
+						
 					<button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
-				</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -1420,9 +1462,9 @@ img.jsx-2891290942 {
 			} else {
 				alert('큼 ㅋ 우리 학원생 이내요 ㅋ');
 				
-				if (rListInput) {
-				    var rList = rListInput.value;
-				    var rListSize = rList.length;
+				if (cListInput) {
+				    var cList = cListInput.value;
+				    var cListSize = cList.length;
 				    console.log("no null have review"); // 리뷰가 있을때
 				    
 				    clickTheBtn++;
@@ -1444,6 +1486,110 @@ img.jsx-2891290942 {
 			}
 		})
 	}
+	
+	function counting(cnt) {
+		alert('counting 메소드 활성화');
+		
+		console.log("cnt : " + cnt);
+		
+		if (cnt > 0) {
+			let originalDiv = document.querySelector('.reviewBtn');
+			let originalItemDiv = document.querySelector('.reviewItem');
+			let showDiv = document.querySelector('.writingReview-item');
+			let offTheBtn = document.querySelector('.btnWritingReview');
+			
+			originalItemDiv.style.display = 'none';		
+			
+			showDiv.classList.remove('on');
+			offTheBtn.style.display = 'none';		
+			originalDiv.insertAdjacentElement('afterend', showDiv);
+		}
+		
+	}
+	
+	// 벌점 기능 구현
+	const ratingStars = [...document.getElementsByClassName("rating__star")];
+    const ratingResult = document.querySelector(".rating__result");
+
+    printRatingResult(ratingResult);
+
+    function executeRating(stars, result) {
+        const starClassActive = "rating__star fas fa-star";
+        const starClassUnactive = "rating__star far fa-star";
+        const starsLength = stars.length;
+        let i;
+        stars.map((star) => {
+            star.onclick = () => {  
+                i = stars.indexOf(star);
+
+                if (star.className.indexOf(starClassUnactive) !== -1) {
+                    printRatingResult(result, i + 1);
+                    for (i; i >= 0; --i) stars[i].className = starClassActive;
+                } else {
+                    printRatingResult(result, i);
+                    for (i; i < starsLength; ++i) stars[i].className = starClassUnactive;
+                }
+            };
+        });
+    }; 
+
+    function printRatingResult(result, num = 0) {
+//         result.textContent = `${num}/5`;
+		console.log("별점 : " + num);
+        $(".review_post").data("star-point", num);
+        
+        
+        // form 태그 안에 해당 value 값 추가해주기
+        $('input[name=star_point]').attr('value', num);
+    };
+
+    executeRating(ratingStars, ratingResult);
+    
+ // 리뷰 작성 버튼 
+	$(function() {
+		$(".review_post").click(function() {
+			// 가져가야할 데이터 : userId, teacher_id, name, content, star_point
+			alert("리뷰 작성");
+		
+			let userId = '<%=userId%>';
+			let name = '<%=userName%>';
+			let courseId = '${course.course_id }';
+			console.log("userId : " + userId);
+			console.log("name : " + name);
+			console.log("courseId : " + courseId);
+			let content =  document.querySelector(".form-control").value;
+			console.log("content : " + content);
+			let starPoint = $(".review_post").data("star-point");
+			console.log("starPoint : " + starPoint);
+					
+			let review = {
+					"userId": userId
+				    , "name": name
+					, "course_id" : courseId
+					, "content" : content
+					, "star_point" : starPoint
+			};
+				
+			$.ajax({
+				url : "writingReview.do",
+				type: "POST",
+				data: review,
+				dataType: "Text", 
+				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
+				success : function (json) {
+					console.log("json : " + json);
+					alert("리뷰가 등록되었어요!");
+					
+					location.href='getCourse.do?course_id=' + courseId;
+				},
+				error: function () {
+					alert("실패");
+					
+				}
+			});
+		});
+	});
+ 
 	
 // 	let btn_signUp = document.querySelector('.signUp');
 // 	let btn_login = document.querySelector('.login');
