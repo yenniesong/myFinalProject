@@ -88,6 +88,8 @@ public class MemberController {
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장
 				session.setAttribute("name", getName.getName());
 				session.setAttribute("loginFG", login.getLoginFG());
+				session.setAttribute("academy", getName.getAcademy());
+				
 			} else if ( login.getLoginFG().equals("b") ) {
 				BootcampVO getBName = bService.bootcampInfo(memberVO.getUserId());
 				session.setAttribute("userId", login.getUserId()); // 로그인 정보 세션에 저장

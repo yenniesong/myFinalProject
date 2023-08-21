@@ -50,6 +50,10 @@
 	.tutors{
 		padding: 0px;
 	}
+	img.fname_en {
+		width: 100%;
+		height: 100%;
+	}
 </style>
 <style id="__jsx-1629185219">
     .search-result.jsx-1629185219 {

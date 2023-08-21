@@ -1108,8 +1108,6 @@
 		btnWritingReview[i].addEventListener("click", function() {
 			alert("후기 작성하기 버튼 활성화!");
 			
-			alert("세션 있다");
-						
 			let thisBootCamp = document.querySelector('.tBootcampName').innerText;
 			let userAcademy = '<%=academy%>';
 			console.log("thisBootCamp : " + thisBootCamp);

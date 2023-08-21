@@ -275,7 +275,7 @@ aside {
 }
 
 .review-box.jsx-4149508951 {
-	position: relative;
+/* 	position: relative; */
 	display: flex;
 	overflow: hidden;
 }
@@ -303,6 +303,7 @@ h4.jsx-644785032 {
 	width: 100%;
 	font-size: 17px;
 	margin-top: 12px;
+	justify-content: center;
 }
 
 h4.jsx-644785032>span.jsx-644785032 {
@@ -449,6 +450,9 @@ button.jsx-1487464557 {
 	background-color: #1dc078;
 }
 
+.on {
+    	display: none !important;
+}
 .popup_on {
 	display: none;
 }
@@ -863,7 +867,8 @@ li.jsx-1546215327 button.jsx-1546215327 {
 	align-items: center;
 	padding: 8px 0px;
 	font-size: 14px;
-	border-bottom: 1px solid rgb(236, 236, 236);
+/* 	border-bottom: 1px solid rgb(236, 236, 236); */
+	justify-content: center;
 }
 
 .info.jsx-644785032 .nickname.jsx-644785032 {
@@ -1140,7 +1145,7 @@ img.jsx-2891290942 {
 														<li class="jsx-1434886323 ">
 															<div class="jsx-1434886323 board-item">
 																<div class="jsx-1434886323 title">
-																	<span class="jsx-1434886323">${course.bootcamp_name }</span>
+																	<span class="jsx-1434886323 cBootcampName">${course.bootcamp_name }</span>
 																</div>
 															</div>
 														</li>
@@ -1181,13 +1186,15 @@ img.jsx-2891290942 {
 
 															<div class="jsx-1546215327 content">
 																<div title="강사리뷰" class="jsx-4149508951">
-																	<div class="reviewArea contentsOn">
 																	<!-- 수강생 리뷰 -->
 																	<c:choose>
-
+																	
+																		
 																		<c:when test="${not empty cRList }">
+																			<div class="reviewArea contentsOn">
 <%-- 																			<c:if test="${empty userId }"></c:if><!-- 만약에 로그인 세션이 없다면 아래 로그인 팝업 on 제거하기 --> --%>
 																			<c:forEach items="${cRList }" var="cReview">
+																			<input type="hidden" class="cListData" value="${cRList }"/>
 																				<!-- 후기 내용이 들어가는 부분 (바뀌어야하는 부분) -->
 																				<div class="jsx-4149508951 review-box">
 																					<div class="jsx-644785032 review-item">
@@ -1225,72 +1232,43 @@ img.jsx-2891290942 {
 																					</div>
 																				</div>
 																			</c:forEach>
-																		</c:when>
-
-																		<c:otherwise>
-																			<!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
-																			<div class="jsx-4149508951 auth-popup popup_review popup_on">
-																				<div class="jsx-133251687 content">
-																					<h5 class="jsx-133251687">로그인하고 전체보기</h5>
-																					<div class="jsx-133251687 btn-box">
-																						<div class="jsx-133251687 btn-join">
-																							<button type="button" class="jsx-520855050 signUp">회원가입</button>
-																						</div>
-																						<div class="jsx-133251687 btn-login">
-																							<button type="button" class="jsx-1487464557 login">로그인</button>
-																						</div>
+																			
+																			<div class="jsx-4149508951 reviewBtn">
+																				<div class="jsx-644785032 reviewItem">
+																					<div class="jsx-644785032 title writingArea">
+																						<div class="jsx-644785032 info info1" style="display: block; text-align: center; border-bottom: none;">
+																							<c:if test="${loginFG == 'm'}">
+																								<span class="jsx-644785032 btnWritingReview"><a href="#">후기 작성하기</a></span>
+																							</c:if>
+																						 </div>
 																					</div>
 																				</div>
 																			</div>
+																			</div>
+																		</c:when>
 
+																		<c:otherwise>
+																		<div class="reviewArea contentsOn">
 
 																			<!-- 후기가 없을때 -->
-																			<div class="jsx-4149508951 review-box writingArea on">
+																			<div class="jsx-4149508951 review-box">
 																				<div class="jsx-644785032 review-item noAnswer">
 																					<div class="jsx-644785032 title">
+																					  
 																						<h4 class="jsx-644785032">
 																							<span class="jsx-644785032">아직 후기가 없어요</span>
 																						</h4>
 																					</div>
-																					<div class="jsx-644785032 ">
+																					<div class="jsx-644785032 btnWritingArea">
 																						<div class="jsx-644785032 info">
-																							<c:if test="${loginFG eq 'm'}">
-																								<!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
-																								<span class="jsx-644785032 nickname goWriting"><a href="#">후기 작성하기</a></span>
+																							<c:if test="${loginFG == 'm'}">
+																								<span class="jsx-644785032 btnWritingReview"><a href="#">후기 작성하기</a></span>
 																							</c:if>
 																						</div>
 																					</div>
 																				</div>
 																			</div>
-
-																			<!-- 후기가 없을때 -->
-																			<form action="writingCReview.do" method="post">
-																				<input type="hidden" name="course_id" value="${course.course_id }">
-																				<div class="jsx-4149508951 review-box">
-																					<div class="jsx-644785032 review-item">
-																						<div class="jsx-644785032 title">
-																							<div class="jsx-644785032 info">
-																								<div class="jsx-644785032">
-																									<div class="jsx-1397353033 avatar">
-																										<div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);"></div>
-																									</div>
-																								</div>
-																								<span class="jsx-644785032 nickname">아*****</span>
-																							</div>
-
-																							<!-- 해당 수강생이 답글 작성하기 눌렀을 때 -->
-																							<div class="adminArea mb-3">
-																								<div class="input-group mb-3">
-																									<input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
-																									<button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="submit" id="button-addon2">작성</button>
-																								</div>
-																							</div>
-																						</div>
-																					</div>
-																				</div>
-																			</form>
-
-
+																			</div>
 																		</c:otherwise>
 																	</c:choose>
 																	</div>
@@ -1343,6 +1321,60 @@ img.jsx-2891290942 {
 				</div>
 			</div>
 		</section>
+		
+		<!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
+		<!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
+<!-- 		<div class="jsx-4149508951 auth-popup popup_on"> -->
+<!-- 			<div class="jsx-133251687 content"> -->
+<!-- 				<h5 class="jsx-133251687">로그인하고 전체보기</h5> -->
+<!-- 				<div class="jsx-133251687 btn-box"> -->
+<!-- 					<div class="jsx-133251687 btn-join"> -->
+<!-- 						<button type="button" class="jsx-520855050 joinBtn">회원가입</button> -->
+<!-- 					</div> -->
+<!-- 					<div class="jsx-133251687 btn-login"> -->
+<!-- 						<button type="button" class="jsx-1487464557 loginBtn">로그인</button> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+		
+		<!-- 댓글 창 -->
+		<div class="jsx-644785032 writingReview-item on">
+			<div class="jsx-644785032 title">
+				<div class="jsx-644785032 info">
+					<div class="jsx-644785032">
+						<div class="jsx-1397353033 avatar">
+							<div class="jsx-1397353033 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_09@2x.png?w=48&amp;f=webp&quot;);"></div>
+						</div>
+					</div>
+					<span class="jsx-644785032 nickname">${userId }</span>
+					<input type="hidden" name="userId" value="${userId }">
+				</div> 
+
+<!-- 				해당 수강생이 답글 작성하기 눌렀을 때 -->
+				<div class="adminArea mb-3">
+					<div class="input-group mb-3">
+					<input type="text" class="form-control" placeholder="답글 쓰기" aria-label="Recipient's username" aria-describedby="button-addon2">
+					
+					<div class="adminArea showWritingInput" style="border: 1px solid #ced4da;">
+						<div>
+							<div class="rating starPoint">
+								<span class="rating__result"></span> 
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+								<i class="rating__star far fa-star"></i>
+							</div>
+							<input type="hidden" name="star_pint" class="star_pint" value="">
+						</div>
+					</div>
+					
+					<button class="btn btn-outline-secondary gap-2 col-2 mx-auto review_post" type="button" id="button-addon2">작성</button>
+				</div>
+				</div>
+			</div>
+		</div>
 
 	</main>
 	<!-- End #main -->
@@ -1367,23 +1399,69 @@ img.jsx-2891290942 {
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-	let btn_signUp = document.querySelector('.signUp');
-	let btn_login = document.querySelector('.login');
-	let btn_goWriting = document.querySelector('.goWriting');
+
+	let btnWritingReview = document.querySelectorAll('.btnWritingReview a');
+	console.log("btnWritingReview : " + btnWritingReview);
+	
+	var cListInput = document.querySelector('.cListData');
+	
+	for (var i = 0; i < btnWritingReview.length; i++) {
+		btnWritingReview[i].addEventListener("click", function() {
+			alert("후기 작성하기 버튼 활성화!");
+			
+			let thisBootCamp = document.querySelector('.cBootcampName').innerText;
+			let userAcademy = '<%=academy%>';
+			console.log("thisBootCamp : " + thisBootCamp);
+			console.log("userAcademy : " + userAcademy);
+			let clickTheBtn = 0;
+			
+			if (thisBootCamp != userAcademy) {
+				alert('우리 학원생 아닌데 너 뉘기야');
+			} else {
+				alert('큼 ㅋ 우리 학원생 이내요 ㅋ');
+				
+				if (rListInput) {
+				    var rList = rListInput.value;
+				    var rListSize = rList.length;
+				    console.log("no null have review"); // 리뷰가 있을때
+				    
+				    clickTheBtn++;
+				    
+				    counting(clickTheBtn);
+				    
+				    
+				} else {
+				    console.log("yes null have no review"); // 리뷰 없을때
+				    
+					let originalDiv = document.querySelector('.review-item');
+					let showDiv = document.querySelector('.writingReview-item');
+					
+					originalDiv.style.display = 'none';		
+					
+					showDiv.classList.remove('on');
+		            originalDiv.parentNode.insertBefore(showDiv, originalDiv.nextSibling);
+				}
+			}
+		})
+	}
+	
+// 	let btn_signUp = document.querySelector('.signUp');
+// 	let btn_login = document.querySelector('.login');
+// 	let btn_goWriting = document.querySelector('.goWriting');
 	let btn_description = document.querySelector(".description");
 	let btn_studentReview = document.querySelector(".studentReview");
 	let showDescrioption = document.querySelector(".description_on");
 	let showReviewArea = document.querySelector(".reviewArea");
 	let btn_enroll = document.querySelector("e-enrol");
 
-	btn_signUp.addEventListener("click", function() {
-		alert('sign up');
-		location.href = 'member/join';
-	});
-	btn_login.addEventListener("click", function() {
-		alert('1');
-		location.href = 'member/login';
-	});
+// 	btn_signUp.addEventListener("click", function() {
+// 		alert('sign up');
+// 		location.href = 'member/join';
+// 	});
+// 	btn_login.addEventListener("click", function() {
+// 		alert('1');
+// 		location.href = 'member/login';
+// 	});
 	
 	btn_description.addEventListener("click", function() {
 		
