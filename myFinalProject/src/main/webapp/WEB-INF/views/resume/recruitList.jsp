@@ -1275,7 +1275,7 @@ filter: alpha(opacity=50);
 														</c:when>
 														<c:otherwise>
 															<div class="rLogo">
-															<img class="company_logo" name="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="#"/>
+															<img class="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="#"/>
 															</div>
 															</c:otherwise>
 															</c:choose>
@@ -1286,10 +1286,13 @@ filter: alpha(opacity=50);
 																<div class="rTit">${recruit.ad_title}</div>
 																<div class="rInfo">
 																	<span class="rPart"> ${recruit.job_position} </span> <span
-																		class="rAddress">${recruit.company_road}</span>
+																		class="rAddress">${recruit.company_extra}</span>
 																</div>
 																<div class="rSkillBox">
-																	<span class="rSkill"> <span class="tag tag-skil">${recruit.programming_languages}</span>
+																	<span class="rSkill"> <span class="tag tag-skil">영어</span>
+																		<span class="tag tag-skil">일본어</span> <span
+																		class="tag tag-benefit">반차제도</span> <span
+																		class="tag tag-benefit">노동절 휴무</span>
 																	</span>
 																</div>
 
@@ -1308,10 +1311,15 @@ filter: alpha(opacity=50);
                                               <path
 																				d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
                                             </svg>
-																	${recruit.job_salary}</span> <span
+																	</span> <span>${recruit.job_salary}</span> <span
 																		class="rPeriod">${recruit.application_deadline}</span>
 																</div>
 															</div>
+															<button class="rIcon devAddScrap str_off"
+																data-gino="44718609" data-gno="42132324"
+																data-memid="tselect11" data-memtypecode="C">
+																<span class="skip">채용공고 스크랩</span>
+															</button>
 													</a></li>
 
 												</ul>
