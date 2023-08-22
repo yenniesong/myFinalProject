@@ -1,9 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
+<c:set var="path" value="${pageContext.request.contextPath}" />
+<%
+	HttpSession tSession = request.getSession();
 
-
-
-
-
+	String userId = (String) tSession.getAttribute("userId");
+	String loginFG = (String) tSession.getAttribute("loginFG");
+	Integer company_id = (Integer)tSession.getAttribute("company_id");
+	String company_name = (String)tSession.getAttribute("company_name");
+	
+	System.out.println("userId : " + userId);
+	System.out.println("loginFG : " + loginFG);
+	System.out.println("company_id : " + company_id);
+	System.out.println("company_name : " + company_name);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,8 +33,8 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	
 <!-- Favicons -->
-<link href="/resources/assets/img/favicon.png" rel="icon">
-<link href="/resources/assets/img/apple-touch-icon.png"
+<link href="${path}/resources/assets/img/favicon.png" rel="icon">
+<link href="${path}/resources/assets/img/apple-touch-icon.png"
 	rel="apple-touch-icon">
 
 <!-- Google Fonts -->
@@ -30,28 +43,28 @@
 	rel="stylesheet">
 
 <!-- Vendor CSS Files -->
-<link href="/resources/assets/vendor/aos/aos.css"
+<link href="${path}/resources/assets/vendor/aos/aos.css"
 	rel="stylesheet">
 <link
-	href="/resources/assets/vendor/bootstrap/css/bootstrap.min.css"
+	href="${path}/resources/assets/vendor/bootstrap/css/bootstrap.min.css"
 	rel="stylesheet">
 <link
-	href="/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css"
+	href="${path}/resources/assets/vendor/bootstrap-icons/bootstrap-icons.css"
 	rel="stylesheet">
 <link
-	href="/resources/assets/vendor/boxicons/css/boxicons.min.css"
+	href="${path}/resources/assets/vendor/boxicons/css/boxicons.min.css"
 	rel="stylesheet">
 <link
-	href="/resources/assets/vendor/glightbox/css/glightbox.min.css"
+	href="${path}/resources/assets/vendor/glightbox/css/glightbox.min.css"
 	rel="stylesheet">
-<link href="/resources/assets/vendor/remixicon/remixicon.css"
+<link href="${path}/resources/assets/vendor/remixicon/remixicon.css"
 	rel="stylesheet">
 <link
-	href="/resources/assets/vendor/swiper/swiper-bundle.min.css"
+	href="${path}/resources/assets/vendor/swiper/swiper-bundle.min.css"
 	rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="/resources/css/style.css" rel="stylesheet">
+<link href="${path}/resources/css/style.css" rel="stylesheet">
 
 <style>
 
@@ -228,12 +241,6 @@ filter: alpha(opacity=50);
 	overflow: visible;
 	border-radius: 8px 8px 0 0;
 	z-index: 1;
-	background-color: #fff;
-}
-
-.company_logo_en {
-width: 100%;
-height: 100%;
 }
 
  .rLogo>img {
@@ -254,6 +261,8 @@ height: 100%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
 }
 
 #searchList>ul>li:nth-child(1)>a>div.listCont {
@@ -621,137 +630,7 @@ height: 100%;
 </head>
 <body>
 	<!-- ======= Header ======= -->
-	
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>Soupie</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
-
-<!-- Favicons -->
-<link href="/resources/img/soupie.png" rel="icon">
-<link href="/resources/img/soupie.png" rel="apple-touch-icon">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-<!-- Vendor CSS Files -->
-<link href="/resources/vendor/aos/aos.css" rel="stylesheet">
-<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="/resources/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="/resources/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-<link href="/resources/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="/resources/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-<!-- Template Main CSS File -->
-<link href="/resources/css/style.css" rel="stylesheet">
-
-<!-- =======================================================
-  * Template Name: Arsha - v4.3.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-	<!-- ======= Header ======= -->
-	<header id="header" class="fixed-top ">
-		<div class="container d-flex align-items-center">
-
-			<h1 class="logo me-auto">
-				<a href="main.do">
-					<img src="/resources/img/soupie.png" style="margin-right: 10px; margin-bottom: 10px;">Soupie</a>
-			</h1>
-
-			<nav id="navbar" class="navbar">
-				<ul>
-					<li><a class="nav-link scrollto active" href="main.do">Home</a></li>
-					<li><a class="nav-link scrollto" href="#about">About</a></li>
-					<li class="dropdown">
-						<a class="nav-link scrollto" href="#announcements">
-							<span>Announcements</span>
-							<i class="bi bi-chevron-down"></i>
-						</a>
-						<ul>
-							<li><a href="adminBoard.do">공지사항</a></li>
-							<li><a href="faqsBoard">FAQs</a></li>
-						</ul>
-					</li>
-
-					<li class="dropdown">
-						<a href="#">
-							<span>Teacher | Course</span> 
-							<i class="bi bi-chevron-down"></i>
-						</a>
-						<ul>
-							<li><a href="/teacher/getTeacherList.do">Teacher</a></li>
-							<li><a href="/course/getCourseList.do">Course</a></li>
-							<li><a href="/qnaBoard/getQnAList.do">Teacher | Course Q&A</a></li>
-						</ul>
-					</li>
-					<ul>
-					<li><a href="/recruit/getRecruitList.do">Recruit</a></li>
-					</ul>
- 
-					<!--           <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li> -->
-					<li><a class="nav-link scrollto" href="#team">Team</a></li>
-					
-						<li class="dropdown"><a href="#"><span>마이페이지</span> <i class="bi bi-chevron-down"></i></a>
-							<ul>
-								<li><a href="#">company123님 페이지</a></li>
-								<!-- 회원 -->
-								
-								
-								
-									<!-- 기업 -->
-									<li><a href="CompanymyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">내 댓글 목록</a></li>
-								
-								
-							</ul>
-						</li>
-						<li><a class="getstarted scrollto" href="/member/logout">로그아웃</a></li>
-					
-					
-			</nav>
-			<!-- .navbar -->
-
-		</div>
-	</header>
-	<!-- End Header -->
-
-	<div id="preloader"></div>
-	<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-	<!-- Vendor JS Files -->
-	<script src="/resources/vendor/aos/aos.js"></script>
-	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/vendor/glightbox/js/glightbox.min.js"></script>
-	<script src="/resources/vendor/php-email-form/validate.js"></script>
-	<script src="/resources/vendor/swiper/swiper-bundle.min.js"></script>
-	<script src="/resources/vendor/waypoints/noframework.waypoints.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="/resources/js/main.js"></script>
-
-</body>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</html>
+	<%@include file="../includes/header.jsp"%>
 	<!-- End Header -->
 
 	<!-- ======= main ======= -->
@@ -1365,8 +1244,8 @@ height: 100%;
                 <!--구인공고 리스트 (with scrap / apply btn)-->
                 <!--JOB LIST -> CARD FORM (WITH APPLY / SCRAP BUTTON / PAGING) -> click this card, chage page -> detail -->
                 <!--반복문 사용해 글 등록될 때마다 카드 늘어나도록-->
-                
-                    
+                <c:choose>
+                    <c:when test="${loginFG == 'c'}">
                         <!--글쓰기 버튼-->
                         <div class="row row-cols-auto">
                             <!--공고 등록 -> flag, js 사용해 company user에게만 보이게-->
@@ -1383,342 +1262,43 @@ height: 100%;
                         </div><br><br>
 
                         <div class="row row-cols-1 row-cols-md-3">
-                            
+                            <c:forEach items="${rList}" var="recruit">
                                 <div id="recruitWrap" class="recruitWrap">
                                     <div class="col-4">
                                         <div class="secContents">
                                             <div id="searchLog"></div>
                                             <div id="searchList" class="recruitList">
                                                 <ul>
-                                                    <li><a href="getRecruit.do?ad_id=123" class="listCell">
-                                                            
-                                                                
+                                                    <li><a href="getRecruit.do?ad_id=${recruit.ad_id}" class="listCell">
+                                                            <c:choose>
+                                                                <c:when test="${empty recruit.company_logo_en}">
                                                                     <div class="rLogo">
                                                                         <img src="${path}/resources/imgs/pea_icon.png"
                                                                             alt="#" class="jsx-3824006232">
                                                                     </div>
 
-                                                                
-                                                                
-                                                            
-                                                            <div class="listCont">
-                                                                <div class="rCor">
-                                                                    <span class="corNm">s</span>
-                                                                </div>
-                                                                <div class="rTit">test</div>
-                                                                <div class="rInfo">
-                                                                    <span class="rPart"> 풀스택 </span>
-                                                                    <span
-                                                                        class="rAddress">대전 동구 판교1길 4</span>
-                                                                </div>
-                                                                <div class="rSkillBox">
-                                                                    <span class="rSkill"> <span
-                                                                            class="tag tag-skil">test, test, test</span>
-                                                                    </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="listFoot">
-
-                                                                <div class="rAssist">
-                                                                    <span> <svg id="sal-svg"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="14" height="14" fill="currentColor"
-                                                                            class="bi bi-coin" viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-                                                                            <path
-                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                                            <path
-                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                                                                        </svg>
-                                                                        회사 내규에 따름</span> <span
-                                                                        class="rPeriod">2023-08-23</span>
-                                                                </div>
-                                                            </div>
-                                                        </a></li>
-
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div id="recruitWrap" class="recruitWrap">
-                                    <div class="col-4">
-                                        <div class="secContents">
-                                            <div id="searchLog"></div>
-                                            <div id="searchList" class="recruitList">
-                                                <ul>
-                                                    <li><a href="getRecruit.do?ad_id=124" class="listCell">
-                                                            
-                                                                
-                                                                    <div class="rLogo">
-                                                                        <img src="/resources/imgs/pea_icon.png"
-                                                                            alt="#" class="jsx-3824006232">
-                                                                    </div>
-
-                                                                
-                                                                
-                                                            
-                                                            <div class="listCont">
-                                                                <div class="rCor">
-                                                                    <span class="corNm">DEF Company,1</span>
-                                                                </div>
-                                                                <div class="rTit">수정 테스트</div>
-                                                                <div class="rInfo">
-                                                                    <span class="rPart"> 풀스택 </span>
-                                                                    <span
-                                                                        class="rAddress">경기 평택시 경기대로 1420-21</span>
-                                                                </div>
-                                                                <div class="rSkillBox">
-                                                                    <span class="rSkill"> <span
-                                                                            class="tag tag-skil">1</span>
-                                                                    </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="listFoot">
-
-                                                                <div class="rAssist">
-                                                                    <span> <svg id="sal-svg"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="14" height="14" fill="currentColor"
-                                                                            class="bi bi-coin" viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-                                                                            <path
-                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                                            <path
-                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                                                                        </svg>
-                                                                        회사 내규에 따름</span> <span
-                                                                        class="rPeriod">2023-08-28</span>
-                                                                </div>
-                                                            </div>
-                                                        </a></li>
-
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div id="recruitWrap" class="recruitWrap">
-                                    <div class="col-4">
-                                        <div class="secContents">
-                                            <div id="searchLog"></div>
-                                            <div id="searchList" class="recruitList">
-                                                <ul>
-                                                    <li><a href="getRecruit.do?ad_id=125" class="listCell">
-                                                            
-                                                                
-                                                                    <div class="rLogo">
-                                                                        <img src="/resources/imgs/pea_icon.png"
-                                                                            alt="#" class="jsx-3824006232">
-                                                                    </div>
-
-                                                                
-                                                                
-                                                            
-                                                            <div class="listCont">
-                                                                <div class="rCor">
-                                                                    <span class="corNm">s</span>
-                                                                </div>
-                                                                <div class="rTit">수정 테스트</div>
-                                                                <div class="rInfo">
-                                                                    <span class="rPart"> 풀스택 </span>
-                                                                    <span
-                                                                        class="rAddress">경기 평택시 경기대로 1420-21</span>
-                                                                </div>
-                                                                <div class="rSkillBox">
-                                                                    <span class="rSkill"> <span
-                                                                            class="tag tag-skil">s</span>
-                                                                    </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="listFoot">
-
-                                                                <div class="rAssist">
-                                                                    <span> <svg id="sal-svg"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="14" height="14" fill="currentColor"
-                                                                            class="bi bi-coin" viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-                                                                            <path
-                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                                            <path
-                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                                                                        </svg>
-                                                                        회사 내규에 따름</span> <span
-                                                                        class="rPeriod">2023-09-09</span>
-                                                                </div>
-                                                            </div>
-                                                        </a></li>
-
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div id="recruitWrap" class="recruitWrap">
-                                    <div class="col-4">
-                                        <div class="secContents">
-                                            <div id="searchLog"></div>
-                                            <div id="searchList" class="recruitList">
-                                                <ul>
-                                                    <li><a href="getRecruit.do?ad_id=126" class="listCell">
-                                                            
-                                                                
-                                                                    <div class="rLogo">
-                                                                        <img src="/resources/imgs/pea_icon.png"
-                                                                            alt="#" class="jsx-3824006232">
-                                                                    </div>
-
-                                                                
-                                                                
-                                                            
-                                                            <div class="listCont">
-                                                                <div class="rCor">
-                                                                    <span class="corNm">공룡기업</span>
-                                                                </div>
-                                                                <div class="rTit">test</div>
-                                                                <div class="rInfo">
-                                                                    <span class="rPart"> 풀스택 </span>
-                                                                    <span
-                                                                        class="rAddress">경기 평택시 경기대로 1420-21</span>
-                                                                </div>
-                                                                <div class="rSkillBox">
-                                                                    <span class="rSkill"> <span
-                                                                            class="tag tag-skil">자바, 파이썬, 자바스크립트</span>
-                                                                    </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="listFoot">
-
-                                                                <div class="rAssist">
-                                                                    <span> <svg id="sal-svg"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="14" height="14" fill="currentColor"
-                                                                            class="bi bi-coin" viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-                                                                            <path
-                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                                            <path
-                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                                                                        </svg>
-                                                                        회사 내규에 따름</span> <span
-                                                                        class="rPeriod">2023-09-09</span>
-                                                                </div>
-                                                            </div>
-                                                        </a></li>
-
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div id="recruitWrap" class="recruitWrap">
-                                    <div class="col-4">
-                                        <div class="secContents">
-                                            <div id="searchLog"></div>
-                                            <div id="searchList" class="recruitList">
-                                                <ul>
-                                                    <li><a href="getRecruit.do?ad_id=127" class="listCell">
-                                                            
-                                                                
-                                                                    <div class="rLogo">
-                                                                        <img src="/resources/imgs/pea_icon.png"
-                                                                            alt="#" class="jsx-3824006232">
-                                                                    </div>
-
-                                                                
-                                                                
-                                                            
-                                                            <div class="listCont">
-                                                                <div class="rCor">
-                                                                    <span class="corNm">DEF Company,</span>
-                                                                </div>
-                                                                <div class="rTit"></div>
-                                                                <div class="rInfo">
-                                                                    <span class="rPart"> 풀스택 </span>
-                                                                    <span
-                                                                        class="rAddress"></span>
-                                                                </div>
-                                                                <div class="rSkillBox">
-                                                                    <span class="rSkill"> <span
-                                                                            class="tag tag-skil"></span>
-                                                                    </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="listFoot">
-
-                                                                <div class="rAssist">
-                                                                    <span> <svg id="sal-svg"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="14" height="14" fill="currentColor"
-                                                                            class="bi bi-coin" viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-                                                                            <path
-                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                                            <path
-                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                                                                        </svg>
-                                                                        회사 내규에 따름</span> <span
-                                                                        class="rPeriod"></span>
-                                                                </div>
-                                                            </div>
-                                                        </a></li>
-
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div id="recruitWrap" class="recruitWrap">
-                                    <div class="col-4">
-                                        <div class="secContents">
-                                            <div id="searchLog"></div>
-                                            <div id="searchList" class="recruitList">
-                                                <ul>
-                                                    <li><a href="getRecruit.do?ad_id=128" class="listCell">
-                                                            
-                                                                
-                                                                
+                                                                </c:when>
+                                                                <c:otherwise>
                                                                     <div class="rLogo">
                                                                         <img id="company_logo_en"
-                                                                            src="${path}/resources/company_logo/85f913b5007542b2a9804d9b2a8ae279.png"
+                                                                            src="${path}/resources/company_logo/${recruit.company_logo_en}"
                                                                             alt="#" class="jsx-3824006232">
                                                                     </div>
-                                                                
-                                                            
+                                                                </c:otherwise>
+                                                            </c:choose>
                                                             <div class="listCont">
                                                                 <div class="rCor">
-                                                                    <span class="corNm">company123</span>
+                                                                    <span class="corNm">${recruit.company_name}</span>
                                                                 </div>
-                                                                <div class="rTit">s</div>
+                                                                <div class="rTit">${recruit.ad_title}</div>
                                                                 <div class="rInfo">
-                                                                    <span class="rPart"> 풀스택 </span>
+                                                                    <span class="rPart"> ${recruit.job_position} </span>
                                                                     <span
-                                                                        class="rAddress">광주 동구 동계로10번길 20</span>
+                                                                        class="rAddress">${recruit.company_road}</span>
                                                                 </div>
                                                                 <div class="rSkillBox">
                                                                     <span class="rSkill"> <span
-                                                                            class="tag tag-skil">s</span>
+                                                                            class="tag tag-skil">${recruit.programming_languages}</span>
                                                                     </span>
                                                                 </div>
 
@@ -1737,8 +1317,8 @@ height: 100%;
                                                                             <path
                                                                                 d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
                                                                         </svg>
-                                                                        회사 내규에 따름</span> <span
-                                                                        class="rPeriod">2023-09-09</span>
+                                                                        ${recruit.job_salary}</span> <span
+                                                                        class="rPeriod">${recruit.application_deadline}</span>
                                                                 </div>
                                                             </div>
                                                         </a></li>
@@ -1749,12 +1329,83 @@ height: 100%;
                                         </div>
                                     </div>
                                 </div>
-                            
+                            </c:forEach>
                         </div>
-                    
+                    </c:when>
 
-                    
-                
+                    <c:otherwise>
+                        <div class="row row-cols-1 row-cols-md-3">
+                            <c:forEach items="${rList}" var="recruit">
+
+                                <div id="recruitWrap" class="recruitWrap">
+                                    <div class="col-4">
+                                        <div class="secContents">
+                                            <div id="searchLog"></div>
+                                            <div id="searchList" class="recruitList">
+                                                <ul>
+                                                    <li><a href="getRecruit.do?ad_id=${recruit.ad_id}" class="listCell">
+                                                            <c:choose>
+                                                                <c:when test="${empty recruit.company_logo_en}">
+                                                                    <div class="rLogo">
+                                                                        <img src="${path}/resources/imgs/pea_icon.png"
+                                                                            alt="#" class="jsx-3824006232">
+                                                                    </div>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <div class="rLogo">
+                                                                        <img id="company_logo_en"
+                                                                            src="${path}/resources/company_logo/${recruit.company_logo_en}"
+                                                                            alt="#" class="jsx-3824006232">
+                                                                    </div>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                            <div class="listCont">
+                                                                <div class="rCor">
+                                                                    <span class="corNm">${recruit.company_name}</span>
+                                                                </div>
+                                                                <div class="rTit">${recruit.ad_title}</div>
+                                                                <div class="rInfo">
+                                                                    <span class="rPart"> ${recruit.job_position} </span>
+                                                                    <span
+                                                                        class="rAddress">${recruit.company_extra}</span>
+                                                                </div>
+                                                                <div class="rSkillBox">
+                                                                    <span class="rSkill"> <span
+                                                                            class="tag tag-skil">${recruit.programming_languages}</span>
+                                                                    </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="listFoot">
+                                                                <div class="rAssist">
+                                                                    <span> 
+                                                                    <svg id="sal-svg" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-coin" viewBox="0 0 16 16">
+                                                                            <path
+                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
+                                                                            <path
+                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                                            <path
+                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                                                                        </svg>
+                                                                    </span> <span>${recruit.job_salary}</span> <span
+                                                                        class="rPeriod">${recruit.application_deadline}</span>
+                                                                </div>
+                                                            </div>
+                                                            <button class="rIcon devAddScrap str_off">
+                                                                <span class="skip">채용공고 스크랩</span>
+                                                            </button>
+                                                        </a></li>
+
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
             </div>
         </section>
@@ -1763,141 +1414,7 @@ height: 100%;
     </main>
 
 	<!-- ======= Footer ======= -->
-	
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
-<title>Soupie</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
-
-<!-- Favicons -->
-<link href="/resources/img/soupie.png" rel="icon">
-<link href="/resources/img/soupie.png" rel="apple-touch-icon">
-
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-
-<!-- Vendor CSS Files -->
-<link href="/resources/vendor/aos/aos.css" rel="stylesheet">
-<link href="/resources/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-<link href="/resources/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-<link href="/resources/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<link href="/resources/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-<link href="/resources/vendor/remixicon/remixicon.css" rel="stylesheet">
-<link href="/resources/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-<!-- Template Main CSS File -->
-<link href="/resources/css/style.css" rel="stylesheet">
-
-<!-- =======================================================
-  * Template Name: Arsha - v4.3.0
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
-</head>
-
-<body>
-
-	
-
-	<!-- ======= Footer ======= -->
-	<footer id="footer">
-
-		<div class="footer-top">
-			<div class="container">
-				<div class="row">
-
-					<div class="col-lg-3 col-md-6 footer-contact">
-						<h3>Soupie</h3>
-						<p>
-							123-45 Soupie-gil<br> 
-							Soupie-dong, Soupie-si 16167<br>
-							Gyeongki-do <br> <br> 
-							<strong>Phone:</strong> +82 031 000 0000<br> 
-							<strong>Email:</strong> admin@soupie.com<br>
-						</p>
-					</div>
-
-					<div class="col-lg-3 col-md-6 footer-links">
-						<h4>Useful Links</h4>
-						<ul>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-3 col-md-6 footer-links">
-						<h4>Our Services</h4>
-						<ul>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-							<li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-						</ul>
-					</div>
-
-					<div class="col-lg-3 col-md-6 footer-links">
-						<h4>Our Social Networks</h4>
-						<p>You can explore more about Soupie!</p>
-						<div class="social-links mt-3">
-							<a href="#" class="twitter"><i class="bx bxl-twitter"></i></a> 
-							<a href="#" class="facebook"><i class="bx bxl-facebook"></i></a> 
-							<a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-							<a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-							<a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-						</div>
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="container footer-bottom clearfix">
-			<div class="copyright"> &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved </div>
-			<div class="credits">
-				<!-- All the links in the footer should remain intact. -->
-				<!-- You can delete the links only if you purchased the pro version. -->
-				<!-- Licensing information: https://bootstrapmade.com/license/ -->
-				<!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
-				Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-			</div>
-
-
-
-		</div>
-	</footer>
-	<!-- End Footer -->
-
-	<!-- Vendor JS Files -->
-	<script src="/resources/vendor/aos/aos.js"></script>
-	<script src="/resources/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="/resources/vendor/glightbox/js/glightbox.min.js"></script>
-	<script src="/resources/vendor/php-email-form/validate.js"></script>
-	<script src="/resources/vendor/swiper/swiper-bundle.min.js"></script>
-	<script src="/resources/vendor/waypoints/noframework.waypoints.js"></script>
-
-	<!-- Template Main JS File -->
-	<script src="/resources/js/main.js"></script>
-
-</body>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-</html>
+	<%@include file="../includes/footer.jsp"%>
 	<!-- End Footer -->
 
 </body>
@@ -1913,19 +1430,19 @@ height: 100%;
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <!-- Vendor JS Files -->
-<script src="/resources/assets/vendor/aos/aos.js"></script>
+<script src="${path}/resources/assets/vendor/aos/aos.js"></script>
 <script
-	src="/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	src="${path}/resources/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 <script
-	src="/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
+	src="${path}/resources/assets/vendor/glightbox/js/glightbox.min.js"></script>
 <script
-	src="/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-<script src="/resources/assets/vendor/php-email-form/validate.js"></script>
+	src="${path}/resources/assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="${path}/resources/assets/vendor/php-email-form/validate.js"></script>
 <script
-	src="/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
+	src="${path}/resources/assets/vendor/swiper/swiper-bundle.min.js"></script>
 <script
-	src="/resources/assets/vendor/waypoints/noframework.waypoints.js"></script>
+	src="${path}/resources/assets/vendor/waypoints/noframework.waypoints.js"></script>
 
 <!-- Template Main JS File -->
-<script src="/resources/assets/js/main.js"></script>
+<script src="${path}/resources/assets/js/main.js"></script>
 </html>
