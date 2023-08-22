@@ -276,7 +276,7 @@ aside {
 }
 
 .review-box.jsx-4149508951 {
-	position: relative;
+/* 	position: relative; */
 	display: flex;
 	overflow: hidden;
 	border-radius: 10px;
@@ -457,6 +457,7 @@ button.jsx-1487464557 {
 
 .clickTheB {
 	background-color: #1dc078;
+	color: #ffffff;
 }
 
 .on {
@@ -883,14 +884,7 @@ li.jsx-1546215327 button.jsx-1546215327 {
 	width: 100%;
 	height: 42px;
 	line-height: 42px;
-	color: rgb(102, 102, 102);
-}
-
-li.jsx-1546215327 button.jsx-1546215327 {
-	width: 100%;
-	height: 42px;
-	line-height: 42px;
-	color: rgb(102, 102, 102);
+/* 	color: rgb(102, 102, 102); */
 }
 
 .content.jsx-1546215327 {
@@ -898,9 +892,6 @@ li.jsx-1546215327 button.jsx-1546215327 {
 	background-color: rgb(255, 255, 255);
 	padding: 0px;
 }
-/* button.jsx-1546215327 { */
-/* 	background-color: #1dc078; */
-/* } */
 </style>
 <style id="__jsx-644785032">
 .info.jsx-644785032 {
@@ -1366,19 +1357,19 @@ img.jsx-2891290942 {
 		
 		<!-- 로그인 하지 않았다면 로그인 팝업창 뜨게 하기 -->
 		<!-- 로그인이 안되어있을 경우 뜨는 팝업 -->
-<!-- 		<div class="jsx-4149508951 auth-popup popup_on"> -->
-<!-- 			<div class="jsx-133251687 content"> -->
-<!-- 				<h5 class="jsx-133251687">로그인하고 전체보기</h5> -->
-<!-- 				<div class="jsx-133251687 btn-box"> -->
-<!-- 					<div class="jsx-133251687 btn-join"> -->
-<!-- 						<button type="button" class="jsx-520855050 joinBtn">회원가입</button> -->
-<!-- 					</div> -->
-<!-- 					<div class="jsx-133251687 btn-login"> -->
-<!-- 						<button type="button" class="jsx-1487464557 loginBtn">로그인</button> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+		<div class="jsx-4149508951 auth-popup popup_on">
+			<div class="jsx-133251687 content">
+				<h5 class="jsx-133251687">로그인하고 전체보기</h5>
+				<div class="jsx-133251687 btn-box">
+					<div class="jsx-133251687 btn-join">
+						<button type="button" class="jsx-520855050 joinBtn">회원가입</button>
+					</div>
+					<div class="jsx-133251687 btn-login">
+						<button type="button" class="jsx-1487464557 loginBtn">로그인</button>
+					</div>
+				</div>
+			</div>
+		</div>
 		
 		<!-- 댓글 창 -->
 		<div class="jsx-644785032 writingReview-item on">
@@ -1590,24 +1581,11 @@ img.jsx-2891290942 {
 		});
 	});
  
-	
-// 	let btn_signUp = document.querySelector('.signUp');
-// 	let btn_login = document.querySelector('.login');
-// 	let btn_goWriting = document.querySelector('.goWriting');
 	let btn_description = document.querySelector(".description");
 	let btn_studentReview = document.querySelector(".studentReview");
 	let showDescrioption = document.querySelector(".description_on");
 	let showReviewArea = document.querySelector(".reviewArea");
 	let btn_enroll = document.querySelector("e-enrol");
-
-// 	btn_signUp.addEventListener("click", function() {
-// 		alert('sign up');
-// 		location.href = 'member/join';
-// 	});
-// 	btn_login.addEventListener("click", function() {
-// 		alert('1');
-// 		location.href = 'member/login';
-// 	});
 	
 	btn_description.addEventListener("click", function() {
 		
@@ -1633,73 +1611,73 @@ img.jsx-2891290942 {
 		showReviewArea.classList.remove("contentsOn");
 	});
 	
-	
-// 	btn_goWriting.addEventListener("click", function() {
-// 		let writing_review = document.querySelector('.writingArea');
-// 		let noAnswer = document.querySelector('.noAnswer');
-// 		let btn_review_post = document.querySelector('.review_post');
-		
-// 		writing_review.classList.remove('on');
-// 		btn_review_post.classList.remove('on');
-// 		noAnswer.classList.add('on');
-		
-// 		btn_review_post.addEventListener("click", function() {
-// 			alert('1');
-// 		});
-		
-// 	});
-	
-// 	btn_enroll.addEventListener("click", function () {
-// 		alert('강좌 신청');
-// 		/* 학생의 정보와 이 강좌의 정보를 같이 보내야함 */
-	
-// 	});
-	
 	$(function() {
+		let loginUser = "<%= userId %>"; 
 		$(".btn_enroll").click(function() {
 // 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
-			alert("수강신청하기");
+			alert("수강신청하기 버튼 활성화");
+			alert("loginUser : " + loginUser);
 		
-			let userId = '<%=userId%>';
-			let name = '<%=userName%>';
-			let bootcampName = '${course.bootcamp_name }';
-			let teacherId = '${teacher.teacher_id }';
-			let teacherName = '${teacher.teacher_name}';
-			let courseId = '${course.course_id}';
-			let courseName = '${course.course_name }';
-			
-			let data2 = {
-					"userId": userId
-				    , "name": name
-					, "bootcamp_name" : bootcampName
-					, "teacher_id" : teacherId
-					, "teacher_name" : teacherName
-					, "course_id" : courseId
-					, "course_name" : courseName
-			};
-			
-			$.ajax({
-				url : "/enrollment/insertEnrollment.do",
-				type: "POST",
-				data: data2,
-				dataType: "text", 
-				/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
-				success : function (json) {
-					console.log(json);
-					if (json == 0) {
-						alert('선생님의 강좌가 아직 열리지 않았어요!');
-					} else if (json > 0) {
-						alert('이미 신청되었어요!');
-					} else {
-						alert("수강신청이 완료되었어요!");
+			if (loginUser === null) {
+				alert("loginUser is null!");
+				$(".auth-popup").removeClass("popup_on");
+				
+			} else {
+
+				let userId = '<%=userId%>';
+				let name = '<%=userName%>';
+				let bootcampName = '${course.bootcamp_name }';
+				let teacherId = '${teacher.teacher_id }';
+				let teacherName = '${teacher.teacher_name}';
+				let courseId = '${course.course_id}';
+				let courseName = '${course.course_name }';
+				
+				let data2 = {
+						"userId": userId
+					    , "name": name
+						, "bootcamp_name" : bootcampName
+						, "teacher_id" : teacherId
+						, "teacher_name" : teacherName
+						, "course_id" : courseId
+						, "course_name" : courseName
+				};
+				
+				$.ajax({
+					url : "/enrollment/insertEnrollment.do",
+					type: "POST",
+					data: data2,
+					dataType: "text", 
+					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
+					success : function (json) {
+						console.log(json);
+						if (json == 0) {
+							alert('선생님의 강좌가 아직 열리지 않았어요!');
+						} else if (json > 0) {
+							alert('이미 신청되었어요!');
+						} else {
+							alert("수강신청이 완료되었어요!");
+						}
+					},
+					Error: function () {
+						alert("실패");
 					}
-				},
-				Error: function () {
-					alert("실패");
-				}
-			});
-			
+				});
+			}
 		});
+	});
+	
+	let btn_join = document.querySelector(".joinBtn");
+	let btn_login = document.querySelector(".loginBtn");
+	
+	btn_join.addEventListener("click", function() {
+		alert("회원가입 버튼 활성화");
+		location.href='/member/join.do';
+	});
+	
+	btn_login.addEventListener("click", function() {
+		
+		alert("로그인 버튼 활성화");
+		location.href='/member/login.do';
 	});
 	
 	let btn_updatingCourse = document.querySelector('.updatingCourse');
