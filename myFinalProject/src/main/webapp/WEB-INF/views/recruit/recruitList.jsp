@@ -118,14 +118,6 @@ filter: alpha(opacity=50);
 	border: none;
 }
 
-/*기업 로고*/
-.image-box {
-	width: 20px;
-	height: 20px;
-	object-fit: cover;
-	display: block;
-	margin: 20px auto;
-}
 </style>
 <style>
 #recruitWrap {
@@ -232,7 +224,7 @@ filter: alpha(opacity=50);
 	transition: .3s;
 }
 
-#searchList>ul>li:nth-child(1)>a>div.rLogo {
+.rLogo {
 	font-family: "\B9D1\C740   \ACE0\B515", Malgun Gothic, "\B3CB\C6C0",
 		Dotum, sans-serif;
 	font-size: 13px;
@@ -246,30 +238,35 @@ filter: alpha(opacity=50);
 	margin: 0;
 	position: relative;
 	height: 130px;
-	overflow: hidden;
+	overflow: visible;
 	border-radius: 8px 8px 0 0;
-	z-index: -1;
+	z-index: 1;
+	background-color: #fff;
 }
 
-#searchList>ul>li:nth-child(1)>a>div.rLogo>img {
+.company_logo_en {
+width: 100%;
+height: 100%;
+}
+
+ .rLogo>img {
 	font-family: "\B9D1\C740   \ACE0\B515", Malgun Gothic, "\B3CB\C6C0",
 		Dotum, sans-serif;
 	font-size: 13px;
-	letter-spacing: -.5px;
-	line-height: 1;
-	list-style: none;
-	color: #333;
-	cursor: pointer;
-	padding: 0;
-	margin: 0;
-	border: 0 none;
-	vertical-align: top;
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	width: 100%;
+    letter-spacing: -.5px;
+    line-height: 1;
+    list-style: none;
+    color: #333;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+    vertical-align: top;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 #searchList>ul>li:nth-child(1)>a>div.listCont {
@@ -292,7 +289,6 @@ filter: alpha(opacity=50);
 	font-family: "\B9D1\C740   \ACE0\B515", Malgun Gothic, "\B3CB\C6C0",
 		Dotum, sans-serif;
 	font-size: 13px;
-	letter-spacing: -.5px;
 	line-height: 1;
 	list-style: none;
 	color: #333;
@@ -1272,13 +1268,15 @@ filter: alpha(opacity=50);
 													<li><a href="getRecruit.do?ad_id=${recruit.ad_id}" class="listCell">
 														<c:choose>
 														<c:when test="${empty recruit.company_logo_en}">
-														<div class="rLogo">
-															<span class="company_logo_en" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
+														
+															<div class="rLogo">
+																<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
 															</div>
+															
 														</c:when>
 														<c:otherwise>
 															<div class="rLogo">
-															<img class="company_logo" name="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="${recruit.company_logo }"/>
+																<img id="company_logo_en" src="${path}/resources/company/${recruit.company_logo_en}" alt="#" class="jsx-3824006232">
 															</div>
 															</c:otherwise>
 															</c:choose>
@@ -1342,12 +1340,12 @@ filter: alpha(opacity=50);
 															<c:choose>
 														<c:when test="${empty recruit.company_logo_en}">
 														<div class="rLogo">
-															<span class="company_logo_en" style="background-image: url(/myFinalProject/src/main/webapp/resources/company_logo/recruit_default_img.png);"></span>
+																<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
 															</div>
 														</c:when>
 														<c:otherwise>
 															<div class="rLogo">
-															<img class="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="${recruit.company_logo }"/>
+																<img id="company_logo_en" src="${path}/resources/company/${recruit.company_logo_en}" alt="#" class="jsx-3824006232">
 															</div>
 															</c:otherwise>
 															</c:choose>

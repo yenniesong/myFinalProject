@@ -1119,7 +1119,7 @@ button:focus {
 					<div class="company_logo">
 						<div class="company_logo_img">
 							<img class="company_logo_en" alt="#"
-								src="${path}/resources/company_logo/${recruit.company_logo_en}" />
+								src="${path}/resources/company/${recruit.company_logo_en}" />
 							<input type="hidden" name="company_id"
 								value="${recruit.company_id}" />
 						</div>
