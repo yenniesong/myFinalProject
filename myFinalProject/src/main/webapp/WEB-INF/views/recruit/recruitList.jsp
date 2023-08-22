@@ -1276,7 +1276,7 @@ height: 100%;
 														</c:when>
 														<c:otherwise>
 															<div class="rLogo">
-																<img id="company_logo_en" src="${path}/resources/company/${recruit.company_logo_en}" alt="#" class="jsx-3824006232">
+																<img id="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="#" class="jsx-3824006232">
 															</div>
 															</c:otherwise>
 															</c:choose>
@@ -1345,7 +1345,7 @@ height: 100%;
 														</c:when>
 														<c:otherwise>
 															<div class="rLogo">
-																<img id="company_logo_en" src="${path}/resources/company/${recruit.company_logo_en}" alt="#" class="jsx-3824006232">
+																<img id="company_logo_en" src="${path}/resources/company_logo/${recruit.company_logo_en}" alt="#" class="jsx-3824006232">
 															</div>
 															</c:otherwise>
 															</c:choose>

@@ -72,7 +72,7 @@ public class RecruitVO {
 			// fname_en : 랜덤 문자열 32자리이므로 중복없이 저장이 가능
 			// 랜덤 파일명(b_fname_en)과 실제 파일명(b_fname)은 서로 매칭해야하기때문에 둘다 DB에 저장해야함
 //			File f = new File("C:\\Users\\human\\Desktop\\sts3\\cWebBoard\\src\\main\\webapp\\resources\\upload\\" + fname_en);
-			File f = new File("C:\\Users\\97yeo\\git\\myFinalProject\\myFinalProject\\src\\main\\webapp\\resources\\company\\" + company_logo_en );
+			File f = new File("C:\\Users\\97yeo\\git\\myFinalProject\\myFinalProject\\src\\main\\webapp\\resources\\company_logo\\" + company_logo_en );
 			try {
 				// 첨부파일로 받은 데이터를 File 클래스로 만든 데이터에게 반환
 				company_logo_file.transferTo(f);
