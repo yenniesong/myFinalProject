@@ -748,10 +748,19 @@
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <!-- date range picker -->
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script> -->
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> -->
+<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+
+<!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" /> -->
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+ 
+<!-- js -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
 <script>
 	let btnCancle = document.querySelector('.btn-cancel');
@@ -770,33 +779,55 @@
 		reader.readAsDataURL(event.target.files[0]);
 	}
   
-	$(function() {
-		$('input[name="course_period"]').daterangepicker(
-				{
-					"locale" : {
-						"format" : "YYYY-MM-DD",
-						"separator" : " ~ ",
-						"applyLabel" : "확인",
-						"cancelLabel" : "취소",
-						"fromLabel" : "From",
-						"toLabel" : "To",
-						"customRangeLabel" : "Custom",
-						"weekLabel" : "W",
-						"daysOfWeek" : [ "월", "화", "수", "목", "금", "토", "일" ],
-						"monthNames" : [ "1월", "2월", "3월", "4월", "5월", "6월",
-								"7월", "8월", "9월", "10월", "11월", "12월" ],
-						"firstDay" : 1
-					},
-					"startDate" : new Date(),
-					"endDate" : new Date(),
-					"drops" : "auto"
-				},
-				function(start, end, label) {
-					console.log('New date range selected: '
-							+ start.format('YYYY-MM-DD') + ' to '
-							+ end.format('YYYY-MM-DD') + ' (predefined range: '
-							+ label + ')');
-				});
+// 	$('input[name="course_period"]').daterangepicker();
+	$('input[name="course_period"]').daterangepicker({
+	    locale: {
+	        "separator": " ~ ",
+	        "format": 'YYYY-MM-DD',
+	        "applyLabel": "확인",
+	        "cancelLabel": "취소",
+	        "daysOfWeek": ["일", "월", "화", "수", "목", "금", "토"],
+	        "monthNames": ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"]
+	    },
+	    timePicker: false,
+	    showDropdowns: true,
+	    autoApply: false // autoApply를 false로 설정하여 확인 버튼 유지
 	});
+	
+	$('input[name="course_period"]').on('show.daterangepicker', function (ev, picker) {
+	    $(".yearselect").css("float", "left");
+	    $(".monthselect").css("float", "right");
+	    $(".cancelBtn").css("float", "right");
+	});
+
+
+// 	$(function() {
+// 		$('input[name="course_period"]').daterangepicker(
+// 				{
+// 					"locale" : {
+// 						"format" : "YYYY-MM-DD",
+// 						"separator" : " ~ ",
+// 						"applyLabel" : "확인",
+// 						"cancelLabel" : "취소",
+// 						"fromLabel" : "From",
+// 						"toLabel" : "To",
+// 						"customRangeLabel" : "Custom",
+// 						"weekLabel" : "W",
+// 						"daysOfWeek" : [ "월", "화", "수", "목", "금", "토", "일" ],
+// 						"monthNames" : [ "1월", "2월", "3월", "4월", "5월", "6월",
+// 								"7월", "8월", "9월", "10월", "11월", "12월" ],
+// 						"firstDay" : 6
+// 					},
+// 					"startDate" : new Date(),
+// 					"endDate" : new Date(),
+// 					"drops" : "auto"
+// 				},
+// 				function(start, end, label) {
+// 					console.log('New date range selected: '
+// 							+ start.format('YYYY-MM-DD') + ' to '
+// 							+ end.format('YYYY-MM-DD') + ' (predefined range: '
+// 							+ label + ')');
+// 				});
+// 	});
 </script>
 </html>
