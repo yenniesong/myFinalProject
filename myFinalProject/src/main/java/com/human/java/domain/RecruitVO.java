@@ -42,21 +42,21 @@ public class RecruitVO {
 	private String company_extra; //1
 
 	/*********************************************/
-	MultipartFile company_logo_file;	// From 태그에 있는 type="file"인 대상의 name="" 과 동일해야함
+	MultipartFile file;	// Form 태그에 있는 type="file"인 대상의 name="" 과 동일해야함
 	
 	public MultipartFile getFile() {
-		return company_logo_file;
+		return file;
 	}
 
-	public void setFile(MultipartFile company_logo_file) {
-		this.company_logo_file = company_logo_file;
+	public void setFile(MultipartFile file) {
+		this.file = file;
 		System.out.println("** 파일 첨부 변수 생성 **");
 		// 현재 이 시점은 Controller의 파라미터가 생성되는 시점 / 즉, Controller가 실행되기 전
 		// 현재 시점에서 파일에 대한 정보를 담을 변수에 값을 채워주는 작업을 코딩
 		
-		if (!company_logo_file.isEmpty()) {
+		if (!file.isEmpty()) {
 			// 파일 이름 추출, 사이즈, 확장자 추출 등...
-			this.company_logo = company_logo_file.getOriginalFilename();	// 실제 파일명을 fname에 넣어주는 것
+			this.company_logo = file.getOriginalFilename();	// 실제 파일명을 fname에 넣어주는 것
 			
 			// 실제 파일 생성 >> 혹시 사용자가 같은 이름을 가진 파일을 첨부(업로드)한다면 이전 파일에게 덮어짐 > 이전 파일이 훼손
 //			File f = new File("C:\\Users\\human\\Desktop\\sts3\\cWebBoard\\src\\main\\webapp\\resources\\upload\\" + b_fname);
@@ -75,7 +75,7 @@ public class RecruitVO {
 			File f = new File("C:\\Users\\97yeo\\git\\myFinalProject\\myFinalProject\\src\\main\\webapp\\resources\\company_logo\\" + company_logo_en );
 			try {
 				// 첨부파일로 받은 데이터를 File 클래스로 만든 데이터에게 반환
-				company_logo_file.transferTo(f);
+				file.transferTo(f);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

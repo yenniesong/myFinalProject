@@ -143,7 +143,7 @@
                   <img src="https://i0.wp.com/adventure.co.kr/wp-content/uploads/2020/09/no-image.jpg" class="image-box"
                     alt="company-logo" />
                   <label for="file" class="upload-btn">
-                    <input id="file" type="file" accept="image/*" name="company_logo_file" />
+                    <input id="file" type="file" accept="image/*" name="file"/>
                   </label>
                 </div>
               </div>

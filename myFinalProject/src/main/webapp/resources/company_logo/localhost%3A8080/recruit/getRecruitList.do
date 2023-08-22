@@ -1390,71 +1390,11 @@ height: 100%;
                                             <div id="searchLog"></div>
                                             <div id="searchList" class="recruitList">
                                                 <ul>
-                                                    <li><a href="getRecruit.do?ad_id=122" class="listCell">
-                                                            
-                                                                
-                                                                
-                                                                    <div class="rLogo">
-                                                                        <img id="company_logo_en"
-                                                                            src="/resources/cpmpany_logo/92c398ead1ed4c94bc008833a7c8905e" alt="#" class="jsx-3824006232">
-                                                                    </div>
-                                                                
-                                                            
-                                                            <div class="listCont">
-                                                                <div class="rCor">
-                                                                    <span class="corNm">DEF Company,</span>
-                                                                </div>
-                                                                <div class="rTit">test</div>
-                                                                <div class="rInfo">
-                                                                    <span class="rPart"> 풀스택 </span>
-                                                                    <span
-                                                                        class="rAddress"></span>
-                                                                </div>
-                                                                <div class="rSkillBox">
-                                                                    <span class="rSkill"> <span
-                                                                            class="tag tag-skil"></span>
-                                                                    </span>
-                                                                </div>
-
-                                                            </div>
-                                                            <div class="listFoot">
-
-                                                                <div class="rAssist">
-                                                                    <span> <svg id="sal-svg"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            width="14" height="14" fill="currentColor"
-                                                                            class="bi bi-coin" viewBox="0 0 16 16">
-                                                                            <path
-                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
-                                                                            <path
-                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                                                                            <path
-                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
-                                                                        </svg>
-                                                                        회사 내규에 따름</span> <span
-                                                                        class="rPeriod"></span>
-                                                                </div>
-                                                            </div>
-                                                        </a></li>
-
-                                                </ul>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                            
-                                <div id="recruitWrap" class="recruitWrap">
-                                    <div class="col-4">
-                                        <div class="secContents">
-                                            <div id="searchLog"></div>
-                                            <div id="searchList" class="recruitList">
-                                                <ul>
                                                     <li><a href="getRecruit.do?ad_id=123" class="listCell">
                                                             
                                                                 
                                                                     <div class="rLogo">
-                                                                        <img src="/resources/imgs/pea_icon.png"
+                                                                        <img src="${path}/resources/imgs/pea_icon.png"
                                                                             alt="#" class="jsx-3824006232">
                                                                     </div>
 
@@ -1657,6 +1597,128 @@ height: 100%;
                                                                 <div class="rSkillBox">
                                                                     <span class="rSkill"> <span
                                                                             class="tag tag-skil">자바, 파이썬, 자바스크립트</span>
+                                                                    </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="listFoot">
+
+                                                                <div class="rAssist">
+                                                                    <span> <svg id="sal-svg"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            width="14" height="14" fill="currentColor"
+                                                                            class="bi bi-coin" viewBox="0 0 16 16">
+                                                                            <path
+                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
+                                                                            <path
+                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                                            <path
+                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                                                                        </svg>
+                                                                        회사 내규에 따름</span> <span
+                                                                        class="rPeriod">2023-09-09</span>
+                                                                </div>
+                                                            </div>
+                                                        </a></li>
+
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div id="recruitWrap" class="recruitWrap">
+                                    <div class="col-4">
+                                        <div class="secContents">
+                                            <div id="searchLog"></div>
+                                            <div id="searchList" class="recruitList">
+                                                <ul>
+                                                    <li><a href="getRecruit.do?ad_id=127" class="listCell">
+                                                            
+                                                                
+                                                                    <div class="rLogo">
+                                                                        <img src="/resources/imgs/pea_icon.png"
+                                                                            alt="#" class="jsx-3824006232">
+                                                                    </div>
+
+                                                                
+                                                                
+                                                            
+                                                            <div class="listCont">
+                                                                <div class="rCor">
+                                                                    <span class="corNm">DEF Company,</span>
+                                                                </div>
+                                                                <div class="rTit"></div>
+                                                                <div class="rInfo">
+                                                                    <span class="rPart"> 풀스택 </span>
+                                                                    <span
+                                                                        class="rAddress"></span>
+                                                                </div>
+                                                                <div class="rSkillBox">
+                                                                    <span class="rSkill"> <span
+                                                                            class="tag tag-skil"></span>
+                                                                    </span>
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="listFoot">
+
+                                                                <div class="rAssist">
+                                                                    <span> <svg id="sal-svg"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            width="14" height="14" fill="currentColor"
+                                                                            class="bi bi-coin" viewBox="0 0 16 16">
+                                                                            <path
+                                                                                d="M5.5 9.511c.076.954.83 1.697 2.182 1.785V12h.6v-.709c1.4-.098 2.218-.846 2.218-1.932 0-.987-.626-1.496-1.745-1.76l-.473-.112V5.57c.6.068.982.396 1.074.85h1.052c-.076-.919-.864-1.638-2.126-1.716V4h-.6v.719c-1.195.117-2.01.836-2.01 1.853 0 .9.606 1.472 1.613 1.707l.397.098v2.034c-.615-.093-1.022-.43-1.114-.9H5.5zm2.177-2.166c-.59-.137-.91-.416-.91-.836 0-.47.345-.822.915-.925v1.76h-.005zm.692 1.193c.717.166 1.048.435 1.048.91 0 .542-.412.914-1.135.982V8.518l.087.02z" />
+                                                                            <path
+                                                                                d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                                                            <path
+                                                                                d="M8 13.5a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11zm0 .5A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                                                                        </svg>
+                                                                        회사 내규에 따름</span> <span
+                                                                        class="rPeriod"></span>
+                                                                </div>
+                                                            </div>
+                                                        </a></li>
+
+                                                </ul>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                                <div id="recruitWrap" class="recruitWrap">
+                                    <div class="col-4">
+                                        <div class="secContents">
+                                            <div id="searchLog"></div>
+                                            <div id="searchList" class="recruitList">
+                                                <ul>
+                                                    <li><a href="getRecruit.do?ad_id=128" class="listCell">
+                                                            
+                                                                
+                                                                
+                                                                    <div class="rLogo">
+                                                                        <img id="company_logo_en"
+                                                                            src="${path}/resources/company_logo/85f913b5007542b2a9804d9b2a8ae279.png"
+                                                                            alt="#" class="jsx-3824006232">
+                                                                    </div>
+                                                                
+                                                            
+                                                            <div class="listCont">
+                                                                <div class="rCor">
+                                                                    <span class="corNm">company123</span>
+                                                                </div>
+                                                                <div class="rTit">s</div>
+                                                                <div class="rInfo">
+                                                                    <span class="rPart"> 풀스택 </span>
+                                                                    <span
+                                                                        class="rAddress">광주 동구 동계로10번길 20</span>
+                                                                </div>
+                                                                <div class="rSkillBox">
+                                                                    <span class="rSkill"> <span
+                                                                            class="tag tag-skil">s</span>
                                                                     </span>
                                                                 </div>
 
