@@ -569,7 +569,7 @@
 		        <p style="text-align: center;">비밀번호 입력</p>
 		        <input type="password" name="password" title="비밀번호 입력" placeholder="비밀번호를 입력해 주세요." class="jsx-599077571 password" value="" style="width: 300px;">
 		        <input type="hidden" name="question_id" id='hidden_question_id'>
-		        <input type="hidden" name="userId" value="<%=userId %>" id='hidden_userId'>
+<%-- 		        <input type="hidden" name="userId" value="<%=userId %>" id='hidden_userId'> --%>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-primary btnChkPwd">확인</button>
@@ -599,7 +599,7 @@
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-	console.log($('#hidden_userId').val());
+// 	console.log($('#hidden_userId').val());
 	
 	$(document).ready(function() {
 		$('div.jsx-989812570.col-title > a').click(function() {

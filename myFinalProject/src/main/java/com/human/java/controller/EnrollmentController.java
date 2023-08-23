@@ -46,16 +46,8 @@ public class EnrollmentController {
 	}
 	
 	@ResponseBody
-	@RequestMapping("chkTheCourse.do")
-	public String chkTheCourse(EnrollmentVO vo) {
-		System.out.println("## chkTheCourse.do 진입");
-		
-		return "";
-	}
-	
-	@ResponseBody
 	@RequestMapping("insertEnrollment.do")
-	public String insertEnrollment(EnrollmentVO vo, HttpSession session, HttpServletResponse response) {
+	public int insertEnrollment(EnrollmentVO vo, HttpSession session, HttpServletResponse response) {
 		System.out.println("## insertEnrollment.do 진입 ##");
 		
 		System.out.println("====> userId : " + vo.getUserId());
@@ -65,31 +57,9 @@ public class EnrollmentController {
 		System.out.println("====> teacher_name : " + vo.getTeacher_name());
 		System.out.println("====> course_id : " + vo.getCourse_id());
 		System.out.println("====> course_name : " + vo.getCourse_name());
-//		
-//		tVo.setTeacher_id(vo.getTeacher_id());
-//		tVo.setTeacher_name(vo.getTeacher_name());
-//		
-		// 선생님 강좌가 있는지 체크하기 
-		EnrollmentVO chkResult = enrollmentService.chkCourse(vo.getUserId(), vo.getCourse_id());
+
+		int insertResult = enrollmentService.insertEnrollment(vo);
 		
-		System.out.println("====> chkResult : " + chkResult);
-		System.out.println("====> chkResult.getCourse_id() : " + chkResult.getCourse_id());
-		// 만약에 강좌가 없으면 어떻게 할지 고민해보기
-		
-		int insertResult = 0;
-		
-		if (chkResult == null) {
-			enrollmentService.insertEnrollment(vo);
-			insertResult = 1;
-			return insertResult + "";
-			
-		} else {
-			// 있으면 수강신청하기
-			System.out.println("===> insertResult ㅅㅂㄻ 값 : " + insertResult);
-			
-			return insertResult + "";
-		}
-		
-		
+		return insertResult;
 	}
 }

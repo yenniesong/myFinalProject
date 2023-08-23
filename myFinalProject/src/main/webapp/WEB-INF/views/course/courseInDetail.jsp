@@ -507,6 +507,10 @@ button.jsx-1487464557 {
 .input-group {
 	margin-top: 12px;
 }
+
+.slash {
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="100%" x2="100%" y2="0" stroke="gray" /></svg>');
+}
 </style>
 <style id="__jsx-1629185219">
 .search-layout.jsx-1629185219 {
@@ -1336,17 +1340,14 @@ img.jsx-2891290942 {
 	                                                    <div class="cd-floating__card--top">
 	                                                        <div class="cd-floating__price cd-floating__price--installment" >
 	                                                            <div class="cd-floating__price--top">
-	                                                                <span class="cd-price__pay-price">${course.price }원</span>
-	                                                                <span style="font-weight: bold;
-	                                                                margin-top: 0px;
-	                                                                font-size: 35px;
-	                                                                ">전액 무료</span>
+	                                                                <span class="cd-price__pay-price slash">${course.price }원</span>
+	                                                                <span style="font-weight: bold; margin-top: 0px; font-size: 35px;">전액 무료</span>
 	                                                                <span class="cd-price__ment">5개월 할부 시</span>
 	                                                            </div>
 	                                                        </div>
 	                                                        <div class="cd-floating__buttons">
 	                                                            <button class="ac-button is-lg is-solid is-primary floating__main-button e-enrol btn_enroll" data-type="cart">수강신청 하기</button>
-	                                                            <button class="ac-button is-lg is-outlined is-gray floating__main-button e-add-cart " data-type="add-cart">바구니에 담기</button>
+	                                                            <button class="ac-button is-lg is-outlined is-gray floating__main-button e-add-cart" data-type="add-cart">바구니에 담기</button>
 	                                                        </div>
 	                                                    </div>
 	                                                </div>
@@ -1627,7 +1628,7 @@ img.jsx-2891290942 {
 			alert("수강신청하기 버튼 활성화");
 			alert("loginUser : " + loginUser);
 		
-			if (loginUser === null) {
+			if (loginUser === null || loginUser === "null") {
 				alert("loginUser is null!");
 				$(".auth-popup").removeClass("popup_on");
 				
@@ -1660,8 +1661,6 @@ img.jsx-2891290942 {
 					success : function (json) {
 						console.log("수강신청 결과 : " + json);
 						if (json == 0) {
-							alert('선생님의 강좌가 아직 열리지 않았어요!');
-						} else if (json > 0) {
 							alert('이미 신청되었어요!');
 						} else {
 							alert("수강신청이 완료되었어요!");
@@ -1673,6 +1672,12 @@ img.jsx-2891290942 {
 				});
 			}
 		});
+	});
+	
+	let btn_add_cart = document.querySelector(".e-add-cart");
+	
+	btn_add_cart.addEventListener("click", function() {
+		alert("준비 중 입니다..");
 	});
 	
 	let btn_join = document.querySelector(".joinBtn");

@@ -62,8 +62,6 @@ public class CourseController {
 		
 		model.addAttribute("cRList", cRList);
 		
-		
-		
 		return "/course/courseInDetail";
 	}
 	
