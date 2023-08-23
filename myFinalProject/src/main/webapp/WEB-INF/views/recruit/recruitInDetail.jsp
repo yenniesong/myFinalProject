@@ -1117,12 +1117,12 @@ button:focus {
 				<div class=" col-5">
 					<!-- company_logo -->
 					<div class="company_logo">
-						<div class="company_logo_img">
-							<img class="company_logo_en" alt="#"
+						
+							<img class="company_logo_img" alt="#"
 								src="${path}/resources/company_logo/${recruit.company_logo_en}" />
 							<input type="hidden" name="company_id"
 								value="${recruit.company_id}" />
-						</div>
+						
 					</div>
 
 					<!-- company ad list link -->

@@ -165,14 +165,14 @@
               <div class="row">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small;">기업 정보를 입력하세요.</p><br>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="company_name" placeholder="기업명" name="company_name">
+                  <input type="text" class="form-control" id="company_name" placeholder="기업명" name="company_name" value="<%=company_name %>">
                 </div>
                 <div class="col-md-4">
                   <input type="email" class="form-control" id="contact_email" placeholder="example@example.com"
                     name="contact_email">
                 </div>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="manager_name" placeholder="관리자 이름" name="manager_name">
+                  <input type="text" class="form-control" id="manager_name" placeholder="관리자 이름" name="manager_name" value="${recruit.manager_name}">
                 </div>
               </div>
               <br>
@@ -453,11 +453,11 @@
                 document.getElementById('cancel-btn').addEventListener('click', function () {
                   var confirmed = confirm('공고 작성을 취소하시겠습니까?');
                   if (confirmed) {
-                    // 메인 페이지로 돌아가는 동작 구현
-                    window.location.href = '메인페이지주소';
+                    alert('공고 작성을 취소하셨습니다. 메인 페이지로 이동합니다.')
+                    location.href='getRecruitList.do';
                   } else {
-                    // 취소 클릭 시 작성중인 모달 페이지로 돌아가는 동작 구현
-                    window.location.href = '메인페이지주소';
+                    // 취소 클릭 시 동작 x
+                    
                   }
                 });
 
@@ -467,7 +467,7 @@
                   if (confirmed) {
                     // 글 등록이 완료되었습니다. 메시지 표시 후 글 목록 화면으로 이동하는 동작 구현
                     alert('글 등록이 완료되었습니다.');
-                    window.location.href = '글목록주소';
+                    location.href = '글목록주소';
                   } else {
                     // 취소 클릭 시 아무 동작 없음
                   }

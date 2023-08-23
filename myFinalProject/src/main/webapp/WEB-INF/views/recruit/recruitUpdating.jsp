@@ -56,7 +56,7 @@
 <link href="${path}/resources/css/style.css" rel="stylesheet">
 
 <style>
-    /*글쓰기 ttitle*/
+    /*글쓰기 title*/
     .title.jsx-1629185219 {
       -webkit-box-pack: justify;
       justify-content: space-between;
@@ -125,21 +125,18 @@
         
         <section class="inner-page">
               <div class="container">
+          <form action="updateRecruit.do" method="post" enctype="multipart/form-data">
+          <!--  userId / ad_id -->
+          <input type="hidden" value="<%=userId %>" name="userId">
+          
         <!--  JOB LIST - MAIN SEARCH -->
         <div class="title">
           <h4 class="jsx-1629185219" style="color: #719a60;">JOB AD</h4>
           <p class="jsx-1629185219" style="color: #878e98; font-size: small;">공고 내용을 입력하세요.</p>
         </div>
-          <form id="recruit-form" action="updateRecruit.do" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="company_id" value="<%=company_id%>"/>
-	    <input type="hidden" name="userId" value="<%=userId%>"/>
-	    <input type="hidden" name="company_name" value="<%=company_name%>"/>
-<%-- 	    <c:out value="${param.no}" /> --%>
-	    <input type="hidden" name="ad_id" value="<%=ad_id%>"/>
-	    
         <!--제목-->
         <div class="mb-3">
-          <input type="text" class="form-control" id="ad-title" name="ad_title" value="${recruit.ad_title}"/>
+          <input type="text" class="form-control" id="ad-title" placeholder="제목을 입력하세요." name="ad_title" value="${recruit.ad_title}">
         </div>
         <hr>
         <br>
@@ -155,15 +152,16 @@
                 <div class="wrapper">
                   <p class="jsx-1629185219" style="color: #878e98; font-size: small; text-align: center;">기업 로고를 등록하세요.
                   </p>
-                  <img id="preview" src="${path}/resources/company_logo/${recruit.company_logo_en}"/>
+                  <img id="preview" src="${path}/resources/company_logo/${recruit.company_logo_en}" class="image-box"
+                    alt="#" />
                   <label for="file" class="upload-btn">
-                    <input id="file" type="file" accept="image/*" name="company_logo_file" onchange="previewImage(event);"/>
+                    <input id="file" type="file" accept="image/*" name="file" onchange="previewImage(event);"/>
                   </label>
                 </div>
               </div>
               <script type="text/javascript">
                 //for preview - image
-                	function previewImage(event) {
+              	function previewImage(event) {
 		var input = event.target;
 		if (input.files && input.files[0]) {
 			var reader = new FileReader();
@@ -178,17 +176,20 @@
               </script>
               <br>
               <!--company name / contact email / manager name--->
+              <input type="hidden" name="company_id" value="<%=company_id%>"/>
+              <input type="hidden" name="ad_id" value="<%=ad_id%>"/>
+              <input type="hidden" name="company_name" value="<%=company_name%>"/>
               <div class="row">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small;">기업 정보를 입력하세요.</p><br>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="company_name" placeholder="기업명" name="company_name" value="${recruit.company_name}"/>
+                  <input type="text" class="form-control" id="company_name" placeholder="기업명" name="company_name" value="<%=company_name%>">
                 </div>
                 <div class="col-md-4">
                   <input type="email" class="form-control" id="contact_email" placeholder="example@example.com"
-                    name="contact_email" value="${recruit.contact_email}"/>
+                    name="contact_email" value="${recruit.contact_email}">
                 </div>
                 <div class="col-md-4">
-                  <input type="text" class="form-control" id="manager_name" placeholder="관리자 이름" name="manager_name" value="${recruit.manager_name}"/>
+                  <input type="text" class="form-control" id="manager_name" placeholder="관리자 이름" name="manager_name" value="${recruit.manager_name}">
                 </div>
               </div>
               <br>
@@ -197,7 +198,7 @@
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small;">공고 마감일을 입력하세요.</p><br>
                 <div class="col-md">
                   <input type="date" class="form-control" id="application_deadline" name="application_deadline"
-                    style="color: #878e98;" value="${recruit.application_deadline}" required/>
+                    style="color: #878e98;" value="${recruit.application_deadline}" required>
                 </div>
               </div>
               <br>
@@ -214,7 +215,7 @@
               <div class="row">
                 <div class="col-md-4">
                   <input type="text" class="form-control" id="company_road" placeholder="도로명주소"
-                    name="company_road" value="${recruit.company_road}"/>
+                    name="company_road" value="${recruit.company_road}">
                 </div>
                 <!-- <div class="col-md-3">
                   <input type="email" class="form-control" id="company_jibunAddress" placeholder="지번주소"
@@ -223,11 +224,11 @@
                 <span id="guide" style="color:#999;display:none"></span>
                 <div class="col-md-4">
                   <input type="text" class="form-control" id="company_detail" placeholder="상세주소"
-                    name="company_detail" value="${recruit.company_detail}"/>
+                    name="company_detail" value="${recruit.company_detail}">
                 </div>
                 <div class="col-md-4">
                   <input type="text" class="form-control" id="company_extra" placeholder="참고항목"
-                    name="company_extra" value="${recruit.company_extra}"/>
+                    name="company_extra" value="${recruit.company_extra}">
                 </div>
 
 
@@ -350,7 +351,7 @@
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small;;">프로그래밍 언어를 입력하세요. (, 또는 / 로 구분하여 입력)
                 </p><br>
                 <div class="col">
-                  <input type="text" class="form-control" name="programming_languages" required><br>
+                  <input type="text" class="form-control" name="programming_languages" value="${recruit.programming_languages}" required><br>
                 </div>
                 <br>
               </div>
@@ -371,7 +372,7 @@
                 <div class="col-md-6">
                   <div class="form-floating">
                     <select class="form-select" id="coding_test" name="coding_test"
-                      aria-label="Floating label select example" value="${recruit.coding_test}">
+                      aria-label="Floating label select example">
                       <option value="O">O</option>
                       <option value="X">X</option>
                     </select>
@@ -467,56 +468,28 @@
               <script>
                 // 취소 버튼 클릭 시 동작
                 document.getElementById('cancel-btn').addEventListener('click', function () {
-                	alert('작성중인 글은 저장되지 않습니다.');
-            		history.back();
-                });
-                
-                document.addEventListener("DOMContentLoaded", function() {
-                    const form = document.getElementById("recruit-form");
-                    const saveBtn = document.getElementById("save-btn");
-
-                    saveBtn.addEventListener("click", function(event) {
-                        event.preventDefault(); // 기본 제출 동작 방지
-                        form.submit(); // 폼 제출
-                    });
+                  var confirmed = confirm('공고 수정을 취소하시겠습니까?');
+                  if (confirmed) {
+                    // 메인 페이지로 돌아가는 동작 구현
+                    alert('공고 수정을 취소하셨습니다. 메인 페이지로 이동합니다.');
+                    location.href = 'getRecruitList.do';
+                  } else {
+                    // 취소 클릭 시 작성중인 모달 페이지로 돌아가는 동작 구현
+                    alert('공고 수정 페이지로 돌아갑니다.');
+                  }
                 });
 
-             // 저장 버튼 클릭 시 동작
+                // 저장 버튼 클릭 시 동작
                 document.getElementById('save-btn').addEventListener('click', function () {
-                	alert("수정하기 버튼!");
-            		
-            		// 폼 요소를 가져옵니다 (폼의 id를 사용하여 가져올 수도 있습니다)
-            		var form = document.querySelector('form');
-
-            		// 폼 내부의 모든 요소를 가져옵니다
-            		var formElements = form.elements;
-
-            		// 요소들을 순회하면서 값이나 내용을 확인합니다
-            		for (var i = 0; i < formElements.length; i++) {
-            		    var element = formElements[i];
-            		    
-            		    // input, textarea 등의 요소들에 대해 값을 가져옵니다
-            		    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-            		        var value = element.value;
-            		        alert(element.name + ": " + value);
-            		    }
-            		    
-            		    // select 요소에 대해 선택된 옵션 값을 가져옵니다
-            		    else if (element.tagName === 'SELECT') {
-            		        var selectedOption = element.options[element.selectedIndex];
-            		        alert(element.name + ": " + selectedOption.value);
-            		    }
-            		    
-            		    // 기타 요소들에 대한 처리
-            		    // ...
-            		}
-            		
-            		
-            		
-            		location.href = 'updateRecruit.do';
-            		
+                  var confirmed = confirm('공고 작성을 완료하시겠습니까?');
+                  if (confirmed) {
+                    // 글 등록이 완료되었습니다. 메시지 표시 후 글 목록 화면으로 이동하는 동작 구현
+                    alert('글 등록이 완료되었습니다.');
+                    location.href='getRecruitList.do';
+                  } else {
+                    // 취소 클릭 시 아무 동작 없음
+                  }
                 });
-
               </script>
             </div>
         </div>
