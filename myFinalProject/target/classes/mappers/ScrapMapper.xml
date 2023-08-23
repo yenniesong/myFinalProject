@@ -4,6 +4,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ScrapDAO">
+
+<select id="getScrapList" parameterType="scrap" resultType="scrap">
+SELECT * FROM SCRAP ORDER BY SCRAP_ID DESC 
+</select>
+
+<insert id="insertScrap" parameterType="scrap">
+INSERT INTO SCRAP (scrap_id, userId, ad_id, check_scrap)
+VALUES (scrap_id_seq.NEXTVAL, #{userId},#{ad_id},1)
+</insert>
+
+<delete id="deleteScrap" parameterType="scrap">
+DELETE FROM SCRAP WHERE ad_id = #{ad_id} AND userId = #{userId}
+</delete>
 	
 </mapper>
   
