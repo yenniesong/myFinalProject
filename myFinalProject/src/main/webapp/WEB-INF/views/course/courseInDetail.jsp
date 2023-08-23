@@ -952,7 +952,7 @@ li.jsx-1546215327 button.jsx-1546215327 {
 	content: "";
 }
 
-.review-item.jsx-644785032 {
+.review-item.jsx-644785032, .reviewItem{
 	padding: 24px 32px 32px;
 	width: 100%;
 	cursor: pointer;
@@ -1187,6 +1187,15 @@ img.jsx-2891290942 {
 															<div class="jsx-1434886323 board-item">
 																<div class="jsx-1434886323 title">
 																	<span class="jsx-3839070939">${course.course_name }</span>
+																</div>
+															</div>
+														</li>
+														<li class="jsx-2255129348 horizontal-rule"></li>
+														<li class="jsx-1434886323 ">
+															<div class="jsx-1434886323 board-item">
+																<div class="jsx-1434886323 title">
+																	<input type="hidden" name="teacher_id" value="${course.teacher_id }">
+																	<span class="jsx-3839070939">${course.teacher_name } 선생님</span>
 																</div>
 															</div>
 														</li>
@@ -1585,7 +1594,6 @@ img.jsx-2891290942 {
 	let btn_studentReview = document.querySelector(".studentReview");
 	let showDescrioption = document.querySelector(".description_on");
 	let showReviewArea = document.querySelector(".reviewArea");
-	let btn_enroll = document.querySelector("e-enrol");
 	
 	btn_description.addEventListener("click", function() {
 		
@@ -1611,6 +1619,7 @@ img.jsx-2891290942 {
 		showReviewArea.classList.remove("contentsOn");
 	});
 	
+	let btn_enroll = document.querySelector("e-enrol");
 	$(function() {
 		let loginUser = "<%= userId %>"; 
 		$(".btn_enroll").click(function() {
@@ -1627,8 +1636,8 @@ img.jsx-2891290942 {
 				let userId = '<%=userId%>';
 				let name = '<%=userName%>';
 				let bootcampName = '${course.bootcamp_name }';
-				let teacherId = '${teacher.teacher_id }';
-				let teacherName = '${teacher.teacher_name}';
+				let teacherId = '${course.teacher_id }';
+				let teacherName = '${course.teacher_name}';
 				let courseId = '${course.course_id}';
 				let courseName = '${course.course_name }';
 				
@@ -1649,7 +1658,7 @@ img.jsx-2891290942 {
 					dataType: "text", 
 					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
 					success : function (json) {
-						console.log(json);
+						console.log("수강신청 결과 : " + json);
 						if (json == 0) {
 							alert('선생님의 강좌가 아직 열리지 않았어요!');
 						} else if (json > 0) {

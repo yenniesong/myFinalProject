@@ -30,7 +30,7 @@ public interface TeacherDAO {
 	List<TeacherVO> searchPositionList(TeacherVO vo);
 
 	// 선생님이 현재 수업을 하고 있는지 조회
-	TeacherVO chkCourse(TeacherVO tVo);
+//	int chkCourse(int teacher_id);
 
 
 }

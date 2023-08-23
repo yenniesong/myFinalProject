@@ -16,14 +16,8 @@
 		VALUES (seq_enrollment_enrollment_id.NEXTVAL, #{userId}, #{name}, #{teacher_id}, #{teacher_name}, #{course_id}, #{course_name}, SYSDATE, #{bootcamp_name})
 	</insert>
 	
-	<select id="cntTEnroll" parameterType="enroll" resultType="int">
-		SELECT COUNT(*) 
-  		  FROM enrollment 
-  		 WHERE userId = #{userId} AND teacher_id = #{teacher_id}
-	</select>
-	
-	<select id="cntCEnroll" parameterType="enroll" resultType="enroll">
-		SELECT COUNT(*) 
+	<select id="chkCourse" parameterType="enroll" resultType="enroll">
+		SELECT *
   		  FROM enrollment 
   		 WHERE userId = #{userId} AND course_id = #{course_id}
 	</select>

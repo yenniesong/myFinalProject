@@ -21,33 +21,46 @@ public class EnrollmentServiceImpl implements EnrollmentService {
 	}
 
 	@Override
-	public int insertEnrollment(EnrollmentVO vo) {
+	public void insertEnrollment(EnrollmentVO vo) {
 		System.out.println("## insertEnrollment service 진입 ##");
 		System.out.println("vo : " + vo);
 
-		int result = 0;
+//		int result = 0;
+//		
+//		if (vo.getTeacher_id() > 0) {	// 선생님이 프로필에서 강좌를 하면 (더 줄일 수 있으면 줄이기)
+//			result = enrollmentDAO.cntTEnroll(vo);
+//			
+//			if (result > 0) {
+//				return result;
+//			} else {
+//				enrollmentDAO.insertEnrollment(vo);
+//				result = 0;
+//			}
+//			
+//		} else if (vo.getCourse_id() > 0){
+//			result = enrollmentDAO.cntCEnroll(vo);
+//			
+//			if (result > 0) {
+//				return result;
+//			} else {
+//				enrollmentDAO.insertEnrollment(vo);
+//				result = 0;
+//			}
+//		}
+		return;
+	}
+
+	@Override
+	public EnrollmentVO chkCourse(String userId, int course_id) {
+		System.out.println("## insertEnrollment service 진입 ##");
+		System.out.println("userId : " + userId);
+		System.out.println("course_id : " + course_id);
 		
-		if (vo.getTeacher_id() > 0) {	// 선생님이 프로필에서 강좌를 하면 (더 줄일 수 있으면 줄이기)
-			result = enrollmentDAO.cntTEnroll(vo);
-			
-			if (result > 0) {
-				return result;
-			} else {
-				enrollmentDAO.insertEnrollment(vo);
-				result = 0;
-			}
-			
-		} else if (vo.getCourse_id() > 0){
-			result = enrollmentDAO.cntCEnroll(vo);
-			
-			if (result > 0) {
-				return result;
-			} else {
-				enrollmentDAO.insertEnrollment(vo);
-				result = 0;
-			}
-		}
-		return result;
+		EnrollmentVO vo = new EnrollmentVO();
+		vo.setUserId(userId);
+		vo.setCourse_id(course_id);
+		
+		return enrollmentDAO.chkCourse(vo);
 	}
 
 }

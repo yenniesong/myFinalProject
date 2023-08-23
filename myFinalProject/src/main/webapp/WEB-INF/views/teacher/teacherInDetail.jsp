@@ -1259,57 +1259,30 @@
 	$(function() {
 		let loginUser = "<%= userId %>"; 
 		$(".btn-enroll").click(function() {
-// 			가져가야할 데이터 : userId, name, teacher_id, teacher_name, course_id, course_name, bootcamp_id, bootcamp_name
 			alert("수강신청하기 버튼 활성화");
 			alert("loginUser : " + loginUser);
 		
-			if (loginUser === null) {
+			if (loginUser === null || loginUser === 'null') {
 				alert("loginUser is null");
 				$(".auth-popup").removeClass("popup_on");
+				
 			} else {
 	
 				alert("수강신청하기");
 			
-				let userId = '<%=userId%>';
-				let name = '<%=userName%>';
-				let bootcampName = '${teacher.bootcamp_name }';
 				let teacherId = '${teacher.teacher_id }';
-				let teacherName = '${teacher.teacher_name}';
-				let courseId = '${teacher.course_id}'; 
-				let courseName = '${teacher.course_name }';
+				let courseId = '${teacher.course_id }';
 				
-				let data2 = {
-						"userId": userId
-					    , "name": name
-						, "bootcamp_name" : bootcampName
-						, "teacher_id" : teacherId
-						, "teacher_name" : teacherName
-						, "course_id" : courseId
-						, "course_name" : courseName
-				};
+				console.log("teacherId : " + teacherId);
+				console.log("courseId : " + courseId);
 				
-				$.ajax({
-					url : "/enrollment/insertEnrollment.do",
-					type: "POST",
-					data: data2,
-					dataType: "text", 
-					/* String으로 쓸거면 text, json으로 할 거면 map으로 변경*/
-					success : function (json) {
-						console.log(json);
-						if (json == 0) {
-							alert('선생님의 강좌가 아직 열리지 않았어요!');
-						} else if (json > 0) {
-							alert('이미 신청되었어요!');
-						} else {
-							alert("수강신청이 완료되었어요!");
-						}
-					},
-					Error: function () {
-						alert("실패");
-					}
-				});
+				if (courseId == 0 || courseId === null) {
+					alert("강의가 안 열려있내요 ㅋ");
+				} else {
+					alert("강의가 열려있내요 ㅋ");
+					location.href='/course/getCourse.do?course_id=' + courseId;
+				}
 			}
-			
 		});
 	});
 	

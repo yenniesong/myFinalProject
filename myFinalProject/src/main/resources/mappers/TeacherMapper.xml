@@ -90,12 +90,6 @@
   		 ORDER BY teacher_id ASC
   	</select>
   	
-  	<select id="chkCourse" parameterType="teacher" resultType="teacher">
-		SELECT teacher_id, teacher_name, course_id
-  		  FROM teacher 
-  		 WHERE teacher_id = #{teacher_id}
-	</select>
-  	
   </mapper>
   
 

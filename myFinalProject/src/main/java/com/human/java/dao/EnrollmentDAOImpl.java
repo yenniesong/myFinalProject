@@ -27,25 +27,32 @@ public class EnrollmentDAOImpl implements EnrollmentDAO {
 		mybatis.insert("EnrollmentDAO.insertEnrollment", vo);
 	}
 
-	@Override
-	public int cntTEnroll(EnrollmentVO vo) {
-		System.out.println("## cntTEnroll dao 진입 ##");
-		System.out.println("vo : " + vo);
-		int result = 0;
-		
-		result = mybatis.selectOne("EnrollmentDAO.cntTEnroll", vo);
-		
-		return result;
-	}
+//	@Override
+//	public int cntTEnroll(EnrollmentVO vo) {
+//		System.out.println("## cntTEnroll dao 진입 ##");
+//		System.out.println("vo : " + vo);
+//		int result = 0;
+//		
+//		result = mybatis.selectOne("EnrollmentDAO.cntTEnroll", vo);
+//		
+//		return result;
+//	}
 
 	@Override
 	public int cntCEnroll(EnrollmentVO vo) {
 		int result = 0;
 		
 		result = mybatis.selectOne("EnrollmentDAO.cntCEnroll", vo);
+		System.out.println("cntCEnroll 의 result : " + result);
 		
 		return result;
 		
+	}
+
+	@Override
+	public EnrollmentVO chkCourse(EnrollmentVO vo) {
+		System.out.println("## chkCourse dao 진입 ##");
+		return mybatis.selectOne("EnrollmentDAO.chkCourse", vo);
 	}
 
 }

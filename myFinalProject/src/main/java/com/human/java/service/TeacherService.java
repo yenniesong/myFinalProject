@@ -32,7 +32,7 @@ public interface TeacherService {
 	List<TeacherVO> searchPositionList(TeacherVO vo);
 
 	// 선생님에게 강좌가 있는지 없는지 확인
-	TeacherVO chkCourse(TeacherVO tVo);
+//	int chkCourse(int teacher_id);
 
 	void selectBootcamp_id(String userId);
 

@@ -63,11 +63,11 @@ public class TeacherDAOImpl implements TeacherDAO {
 		return mybatis.selectList("TeacherDAO.searchPositionList", vo);
 	}
 
-	@Override
-	public TeacherVO chkCourse(TeacherVO tVo) {
-		System.out.println("## chkCourse dao 진입 ##");
-		return mybatis.selectOne("TeacherDAO.chkCourse", tVo);
-	}
+//	@Override
+//	public int chkCourse(int teacher_id) {
+//		System.out.println("## chkCourse dao 진입 ##");
+//		return mybatis.selectOne("TeacherDAO.chkCourse", teacher_id);
+//	}
 
 
 }

@@ -21,9 +21,13 @@
   	</select>
   	
   	<select id="getCourse" parameterType="course" resultType="course">
-  		SELECT * 
-  		  FROM course
-  		 WHERE course_id = #{course_id}
+<!--   		SELECT *  -->
+<!--   		  FROM course -->
+<!--   		 WHERE course_id = #{course_id} -->
+		SELECT c.course_id, c.course_name, c.description, c.price, c.bootcamp_id, c.bootcamp_name, c.userId, c.course_period, c.position_id, c.fname, c.fname_en, c.fsize, t.teacher_id, t.teacher_name
+		  FROM course c, teacher t
+		 WHERE c.teacher_id = t.teacher_id 
+		   AND c.course_id = #{course_id}
   	</select>
   	
   	<insert id="insertCourse" parameterType="course">

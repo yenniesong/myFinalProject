@@ -10,8 +10,10 @@ public interface EnrollmentDAO {
 
 	void insertEnrollment(EnrollmentVO vo);
 
-	int cntTEnroll(EnrollmentVO vo);
+//	int cntTEnroll(EnrollmentVO vo);
 	
 	int cntCEnroll(EnrollmentVO vo);
+
+	EnrollmentVO chkCourse(EnrollmentVO vo);
 
 }

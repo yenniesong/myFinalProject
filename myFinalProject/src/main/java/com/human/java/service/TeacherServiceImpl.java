@@ -69,12 +69,12 @@ public class TeacherServiceImpl implements TeacherService {
 		return teacherDAO.searchPositionList(vo);
 	}
 
-	@Override
-	public TeacherVO chkCourse(TeacherVO tVo) {
-		System.out.println("## chkCourse service 진입 ##");	
-		System.out.println("tVo : " + tVo);
-		return teacherDAO.chkCourse(tVo);
-	}
+//	@Override
+//	public int chkCourse(int teacher_id) {
+//		System.out.println("## chkCourse service 진입 ##");	
+//		System.out.println("teacher_id : " + teacher_id);
+//		return teacherDAO.chkCourse(teacher_id);
+//	}
 
 	@Override
 	public void selectBootcamp_id(String userId) {

@@ -170,7 +170,22 @@ public class TeacherController {
 		return "redirect:/teacher/getTeacher.do?teacher_id=" + vo.getTeacher_id();
 		
 	}
-	
+//	
+//	// 선생님의 강의가 열렸는지 안열렸는지 확인
+//	@ResponseBody
+//	@RequestMapping("chkCourse.do")
+//	public int chkCourse(int teacher_id) {
+//		System.out.println("## chkCourse.do 진입 ##");
+//		
+//		System.out.println("teacherInDetail에서 받은 teacher_id : " + teacher_id);
+//		
+//		int chkResult = teacherService.chkCourse(teacher_id);
+//		
+//		System.out.println("chkResult : " + chkResult);
+//		
+//		return chkResult;
+//	}
+//	
 	// 상단 학원 명 눌렀을 때 해당 학원 강사 출력
 	@RequestMapping("searchBootcampList.do")
 	@ResponseBody
