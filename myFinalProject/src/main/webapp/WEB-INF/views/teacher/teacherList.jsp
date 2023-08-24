@@ -54,7 +54,6 @@
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
 
-
 <style id="__jsx-1629185219">
 	.tutors {
 		padding: 0px;
@@ -1372,9 +1371,9 @@ li.jsx-3824006232 button.jsx-3824006232 {
     border-radius: 4px;
   }
 </style>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript" id="" src="https://cdn.megadata.co.kr/js/en_script/3.6/enliple_min3.6.js"></script>
-
 
 </head>
 <body>
@@ -1434,7 +1433,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 								</li>
 								<li class="jsx-786344230">
 									<div class="jsx-2595981909 filter">
-										<h4 class="jsx-2595981909">과목</h4><button type="button" class="jsx-2595981909 btn-all on">전체</button>
+										<h4 class="jsx-2595981909">과목</h4>
+										<button type="button" class="jsx-2595981909 btn-all on">전체</button>
 										<ul class="jsx-2595981909">
 											<li class="jsx-2749561681"><button type="button" class="jsx-2749561681 position front" value="front">프론트엔드</button></li>
 											<li class="jsx-2749561681"><button type="button" class="jsx-2749561681 position back" value="back">백엔드</button></li>
@@ -1443,7 +1443,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 									</div>
 								</li>
 							</ul>
-						  
 						</div>
 					</div>
 			
@@ -1501,9 +1500,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 																				<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
 																			</c:when>
 																			<c:otherwise>
-										<!-- 											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"> -->
-										<%-- 											  <%= teacher.fname_en %> --%>
-										<!-- 											</span> -->
 																				<span class="jsx-445560552">
 																					<img class="fname_en" src="${path}/resources/upload/${teacher.fname_en}" alt="#"/>
 																				</span>
@@ -1552,9 +1548,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 																				<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
 																			</c:when>
 																			<c:otherwise>
-										<!-- 											<span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"> -->
-										<%-- 											  <%= teacher.fname_en %> --%>
-										<!-- 											</span> -->
 																				<span class="jsx-445560552">
 																					<img class="fname_en" src="${path}/resources/upload/${teacher.fname_en}" alt="#"/>
 																				</span>
@@ -1568,7 +1561,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 														</a>
 													</li>
 												</c:forEach>
-							
 											</ul>
 										</c:otherwise>
 									</c:choose>
@@ -1579,7 +1571,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 								</div>
 							</div>
 						</div>
-					
 					</div>
 				</div>
 			</div>
@@ -1663,6 +1654,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						let li = document.createElement("li");
 						li.classList.add("jsx-2875758176", "tutorsLi");
 						li.setAttribute("style", 'display: list-item;');
+						
 						let a = document.createElement("a");
 						a.classList.add("jsx-2875758176");
 						a.href = "getTeacher.do?teacher_id=" + resultBootcamps[i].teacher_id;
@@ -1887,6 +1879,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						li.appendChild(a);
 						resultUl.appendChild(li);
 					}
+					startSetting();
 					
 				},
 				error: function () {

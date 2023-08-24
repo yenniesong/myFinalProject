@@ -7,15 +7,17 @@
 <%
 	HttpSession tSession = request.getSession();
 
+	System.out.println("come in" );
+
 	String userId = (String)tSession.getAttribute("userId");
 	String loginFG = (String)tSession.getAttribute("loginFG");
 	String userName = (String)tSession.getAttribute("name");
-	Integer bootcamp_id = (Integer)tSession.getAttribute("bootcamp_id");
+// 	Integer bootcamp_id = (Integer)tSession.getAttribute("bootcamp_id");
 	
 	System.out.println("userId : " + userId);
 	System.out.println("loginFG : " + loginFG);
 	System.out.println("userName : " + userName);
-	System.out.println("bootcamp_id : " + bootcamp_id);
+// 	System.out.println("bootcamp_id : " + bootcamp_id);
 %>
 <!DOCTYPE html>
 <html>
@@ -1442,7 +1444,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
     width: 100%;
     margin: auto;
 }
-.name.jsx-3824006232 {
+.regionName.jsx-3824006232 {
     display: block;
     line-height: 22px;
     width: 120px;
@@ -1517,21 +1519,21 @@ li.jsx-3824006232 button.jsx-3824006232 {
                         <span class="jsx-3824006232 logo">
                         	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                         </span>
-                          <div class="jsx-3824006232 name">서울</div>
+                          <div class="jsx-3824006232 regionName">서울</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
                         <button type="button" class="jsx-3824006232 regionBtn">
                           <span class="jsx-3824006232 logo">
 							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232"></span>
-                          <div class="jsx-3824006232 name">경기도</div>
+                          <div class="jsx-3824006232 regionName">경기도</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
                         <button type="button" class="jsx-3824006232 regionBtn">
                           <span class="jsx-3824006232 logo">
 							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232"></span>
-                          <div class="jsx-3824006232 name">인천</div>
+                          <div class="jsx-3824006232 regionName">인천</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1539,14 +1541,14 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
 						  	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
 						  </span>
-                          <div class="jsx-3824006232 name">대전</div>
+                          <div class="jsx-3824006232 regionName">대전</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
                         <button type="button" class="jsx-3824006232 regionBtn">
                           <span class="jsx-3824006232 logo">
 							<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232"></span>
-                          <div class="jsx-3824006232 name">세종</div>
+                          <div class="jsx-3824006232 regionName">세종</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1554,7 +1556,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
 						  	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
 						  </span>
-                          <div class="jsx-3824006232 name">충청도</div>
+                          <div class="jsx-3824006232 regionName">충청도</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1562,7 +1564,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
                           	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                           </span>
-                          <div class="jsx-3824006232 name">광주</div>
+                          <div class="jsx-3824006232 regionName">광주</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1570,7 +1572,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                         	<span class="jsx-3824006232 logo">
                         		<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                         	</span>
-                          <div class="jsx-3824006232 name">전라도</div>
+                          <div class="jsx-3824006232 regionName">전라도</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1578,7 +1580,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
                           	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                           </span>
-                          <div class="jsx-3824006232 name">대구</div>
+                          <div class="jsx-3824006232 regionName">대구</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1586,7 +1588,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
                           	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                           </span>
-                          <div class="jsx-3824006232 name">부산</div>
+                          <div class="jsx-3824006232 regionName">부산</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1594,7 +1596,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
                           <img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                           </span>
-                          <div class="jsx-3824006232 name">울산</div>
+                          <div class="jsx-3824006232 regionName">울산</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1602,7 +1604,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
                           	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                           </span>
-                          <div class="jsx-3824006232 name">경상도</div>
+                          <div class="jsx-3824006232 regionName">경상도</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1610,7 +1612,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
                           	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                           </span>
-                          <div class="jsx-3824006232 name">강원도</div>
+                          <div class="jsx-3824006232 regionName">강원도</div>
                         </button>
                       </li>
                       <li class="jsx-3824006232">
@@ -1618,7 +1620,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
                           <span class="jsx-3824006232 logo">
                           	<img src="${path}/resources/imgs/pea_icon.png" alt="#" class="jsx-3824006232">
                           </span>
-                          <div class="jsx-3824006232 name">제주도</div>
+                          <div class="jsx-3824006232 regionName">제주도</div>
                         </button>
                       </li>
                     </ul>
@@ -1660,8 +1662,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	                      <img src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_plus01.png" alt="" class="jsx-786344230 ">과정 추가하기
 	                    </button>
 	                  </div>
-<%-- 				  	</c:when> --%>
-<%-- 				  </c:choose> --%>
 
 		                  <ul class="jsx-2875758176 tutors">
 						  <c:forEach items="${cList }" var="course">
@@ -1708,7 +1708,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                  </c:forEach>
 	                  </ul>	
                   	</c:when>
-                  	
                   	<c:otherwise>
                   		<ul class="jsx-2875758176 tutors">
 						  <c:forEach items="${cList }" var="course">
@@ -1760,16 +1759,14 @@ li.jsx-3824006232 button.jsx-3824006232 {
                   <div class="jsx-786344230 btn-view-more">
                     <button type="button" class="jsx-1662442796 seeMore">더보기</button>
                   </div>
-
                 </div>
-
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
+    
   </main><!-- End #main -->
 
 	<!-- ======= Footer ======= -->
@@ -1792,26 +1789,22 @@ li.jsx-3824006232 button.jsx-3824006232 {
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-	document.addEventListener("DOMContentLoaded", function() {
-	    console.log("Script loaded");
-	    function startSetting(){
-	       let starBox = $('.jsx-445560552.star-box');
 	
-	       starBox.each(function (index, star){
-	          let starPoint = $(this).find('span').text();
-	          console.log(starPoint);
-	
-	          for( let i = 0 ; i < starPoint ; i++) {
-	             console.log(i);
-	             $(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
-	          }
-	       });
-	    }
-	
-	    startSetting(); // 페이지 로드 후 스크립트 실행
-	 });
+	function startSetting(){
+		let starBox = $('.jsx-445560552.star-box');
+		console.log("starBox ? " + starBox);
+		
+		starBox.each(function (index, star){
+			let starPoint = $(this).find('span').text();
+			
+			for( let i = 0 ; i < starPoint ; i++) {
+				$(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
+			}
+		});
+	}
 	
 	$(function() {
+		startSetting();
 		$(".tutorsLi").slice(0, 6).show(); // 초기갯수
 		$(".seeMore").click(function(e) { // 클릭시 more
 			e.preventDefault();
@@ -1825,8 +1818,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 		});
 	});
-
-	let region_names = document.querySelectorAll(".name");
+	
+	let region_names = document.querySelectorAll(".regionName");
 
 	for (var i = 0; i < region_names.length; i++) {
 		console.log(region_names[i].innerHTML);
@@ -1835,7 +1828,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	$(function() {
 		$(".regionBtn").click(
 			function() {
-				let btnRegion = $(this).find(".name").html();
+				let btnRegion = $(this).find(".regionName").html();
 				
 				console.log(btnRegion);
 				
@@ -1854,106 +1847,104 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						let resultRegions = json.regionList;
 					
 						for (var i = 0; i < resultRegions.length; i++) {
+							let li = document.createElement("li");
+							li.classList.add("jsx-2875758176");
+							li.setAttribute("style", 'display: list-item;');
 							
-							console.log("star point: " + resultRegions[i].star_point);
-						let li = document.createElement("li");
-						li.classList.add("jsx-2875758176");
+							let a = document.createElement("a");
+							a.classList.add("jsx-2875758176");
+							a.href = "getCourse.do?course_id="+ resultRegions[i].course_id;
 						
-						let a = document.createElement("a");
-						a.classList.add("jsx-2875758176");
-						a.href = "getCourse.do?course_id="+ resultRegions[i].course_id;
-					
-						let divCard = document.createElement("div");
-						divCard.tabIndex = 0;
-						divCard.classList.add("jsx-445560552", "card");
+							let divCard = document.createElement("div");
+							divCard.tabIndex = 0;
+							divCard.classList.add("jsx-445560552", "card");
+							
+							let divContent = document.createElement("div");
+							divContent.classList.add("jsx-445560552", "content");
 						
-						let divContent = document.createElement("div");
-						divContent.classList.add("jsx-445560552", "content");
-					
-						let divInfo = document.createElement("div");
-						divInfo.classList.add("jsx-445560552", "info");
-						
-						let hiddenInput1 = document.createElement("input");
-						hiddenInput1.type = "hidden";
-						hiddenInput1.value = resultRegions[i].course_id;
-						
-						let hiddenInput2 = document.createElement("input");
-						hiddenInput2.type = "hidden";
-						hiddenInput2.value = resultRegions[i].bootcamp_id;
-						
-						let h6 = document.createElement("h6");
-						h6.classList.add("jsx-445560552");
-						h6.textContent = resultRegions[i].course_name;
-						
-						let p1 = document.createElement("p");
-						p1.classList.add("jsx-445560552");
-						p1.textContent = resultRegions[i].bootcamp_name;
-						
-						let p2 = document.createElement("p");
-						p2.classList.add("jsx-445560552");
-						p2.textContent = resultRegions[i].price + " 원";
-						
-						divInfo.appendChild(hiddenInput1);
-						divInfo.appendChild(hiddenInput2);
-						divInfo.appendChild(h6);
-						divInfo.appendChild(p1);
-						divInfo.appendChild(p2);
-						
-						divContent.appendChild(divInfo);
-						
-						let starBox = document.createElement("div");
-						starBox.classList.add("jsx-445560552", "star-box");
-						
-						let starSpan = document.createElement("span");
-						starSpan.classList.add("jsx-445560552");
-// 						starSpan.textContent = "7.6";
-						starSpan.textContent = resultRegions[i].star_point;
-						
-						let starsDiv = document.createElement("div");
-						starsDiv.classList.add("jsx-2704879397", "stars");
-						
-						let star1 = document.createElement("div");
-						star1.classList.add("jsx-2704879397","star", "star-0");
-						
-						let star2 = document.createElement("div");
-						star2.classList.add("jsx-2704879397", "star", "star-0");
-						
-						let star3 = document.createElement("div");
-						star3.classList.add("jsx-2704879397", "star", "star-0");
-						
-						let star4 = document.createElement("div");
-						star4.classList.add("jsx-2704879397", "star", "star-0");
-						
-						let star5 = document.createElement("div");
-						star5.classList.add("jsx-2704879397", "star", "star-0");
-						
-						starsDiv.appendChild(star1);
-						starsDiv.appendChild(star2);
-						starsDiv.appendChild(star3);
-						starsDiv.appendChild(star4);
-						starsDiv.appendChild(star5);
-						
-						starBox.appendChild(starSpan);
-						starBox.appendChild(starsDiv);
-						
-						let profileImageDiv = document.createElement("div");
-						profileImageDiv.classList.add("jsx-445560552", "profile-image", "tutor");
-						
-						let profileImageSpan = document.createElement("span");
-						profileImageSpan.classList.add("jsx-445560552");
-						profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
-						//                      <span class="jsx-445560552" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&amp;f=webp&quot;);"></span>
-						
-						profileImageDiv.appendChild(profileImageSpan);
-						
-						divContent.appendChild(starBox);
-						divContent.appendChild(profileImageDiv);
-						
-						divCard.appendChild(divContent);
-						a.appendChild(divCard);
-						li.appendChild(a);
-						resultUl.appendChild(li);
-					}
+							let divInfo = document.createElement("div");
+							divInfo.classList.add("jsx-445560552", "info");
+							
+							let hiddenInput1 = document.createElement("input");
+							hiddenInput1.type = "hidden";
+							hiddenInput1.value = resultRegions[i].course_id;
+							
+							let hiddenInput2 = document.createElement("input");
+							hiddenInput2.type = "hidden";
+							hiddenInput2.value = resultRegions[i].bootcamp_id;
+							
+							let h6 = document.createElement("h6");
+							h6.classList.add("jsx-445560552");
+							h6.textContent = resultRegions[i].course_name;
+							
+							let p1 = document.createElement("p");
+							p1.classList.add("jsx-445560552");
+							p1.textContent = resultRegions[i].bootcamp_name;
+							
+							let p2 = document.createElement("p");
+							p2.classList.add("jsx-445560552");
+							p2.textContent = resultRegions[i].price + " 원";
+							
+							divInfo.appendChild(hiddenInput1);
+							divInfo.appendChild(hiddenInput2);
+							divInfo.appendChild(h6);
+							divInfo.appendChild(p1);
+							divInfo.appendChild(p2);
+							
+							divContent.appendChild(divInfo);
+							
+							let starBox = document.createElement("div");
+							starBox.classList.add("jsx-445560552", "star-box");
+							
+							let starSpan = document.createElement("span");
+							starSpan.classList.add("jsx-445560552");
+							starSpan.textContent = resultRegions[i].star_point;
+							
+							let starsDiv = document.createElement("div");
+							starsDiv.classList.add("jsx-2704879397", "stars");
+							
+							let star1 = document.createElement("div");
+							star1.classList.add("jsx-2704879397","star", "star-0");
+							
+							let star2 = document.createElement("div");
+							star2.classList.add("jsx-2704879397", "star", "star-0");
+							
+							let star3 = document.createElement("div");
+							star3.classList.add("jsx-2704879397", "star", "star-0");
+							
+							let star4 = document.createElement("div");
+							star4.classList.add("jsx-2704879397", "star", "star-0");
+							
+							let star5 = document.createElement("div");
+							star5.classList.add("jsx-2704879397", "star", "star-0");
+							
+							starsDiv.appendChild(star1);
+							starsDiv.appendChild(star2);
+							starsDiv.appendChild(star3);
+							starsDiv.appendChild(star4);
+							starsDiv.appendChild(star5);
+							
+							starBox.appendChild(starSpan);
+							starBox.appendChild(starsDiv);
+							
+							let profileImageDiv = document.createElement("div");
+							profileImageDiv.classList.add("jsx-445560552", "profile-image", "tutor");
+							
+							let profileImageSpan = document.createElement("span");
+							profileImageSpan.classList.add("jsx-445560552");
+							profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
+							
+							profileImageDiv.appendChild(profileImageSpan);
+							
+							divContent.appendChild(starBox);
+							divContent.appendChild(profileImageDiv);
+							
+							divCard.appendChild(divContent);
+							a.appendChild(divCard);
+							li.appendChild(a);
+							resultUl.appendChild(li);
+						}
+						startSetting();
 				},
 				error : function() {
 					alert('실패');
@@ -2042,7 +2033,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						let starSpan = document.createElement("span");
 						starSpan.classList.add("jsx-445560552");
-// 						starSpan.textContent = "7.6";
 						starSpan.textContent = resultPositions[i].star_point;
 
 						let starsDiv = document.createElement("div");
@@ -2089,6 +2079,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						li.appendChild(a);
 						resultUl.appendChild(li);
 					}
+					startSetting();
 
 				},
 				error : function() {
