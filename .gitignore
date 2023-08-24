@@ -1,7 +1,5 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse
-*.class
-*.properties
 
 ### Eclipse ###
 .metadata
@@ -11,13 +9,13 @@ tmp/
 *.bak
 *.swp
 *~.nib
+*.class
 local.properties
 .settings/
 .loadpath
 .recommenders
-
-pom.properties
 .classpath
+pom.properties
 MANIFEST.MF
 
 # External tool builders
@@ -67,7 +65,7 @@ MANIFEST.MF
 
 # Uncomment this line if you wish to ignore the project description file.
 # Typically, this file would be tracked if it contains build/dependency configurations:
-#.project
+.project
 
 ### Eclipse Patch ###
 # Spring Boot Tooling
