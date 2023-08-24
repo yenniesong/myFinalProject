@@ -558,7 +558,6 @@
   	</main><!-- End #main -->  
 
 	<!-- modal -->	<!-- ajax로 하기 -->
-<!-- 	<form action="chkPwd.do" method="post"> -->
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -577,7 +576,6 @@
 		    </div>
 		  </div>
 		</div>
-<!-- 	</form> -->
 	
 	<!-- ======= Footer ======= -->
 	<%@include file="../includes/footer.jsp" %>
