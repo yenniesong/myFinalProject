@@ -59,6 +59,10 @@ MANIFEST.MF
 .factorypath
 settings.json
 
+target/*
+META-INF/*
+.springBeans
+
 # Code Recommenders
 .recommenders/
 
