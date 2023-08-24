@@ -15,8 +15,6 @@ local.properties
 .loadpath
 .recommenders
 .classpath
-pom.properties
-MANIFEST.MF
 
 # External tool builders
 .externalToolBuilders/
@@ -50,6 +48,16 @@ MANIFEST.MF
 
 # STS (Spring Tool Suite)
 .springBeans
+
+# Spring 관련 폴더, 파일
+target
+/target/
+.springBeans
+pom.properties
+MANIFEST.MF
+*.log
+.factorypath
+settings.json
 
 # Code Recommenders
 .recommenders/
