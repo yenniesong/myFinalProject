@@ -5,19 +5,27 @@
 
 <mapper namespace="ScrapDAO">
 
+<!-- list -->
 <select id="getScrapList" parameterType="scrap" resultType="scrap">
-SELECT * FROM SCRAP ORDER BY SCRAP_ID DESC 
+SELECT * FROM SCRAP ORDER BY SCRAP_ID DESC
 </select>
 
+<!-- check Scrap -->
+<select id="chkScrap" parameterType="scrap" resultType="scrap">
+SELECT * FROM SCRAP WHERE userId = #{userId} and ad_id = #{ad_id}
+</select>
+
+<!-- insert -->
 <insert id="insertScrap" parameterType="scrap">
-INSERT INTO SCRAP (scrap_id, userId, ad_id, check_scrap)
-VALUES (scrap_id_seq.NEXTVAL, #{userId},#{ad_id},1)
+INSERT INTO SCRAP (SCRAP_ID, USERID, NAME, COMPANY_ID, COMPANY_NAME, AD_ID, AD_TITLE, SCRAP_DATE)
+VALUES (scrap_id_seq.NEXTVAL, #{userId}, #{name}, #{company_id},#{company_name}, #{ad_id}, #{ad_title}, SYSDATE)
 </insert>
 
-<delete id="deleteScrap" parameterType="scrap">
-DELETE FROM SCRAP WHERE ad_id = #{ad_id} AND userId = #{userId}
-</delete>
-	
+<!-- delete -->
+<select id="deleteScrap" parameterType="int">
+DELETE * FROM SCRAP WHERE SCRAP_ID = #{scrap_id}
+</select>
+
 </mapper>
   
 

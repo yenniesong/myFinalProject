@@ -7,8 +7,9 @@
 <%
 	HttpSession cSession = request.getSession();
 
-int company_id = (Integer) cSession.getAttribute("company_id");
-String company_name = (String) cSession.getAttribute("company_name");
+// int company_id = (Integer) cSession.getAttribute("company_id");
+// System.out.println("company_id : " + company_id);
+// String company_name = (String) cSession.getAttribute("company_name");
 
 String userId = (String) cSession.getAttribute("userId");
 String userName = (String) cSession.getAttribute("name"); /* 학원은 학원 명, 학생은 학생 명, 기업은 기업 명을 가져와야함 */
@@ -1171,8 +1172,63 @@ button:focus {
 					</button>
 				</div>
 				</c:if>
+				<script type="text/javascript">
+				
+				$(function(){
+					let loginUser='<%=userId%>';
+					$(".scrap-btn").click(function(){
+						//userId, name, company_id, company_name, ad_id, ad_title
+						alert("scrap button action");
+						alert("loginUser: "+loginUser);
+						
+						let userId = '<%=userId%>';
+						let name = '<%=userName%>';
+						let companyId = '${recruit.company_id}';
+						let companyName = '${recruit.company_name}';
+						let adId = '${recruit.ad_id}';
+						let adTitle = '${recruit.ad_title}';
+						
+						console.log(userId);
+						console.log(name);
+						console.log(companyId);
+						console.log(companyName);
+						console.log(adId);
+						console.log(adTitle);
+						
+						let data2 = {
+								"userId":userId,
+								"name": name,
+								"company_id": companyId,
+								"company_name": companyName,
+								"ad_id": adId,
+								"ad_title": adTitle
+						};
+						
+						$.ajax({
+							url:"/scrap/insertScrap.do",
+							type: "POST",
+							data: data2,
+							dataType: "text",
+							success: function(json){
+								console.log("스크랩 결과: "+json);
+								if(json == 0) {
+									alert("이미 스크랩 되었습니다.")
+								}
+								else {
+									alert("스크랩이 완료되었습니다.")
+								}
+							},
+							error: function(){
+								alert("scrap failed");
+							}
+						});
+						
+					});
+				});
+				</script>
 				
 			</div>
+			
 
 
 			<div class="row" id="detail-box">
@@ -1237,7 +1293,7 @@ button:focus {
 
 
 </body>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <!-- JS -->
 <script
 	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js"

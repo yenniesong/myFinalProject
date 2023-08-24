@@ -5,8 +5,15 @@ import com.human.java.domain.ScrapVO;
 
 public interface ScrapDAO {
 
+	//scrap list
 	List<ScrapVO> getScrapList(ScrapVO vo);
-    void insertScrap(ScrapVO vo);
-    void deleteScrap(ScrapVO vo);
+	//insert
+	void insertScrap (ScrapVO vo);
+	//count scrap
+	int cntScrap (ScrapVO vo);
+	//check scrap
+	ScrapVO chkScrap(ScrapVO vo);
+	//delete scrap
+	void deleteScrap(ScrapVO vo);
 
 }

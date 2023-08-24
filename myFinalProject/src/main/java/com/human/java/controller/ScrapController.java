@@ -2,7 +2,6 @@ package com.human.java.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -35,6 +34,31 @@ public class ScrapController {
 		List<ScrapVO> sList = scrapService.getScrapList(vo);
 		model.addAttribute("sList",sList);
 		return "/scrap/scrapList";
+	}
+	
+	@ResponseBody
+	@RequestMapping("insertScrap.do")
+	public int insertScrap(ScrapVO vo, HttpSession session, HttpServletResponse response) {
+		System.out.println("## insertScrap.do - Controller ##");
+		System.out.println("scrap id:"+vo.getScrap_id());
+		System.out.println("user id:"+vo.getUserId());
+		System.out.println("user name:"+vo.getName());
+		System.out.println("company id:"+vo.getCompany_id());
+		System.out.println("company name:"+vo.getCompany_name());
+		System.out.println("ad id:"+vo.getAd_id());
+		System.out.println("ad title:"+vo.getAd_title());
+		System.out.println("scrap date:"+vo.getScrap_date());
+		
+		int insertResult = scrapService.insertScrap(vo);
+		return insertResult;
+	}
+	
+	@RequestMapping("deleteScrap.do")
+	public String deleteScrap(ScrapVO vo) {
+		System.out.println("## deleteScrap.do - controller ##");
+		System.out.println("##scrap id: "+vo.getScrap_id());
+		scrapService.deleteScrap(vo);
+		return "redirect:/scrap/getScrapList.do";
 	}
 	
 

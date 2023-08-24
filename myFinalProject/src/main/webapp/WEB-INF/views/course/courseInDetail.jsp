@@ -1509,7 +1509,7 @@ img.jsx-2891290942 {
 	}
 	
 	// 벌점 기능 구현
-	const ratingStars = [...document.getElementsByClassName("rating__star")];
+	const ratingStars = [document.getElementsByClassName("rating__star")];
     const ratingResult = document.querySelector(".rating__result");
 
     printRatingResult(ratingResult);
