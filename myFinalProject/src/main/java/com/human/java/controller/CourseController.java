@@ -58,7 +58,7 @@ public class CourseController {
 		
 		List<ReviewVO> cRList = reviewService.getCReviewList(cRVo);
 		
-		System.out.println("cRVo : " + cRVo);
+		System.out.println("댓글 수 : " + cRList.size());
 		
 		model.addAttribute("cRList", cRList);
 		

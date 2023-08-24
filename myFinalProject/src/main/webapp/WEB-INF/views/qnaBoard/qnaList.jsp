@@ -50,7 +50,7 @@
 <link href="${path}/resources/assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
 <!-- Template Main CSS File -->
-<link href="${path}/resources/assets/css/style.css" rel="stylesheet">
+<link href="${path}/resources/css/style.css" rel="stylesheet">
 
 <!-- my template -->
 <link href="${path}/resources/assets/css/tutorsStylesheet.css" rel="stylesheet">
@@ -599,19 +599,9 @@
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-// 	console.log($('#hidden_userId').val());
 	
 	$(document).ready(function() {
 		$('div.jsx-989812570.col-title > a').click(function() {
-			
-			let question_id = $(this).parent().prev().prev().text();
-			// 게시글의 학원명
-			let selecteBootcampName = $(this).parent().prev().prev().prev().val();
-			// 게시글의 작성자
-			let selecteWriter = $(this).parent().next().text();
-			
-			// 선택된 글을 쓴 학생의 학원명
-			console.log("선택된 글을 쓴 학생의 학원명 : " + selecteBootcampName);
 			
 			if ("<%=loginFG%>" == 'm' ) {
 				console.log("난 학생이어요");
@@ -626,14 +616,14 @@
 				}
 				
 			} else if ("<%=loginFG%>" == 'b') {
+				let question_id = $(this).parent().prev().prev().text();
+				// 게시글의 학원명
+				let selecteBootcampName = $(this).parent().prev().prev().prev().val();
+				// 게시글의 작성자
+				let selecteWriter = $(this).parent().next().text();
 				
-				console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
-				
-				// 제목
-	// 			console.log(document.querySelector('div.jsx-989812570.col-title > a').innerText);
-				
-				// 세션의 값
-				var sessionBootcampName = "<%=bootcamp_name%>";
+				// 선택된 글을 쓴 학생의 학원명
+				console.log("선택된 글을 쓴 학생의 학원명 : " + selecteBootcampName);
 				
 				// 세션의 값과 게시글의 학원명에서 공통된 글자 개수를 구하는 함수
 				function countCommonCharacters(str1, str2) {
@@ -649,14 +639,13 @@
 				  	return count;
 				}
 				
+				console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
+				// 세션의 값
+				var sessionBootcampName = "<%=bootcamp_name%>";
+				// countCommonCharacters 함수 호출 및 결과 확인
+		        var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
+		        console.log("공통 글자 개수 : " + commonCharacterCount);
 				// 일부 글자가 겹치는지 확인
-				
-				alert("우리 학원");
-// 				$("#staticBackdrop").modal("show");
-				location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
-				
-			} else {
-				alert("남의 학원");
 				var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
 			
 				// 특정 기준 이상의 글자가 겹치는지 여부 확인 (예: 2개 이상의 글자가 겹치면 참)
@@ -667,12 +656,12 @@
 				
 				if (isOverlap) {
 					alert("우리 학원");
-	// 				$("#staticBackdrop").modal("show");
+					
 					location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
 				} else {
 					alert("남의 학원");
 				}
-			}
+			} 
 
 			window.question_id = question_id;
 			window.selecteBootcampName = selecteBootcampName;
@@ -687,11 +676,7 @@
 			let enteredPwd = $(".password").val();
 			let selectedQuestionId = window.question_id;
 			let userAcademy = window.selecteBootcampName;
-			
-// 			console.log("이 글을 누른 사람 : " + mySessionId);
-// 			console.log("이 글의 번호 : " + selectedQuestionId);
-// 			console.log("입력한 비밀번호 : " + enteredPwd);
-// 			console.log("이 사람의 학원 : " + userAcademy);
+
 			alert("이 사람의 학원 : " + userAcademy);
 			
 			let data = {

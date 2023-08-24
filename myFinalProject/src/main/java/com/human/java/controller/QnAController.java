@@ -60,6 +60,7 @@ public class QnAController {
 		
 		model.addAttribute("qnaList", qnaList);
 		model.addAttribute("pInfoVo", pInfoVo);
+		System.out.println("qnaList : " + qnaList);
 		System.out.println("pInfoVo : " + pInfoVo);
 			
 		return "/qnaBoard/qnaList";
@@ -81,24 +82,13 @@ public class QnAController {
 	}
 	
 	@RequestMapping("getQnABoard.do")
-	public String getQnABoard(QnAVO vo, @RequestParam("academy") String academy, Model model, AnswerVO aVo, HttpSession session) {
+	public String getQnABoard(QnAVO vo, Model model, AnswerVO aVo, HttpSession session) {
 		System.out.println("## getQnABoard.do 진입 ##");
 		System.out.println("## 게시글 번호 : " + vo.getQuestion_id() + " ##");
-		System.out.println("## 학원 번호 : " + academy + " ##");
 		
 		model.addAttribute("qna", qnaService.getQnABoard(vo));
 		
 		System.out.println("aVO : " + aVo);
-		
-		if ((String) session.getAttribute("bootcamp_name") != null) {
-			
-			System.out.println((String) session.getAttribute("bootcamp_name"));
-			aVo.setBootcamp_name((String) session.getAttribute("bootcamp_name"));
-			
-		} else if (academy != null) {
-			
-			aVo.setBootcamp_name(academy);
-		}
 		
 		List<AnswerVO> aList = answerService.getAnswerList(aVo);
 		

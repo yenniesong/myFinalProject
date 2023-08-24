@@ -9,9 +9,13 @@
 
 	String userId = (String)tSession.getAttribute("userId");
 	String loginFG = (String)tSession.getAttribute("loginFG");
+	String userName = (String)tSession.getAttribute("name");
+	Integer bootcamp_id = (Integer)tSession.getAttribute("bootcamp_id");
 	
 	System.out.println("userId : " + userId);
 	System.out.println("loginFG : " + loginFG);
+	System.out.println("userName : " + userName);
+	System.out.println("bootcamp_id : " + bootcamp_id);
 %>
 <!DOCTYPE html>
 <html>
@@ -546,6 +550,7 @@
         margin-right: 4px;
         background-size: cover;
     }
+    
 </style>
 <style id="__jsx-2373216897">
     .search-page.kindergarten.jsx-2373216897 .search-box.jsx-2373216897 {
@@ -1671,16 +1676,17 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                              <p class="jsx-445560552">${course.bootcamp_name }</p>
 		                              <p class="jsx-445560552">${course.price } 원</p>
 		                            </div>
+		                            
 		                            <div class="jsx-445560552 star-box">
-		                              <span class="jsx-445560552">${course.star_point }</span>
-		                              <div class="jsx-2704879397 stars">
-		                                <div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-		                              </div>
-		                            </div>
+										<span class="jsx-445560552">${course.star_point }</span>
+										<div class="jsx-2704879397 stars">
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+										</div>
+									</div>
 		                            
 		                            <div class="jsx-445560552 profile-image tutor">
 		                            	<c:choose>
@@ -1717,16 +1723,18 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		                              <p class="jsx-445560552">${course.bootcamp_name }</p>
 		                              <p class="jsx-445560552">${course.price } 원</p>
 		                            </div>
+		                            
 		                            <div class="jsx-445560552 star-box">
-		                              <span class="jsx-445560552">${course.star_point }</span>
-		                              <div class="jsx-2704879397 stars">
-		                                <div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-										<div class="jsx-2704879397 star star-0"></div>
-		                              </div>
-		                            </div>
+										<span class="jsx-445560552">${course.star_point }</span>
+										<div class="jsx-2704879397 stars">
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+											<div class="jsx-2704879397 star star-0"></div>
+										</div>
+									</div>
+		                            
 		                            <div class="jsx-445560552 profile-image tutor">
 										<c:choose>
 		                            		<c:when test="${empty course.fname_en }">
@@ -1784,18 +1792,24 @@ li.jsx-3824006232 button.jsx-3824006232 {
 <script src="${path}/resources/assets/js/main.js"></script>
 
 <script>
-
-	function startSetting(){
-		let starBox = $('.jsx-445560552.star-box');
-		
-		starBox.each(function (index, star){
-			let starPoint = $(this).find('span').text();
-			
-			for( let i = 0 ; i < starPoint ; i++) {
-				$(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
-			}
-		});
-	}
+	document.addEventListener("DOMContentLoaded", function() {
+	    console.log("Script loaded");
+	    function startSetting(){
+	       let starBox = $('.jsx-445560552.star-box');
+	
+	       starBox.each(function (index, star){
+	          let starPoint = $(this).find('span').text();
+	          console.log(starPoint);
+	
+	          for( let i = 0 ; i < starPoint ; i++) {
+	             console.log(i);
+	             $(this).find('.stars > .star:eq('+i+')').attr('class','jsx-2704879397 star star-2');
+	          }
+	       });
+	    }
+	
+	    startSetting(); // 페이지 로드 후 스크립트 실행
+	 });
 	
 	$(function() {
 		$(".tutorsLi").slice(0, 6).show(); // 초기갯수
@@ -1840,6 +1854,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						let resultRegions = json.regionList;
 					
 						for (var i = 0; i < resultRegions.length; i++) {
+							
+							console.log("star point: " + resultRegions[i].star_point);
 						let li = document.createElement("li");
 						li.classList.add("jsx-2875758176");
 						
@@ -1866,8 +1882,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						hiddenInput2.value = resultRegions[i].bootcamp_id;
 						
 						let h6 = document.createElement("h6");
-						h3.classList.add("jsx-445560552");
-						h3.textContent = resultRegions[i].course_name;
+						h6.classList.add("jsx-445560552");
+						h6.textContent = resultRegions[i].course_name;
 						
 						let p1 = document.createElement("p");
 						p1.classList.add("jsx-445560552");
@@ -1875,7 +1891,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						
 						let p2 = document.createElement("p");
 						p2.classList.add("jsx-445560552");
-						p2.textContent = resultRegions[i].price;
+						p2.textContent = resultRegions[i].price + " 원";
 						
 						divInfo.appendChild(hiddenInput1);
 						divInfo.appendChild(hiddenInput2);
@@ -1890,7 +1906,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						
 						let starSpan = document.createElement("span");
 						starSpan.classList.add("jsx-445560552");
-						starSpan.textContent = "7.6";
+// 						starSpan.textContent = "7.6";
+						starSpan.textContent = resultRegions[i].star_point;
 						
 						let starsDiv = document.createElement("div");
 						starsDiv.classList.add("jsx-2704879397", "stars");
@@ -1973,6 +1990,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 					let resultPositions = json.positionList;
 
 					for (var i = 0; i < resultPositions.length; i++) {
+						console.log("star point: " + resultPositions[i].star_point);
+						
 						let li = document.createElement("li");
 						li.classList.add("jsx-2875758176");
 
@@ -1999,8 +2018,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 						hiddenInput2.value = resultPositions[i].bootcamp_id;
 
 						let h6 = document.createElement("h6");
-						h3.classList.add("jsx-445560552");
-						h3.textContent = resultPositions[i].course_name;
+						h6.classList.add("jsx-445560552");
+						h6.textContent = resultPositions[i].course_name;
 
 						let p1 = document.createElement("p");
 						p1.classList.add("jsx-445560552");
@@ -2008,7 +2027,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						let p2 = document.createElement("p");
 						p2.classList.add("jsx-445560552");
-						p2.textContent = resultPositions[i].price;
+						p2.textContent = resultPositions[i].price+ " 원";
 
 						divInfo.appendChild(hiddenInput1);
 						divInfo.appendChild(hiddenInput2);
@@ -2023,22 +2042,23 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						let starSpan = document.createElement("span");
 						starSpan.classList.add("jsx-445560552");
-						starSpan.textContent = "7.6";
+// 						starSpan.textContent = "7.6";
+						starSpan.textContent = resultPositions[i].star_point;
 
 						let starsDiv = document.createElement("div");
 						starsDiv.classList.add("jsx-2704879397", "stars");
 
 						let star1 = document.createElement("div");
-						star1.classList.add("jsx-2704879397", "star", "star-2");
+						star1.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star2 = document.createElement("div");
-						star2.classList.add("jsx-2704879397", "star", "star-2");
+						star2.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star3 = document.createElement("div");
-						star3.classList.add("jsx-2704879397", "star", "star-2");
+						star3.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star4 = document.createElement("div");
-						star4.classList.add("jsx-2704879397", "star", "star-2");
+						star4.classList.add("jsx-2704879397", "star", "star-0");
 
 						let star5 = document.createElement("div");
 						star5.classList.add("jsx-2704879397", "star", "star-0");
@@ -2078,14 +2098,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		});
 	});
 	
-	let btn_addCourse = document.querySelector(".addCourse");
-	
-	btn_addCourse.addEventListener("click", function () {
-		location.href='courseAdding.do';
-	});
-	
 	let btnShowAll = document.querySelectorAll('.btn-all');
-	
 	
 	for (let i = 0; i < btnShowAll.length; i++) {
 	    btnShowAll[i].addEventListener("click", function() {
@@ -2093,6 +2106,13 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	        location.href='getCourseList.do';
 	    });
 	}
+	
+	let btn_addCourse = document.querySelector(".addCourse");
+	
+	btn_addCourse.addEventListener("click", function () {
+		location.href='courseAdding.do';
+	});
+	
 	
 </script>
 </html>

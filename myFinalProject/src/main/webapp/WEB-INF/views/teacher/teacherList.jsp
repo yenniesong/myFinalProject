@@ -1621,13 +1621,6 @@ li.jsx-3824006232 button.jsx-3824006232 {
 		});
 	}
 
-	document.addEventListener("DOMContentLoaded", function() { 
-	  let btn_add_teacher = document.querySelector(".addTeacher");
-	
-	  btn_add_teacher.addEventListener("click", function() {
-	    location.href='teacherAdding.do?bootcamp_id=' + <%=bootcamp_id%>;
-	  });
-	});
 	
 	$(function(){
 		  startSetting();
@@ -1712,7 +1705,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						let starSpan = document.createElement("span");
 						starSpan.classList.add("jsx-445560552");
-						starSpan.textContent = "7.6";
+						starSpan.textContent = resultBootcamps[i].star_point;
 
 						let starsDiv = document.createElement("div");
 						starsDiv.classList.add("jsx-2704879397", "stars");
@@ -1848,7 +1841,7 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						let starSpan = document.createElement("span");
 						starSpan.classList.add("jsx-445560552");
-						starSpan.textContent = "7.6";
+						starSpan.textContent = resultPositions[i].star_point;
 
 						let starsDiv = document.createElement("div");
 						starsDiv.classList.add("jsx-2704879397", "stars");
@@ -1914,12 +1907,13 @@ li.jsx-3824006232 button.jsx-3824006232 {
 	    });
 	});
 	
-// 	for (let i = 0; i < btnShowAll.length; i++) {
-// 	    btnShowAll[i].addEventListener("click", function() {
-// 	        alert('전체 버튼 활성화');
-// 	    });
-// 	}
+	document.addEventListener("DOMContentLoaded", function() { 
+	  let btn_add_teacher = document.querySelector(".addTeacher");
 	
+	  btn_add_teacher.addEventListener("click", function() {
+	    location.href='teacherAdding.do?bootcamp_id=' + <%=bootcamp_id%>;
+	  });
+	});
 
 	
 

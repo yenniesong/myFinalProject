@@ -77,17 +77,43 @@
   	</delete>
   	
   	<select id="searchBootcampList" parameterType="teacher" resultType="teacher">
-  		SELECT * 
-  		  FROM teacher
-         WHERE bootcamp_name = #{bootcamp_name}
+  		SELECT nvl(star_point,0) as star_point, t.teacher_id, t.bootcamp_id, t.teacher_name, t.bootcamp_name, c.course_id, c.course_name, t.short_description, t.description, t.fname, t.fname_en, t.fsize, t.position_id
+  		  FROM teacher t, course c, 
+  		  		(
+  		  			SELECT teacher_id, avg(star_point) as star_point 
+  		  		      FROM review
+         	         GROUP BY teacher_id
+         	     ) star
+         WHERE t.course_id = c.course_id(+)
+           AND t.teacher_id = star.teacher_id(+) 
+           AND t.bootcamp_name = #{bootcamp_name} 
   		 ORDER BY teacher_id ASC
+  		
+<!--   		SELECT *  -->
+<!--   		  FROM teacher -->
+<!--          WHERE bootcamp_name = #{bootcamp_name} -->
+<!--   		 ORDER BY teacher_id ASC -->
   	</select>
   	
   	<select id="searchPositionList" parameterType="teacher" resultType="teacher">
-  		SELECT t.teacher_id, t.bootcamp_id, t.teacher_name, t.bootcamp_name, c.course_id, c.course_name, t.short_description, t.fname, t.fname_en, t.fsize, t.position_id, p.position
- 		  FROM teacher t, position p, course c
-         WHERE t.position_id = p.position_id AND t.course_id = c.course_id AND p.position LIKE '%' || #{position} || '%'	
+  		SELECT nvl(star_point,0) as star_point, t.teacher_id, t.bootcamp_id, t.teacher_name, t.bootcamp_name, c.course_id, c.course_name, t.short_description, t.description, t.fname, t.fname_en, t.fsize, t.position_id, p.position
+  		  FROM teacher t, course c, position p,
+  		  		(
+  		  			SELECT teacher_id, avg(star_point) as star_point 
+  		  		      FROM review
+         	         GROUP BY teacher_id
+         	     ) star
+         WHERE t.course_id = c.course_id(+)
+           AND t.teacher_id = star.teacher_id(+) 
+           AND t.position_id = p.position_id
+           AND p.position LIKE '%' || #{position} || '%'
   		 ORDER BY teacher_id ASC
+  		 
+<!--   		SELECT t.teacher_id, t.bootcamp_id, t.teacher_name, t.bootcamp_name, c.course_id, c.course_name, t.short_description, t.fname, t.fname_en, t.fsize, t.position_id, p.position -->
+<!--  		  FROM teacher t, position p, course c -->
+<!--          WHERE t.position_id = p.position_id AND t.course_id = c.course_id AND p.position LIKE '%' || #{position} || '%'	 -->
+<!--   		 ORDER BY teacher_id ASC -->
+	
   	</select>
   	
   </mapper>
