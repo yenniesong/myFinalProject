@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.human.java.domain.PagingVO;
+import com.human.java.domain.QnAVO;
 import com.human.java.domain.ScrapVO;
 import com.human.java.service.ScrapService;
 
@@ -29,10 +31,24 @@ public class ScrapController {
 	}
 	
 	@RequestMapping("getScrapList.do")
-	public String getScrap(Model model, ScrapVO vo, HttpSession session) {
+	public String getScrapList(Model model, PagingVO pVO, HttpSession session) {
 		System.out.println("## getScrapList.do 진입 - controller ##");
-		List<ScrapVO> sList = scrapService.getScrapList(vo);
-		model.addAttribute("sList",sList);
+		// 서비스에서 하면 return이 하나만 되고 게시글에 대한 정보만 리턴! 
+				// 게시글에 대한 정보와 총 페이지수에 대한 정보는 섞이기 어려운 정보
+				// => 별도의 서비스를 진행하는 게 더 좋음
+				System.out.println("시작 그룹번호 : " + pVO.getGroupNum() );
+				System.out.println("시작 페이지번호 : " + pVO.getPageNum() );
+				
+				// 총 페이지에 대한 개념
+				PagingVO pInfoVo = scrapService.getScrapListCount(pVO.getGroupNum(), pVO.getUserId());	// 얘는 조회만 하면 되서 넘겨주는게 없음
+				
+				// pVo : startPageNum / endPage 
+				List<ScrapVO> ScrapList = scrapService.getScrapList(pVO);
+				
+				model.addAttribute("scrapList", ScrapList);
+				model.addAttribute("pInfoVo", pInfoVo);
+				System.out.println("ScrapList : " + ScrapList);
+				System.out.println("pInfoVo : " + pInfoVo);
 		return "/scrap/scrapList";
 	}
 	

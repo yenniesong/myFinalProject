@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.human.java.dao.ScrapDAO;
+import com.human.java.domain.PagingVO;
 import com.human.java.domain.ScrapVO;
 
 @Service("ScrapService")
@@ -15,10 +16,52 @@ public class ScrapServiceImpl implements ScrapService {
 	private ScrapDAO scrapDAO;
 
 	@Override
-	public List<ScrapVO> getScrapList(ScrapVO vo) {
+	public List<ScrapVO> getScrapList(PagingVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("## getScrapList service ##");
+		int startPage = (vo.getPageNum() - 1 ) * vo.getCountPerPage() + 1;
+		int endPage = vo.getPageNum() * vo.getCountPerPage();
+		
+		vo.setStartPage(startPage);
+		vo.setEndPage(endPage);
+		
 		return scrapDAO.getScrapList(vo);
+	}
+	
+	@Override
+	public PagingVO getScrapListCount(int groupNum, String userId) {
+		// TODO Auto-generated method stub
+System.out.println("## getQnAListCount service 진입 ##");
+		
+		PagingVO vo = scrapDAO.getScrapListCount(userId);
+		vo.setGroupNum(groupNum);
+		
+		System.out.println("vo : " + vo);
+		
+		int totalPageCount = vo.getTotalCount() / vo.getCountPerPage();
+		if ( vo.getTotalCount() % vo.getCountPerPage() != 0 ) totalPageCount++;
+		
+		vo.setTotalPageCount(totalPageCount);
+		System.out.println("totalPageCount : " + vo);
+		
+		int totalGroupCount = totalPageCount / vo.getCountPerGroup();
+		if ( totalPageCount % vo.getCountPerGroup() != 0 ) totalGroupCount++;
+
+		vo.setTotalGroupCount(totalGroupCount);
+		System.out.println("totalPageCount : " + vo);
+		
+		// group작업
+		int groupStartPage = (vo.getGroupNum() - 1) * vo.getCountPerGroup() + 1;
+		int groupEndPage = vo.getGroupNum() * vo.getCountPerGroup();
+		
+		if (groupEndPage >= vo.getTotalPageCount()) {
+			groupEndPage = vo.getTotalPageCount();
+		}
+		
+		vo.setGroupStartPage(groupStartPage);
+		vo.setGroupEndPage(groupEndPage);
+		
+		return vo;
 	}
 
 	@Override
@@ -66,6 +109,8 @@ public class ScrapServiceImpl implements ScrapService {
 		scrapDAO.deleteScrap(vo);
 		
 	}
+
+
 
 	
 

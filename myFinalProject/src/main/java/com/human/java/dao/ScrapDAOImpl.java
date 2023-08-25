@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.human.java.domain.PagingVO;
 import com.human.java.domain.ScrapVO;
 
 @Repository("ScrapDAO")
@@ -15,10 +16,16 @@ public class ScrapDAOImpl implements ScrapDAO {
 	private SqlSessionTemplate mybatis;
 
 	@Override
-	public List<ScrapVO> getScrapList(ScrapVO vo) {
+	public List<ScrapVO> getScrapList(PagingVO vo) {
 		// TODO Auto-generated method stub
 		System.out.println("## getScrapList - DAOImpl ##");
 		return mybatis.selectList("ScrapDAO.getScrapList",vo);
+	}
+	
+	@Override
+	public PagingVO getScrapListCount(String userId) {
+		System.out.println("## getScrapList - DAOImpl ##");
+		return mybatis.selectOne("ScrapDAO.getScrapListCount", userId);
 	}
 
 	@Override

@@ -1173,7 +1173,6 @@ button:focus {
 				</div>
 				</c:if>
 				<script type="text/javascript">
-				
 				$(function(){
 					let loginUser='<%=userId%>';
 					$(".scrap-btn").click(function(){
@@ -1187,6 +1186,7 @@ button:focus {
 						let companyName = '${recruit.company_name}';
 						let adId = '${recruit.ad_id}';
 						let adTitle = '${recruit.ad_title}';
+						let scrapId = '${scrap.scrap_id}';
 						
 						console.log(userId);
 						console.log(name);
@@ -1194,6 +1194,7 @@ button:focus {
 						console.log(companyName);
 						console.log(adId);
 						console.log(adTitle);
+						console.log("scrap_id: "+scrapId);
 						
 						let data2 = {
 								"userId":userId,
@@ -1201,8 +1202,12 @@ button:focus {
 								"company_id": companyId,
 								"company_name": companyName,
 								"ad_id": adId,
-								"ad_title": adTitle
+								"ad_title": adTitle,
+								"scrap_id": scrapId
 						};
+						
+						
+						
 						
 						$.ajax({
 							url:"/scrap/insertScrap.do",
@@ -1211,11 +1216,42 @@ button:focus {
 							dataType: "text",
 							success: function(json){
 								console.log("스크랩 결과: "+json);
-								if(json == 0) {
-									alert("이미 스크랩 되었습니다.")
+								if (json == 0) {
+								    if (confirm("이미 스크랩 되었습니다. 스크랩을 취소하시겠습니까?")) {
+								        // 스크랩을 취소하는 AJAX 요청을 보내고, 성공하면 아래 코드를 실행
+								        $.ajax({
+								            url: "/scrap/deleteScrap.do",
+								            type: "POST",
+								            data: {
+								                "scrapId": scrapId
+								            },
+								            dataType: "text",
+								            success: function (deleteJson) {
+								                if (deleteJson == 1) {
+								                    alert('스크랩이 취소되었습니다.');
+								                } else {
+								                    alert('스크랩 취소 실패');
+								                }
+								            },
+								            error: function () {
+								                alert("scrap delete failed");
+								            }
+								        });
+								    } else {
+								        // 취소 버튼을 누른 경우 아무 작업하지 않음
+								    }
 								}
 								else {
-									alert("스크랩이 완료되었습니다.")
+									confirm("스크랩이 완료되었습니다. 스크랩 목록을 확인하시겠습니까?")
+									
+									if(confirm) {
+										alert("스크랩 목록으로 이동합니다.");
+										location.href = '/scrap/scrapList.do';
+									}
+									
+									else {
+										//동작 x
+									}
 								}
 							},
 							error: function(){
