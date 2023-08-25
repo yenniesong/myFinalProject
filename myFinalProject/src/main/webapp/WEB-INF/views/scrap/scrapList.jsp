@@ -430,17 +430,39 @@
 							</div>
 						
 							<div class="jsx-485996613 sort-number">
-								<c:set var="total" value="${fn:length(qnaList)}" />
+								<c:set var="total" value="${fn:length(scrapList)}" />
 								<span class="jsx-485996613 total-number">총 ${total}개</span>
-								<div class="jsx-485996613 select-wrap talk fix-position">
-									<button type="button" class="jsx-3066370919 del_scrap">스크랩 삭제</button>
+								<div class="jsx-485996613 select-wrap talk fix-position">	
+									<button type="button" class="jsx-3066370919 del_scrap" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;">스크랩 삭제</button>
 								</div>
 							</div>
+							<form action="deleteScrap.do" method="post">
+															<!-- Modal -->
+															<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+															  <div class="modal-dialog">
+															    <div class="modal-content">
+															      <div class="modal-header">
+															        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+															        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+															      </div>
+															      <div class="modal-body">
+															        	스크랩을 삭제하시겠습니까?
+															      </div>
+															      <input type="hidden" name="course_id" value="${scrap.scrap_id }">
+															      <div class="modal-footer">
+															        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+															        <button type="submit" class="btn btn-primary">삭제</button>
+															      </div>
+															    </div>
+															  </div>
+															</div>
+		
+														</form>
 							
 							<div class="jsx-1779968077 board-list-box">
 								<ul class="jsx-1779968077 list-header" style="padding-left: 0px;">
 									<li class="jsx-1779968077">
-										<div class="jsx-1779968077" style="max-width: 60px;">체크박스s</div>
+										<div class="jsx-1779968077" style="max-width: 60px;">선택</div>
 										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 										<div class="jsx-1779968077" style="max-width: 120px;">회사 명</div>
 										<div class="jsx-1779968077" style="max-width: 100%;">공고 제목</div>
@@ -448,27 +470,26 @@
 									</li>
 								</ul>
 							
-								<c:forEach items="${qnaList }" var="qna">
+								<c:forEach items="${scrapList}" var="scrap">
+		                  	<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
 									<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
-										<li tabindex="0" class="jsx-989812570 ">
-											<input type="hidden" class="academyName" name="academy" value="${qna.academy }">
-											<div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
-											<div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
-											<div class="jsx-989812570 col-title">
-												<a class="jsx-989812570" href="#" style="color: rgb(102, 102, 102);">${qna.title }</a>
-												<span class="jsx-989812570 comment-number hide-on-desktop">0
-													<span class="jsx-989812570">댓글</span>
-												</span>
-											</div>
-											<div class="jsx-989812570 col-userId" style="max-width: 100px;">${qna.userId }</div>
-											<div class="jsx-989812570 col-created" style="max-width: 100px;">${qna.created_at }</div>
-											<div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
-												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
-													<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-													<circle cx="12" cy="12" r="3"></circle>
-												</svg>
-											</div>
-										</li>
+											                  <li tabindex="0" class="jsx-989812570 ">
+		                  	<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
+		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${scrap.scrap_id }</div>
+		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${scrap.company_name }</div>
+		                    <div class="jsx-989812570 col-title">
+	<%-- 	                      <a class="jsx-989812570" href="getQnABoard.do?question_id=${qna.question_id }" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a> --%>
+		                      <a class="jsx-989812570" href="#" style="color: rgb(102, 102, 102);">${scrap.ad_title}</a>
+		                    </div>
+		                    <div class="jsx-989812570 col-created" style="max-width: 100px;">${scrap.scrap_date }</div>
+		                    <div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
+		                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
+		                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+		                        <circle cx="12" cy="12" r="3"></circle>
+		                      </svg>
+		                    </div>
+
+		                  </li>
 									</ul>
 								</c:forEach>
 							</div>
