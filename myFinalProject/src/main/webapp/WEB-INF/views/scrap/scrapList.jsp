@@ -471,9 +471,9 @@
 								</ul>
 							
 								<c:forEach items="${scrapList}" var="scrap">
-		                  	<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
 									<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
-											                  <li tabindex="0" class="jsx-989812570 ">
+									<a href="/recruit/getRecruit.do?ad_id=${recruit.ad_id}">
+							<li tabindex="0" class="jsx-989812570 ">
 		                  	<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
 		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${scrap.scrap_id }</div>
 		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${scrap.company_name }</div>
@@ -488,8 +488,8 @@
 		                        <circle cx="12" cy="12" r="3"></circle>
 		                      </svg>
 		                    </div>
-
 		                  </li>
+		                  </a>
 									</ul>
 								</c:forEach>
 							</div>
