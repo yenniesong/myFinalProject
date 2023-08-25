@@ -31,7 +31,7 @@ public class ScrapServiceImpl implements ScrapService {
 	@Override
 	public PagingVO getScrapListCount(int groupNum, String userId) {
 		// TODO Auto-generated method stub
-System.out.println("## getQnAListCount service 진입 ##");
+		System.out.println("## getQnAListCount service 진입 ##");
 		
 		PagingVO vo = scrapDAO.getScrapListCount(userId);
 		vo.setGroupNum(groupNum);
