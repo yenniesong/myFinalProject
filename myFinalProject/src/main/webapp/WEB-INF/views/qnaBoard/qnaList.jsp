@@ -599,7 +599,13 @@
 <script>
 	
 	$(document).ready(function() {
+		
 		$('div.jsx-989812570.col-title > a').click(function() {
+			let question_id = $(this).parent().prev().prev().text();
+			// 게시글의 학원명
+			let selecteBootcampName = $(this).parent().prev().prev().prev().val();
+			// 게시글의 작성자
+			let selecteWriter = $(this).parent().next().text();
 			
 			if ("<%=loginFG%>" == 'm' ) {
 				console.log("난 학생이어요");
@@ -614,11 +620,6 @@
 				}
 				
 			} else if ("<%=loginFG%>" == 'b') {
-				let question_id = $(this).parent().prev().prev().text();
-				// 게시글의 학원명
-				let selecteBootcampName = $(this).parent().prev().prev().prev().val();
-				// 게시글의 작성자
-				let selecteWriter = $(this).parent().next().text();
 				
 				// 선택된 글을 쓴 학생의 학원명
 				console.log("선택된 글을 쓴 학생의 학원명 : " + selecteBootcampName);

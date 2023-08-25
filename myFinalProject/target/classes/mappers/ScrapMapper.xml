@@ -8,16 +8,18 @@
 	<!-- list -->
 	<select id="getScrapList" parameterType="paging" resultType="scrap">
 	<!-- 페이징을 위한 select -> rownum 으로 정렬 -->
-SELECT * FROM (
+SELECT rn, scrap_id, userId, name, company_id, company_name, ad_id, ad_title, scrap_date
+ FROM (
     SELECT ROWNUM AS rn, e.*
     FROM (
-        SELECT *
+        SELECT scrap_id, userId, name, company_id, company_name, ad_id, ad_title, TO_CHAR(scrap_date, 'YYYY-MM-DD') as scrap_date
         FROM SCRAP
         WHERE userId like '%${userId}%'
         ORDER BY SCRAP_ID DESC
     	) e
 	)
 	WHERE rn BETWEEN #{startPage} AND #{endPage}
+	GROUP BY rn, scrap_id, userId, name, company_id, company_name, ad_id, ad_title, scrap_date
 	ORDER BY rn
 
 	</select>
@@ -26,7 +28,7 @@ SELECT * FROM (
 	<select id="getScrapListCount" parameterType="String" resultType="paging">
 	SELECT COUNT(*) AS totalCount
 	FROM scrap
-	WHERE name like '%{value}%'
+	WHERE userId like '%{value}%'
 	</select>
 
 	<!-- check Scrap -->

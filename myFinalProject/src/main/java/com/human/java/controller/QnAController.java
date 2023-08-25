@@ -97,7 +97,7 @@ public class QnAController {
 	}
 	
 	@RequestMapping("findMyQuestion.do")
-	public String findMyQuestion(@RequestParam("userId") String userId,HttpSession session) {
+	public String findMyQuestion(@RequestParam("userId") String userId, HttpSession session) {
 		System.out.println("## findMyQuestion.do 진입 ##");
 		System.out.println("## userId : " + userId);
 		

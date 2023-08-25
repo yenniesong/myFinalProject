@@ -1187,12 +1187,12 @@ button:focus {
 						let adId = '${recruit.ad_id}';
 						let adTitle = '${recruit.ad_title}';
 						
-						console.log(userId);
-						console.log(name);
-						console.log(companyId);
-						console.log(companyName);
-						console.log(adId);
-						console.log(adTitle);
+						console.log("userId : " + userId);
+						console.log("name : " + name);
+						console.log("companyId : " + companyId);
+						console.log("companyName : " + companyName);
+						console.log("adId : " + adId);
+						console.log("adTitle : " + adTitle);
 						
 						let data2 = {
 								"userId":userId,

@@ -13,6 +13,6 @@ public class ScrapVO {
 	private String company_name;
 	private int ad_id;
 	private String ad_title;
-	private DATE scrap_date;
+	private String scrap_date;
 
 }

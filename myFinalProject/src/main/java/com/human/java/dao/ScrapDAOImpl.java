@@ -24,7 +24,7 @@ public class ScrapDAOImpl implements ScrapDAO {
 	
 	@Override
 	public PagingVO getScrapListCount(String userId) {
-		System.out.println("## getScrapList - DAOImpl ##");
+		System.out.println("## getScrapListCount - DAOImpl ##");
 		return mybatis.selectOne("ScrapDAO.getScrapListCount", userId);
 	}
 

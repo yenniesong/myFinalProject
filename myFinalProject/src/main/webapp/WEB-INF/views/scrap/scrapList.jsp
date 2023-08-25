@@ -180,9 +180,13 @@
         display: flex;
     }
     button.jsx-3066370919 {
-        margin-left: auto;
-      	color: #719a60;
-      	border-bottom: 1px solid #719a60;
+            /* margin-left: auto; */
+	    color: #ffff;
+	    /* border-bottom: 1px solid #719a60; */
+	    border-color: #00c471;
+	    /* font-weight: 700; */
+	    background-color: #00c471;
+	    border-radius: 4px;
     }
     .hide-on-desktop {
         display: none;
@@ -376,6 +380,7 @@
           display: flex;
           -webkit-box-align: center;
           align-items: center;
+          justify-content: center;
       }
       li.jsx-989812570 div.col-title.jsx-989812570 {
           text-align: left;
@@ -437,32 +442,33 @@
 								</div>
 							</div>
 							<form action="deleteScrap.do" method="post">
-															<!-- Modal -->
-															<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-															  <div class="modal-dialog">
-															    <div class="modal-content">
-															      <div class="modal-header">
-															        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-															        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-															      </div>
-															      <div class="modal-body">
-															        	스크랩을 삭제하시겠습니까?
-															      </div>
-															      <input type="hidden" name="course_id" value="${scrap.scrap_id }">
-															      <div class="modal-footer">
-															        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-															        <button type="submit" class="btn btn-primary">삭제</button>
-															      </div>
-															    </div>
-															  </div>
-															</div>
-		
-														</form>
+								<!-- Modal -->
+								<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								  <div class="modal-dialog">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								      </div>
+								      <div class="modal-body">
+								        	스크랩을 삭제하시겠습니까?
+								      </div>
+								      <input type="hidden" name="course_id" value="${scrap.scrap_id }">
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								        <button type="submit" class="btn btn-primary">삭제</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+							</form>
 							
 							<div class="jsx-1779968077 board-list-box">
-								<ul class="jsx-1779968077 list-header" style="padding-left: 0px;">
+								<ul class="jsx-1779968077 list-header" style="padding-left: 0px; margin-bottom: 0px;">
 									<li class="jsx-1779968077">
-										<div class="jsx-1779968077" style="max-width: 60px;">선택</div>
+										<div class="jsx-1779968077" style="max-width: 60px;">
+											<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
+										</div>
 										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 										<div class="jsx-1779968077" style="max-width: 120px;">회사 명</div>
 										<div class="jsx-1779968077" style="max-width: 100%;">공고 제목</div>
@@ -471,28 +477,27 @@
 								</ul>
 							
 							
-								<c:forEach items="${scrapList}" var="scrap">
-									<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
-									<a href="/recruit/getRecruit.do?ad_id=${recruit.ad_id}">
-							<li tabindex="0" class="jsx-989812570 ">
-		                  	<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
-		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${scrap.scrap_id }</div>
-		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${scrap.company_name }</div>
-		                    <div class="jsx-989812570 col-title">
-	<%-- 	                      <a class="jsx-989812570" href="getQnABoard.do?question_id=${qna.question_id }" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a> --%>
-		                      <a class="jsx-989812570" href="#" style="color: rgb(102, 102, 102);">${scrap.ad_title}</a>
-		                    </div>
-		                    <div class="jsx-989812570 col-created" style="max-width: 100px;">${scrap.scrap_date }</div>
-		                    <div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
-		                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
-		                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-		                        <circle cx="12" cy="12" r="3"></circle>
-		                      </svg>
-		                    </div>
-		                  </li>
-		                  </a>
-									</ul>
-								</c:forEach>
+								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
+									<c:forEach items="${scrapList}" var="scrap">
+										<li tabindex="0" class="jsx-989812570 ">
+											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
+												<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
+											</div>
+											<div class="jsx-989812570 col-notice" style="max-width: 60px;">${scrap.scrap_id }</div>
+											<div class="jsx-989812570 col-category" style="max-width: 120px;">${scrap.company_name }</div>
+											<div class="jsx-989812570 col-title">
+												<a class="jsx-989812570" href="/recruit/getRecruit.do?ad_id=${scrap.ad_id}" style="color: rgb(102, 102, 102);">${scrap.ad_title}</a>
+											</div>
+											<div class="jsx-989812570 col-created" style="max-width: 100px;">${scrap.scrap_date }</div>
+											<div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
+												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
+													<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+													<circle cx="12" cy="12" r="3"></circle>
+												</svg>
+											</div>
+										</li>
+									</c:forEach>
+								</ul>
 							</div>
 						
 							<div class="jsx-4203269740 board-list-footer">
