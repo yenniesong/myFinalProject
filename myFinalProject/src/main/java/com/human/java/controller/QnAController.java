@@ -45,7 +45,6 @@ public class QnAController {
 		System.out.println((String) session.getAttribute("MyQuestion"));
 		pVO.setUserId((String) session.getAttribute("MyQuestion"));
 		
-		
 		// 서비스에서 하면 return이 하나만 되고 게시글에 대한 정보만 리턴! 
 		// 게시글에 대한 정보와 총 페이지수에 대한 정보는 섞이기 어려운 정보
 		// => 별도의 서비스를 진행하는 게 더 좋음
