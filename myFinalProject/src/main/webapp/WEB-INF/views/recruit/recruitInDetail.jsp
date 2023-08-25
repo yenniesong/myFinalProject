@@ -1207,7 +1207,7 @@ button:focus {
 						console.log(scrapId);
 						
 						$.ajax({
-							url:"/scrap/insertScrap.do",
+							url:"/scrap/insertScrap.do?userId="+userId,
 							type: "POST",
 							data: data2,
 							dataType: "text",
@@ -1230,7 +1230,7 @@ button:focus {
 									
 									if(confirm) {
 										alert("스크랩 목록으로 이동합니다.");
-										location.href = '/scrap/scrapList.do';
+										location.href = '/scrap/getScrapList.do?userId='+userId;
 									}
 									
 									else {

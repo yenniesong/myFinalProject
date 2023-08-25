@@ -8,7 +8,7 @@
 	<!-- list -->
 	<select id="getScrapList" parameterType="paging" resultType="scrap">
 	<!-- 페이징을 위한 select -> rownum 으로 정렬 -->
-	SELECT * FROM (
+SELECT * FROM (
     SELECT ROWNUM AS rn, e.*
     FROM (
         SELECT *

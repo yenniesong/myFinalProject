@@ -93,7 +93,7 @@
 								<c:if test="${loginFG == 'm'}">
 									<li><a href="#">이력서</a></li>
 									<li><a href="MembermyPage">내 정보</a></li>
-									<li><a href="/scrap/scrapList.do">내 스크랩 목록</a></li>
+									<li><a href="/scrap/getScrapList.do?userId=${userId}">내 스크랩 목록</a></li>
 									<li><a href="myComment">내 댓글 목록</a></li>
 								</c:if>
 								<c:if test="${loginFG == 'b'}">
