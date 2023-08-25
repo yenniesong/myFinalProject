@@ -470,6 +470,7 @@
 									</li>
 								</ul>
 							
+							
 								<c:forEach items="${scrapList}" var="scrap">
 									<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
 									<a href="/recruit/getRecruit.do?ad_id=${recruit.ad_id}">
