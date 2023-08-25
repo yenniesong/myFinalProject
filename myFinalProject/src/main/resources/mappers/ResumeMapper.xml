@@ -4,6 +4,101 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="ResumeDAO">
+
+<!-- list -->
+<!-- 페이징을 위한 select - rownum -->
+	<select id="getResumeList" parameterType="paging" resultType="resume">
+	<!-- 페이징을 위한 select -> rownum 으로 정렬 -->
+SELECT * FROM (
+    SELECT ROWNUM AS rn, e.*
+    FROM (
+        SELECT *
+        FROM USER_RESUME
+        WHERE userId like '%${userId}%'
+        ORDER BY RESUME_ID DESC
+    	) e
+	)
+	WHERE rn BETWEEN #{startPage} AND #{endPage}
+	ORDER BY rn
+
+	</select>
+
+<!-- 페이징 카운트 -->
+	<select id="getResumeListCount" parameterType="String" resultType="paging">
+	SELECT COUNT(*) AS totalCount
+	FROM scrap
+	WHERE name like '%{value}%'
+	</select>
+	
+	<!-- 이력서 상세보기 -->
+	<select id="getResume" parameterType="resume" resultType="resume">
+	SELECT * FROM user_resume WHERE resume_id = #{resume_id}
+	</select>
+	
+	<!-- 이력서 insert -->
+	<insert id="insertResume" parameterType="resume">
+	INSERT INTO USER_RESUME (
+	RESUME_ID, USERID, USER_NAME, USER_EMAIL, USER_PHONE_NUMBER,
+	USER_ADDRESS,
+	<if test="user_photo!=null">
+	USER_PHOTO, USER_PHOTO_EN,
+	</if>
+	USER_EDUCATION, USER_SKILLS, USER_PORTFOLIO_LINK,
+	<if test="user_portfolio_file!=null">
+	USER_PORTFOLIO_FILE,
+	</if>
+	USER_EXPERIENCE, SELF_INTRODUCE, REGDATE, RESUME_TITLE
+	)
+	VALUES (
+	resume_id_seq.NEXTVAL, #{userId}, #{user_name}, #{user_email}, #{user_phone_number},
+	#{user_address},
+	<if test="user_photo!=null">
+	#{user_photo},#{user_photo_en},
+	</if>
+	#{user_education}, #{user_skills}, #{user_portfolio_link},
+	<if test="user_portfolio_file!=null">
+	#{user_portfolio_file},
+	</if>
+	#{user_experience}, #{self_introduce}, SYSDATE, #{resume_title}
+	)
+	</insert>
+	
+	<!-- 업데이트를 위한 페이지 조회 -->
+	<select id="getResumeForUpdating" parameterType="resume" resultType="resume">
+	SELECT * FROM USER_RESUME WHERE resume_id = #{resume_id}
+	</select>
+	
+	<!-- 이력서 update -->
+	<update id="updateResume" parameterType="resume">
+	UPDATE USER_RESUME
+	SET
+	USERID = #{userId},
+	USER_NAME = #{user_name},
+	USER_EMAIL = #{user_email},
+	USER_PHONE_NUMBER = #{user_phone_number},
+	USER_ADDRESS = #{user_address},
+	<if test="user_photo!=null">
+	USER_PHOTO = #{user_photo},
+	USER_PHOTO_EN = #{user_photo_en},
+	</if>
+	USER_EDUCATION = #{user_education},
+	USER_SKILLS = #{user_skills},
+	USER_PORTFOLIO_LINK = #{user_portfolio_link},
+	<if test="user_portfolio_file!=null">
+	USER_PORTFOLIO_FILE = #{user_portfolio_file},
+	</if>
+	USER_EXPERIENCE = #{user_experience},
+	SELF_INTRODUCE = #{self_introduce},
+	REGDATE = SYSDATE,
+	RESUME_TITLE = #{resume_title}
+	WHERE RESUME_ID = #{resume_id}
+	</update>
+	
+	<!-- 이력서 삭제 -->
+	<delete id="deleteResume" parameterType="resume">
+	DELETE FROM USER_RESUME
+	WHERE resume_id = #{resume_id}
+	</delete>
 	
 </mapper>
   
