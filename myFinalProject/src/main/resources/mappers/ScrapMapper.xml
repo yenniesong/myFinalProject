@@ -28,7 +28,7 @@ SELECT rn, scrap_id, userId, name, company_id, company_name, ad_id, ad_title, sc
 	<select id="getScrapListCount" parameterType="String" resultType="paging">
 	SELECT COUNT(*) AS totalCount
 	FROM scrap
-	WHERE userId like '%{value}%'
+	WHERE userId = '%{userId}%'
 	</select>
 
 	<!-- check Scrap -->
