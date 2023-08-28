@@ -2615,6 +2615,7 @@ input:autofill:active {
 
 ul, li {
 	list-style: none;
+	margin-bottom: 0px;
 }
 
 .board_wrap_report {

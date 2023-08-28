@@ -13,11 +13,11 @@
 				FROM ( 
 				      SELECT ROWNUM as rn, e.*
 				      FROM (    
-				      			SELECT q.question_id, q.userId, c.category_id, c.category_name, q.academy, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
+				      			SELECT ROWNUM as rn, q.question_id, q.userId, c.category_id, c.category_name, q.academy, q.title, q.name, TO_CHAR(q.created_at, 'YYYY-MM-DD') as created_at, q.view_cnt
 				                  FROM question q, category c
 				                 WHERE q.category_id = c.category_id
 				                 	AND q.userId like '%${userId}%'
-				                 ORDER BY q.question_id DESC
+				                 ORDER BY rn DESC
 				            ) e 
 				      )  q,
 		              answer a
@@ -32,7 +32,8 @@
   		<!-- 리스트를 카운트 -->
   		SELECT COUNT(*) AS totalCount
   		  FROM question
-  		   WHERE name like '%${value}%'
+  		   WHERE userId = #{userId}
+<!--   		   WHERE name like '%${value}%' -->
   	</select>
   	
   	<select id="chkPwd" parameterType="qna" resultType="qna">
