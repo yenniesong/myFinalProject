@@ -1165,9 +1165,23 @@ button:focus {
 						data-bs-target="#apply-modal">
 						<i class="bi bi-envelope"></i>즉시지원
 					</button>
+					<c:if test="${empty rList}">
+					<script type="text/javascript">
+					$(".apply-btn").on("click",function(){
+						let confirmed = confirm("You don't have any resume. do you want to get it?");
+						if (confirmed) {
+							alert ("Let's go to the write page!");
+							location.href = "/resume/resumeAdding.do";
+						}
+						else {
+							alert ("go back to the page!");
+						}
+					});
+					</script>
+					</c:if>
+
 					<!--toast for scrap btn-->
-					<button type="button" class="scrap-btn"
-						onclick="toast('Scrap Success!')">
+					<button type="button" class="scrap-btn">
 						<i class="bi bi-star" id="scrap-star"></i>스크랩&nbsp;
 					</button>
 				</div>
