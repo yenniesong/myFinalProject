@@ -1228,19 +1228,11 @@ button:focus {
 							dataType: "text",
 							success: function(json){
 								console.log("스크랩 결과: "+json);
-								if(json == 0) {
-									confirm("이미 스크랩 되었습니다. 스크랩을 취소하시겠습니까?")
-									if(confirm) {
-										return json == 1;
-										alert('스크랩을 취소합니다.');
-										console.log("스크랩 결과: "+json);
-										alert('스크랩이 취소되었습니다.');
-									}
-									else {
-										
-									}
+								if(json == 1) {
+									alert ("scrap cancel");
+									location.reload();
 								}
-								else {
+								else if (json == 0) {
 									confirm("스크랩이 완료되었습니다. 스크랩 목록을 확인하시겠습니까?")
 									
 									if(confirm) {
@@ -1250,6 +1242,7 @@ button:focus {
 									
 									else {
 										//동작 x
+										location.reload();
 									}
 								}
 							},

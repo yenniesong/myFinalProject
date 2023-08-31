@@ -57,7 +57,7 @@ public class ScrapController {
 	
 	@ResponseBody
 	@RequestMapping("insertScrap.do")
-	public int insertScrap(ScrapVO vo, HttpSession session, HttpServletResponse response) {
+	public ScrapVO insertScrap(ScrapVO vo, HttpSession session, HttpServletResponse response) {
 		System.out.println("## insertScrap.do - Controller ##");
 		System.out.println("scrap id:"+vo.getScrap_id());
 		System.out.println("user id:"+vo.getUserId());
@@ -68,7 +68,14 @@ public class ScrapController {
 		System.out.println("ad title:"+vo.getAd_title());
 		System.out.println("scrap date:"+vo.getScrap_date());
 		
-		int insertResult = scrapService.insertScrap(vo);
+		ScrapVO insertResult = scrapService.chkScrap(vo.getUserId(),vo.getAd_id());
+		
+		if (insertResult == null) {
+			scrapService.insertScrap(vo);
+		}
+		else if (insertResult != null) {
+			scrapService.deleteScrap(vo);
+		}
 		return insertResult;
 	}
 	
@@ -77,7 +84,8 @@ public class ScrapController {
 		System.out.println("## deleteScrap.do - controller ##");
 		System.out.println("##scrap id: "+vo.getScrap_id());
 		scrapService.deleteScrap(vo);
-		return "redirect:/scrap/getScrapList.do";
+		return "redirect:/scrap/scrapList?userId=${userId}";
+		
 	}
 	
 
