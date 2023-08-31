@@ -14,7 +14,7 @@ SELECT rn, scrap_id, userId, name, company_id, company_name, ad_id, ad_title, sc
     FROM (
         SELECT scrap_id, userId, name, company_id, company_name, ad_id, ad_title, TO_CHAR(scrap_date, 'YYYY-MM-DD') as scrap_date
         FROM SCRAP
-        WHERE userId like '%${userId}%'
+        WHERE userId like '${userId}'
         ORDER BY SCRAP_ID DESC
     	) e
 	)
@@ -46,7 +46,7 @@ SELECT rn, scrap_id, userId, name, company_id, company_name, ad_id, ad_title, sc
 
 	<!-- delete -->
 	<select id="deleteScrap" parameterType="scrap">
-		DELETE FROM SCRAP WHERE userId like '%{userId}%' and ad_id = #{ad_id}
+		DELETE FROM SCRAP WHERE userId like '{userId}' and ad_id = #{ad_id}
 	</select>
 
 </mapper>
