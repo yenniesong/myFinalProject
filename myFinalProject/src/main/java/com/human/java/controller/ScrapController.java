@@ -75,6 +75,7 @@ public class ScrapController {
 		}
 		else if (insertResult != null) {
 			scrapService.deleteScrap(vo);
+			System.out.println("지웠나요:" + vo);
 		}
 		return insertResult;
 	}
