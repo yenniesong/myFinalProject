@@ -453,7 +453,7 @@
 								      <div class="modal-body">
 								        	스크랩을 삭제하시겠습니까?
 								      </div>
-								      <input type="hidden" name="course_id" value="${scrap.scrap_id }">
+								      <input type="hidden" name="scrap_id" value="${scrap.scrap_id }">
 								      <div class="modal-footer">
 								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 								        <button type="submit" class="btn btn-primary">삭제</button>
@@ -467,7 +467,7 @@
 								<ul class="jsx-1779968077 list-header" style="padding-left: 0px; margin-bottom: 0px;">
 									<li class="jsx-1779968077">
 										<div class="jsx-1779968077" style="max-width: 60px;">
-											<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
+											<input type="checkbox" class="scrap_id" name="allCheck">
 										</div>
 										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 										<div class="jsx-1779968077" style="max-width: 120px;">회사 명</div>
@@ -475,13 +475,39 @@
 										<div class="jsx-1779968077" style="max-width: 100px;">등록일</div>
 									</li>
 								</ul>
+								
+								<script type="text/javascript">
+								//class: scrap_id
+								//선택 삭제 만들기
+								var chkObj = document.getElementsByName("rowCheck");
+								var rowCnt = chkObj.length;
+								
+								$("input[name='allCheck']").click(function(){
+									var chk_listArr = $("input[name='rowCheck']");
+									for (var i=0; i<chk_listArr.lenght; i++){
+										chk_listArr[i].checked = this.checked;
+									}
+								});
+								
+								$("input[name='rowCheck']").click(function(){
+									if($("input[name='rowCheck']:checked").length == rowCnt){
+										$("input[name='allCheck']")[0].checked = true;
+									}
+									else {
+										$("input[name='allCheck']")[0].checked = false;
+									}
+								});
+								
+								//delete data
+								
+								</script>
 							
 							
 								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
 									<c:forEach items="${scrapList}" var="scrap">
 										<li tabindex="0" class="jsx-989812570 ">
 											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
-												<input type="checkbox" class="scrap_id" name="scrap_id" value="${scrap.scrap_id }">
+												<input type="checkbox" class="scrap_id" name="rowCheck" value="${scrap.scrap_id }">
 											</div>
 											<div class="jsx-989812570 col-notice" style="max-width: 60px;">${scrap.scrap_id }</div>
 											<div class="jsx-989812570 col-category" style="max-width: 120px;">${scrap.company_name }</div>
