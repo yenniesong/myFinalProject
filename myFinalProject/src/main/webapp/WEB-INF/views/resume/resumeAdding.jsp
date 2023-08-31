@@ -166,7 +166,7 @@
           -->
 
           <!-- resume section 01. userId (hidden), resume_title(text) -->
-          <input type="hidden" value="<%=userId%>" name="resume_userId"/>
+          <input type="hidden" value="<%=userId%>" name="userId"/>
           <h4>RESUME TITLE</h4>
           <div class="row">
             <div class="col">
@@ -182,7 +182,7 @@
             <!-- user photo -->
             <div class="flex-container">
               <div class="wrapper">
-                <p class="jsx-1629185219" style="color: #878e98; font-size: small; text-align: center;">기업 로고를 등록하세요.
+                <p class="jsx-1629185219" style="color: #878e98; font-size: small; text-align: center;">이력서 사진을 등록하세요.
                 </p>
                 <img src="https://i0.wp.com/adventure.co.kr/wp-content/uploads/2020/09/no-image.jpg" class="image-box"
                   alt="${resume.user_photo}" />
@@ -268,7 +268,7 @@
               <div class="col-md">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: x-small; text-align: center;"> 포트폴리오 파일을 첨부하세요. </p>
                 <!--portfolio file-->
-                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="/*" name="file2">
               </div>
             </div><hr>
             <br>
