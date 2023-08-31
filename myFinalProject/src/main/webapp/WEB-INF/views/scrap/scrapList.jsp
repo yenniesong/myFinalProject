@@ -467,7 +467,7 @@
 								<ul class="jsx-1779968077 list-header" style="padding-left: 0px; margin-bottom: 0px;">
 									<li class="jsx-1779968077">
 										<div class="jsx-1779968077" style="max-width: 60px;">
-											<input type="checkbox" class="scrap_id" name="allCheck">
+											<input type="checkbox" name="allCheck"/>
 										</div>
 										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 										<div class="jsx-1779968077" style="max-width: 120px;">회사 명</div>
@@ -477,26 +477,35 @@
 								</ul>
 								
 								<script type="text/javascript">
-								//class: scrap_id
-								//선택 삭제 만들기
-								var chkObj = document.getElementsByName("rowCheck");
-								var rowCnt = chkObj.length;
+								//all check name: allCheck
+								//rowCheck name: rowCheck
+								//value: scrap_id
 								
-								$("input[name='allCheck']").click(function(){
-									var chk_listArr = $("input[name='rowCheck']");
-									for (var i=0; i<chk_listArr.lenght; i++){
-										chk_listArr[i].checked = this.checked;
-									}
+								$(function(){
+									//변수 선언 -> rowcheck
+									var chkObj = document.getElementsByName("rowCheck");
+									var rowCnt = chkObj.length;
+									//전체 선택
+									$("input[name='allCheck']").on("click", function(){
+										var chkList = $("[input[name='rowCheck']");
+										for(var i=0; i<chkList.length; i++) {
+											chkList[i].checked = this.checked;
+										}
+									});
+									
+								//선택 해제
+								$("input[name='rowCheck']").on("click",function(){
+								if($("input[name='rowCheck']:checked").length == rowCnt){
+									$("input[name='allCheck']")[0].checked = true;
+								}
+								else {
+									$("input[name='allcheck']")[0].checked = false;
+								}
+								
 								});
 								
-								$("input[name='rowCheck']").click(function(){
-									if($("input[name='rowCheck']:checked").length == rowCnt){
-										$("input[name='allCheck']")[0].checked = true;
-									}
-									else {
-										$("input[name='allCheck']")[0].checked = false;
-									}
 								});
+								
 								
 								//delete data
 								
@@ -507,7 +516,7 @@
 									<c:forEach items="${scrapList}" var="scrap">
 										<li tabindex="0" class="jsx-989812570 ">
 											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
-												<input type="checkbox" class="scrap_id" name="rowCheck" value="${scrap.scrap_id }">
+												<input type="checkbox" name="rowCheck" value="${scrap.scrap_id }">
 											</div>
 											<div class="jsx-989812570 col-notice" style="max-width: 60px;">${scrap.scrap_id }</div>
 											<div class="jsx-989812570 col-category" style="max-width: 120px;">${scrap.company_name }</div>
