@@ -510,15 +510,16 @@ System.out.println("loginFG : " + loginFG);
 								</script>
 							
 							
+									<c:forEach items="${resumeList}" var="resume" varStatus="loop">
 								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
-									<c:forEach items="${rList}" var="resume">
 										<li tabindex="0" class="jsx-989812570 ">
 											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
 												<input type="checkbox" name="rowCheck" value="${resume.resume_id }">
 											</div>
-											<div class="jsx-989812570 col-notice" style="max-width: 60px;">${resume.resume_id }</div>
-											<div class="jsx-989812570 col-category" style="max-width: 120px;">${resume.resume_title}</div>
-											<div class="jsx-989812570 col-title">
+<%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${loop.index + 1}</div> --%>
+											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div>
+											<!-- 거꾸로 하고싶을때 ${resumeList.size() - loop.index} 사용 -->
+											<div class="jsx-989812570 col-title" style="max-width:  100%;">
 												<a class="jsx-989812570" href="/resume/getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a>
 											</div>
 											<div class="jsx-989812570 col-created" style="max-width: 100px;">${resume.regdate}</div>
@@ -529,8 +530,8 @@ System.out.println("loginFG : " + loginFG);
 												</svg>
 											</div>
 										</li>
-									</c:forEach>
 								</ul>
+									</c:forEach>
 							</div>
 						
 							<div class="jsx-4203269740 board-list-footer">
