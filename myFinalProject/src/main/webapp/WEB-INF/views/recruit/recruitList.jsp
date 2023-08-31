@@ -448,6 +448,7 @@ filter: alpha(opacity=50);
 	overflow: hidden;
 }
 
+
 #searchList>ul>li:nth-child(1)>a>div.listCont>div.rSkillBox>span {
 	font-family: "\B9D1\C740   \ACE0\B515", Malgun Gothic, "\B3CB\C6C0",
 		Dotum, sans-serif;
