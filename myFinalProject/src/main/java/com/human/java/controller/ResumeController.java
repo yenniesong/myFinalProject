@@ -59,7 +59,7 @@ public class ResumeController {
 		return "/resume/resumeInDetail";
 	}
 	
-	//공고등록
+	//이력서등록
 		@RequestMapping("insertResume.do")
 		public String insertResume(ResumeVO vo, HttpSession session) {
 			System.out.println("## insertResume.do - controller ##");
