@@ -18,7 +18,7 @@ public class ResumeServiceImpl implements ResumeService{
 	@Override
 	public List<ResumeVO> getResumeList(PagingVO vo) {
 		// TODO Auto-generated method stub
-		System.out.println("## gerResumeList - service ##");
+		System.out.println("## getResumeList - service ##");
 		
 		int startPage = (vo.getPageNum() - 1 ) * vo.getCountPerPage() + 1;
 		int endPage = vo.getPageNum() * vo.getCountPerPage();

@@ -9,16 +9,18 @@
 <!-- 페이징을 위한 select - rownum -->
 	<select id="getResumeList" parameterType="paging" resultType="resume">
 	<!-- 페이징을 위한 select -> rownum 으로 정렬 -->
-SELECT * FROM (
+SELECT rn, resume_id, userId, regdate, resume_title
+ FROM (
     SELECT ROWNUM AS rn, e.*
     FROM (
-        SELECT *
+        SELECT resume_id, userId, TO_CHAR(regdate, 'YYYY-MM-DD') as regdate, resume_title
         FROM USER_RESUME
-        WHERE userId like '%${userId}%'
+        WHERE userId like '${userId}'
         ORDER BY RESUME_ID DESC
     	) e
 	)
 	WHERE rn BETWEEN #{startPage} AND #{endPage}
+	GROUP BY  rn, resume_id, userId, regdate, resume_title
 	ORDER BY rn
 
 	</select>
@@ -26,8 +28,8 @@ SELECT * FROM (
 <!-- 페이징 카운트 -->
 	<select id="getResumeListCount" parameterType="String" resultType="paging">
 	SELECT COUNT(*) AS totalCount
-	FROM scrap
-	WHERE name like '%{value}%'
+	FROM USER_RESUME
+	WHERE userId = '%{userId}%'
 	</select>
 	
 	<!-- 이력서 상세보기 -->
@@ -72,6 +74,7 @@ SELECT * FROM (
 	<update id="updateResume" parameterType="resume">
 	UPDATE USER_RESUME
 	SET
+	AD_ID = #{ad_id},
 	USERID = #{userId},
 	USER_NAME = #{user_name},
 	USER_EMAIL = #{user_email},

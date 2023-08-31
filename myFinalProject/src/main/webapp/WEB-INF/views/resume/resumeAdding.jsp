@@ -319,8 +319,8 @@
                   var confirmed = confirm('이력서 작성을 완료하시겠습니까?');
                   if (confirmed) {
                     // 글 등록이 완료되었습니다. 메시지 표시 후 글 목록 화면으로 이동하는 동작 구현
-                    alert('이력서 등록이 완료되었습니다.');
-                    //location.href = '글목록주소';
+                    alert('이력서 등록이 완료되었습니다. 이력서 목록 페이지로 이동합니다.');
+                    location.href = '/resume/getResumeList.do';
                   } else {
                     // 취소 클릭 시 아무 동작 없음
                   }

@@ -27,6 +27,7 @@ public class ResumeDAOImpl implements ResumeDAO {
 	public PagingVO getResumeListCount(String userId) {
 		// TODO Auto-generated method stub
 		System.out.println("## getResumeListCount - DAOImpl ##");
+		System.out.println("## getResumeListCount - DAOImpl userId ======> ## " + userId);
 		return mybatis.selectOne("ResumeDAO.getResumeListCount", userId);
 	}
 

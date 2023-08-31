@@ -540,7 +540,7 @@
 								  
 									<c:if test="${pInfoVo.groupNum eq 1}">
 										<li class="jsx-2507860227 prev disabled">
-											<a href="getQnAList.do?groupNum=${pInfoVo.groupNum-1}&pageNum=${pInfoVo.groupStartPage-1}">
+											<a href="getScrapList.do?groupNum=${pInfoVo.groupNum-1}&pageNum=${pInfoVo.groupStartPage-1}">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
 													<polyline points="11 17 6 12 11 7"></polyline>
 													<polyline points="18 17 13 12 18 7"></polyline>
@@ -552,7 +552,7 @@
 									
 									<c:if test="${pInfoVo.groupNum > 1}">
 										<li class="jsx-2507860227 prev">
-											<a href="getQnAList.do?groupNum=${pInfoVo.groupNum-1}&pageNum=${pInfoVo.groupStartPage-1}">
+											<a href="getScrapList.do?groupNum=${pInfoVo.groupNum-1}&pageNum=${pInfoVo.groupStartPage-1}">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
 													<polyline points="11 17 6 12 11 7"></polyline>
 													<polyline points="18 17 13 12 18 7"></polyline>
@@ -564,13 +564,13 @@
 									
 									<c:forEach var="i" begin="${pInfoVo.groupStartPage }" end="${pInfoVo.groupEndPage }">
 										<li class="jsx-2507860227 on">
-											<a href="getQnAList.do?groupNum=${pInfoVo.groupNum}&pageNum=${i }">${i }</a>
+											<a href="getScrapList.do?groupNum=${pInfoVo.groupNum}&pageNum=${i }">${i }</a>
 										</li>
 									</c:forEach>
 									
 									<c:if test="${pInfoVo.groupNum eq pInfoVo.totalGroupCount}">
 										<li class="jsx-2507860227 next disabled">
-											<a href="getQnAList.do?groupNum=${pInfoVo.groupNum+1}&pageNum=${pInfoVo.groupEndPage+1}">
+											<a href="getScrapList.do?groupNum=${pInfoVo.groupNum+1}&pageNum=${pInfoVo.groupEndPage+1}">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
 													<polyline points="13 17 18 12 13 7"></polyline>
 													<polyline points="6 17 11 12 6 7"></polyline>
@@ -582,7 +582,7 @@
 									
 									<c:if test="${pInfoVo.groupNum ne pInfoVo.totalGroupCount}">
 										<li class="jsx-2507860227 next">
-											<a href="getQnAList.do?groupNum=${pInfoVo.groupNum+1}&pageNum=${pInfoVo.groupEndPage+1}">
+											<a href="getScrapList.do?groupNum=${pInfoVo.groupNum+1}&pageNum=${pInfoVo.groupEndPage+1}">
 												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative;">
 													<polyline points="13 17 18 12 13 7"></polyline>
 													<polyline points="6 17 11 12 6 7"></polyline>

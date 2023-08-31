@@ -91,7 +91,7 @@
 								<li><a href="#">${userId}님 페이지</a></li>
 								<!-- 회원 -->
 								<c:if test="${loginFG == 'm'}">
-									<li><a href="#">이력서</a></li>
+									<li><a href="/resume/getResumeList.do?userId=${userId}">이력서</a></li>
 									<li><a href="MembermyPage">내 정보</a></li>
 									<li><a href="/scrap/getScrapList.do?userId=${userId}">내 스크랩 목록</a></li>
 									<li><a href="myComment">내 댓글 목록</a></li>

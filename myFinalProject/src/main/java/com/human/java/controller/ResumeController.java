@@ -35,13 +35,16 @@ public class ResumeController {
 		System.out.println("시작 그룹번호 : " + pVO.getGroupNum() );
 		System.out.println("시작 페이지번호 : " + pVO.getPageNum() );
 		
+		pVO.setUserId((String)session.getAttribute("userId"));
+		System.out.println("pVO.setUserId((String)session.getAttribute 값 : " + pVO.getUserId());
+		
 		// 총 페이지에 대한 개념
 		PagingVO pInfoVo = resumeService.getResumeListCount(pVO.getGroupNum(), pVO.getUserId());	// 얘는 조회만 하면 되서 넘겨주는게 없음
 		
 		// pVo : startPageNum / endPage 
 		List<ResumeVO> rList = resumeService.getResumeList(pVO);
 		
-		model.addAttribute("scrapList", rList);
+		model.addAttribute("resumeList", rList);
 		model.addAttribute("pInfoVo", pInfoVo);
 		System.out.println("ResumeList : " + rList);
 		System.out.println("pInfoVo : " + pInfoVo);
