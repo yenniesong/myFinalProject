@@ -60,7 +60,7 @@ MANIFEST.MF
 settings.json
 
 target/*
-
+META-INF/*
 .springBeans
 
 # Code Recommenders
