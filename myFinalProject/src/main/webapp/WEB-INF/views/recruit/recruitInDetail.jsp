@@ -1227,22 +1227,22 @@ button:focus {
 							dataType: "text",
 							success: function(json){
 								console.log("스크랩 결과: "+json);
-								if(json == 1) {
-									console.log("cancel result: "+json);
-									alert ("scrap cancel");
-								}
-								else if (json == 0) {
+								if(json == 0) {
+									
 									confirm("스크랩이 완료되었습니다. 스크랩 목록을 확인하시겠습니까?")
 									console.log("scrap result: "+json);
-									
 									if(confirm) {
 										location.href = '/scrap/getScrapList.do';
 									}
-									
 									else {
-										//동작 x
-										
+										//
 									}
+									
+								}
+								else {
+									
+									alert ("scrap cancel back to the recruit page");
+									console.log("cancel result: "+json);
 								}
 							},
 							error: function(){
