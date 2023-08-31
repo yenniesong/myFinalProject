@@ -1159,7 +1159,6 @@ button:focus {
 
 	<div class="container text-center">
 			
-			
 			<c:if test="${loginFG eq 'm'}">
 				<div class="col">
 					<button type="button" class="apply-btn" data-bs-toggle="modal"
