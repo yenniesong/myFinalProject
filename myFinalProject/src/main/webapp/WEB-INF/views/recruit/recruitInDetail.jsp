@@ -1221,27 +1221,27 @@ button:focus {
 						console.log(scrapId);
 						
 						$.ajax({
-							url:"/scrap/insertScrap.do?userId="+userId,
+							url:"/scrap/insertScrap.do",
 							type: "POST",
 							data: data2,
 							dataType: "text",
 							success: function(json){
 								console.log("스크랩 결과: "+json);
 								if(json == 1) {
+									console.log("cancel result: "+json);
 									alert ("scrap cancel");
-									location.reload();
 								}
 								else if (json == 0) {
 									confirm("스크랩이 완료되었습니다. 스크랩 목록을 확인하시겠습니까?")
+									console.log("scrap result: "+json);
 									
 									if(confirm) {
-										alert("스크랩 목록으로 이동합니다.");
-										location.href = '/scrap/getScrapList.do?userId='+userId;
+										location.href = '/scrap/getScrapList.do';
 									}
 									
 									else {
 										//동작 x
-										location.reload();
+										
 									}
 								}
 							},
