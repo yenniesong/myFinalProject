@@ -802,8 +802,11 @@ button:focus {
 }
 
 .text-box {
-	font-size: 15px;
-	line-height: 2.1;
+	font-size: 20px;
+	line-height: 200%;
+	text-align: justify;
+	border: 1px solid #afb3ae;
+	border-radius: 10px;
 }
 </style>
 
@@ -836,10 +839,15 @@ button:focus {
 					<c:when test="${loginFG == 'm' }">
 						<c:if test="${resume.userId eq userId}">
 							<!-- 수정 form tag 이용해 수정 버튼 클릭 후 모달에서도 확인 클릭 시  -->
-							<a href="/resume/resumeUpdating.do?no=${resume.resume_id}"><button type="button" class="update-btn" data-bs-toggle="modal" data-bs-target="#update">
+							<a href="/resume/resumeUpdating.do?no=${resume.resume_id}" class=update-href><button type="button" class="update-btn" data-bs-toggle="modal" data-bs-target="#update">
 								<i class="bi bi-vector-pen"></i>수정
 							</button></a>
-							
+							<script type="text/javascript">
+							$(".update-btn").on("click",function(){
+								let location = document.getElementByClass(".update-href");
+								console.log(location);
+							});
+							</script>
 							<!-- 삭제 -> form tag 이용해 삭제 버튼 클릭해 삭제하게 될 경우 delete page로 이동-->
 							<button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 								<i class="bi bi-trash3"></i>삭제
@@ -900,24 +908,24 @@ button:focus {
 					<div class="row">
 						<div class="user_info_box">
 							<p id="text-for-sum">
-								<i class="bi bi-buildings"></i>${resume.user_name}</p>
+								<i class="bi bi-person"></i>${resume.user_name}</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-7 col-xs-7">
 					<p id="text-for-sum">
-						<i class="bi bi-geo-alt" id="svg-for-sum"></i>${resume.user_email}</p>
+						<i class="bi bi-envelope-at"></i>${resume.user_email}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-code-slash" id="svg-for-sum"></i>${resume.user_phone_number}</p>
+						<i class="bi bi-telephone"></i>${resume.user_phone_number}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-coin" id="svg-for-sum"></i>${resume.user_address}</p>
+						<i class="bi bi-geo-alt" id="svg-for-sum"></i>${resume.user_address}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-check2-circle" id="svg-for-sum"></i>${resume.user_education}</p>
+						<i class="bi bi-mortarboard" id="svg-for-sum"></i>${resume.user_education}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-brightness-high" id="svg-for-sum"></i>${resume.user_skills}</p>
+						<i class="bi bi-code-slash" id="svg-for-sum"></i>${resume.user_skills}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-mortarboard" id="svg-for-sum"></i>${resume.user_portfolio_link}</p>
+						<i class="bi bi-link-45deg"></i><a href="${resume.user_portfolio_link}">${resume.user_portfolio_link}</a></p>
 				</div>
 			</div>
 

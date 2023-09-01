@@ -49,7 +49,7 @@ SELECT rn, resume_id, userId, regdate, resume_title
 	<if test="user_portfolio_file!=null">
 	USER_PORTFOLIO_FILE,
 	</if>
-	USER_EXPERIENCE, SELF_INTRODUCE, REGDATE, RESUME_TITLE
+	REGDATE, RESUME_TITLE, USER_EXPERIENCE, SELF_INTRODUCE
 	)
 	VALUES (
 	resume_id_seq.NEXTVAL, #{userId}, #{user_name}, #{user_email}, #{user_phone_number},
@@ -61,7 +61,7 @@ SELECT rn, resume_id, userId, regdate, resume_title
 	<if test="user_portfolio_file!=null">
 	#{user_portfolio_file},
 	</if>
-	#{user_experience}, #{self_introduce}, SYSDATE, #{resume_title}
+	 SYSDATE, #{resume_title}, #{user_experience}, #{self_introduce}
 	)
 	</insert>
 	
@@ -74,7 +74,6 @@ SELECT rn, resume_id, userId, regdate, resume_title
 	<update id="updateResume" parameterType="resume">
 	UPDATE USER_RESUME
 	SET
-	AD_ID = #{ad_id},
 	USERID = #{userId},
 	USER_NAME = #{user_name},
 	USER_EMAIL = #{user_email},
@@ -90,10 +89,9 @@ SELECT rn, resume_id, userId, regdate, resume_title
 	<if test="user_portfolio_file!=null">
 	USER_PORTFOLIO_FILE = #{user_portfolio_file},
 	</if>
+	RESUME_TITLE = #{resume_title},
 	USER_EXPERIENCE = #{user_experience},
-	SELF_INTRODUCE = #{self_introduce},
-	REGDATE = SYSDATE,
-	RESUME_TITLE = #{resume_title}
+	SELF_INTRODUCE = #{self_introduce}
 	WHERE RESUME_ID = #{resume_id}
 	</update>
 	

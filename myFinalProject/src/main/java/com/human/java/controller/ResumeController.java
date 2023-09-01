@@ -74,14 +74,14 @@ public class ResumeController {
 			return "redirect:/resume/getResumeList.do";
 		}
 	
-	//수정 페이지 불러오기
+		//수정 페이지 불러오기
 		@RequestMapping("getResumeForUpdating.do")
 		public String goResumeForUpdating (ResumeVO vo, Model model) {
 			System.out.println("## getResumeForUpdating.do - controller ##");
 			System.out.println("## Resume Number: "+vo.getResume_id()+ "##");
 			model.addAttribute("Resume", resumeService.getResumeForUpdating(vo));
 			
-			return "/Resume/ResumeUpdating";
+			return "/resume/resumeUpdating";
 		}
 		
 	//수정

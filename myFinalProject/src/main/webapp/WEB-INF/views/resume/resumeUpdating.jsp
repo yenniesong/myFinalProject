@@ -5,19 +5,30 @@
 
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
+
 	HttpSession cSession = request.getSession();
-	String userId = (String)cSession.getAttribute("userId");
-	String userName = (String)cSession.getAttribute("name");
 	
-	System.out.println("recruitAddingPage session userId: "+userId);
-	System.out.println("recruitAddingPage session user name: "+userName);
+	String userId = (String)cSession.getAttribute("userId");
+	String loginFG = (String)cSession.getAttribute("loginFG");
+	String userName = (String)cSession.getAttribute("name");
+	//Integer resumeId = (Integer)cSession.getAttribute("resume_id");
+ 	//Integer resume_id = (Integer)cSession.getAttribute("resume_id");
+	String resumeIdStr = request.getParameter("no");
+	int resume_id = Integer.parseInt(resumeIdStr);
+	
+	System.out.println("userId : " + userId);
+	System.out.println("loginFG : " + loginFG);
+	System.out.println("userName : " + userName);
+	System.out.println("resume_id : " + resume_id);
+	
+	
 	
 %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert Recruit</title>
+<title>Edit Resume</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 
@@ -154,8 +165,8 @@
         </div>
 
         <!--resume write for user-->
-        <!-- form tag: move to insertResume.do -->
-        <form action="insertResume.do" method="post" enctype="multipart/form-data">
+        <!-- form tag: move to updateResume.do -->
+        <form action="updateResume.do" method="post" enctype="multipart/form-data">
           <!--
                 RESUME_ID -> sequence
                 USERID 1 -> input type hidden  RESUME_TITLE 1
@@ -167,10 +178,11 @@
 
           <!-- resume section 01. userId (hidden), resume_title(text) -->
           <input type="hidden" value="<%=userId%>" name="userId"/>
+          <input type="hidden" value="<%=resume_id%>" name="resume_id"/>
           <h4>RESUME TITLE</h4>
           <div class="row">
             <div class="col">
-            <input type="text" class="form-control" id="resume-title" name="resume_title"/>
+            <input type="text" class="form-control" id="resume-title" name="resume_title" value="${resume.resume_title}"/>
           </div>
           </div>
           <hr>
@@ -184,8 +196,8 @@
               <div class="wrapper">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: small; text-align: center;">이력서 사진을 등록하세요.
                 </p>
-                <img src="https://i0.wp.com/adventure.co.kr/wp-content/uploads/2020/09/no-image.jpg" class="image-box"
-                  alt="#" />
+                <img src="${path}/resources/user_photo/${resume.user_photo_en}" class="image-box"
+                  alt="${resume.user_photo}" />
                 <label for="file" class="upload-btn">
                   <input id="file" type="file" accept="image/*" name="file"/>
                 </label>
@@ -204,7 +216,6 @@
                 reader.onload = ({ target }) => {
                   previews[0].src = target.result;
                 };
-
                 reader.readAsDataURL(fileDOM.files[0]);
               });
             </script>
@@ -217,18 +228,18 @@
               </div>
               <div class="col-md-4">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: x-small; text-align: center;">번호를 입력하세요</p>
-                <input type="text" class="form-control" id="user_phone_number" placeholder="${Member.tel}" value="${Member.tel}" name="user_phone_number"/>
+                <input type="text" class="form-control" id="user_phone_number" placeholder="${resume.user_phone_number}" value="${resume.user_phone_number}" name="user_phone_number"/>
               </div>
               <div class="col-md-5">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: x-small; text-align: center;">이메일을 입력하세요</p>
-                <input type="text" class="form-control" id="user_email" palceholder="${Member.email}" value="${Member.email}" name="user_email"/>
+                <input type="text" class="form-control" id="user_email" palceholder="${resume.user_email}" value="${resume.user_email}" name="user_email"/>
               </div>
             </div>
           <br>
             <div class="row">
               <div class="col">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: x-small; text-align: center;">주소를 입력하세요</p>
-                <input type="text" class="form-control" id="user_address" placeholder="${Member.location}" value="${Member.location}" name="user_address"/>
+                <input type="text" class="form-control" id="user_address" placeholder="${resume.user_address}" value="${resume.user_address}" name="user_address"/>
               </div>
             </div><hr>
             <br>
@@ -254,21 +265,21 @@
               <div class="col-md-8">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: x-small; text-align: center;"> 사용 가능한 언어를 , 혹은 / 로 구분하여 입력하세요. </p>
                 <!--skills-->
-                <input type="text" class="form-control" id="user_skills" placeholder="</>" name="user_skills"/>
+                <input type="text" class="form-control" id="user_skills" placeholder="</>" value="${resume.user_skills }" name="user_skills"/>
               </div>
             </div>
             <div class="row">
               <div class="col-md">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: x-small; text-align: center;"> 포트폴리오 링크를 첨부하세요. </p>
                 <!--portfolio link-->
-                <input type="text" class="form-control" id="user_portfolio_link" placeholder="portfolio link" name="user_portfolio_link"/>
+                <input type="text" class="form-control" id="user_portfolio_link" placeholder="portfolio link" name="user_portfolio_link" values="${resume.user_prtfolio_link }"/>
               </div>
             </div><br>
             <div class="row">
               <div class="col-md">
                 <p class="jsx-1629185219" style="color: #878e98; font-size: x-small; text-align: center;"> 포트폴리오 파일을 첨부하세요. </p>
                 <!--portfolio file-->
-                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="/*" name="file2">
+                <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload" accept="/*" name="file2" src="${path}/resources/user_portfolio/${resume.user_portfolio}"/>
               </div>
             </div><hr>
             <br>
@@ -278,14 +289,14 @@
             <div class="row">
               <div class="col">
                 <!--user experience-->
-                <textarea id="user_experience" name="user_experience" placeholder="write your experience (ex: 해외경험, 인턴, 아르바이트, 경력사항 등)"></textarea>
+                <textarea id="user_experience" name="user_experience" placeholder="write your experience (ex: 해외경험, 인턴, 아르바이트, 경력사항 등)">${resume.user_experience}</textarea>
               </div>
             </div>
             <br>
             <div class="row">
               <div class="col">
                 <!--user introduce-->
-                <textarea id="self_introduce" name="self_introduce" placeholder="Introduce your self"></textarea>
+                <textarea id="self_introduce" name="self_introduce" placeholder="Introduce your self">${resume.self_introduce}</textarea>
               </div>
             </div>
             <hr>
@@ -304,10 +315,10 @@
               <script>
                 // 취소 버튼 클릭 시 동작
                 document.getElementById('cancel-btn').addEventListener('click', function () {
-                  var confirmed = confirm('공고 작성을 취소하시겠습니까?');
+                  var confirmed = confirm('이력서 수정을 취소하시겠습니까?');
                   if (confirmed) {
-                    alert('이력서 작성을 취소하셨습니다. 공고 리스트 페이지로 이동합니다.')
-                    location.href='/recruit/getRecruitList.do';
+                    alert('이력서 수정을 취소하셨습니다. 이력서 리스트 페이지로 이동합니다.')
+                    location.href='getResumeList.do';
                   } else {
                     // 취소 클릭 시 동작 x
                     
@@ -316,11 +327,11 @@
 
                 // 저장 버튼 클릭 시 동작
                 document.getElementById('save-btn').addEventListener('click', function () {
-                  var confirmed = confirm('이력서 작성을 완료하시겠습니까?');
+                  var confirmed = confirm('이력서 수정을 완료하시겠습니까?');
                   if (confirmed) {
                     // 글 등록이 완료되었습니다. 메시지 표시 후 글 목록 화면으로 이동하는 동작 구현
-                    alert('이력서 등록이 완료되었습니다. 이력서 목록 페이지로 이동합니다.');
-                    location.href = '/resume/getResumeList.do';
+                    alert('이력서 수정이 완료되었습니다. 이력서 목록 페이지로 이동합니다.');
+                    location.href = 'getResumeList.do';
                   } else {
                     // 취소 클릭 시 아무 동작 없음
                   }

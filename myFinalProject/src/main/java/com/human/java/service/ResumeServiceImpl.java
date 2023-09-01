@@ -89,7 +89,7 @@ public class ResumeServiceImpl implements ResumeService{
 	@Override
 	public void updateResume(ResumeVO vo) {
 		// TODO Auto-generated method stub
-				System.out.println("## updateRecruit service 진입 ##");
+				System.out.println("## updateResume service 진입 ##");
 				resumeDAO.updateResume(vo);
 		
 	}
