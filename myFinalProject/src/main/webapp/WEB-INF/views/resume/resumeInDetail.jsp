@@ -7,8 +7,9 @@
 <%
 	HttpSession cSession = request.getSession();
 
-int company_id = (Integer) cSession.getAttribute("company_id");
-String company_name = (String) cSession.getAttribute("company_name");
+// int company_id = (Integer) cSession.getAttribute("company_id");
+// System.out.println("company_id : " + company_id);
+// String company_name = (String) cSession.getAttribute("company_name");
 
 String userId = (String) cSession.getAttribute("userId");
 String userName = (String) cSession.getAttribute("name"); /* 학원은 학원 명, 학생은 학생 명, 기업은 기업 명을 가져와야함 */
@@ -169,32 +170,9 @@ a:active {
 	color: #719a60;
 }
 
-/*share toast message*/
-#toast {
-	position: fixed;
-	bottom: 30px;
-	left: 50%;
-	padding: 15px 20px;
-	transform: translate(-50%, 10px);
-	border-radius: 30px;
-	overflow: hidden;
-	font-size: .8rem;
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity .5s, visibility .5s, transform .5s;
-	background: rgba(0, 0, 0, .35);
-	color: #fff;
-	z-index: 10000;
-}
-
-#toast.reveal {
-	opacity: 1;
-	visibility: visible;
-	transform: translate(-50%, 0)
-}
 
 /*company logo section*/
-.company_logo {
+.user_photo {
 	position: relative;
 	width: 300px;
 	height: 200px;
@@ -203,7 +181,7 @@ a:active {
 	margin-bottom: 16px;
 }
 
-.company_logo_img {
+.user_photo_img {
 	width: 100%;
 	height: 100%;
 	background-repeat: no-repeat;
@@ -214,7 +192,7 @@ a:active {
 }
 
 /*company info*/
-.company_info_box {
+.user_info_box {
 	font-size: medium;
 	font-weight: 500;
 }
@@ -303,26 +281,7 @@ button:focus {
 	outline: none;
 }
 
-/*detail box*/
-#detail-box {
-	text-align: center;
-}
 
-#detail-title {
-	color: #afb3ae;
-	padding-bottom: 20px;
-}
-
-.col-3 .detail {
-	border-bottom: 1px solid #afb3ae;
-	margin: 10px;
-}
-
-/*contact box*/
-#contact-box {
-	color: #afb3ae;
-	text-align: center;
-}
 
 /* Small screens (up to 600px) */
 @media ( max-width : 600px) {
@@ -396,31 +355,10 @@ button:focus {
 		color: #719a60;
 	}
 
-	/*share toast message*/
-	#toast {
-		position: fixed;
-		bottom: 30px;
-		left: 50%;
-		padding: 15px 20px;
-		transform: translate(-50%, 10px);
-		border-radius: 30px;
-		overflow: hidden;
-		font-size: .8rem;
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity .5s, visibility .5s, transform .5s;
-		background: rgba(0, 0, 0, .35);
-		color: #fff;
-		z-index: 10000;
-	}
-	#toast.reveal {
-		opacity: 1;
-		visibility: visible;
-		transform: translate(-50%, 0)
-	}
+	
 
 	/*company logo section*/
-	.company_logo {
+	.user_photo {
 		position: relative;
 		width: 300px;
 		height: 200px;
@@ -428,7 +366,7 @@ button:focus {
 		background-color: rgb(238, 239, 244);
 		margin-bottom: 16px;
 	}
-	.company_logo_img {
+	.user_photo_img {
 		width: 100%;
 		height: 100%;
 		background-repeat: no-repeat;
@@ -439,7 +377,7 @@ button:focus {
 	}
 
 	/*company info*/
-	.company_info_box {
+	.user_info_box {
 		font-size: medium;
 		font-weight: 500;
 	}
@@ -520,32 +458,8 @@ button:focus {
 		outline: none;
 	}
 
-	/*detail box*/
-	#detail-box {
-		text-align: center;
-	}
-	#detail-title {
-		color: #afb3ae;
-	}
-	.col-3 .detail {
-		border-bottom: 1px solid #afb3ae;
-		margin: 10px;
-	}
-
-	/*contact box*/
-	#contact-box {
-		color: #afb3ae;
-		text-align: center;
-	}
-	#manager_name:hover {
-		cursor: pointer;
-		color: #719a60;
-	}
-	#contact_email:hover {
-		cursor: pointer;
-		color: #719a60;
-	}
 }
+
 
 /* Medium screens (601px to 900px) */
 @media ( min-width : 601px) and (max-width: 900px) {
@@ -558,6 +472,7 @@ button:focus {
 	#title {
 		font-size: large;
 	}
+
 
 	/* hire type link text */
 	#hire-type {
@@ -619,31 +534,9 @@ button:focus {
 		color: #719a60;
 	}
 
-	/*share toast message*/
-	#toast {
-		position: fixed;
-		bottom: 30px;
-		left: 50%;
-		padding: 15px 20px;
-		transform: translate(-50%, 10px);
-		border-radius: 30px;
-		overflow: hidden;
-		font-size: .8rem;
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity .5s, visibility .5s, transform .5s;
-		background: rgba(0, 0, 0, .35);
-		color: #fff;
-		z-index: 10000;
-	}
-	#toast.reveal {
-		opacity: 1;
-		visibility: visible;
-		transform: translate(-50%, 0)
-	}
-
+	
 	/*company logo section*/
-	.company_logo {
+	.user_photo {
 		position: relative;
 		width: 300px;
 		height: 200px;
@@ -651,7 +544,7 @@ button:focus {
 		background-color: rgb(238, 239, 244);
 		margin-bottom: 16px;
 	}
-	.company_logo_img {
+	.user_photo_img {
 		width: 100%;
 		height: 100%;
 		background-repeat: no-repeat;
@@ -662,7 +555,7 @@ button:focus {
 	}
 
 	/*company info*/
-	.company_info_box {
+	.user_info_box {
 		font-size: medium;
 		font-weight: 500;
 	}
@@ -710,32 +603,6 @@ button:focus {
 	/*button*/
 	button:focus {
 		outline: none;
-	}
-
-	/*detail box*/
-	#detail-box {
-		text-align: center;
-	}
-	#detail-title {
-		color: #afb3ae;
-	}
-	.col-3 .detail {
-		border-bottom: 1px solid #afb3ae;
-		margin: 10px;
-	}
-
-	/*contact box*/
-	#contact-box {
-		color: #afb3ae;
-		text-align: center;
-	}
-	#manager_name:hover {
-		cursor: pointer;
-		color: #719a60;
-	}
-	#contact_email:hover {
-		cursor: pointer;
-		color: #719a60;
 	}
 }
 
@@ -811,31 +678,8 @@ button:focus {
 		color: #719a60;
 	}
 
-	/*share toast message*/
-	#toast {
-		position: fixed;
-		bottom: 30px;
-		left: 50%;
-		padding: 15px 20px;
-		transform: translate(-50%, 10px);
-		border-radius: 30px;
-		overflow: hidden;
-		font-size: .8rem;
-		opacity: 0;
-		visibility: hidden;
-		transition: opacity .5s, visibility .5s, transform .5s;
-		background: rgba(0, 0, 0, .35);
-		color: #fff;
-		z-index: 10000;
-	}
-	#toast.reveal {
-		opacity: 1;
-		visibility: visible;
-		transform: translate(-50%, 0)
-	}
-
 	/*company logo section*/
-	.company_logo {
+	.user_photo {
 		position: relative;
 		width: 300px;
 		height: 200px;
@@ -843,7 +687,7 @@ button:focus {
 		background-color: rgb(238, 239, 244);
 		margin-bottom: 16px;
 	}
-	.company_logo_img {
+	.user_photo_img {
 		width: 100%;
 		height: 100%;
 		background-repeat: no-repeat;
@@ -854,7 +698,7 @@ button:focus {
 	}
 
 	/*company info*/
-	.company_info_box {
+	.user_info_box {
 		font-size: medium;
 		font-weight: 500;
 	}
@@ -935,32 +779,6 @@ button:focus {
 		outline: none;
 	}
 
-	/*detail box*/
-	#detail-box {
-		text-align: center;
-	}
-	#detail-title {
-		color: #afb3ae;
-	}
-	.col-3 .detail {
-		border-bottom: 1px solid #afb3ae;
-		margin: 10px;
-	}
-
-	/*contact box*/
-	#contact-box {
-		color: #afb3ae;
-		text-align: center;
-	}
-	#manager_name:hover {
-		cursor: pointer;
-		color: #719a60;
-	}
-	#contact_email:hover {
-		cursor: pointer;
-		color: #719a60;
-	}
-
 	/*description*/
 	#decription-part {
 		text-align: center;
@@ -989,6 +807,7 @@ button:focus {
 }
 </style>
 
+
 </head>
 <body>
 
@@ -1004,9 +823,9 @@ button:focus {
 
 				<ol>
 					<li><a href="index.html">Home</a></li>
-					<li>Recruit</li>
+					<li>Resume</li>
 				</ol>
-				<h2>RECRUIT</h2>
+				<h2>RESUME DETAIL</h2>
 			</div>
 		</section>
 
@@ -1014,10 +833,10 @@ button:focus {
 			<!-- 수정 / 삭제 버튼 -->
 			<div class="container">
 				<c:choose>
-					<c:when test="${loginFG == 'c' }">
+					<c:when test="${loginFG == 'm' }">
 						<c:if test="${recruit.userId eq userId}">
 							<!-- 수정 form tag 이용해 수정 버튼 클릭 후 모달에서도 확인 클릭 시  -->
-							<a href="/recruit/recruitForUpdating.do?no=${recruit.ad_id}"><button type="button" class="update-btn" data-bs-toggle="modal" data-bs-target="#update">
+							<a href="/resume/resumeUpdating.do?no=${resume.resume_id}"><button type="button" class="update-btn" data-bs-toggle="modal" data-bs-target="#update">
 								<i class="bi bi-vector-pen"></i>수정
 							</button></a>
 							
@@ -1026,13 +845,13 @@ button:focus {
 								<i class="bi bi-trash3"></i>삭제
 							</button>
 			<!-- modal for delete -->
-			<form action="deleteRecruit.do" method="post">
+			<form action="deleteResume.do" method="post">
 			<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">DELETE RECRUIT</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">DELETE RESUME</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -1040,7 +859,7 @@ button:focus {
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <input type="hidden" name="ad_id" value="${recruit.ad_id }">
+        <input type="hidden" name="ad_id" value="${resume.resume_id }">
         <button type="submit" class="btn btn-primary">삭제</button>
       </div>
     </div>
@@ -1058,170 +877,67 @@ button:focus {
 			<!-- 고용 형태 -->
 			<div class="row">
 				<p id="hire-type">
-					<a href="#"> ${recruit.hire_type} </a>
+					<a href="/resume/resumeAdding.do" class="write-btn"> GO TO WRITE ANOTHER RESUME </a>
 				</p>
 				<br>
 				<div class="col-10">
 					<!-- title -->
-					<p id="ad-title">${recruit.ad_title}</p>
+					<p id="ad-title">${resume.resume_title}</p>
 
-				</div>
-				<div class="col-2">
-					<!-- share : 클릭 시 현재 링크 복사-->
-					<div>
-						<p onclick="CopyLink(); toast('Copy Link!')">
-							<i class="bi bi-box-arrow-up"></i>
-						</p>
-						<div id="toast"></div>
-					</div>
-					<script>
-
-                    //링크 복사 메소드
-                    function CopyLink() {
-                        //fuction Name: CopyLink
-                        //임시로 textarea 만들기
-                        var dummy_text = document.createElement("textarea");
-                        //현재 페이지 주소 저장하기
-                        var text = location.href;
-                        //문서의 마지막에 임시로 만든 textarea 추가
-                        document.body.appendChild(dummy_text);
-                        //저장값 = 텍스트
-                        dummy_text.value = text;
-                        //마지막에 추가한 부분 선택
-                        dummy_text.select();
-                        //복사하기
-                        document.execCommand("copy");
-                        //임시로 추가한 부분 삭제
-                        document.body.removeChild(dummy_text);
-                    }
-
-                    function toast(string) {
-                        const toast = document.getElementById("toast");
-
-                        toast.classList.contains("reveal") ?
-                            (clearTimeout(removeToast), removeToast = setTimeout(function () {
-                                document.getElementById("toast").classList.remove("reveal")
-                            }, 1000)) :
-                            removeToast = setTimeout(function () {
-                                document.getElementById("toast").classList.remove("reveal")
-                            }, 1000)
-                        toast.classList.add("reveal"),
-                            toast.innerText = string
-                    }
-
-                </script>
 				</div>
 			</div>
 
 			<div class="row">
 				<div class=" col-5">
-					<!-- company_logo -->
-					<div class="company_logo">
-						<div class="company_logo_img">
-							<img class="company_logo_en" alt="#"
-								src="${path}/resources/company_logo/${recruit.company_logo_en}" />
-							<input type="hidden" name="company_id"
-								value="${recruit.company_id}" />
-						</div>
+					<!-- user_photo -->
+					<div class="user_photo">
+						
+							<img class="user_photo_img" alt="#"
+								src="${path}/resources/user_photo/${resume.user_photo_en}" />
+							<input type="hidden" name="userId"
+								value="${resume.userId}" />
+						
 					</div>
 
 					<!-- company ad list link -->
 					<!-- company_name with link -->
 					<div class="row">
-						<div class="company_info_box">
+						<div class="user_info_box">
 							<p id="text-for-sum">
-								<i class="bi bi-buildings"></i>${recruit.company_name}</p>
-							<p id="text-for-sum">
-								<i class="bi bi-calendar-check" id="svg-for-sum"></i>${recruit.application_deadline}</p>
-							<p id="text-for-sum">
-								<i class="bi bi-alarm" id="svg-for-sum"></i>d-day
-							</p>
+								<i class="bi bi-buildings"></i>${resume.user_name}</p>
 						</div>
 					</div>
 				</div>
 
 				<div class="col-md-7 col-xs-7">
 					<p id="text-for-sum">
-						<i class="bi bi-geo-alt" id="svg-for-sum"></i>${recruit.company_road}</p>
+						<i class="bi bi-geo-alt" id="svg-for-sum"></i>${resume.user_email}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-code-slash" id="svg-for-sum"></i>${recruit.programming_languages}</p>
+						<i class="bi bi-code-slash" id="svg-for-sum"></i>${resume.user_phone_number}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-coin" id="svg-for-sum"></i>${recruit.job_salary}</p>
+						<i class="bi bi-coin" id="svg-for-sum"></i>${resume.user_address}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-check2-circle" id="svg-for-sum"></i>${recruit.job_position}</p>
+						<i class="bi bi-check2-circle" id="svg-for-sum"></i>${resume.user_education}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-brightness-high" id="svg-for-sum"></i>${recruit.job_experience}</p>
+						<i class="bi bi-brightness-high" id="svg-for-sum"></i>${resume.user_skills}</p>
 					<p id="text-for-sum">
-						<i class="bi bi-mortarboard" id="svg-for-sum"></i>${recruit.job_education}</p>
+						<i class="bi bi-mortarboard" id="svg-for-sum"></i>${resume.user_portfolio_link}</p>
 				</div>
 			</div>
 
-	<div class="container text-center">
-			
-			<c:if test="${loginFG eq 'm'}">
-				<div class="col">
-					<button type="button" class="apply-btn" data-bs-toggle="modal"
-						data-bs-target="#apply-modal">
-						<i class="bi bi-envelope"></i>즉시지원
-					</button>
-					<!--toast for scrap btn-->
-					<button type="button" class="scrap-btn"
-						onclick="toast('Scrap Success!')">
-						<i class="bi bi-star" id="scrap-star"></i>스크랩&nbsp;
-					</button>
-				</div>
-				</c:if>
-				
-			</div>
-
-
-			<div class="row" id="detail-box">
-				<!--detail description part-->
-				<div class="col-3">
-					<div class="detail">
-						<span id="detail-title"> 근무일 </span> <br> <span
-							id="detail-content">${recruit.working_days}</span>
-					</div>
-				</div>
-
-				<div class="col-3">
-					<div class="detail">
-						<span id="detail-title"> 근무시간 </span> <br> <span
-							id="detail-content">${recruit.working_hours}</span>
-					</div>
-				</div>
-
-				<div class=" col-3">
-					<div class="detail">
-						<span id="detail-title"> 수습기간 </span> <br> <span
-							id="detail-content">${recruit.probation_period}</span>
-					</div>
-				</div>
-
-				<div class=" col-3">
-					<div class="detail">
-						<span id="detail-title"> 코딩테스트 </span> <br> <span
-							id="detail-content">${recruit.coding_test}</span>
-					</div>
-				</div>
-			</div>
+		
 
 			<div class="row" id="decription-part">
 				<!--detail description part-->
 				<div class="description">
-					<p id="description">Description</p>
-					<div class="text-box">${recruit.job_description}</div>
+					<p id="description">EXPERIENCE</p>
+					<div class="text-box">${resume.user_experience}</div>
 				</div>
-			</div>
-
-			<div class="row" id="contact-box">
-				<!--contact manager / email-->
-				<div class=" col-6" id="manager_name">
-					<i class="bi bi-person-circle"></i>${recruit.manager_name}
-				</div>
-				<div class=" col-6" id="contact_email">
-					<i class="bi bi-envelope-at"></i>${recruit.contact_email}
-				</div>
+        <br>
+          <div class="description">
+            <p id="description">INTRODUCE</p>
+            <div class="text-box">${resume.self_introduce}</div>
+          </div>
 			</div>
 
 		</section>

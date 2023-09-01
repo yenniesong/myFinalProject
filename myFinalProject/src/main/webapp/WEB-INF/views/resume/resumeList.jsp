@@ -437,6 +437,8 @@ System.out.println("loginFG : " + loginFG);
 								<c:set var="total" value="${fn:length(rList)}" />
 								<span class="jsx-485996613 total-number">총 ${total}개</span>
 								<div class="jsx-485996613 select-wrap talk fix-position">	
+								<a href="/resume/resumeAdding.do">
+								<button type="button" class="jsx-3066370919 write_resume">이력서 작성</button></a>
 									<button type="button" class="jsx-3066370919 del_resume" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;">스크랩 삭제</button>
 								</div>
 							</div>
@@ -520,7 +522,7 @@ System.out.println("loginFG : " + loginFG);
 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div>
 											<!-- 거꾸로 하고싶을때 ${resumeList.size() - loop.index} 사용 -->
 											<div class="jsx-989812570 col-title" style="max-width:  100%;">
-												<a class="jsx-989812570" href="/resume/getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a>
+												<a class="jsx-989812570" href="getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a>
 											</div>
 											<div class="jsx-989812570 col-created" style="max-width: 100px;">${resume.regdate}</div>
 											<div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
