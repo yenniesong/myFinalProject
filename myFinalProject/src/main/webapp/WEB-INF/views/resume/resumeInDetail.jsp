@@ -830,11 +830,11 @@ button:focus {
 		</section>
 
 		<section class="inner-page">
-			<!-- 수정 / 삭제 버튼 -->
+<!-- 수정 / 삭제 버튼 -->
 			<div class="container">
 				<c:choose>
 					<c:when test="${loginFG == 'm' }">
-						<c:if test="${recruit.userId eq userId}">
+						<c:if test="${resume.userId eq userId}">
 							<!-- 수정 form tag 이용해 수정 버튼 클릭 후 모달에서도 확인 클릭 시  -->
 							<a href="/resume/resumeUpdating.do?no=${resume.resume_id}"><button type="button" class="update-btn" data-bs-toggle="modal" data-bs-target="#update">
 								<i class="bi bi-vector-pen"></i>수정
@@ -845,7 +845,7 @@ button:focus {
 								<i class="bi bi-trash3"></i>삭제
 							</button>
 			<!-- modal for delete -->
-			<form action="deleteResume.do" method="post">
+			<form action="deleteResume.do?userId=<%=userId %>" method="post">
 			<!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -855,11 +855,11 @@ button:focus {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-       공고를 삭제하시겠습니까?
+       이력서를 삭제하시겠습니까?
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <input type="hidden" name="ad_id" value="${resume.resume_id }">
+        <input type="hidden" name="resume_id" value="${resume.resume_id }">
         <button type="submit" class="btn btn-primary">삭제</button>
       </div>
     </div>
@@ -874,13 +874,9 @@ button:focus {
 
 
 
-			<!-- 고용 형태 -->
 			<div class="row">
-				<p id="hire-type">
-					<a href="/resume/resumeAdding.do" class="write-btn"> GO TO WRITE ANOTHER RESUME </a>
-				</p>
 				<br>
-				<div class="col-10">
+				<div class="col">
 					<!-- title -->
 					<p id="ad-title">${resume.resume_title}</p>
 

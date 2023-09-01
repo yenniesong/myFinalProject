@@ -91,7 +91,7 @@ public class ResumeController {
 			System.out.println("## updateResume.do - controller ##");
 			System.out.println("## update vo: "+vo);
 			resumeService.updateResume(vo);
-			return "redirect:/Resume/getResumeList.do";
+			return "redirect:/resume/getResumeList.do";
 			
 		}
 		
@@ -101,7 +101,7 @@ public class ResumeController {
 			System.out.println("## deleteResume.do - controller ##");
 			System.out.println("## Resume Number: "+vo.getResume_id()+" ##");
 			resumeService.deleteResume(vo);
-			return "redirect:/Resume/getResumeList.do";
+			return "redirect:/resume/getResumeList.do";
 		}
 	
 }
