@@ -988,6 +988,55 @@ button:focus {
 	font-size: 15px;
 	line-height: 2.1;
 }
+
+.popup {
+	display: none;
+	position: absolute; /* 팝업 창을 절대 위치로 설정합니다. */
+  	z-index: 9999; /* 원하는 레이어 순서에 따라 적절한 값을 설정하세요. */
+}
+
+.resumeList {
+    border: 1px solid;
+    width: 50%;
+    display: flow-root;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: center;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+}
+
+.list-header.jsx-1779968077 li.jsx-1779968077 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 42px;
+    font-size: 15px;
+    font-weight: normal;
+    background-color: #f2f2f1;
+    border-bottom: 1px solid #ececec;
+}
+li.jsx-989812570 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 42px;
+    border-bottom: 1px solid rgb(236, 236, 236);
+}
+li.jsx-989812570 div.jsx-989812570 {
+    width: 100%;
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+}
 </style>
 
 </head>
@@ -1169,16 +1218,23 @@ button:focus {
 					<script type="text/javascript">
 					$(".apply-btn").on("click",function(){
 						let confirmed = confirm("You don't have any resume. do you want to get it?");
-						if (confirmed) {
+						let myResumeList = "${resumeList}";
+						
+						console.log("myResumeList : " + myResumeList);
+
+						if (myResumeList == null) {
 							alert ("Let's go to the write page!");
 							location.href = "/resume/resumeAdding.do";
 						}
 						else {
-							alert ("go back to the page!");
+							alert ("choose your resume!");
+							$(".resumeList").removeClass("popup");
 						}
 					});
 					</script>
 					</c:if>
+					
+					
 
 					<!--toast for scrap btn-->
 					<button type="button" class="scrap-btn">
@@ -1308,6 +1364,83 @@ button:focus {
 			</div>
 
 		</section>
+		
+		<div class="popup resumeList">
+						<div class="rContent">
+							<h5 class="jsx-133251687">이력서 리스트임ㅋ</h5>
+							<div class="jsx-1779968077 board-list-box">
+								<ul class="jsx-1779968077 list-header" style="padding-left: 0px; margin-bottom: 0px;">
+									<li class="jsx-1779968077">
+										<div class="jsx-1779968077" style="max-width: 60px;">
+											<input type="checkbox" name="allCheck"/>
+										</div>
+										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
+										<div class="jsx-1779968077" style="max-width: 100%;">이력서 제목</div>
+										<div class="jsx-1779968077" style="max-width: 100px;">작성일</div>
+									</li>
+								</ul>
+								
+								<script type="text/javascript">
+								//all check name: allCheck
+								//rowCheck name: rowCheck
+								//value: scrap_id
+								
+								$(function(){
+									//변수 선언 -> rowcheck
+									var chkObj = document.getElementsByName("rowCheck");
+									var rowCnt = chkObj.length;
+									//전체 선택
+									$("input[name='allCheck']").on("click", function(){
+										var chkList = $("[input[name='rowCheck']");
+										for(var i=0; i<chkList.length; i++) {
+											chkList[i].checked = this.checked;
+										}
+									});
+									
+								//선택 해제
+								$("input[name='rowCheck']").on("click",function(){
+								if($("input[name='rowCheck']:checked").length == rowCnt){
+									$("input[name='allCheck']")[0].checked = true;
+								}
+								else {
+									$("input[name='allcheck']")[0].checked = false;
+								}
+								
+								});
+								
+								});
+								
+								
+								//delete data
+								
+								</script>
+							
+							
+									<c:forEach items="${resumeList}" var="resume" varStatus="loop">
+								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
+										<li tabindex="0" class="jsx-989812570 ">
+											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
+												<input type="checkbox" name="rowCheck" value="${resume.resume_id }">
+											</div>
+<%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${loop.index + 1}</div> --%>
+											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div>
+											<!-- 거꾸로 하고싶을때 ${resumeList.size() - loop.index} 사용 -->
+											<div class="jsx-989812570 col-title" style="max-width:  100%;">
+												<a class="jsx-989812570" href="getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a>
+											</div>
+											<div class="jsx-989812570 col-created" style="max-width: 100px;">${resume.regdate}</div>
+											<div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
+												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
+													<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+													<circle cx="12" cy="12" r="3"></circle>
+												</svg>
+											</div>
+										</li>
+								</ul>
+									</c:forEach>
+							</div>
+						</div>
+					</div>
 
 		<!-- End Breadcrumbs -->
 	</main>
