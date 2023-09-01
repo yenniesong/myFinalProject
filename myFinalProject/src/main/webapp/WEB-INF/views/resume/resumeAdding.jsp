@@ -156,6 +156,7 @@
         <!--resume write for user-->
         <!-- form tag: move to insertResume.do -->
         <form action="insertResume.do" method="post" enctype="multipart/form-data">
+        
           <!--
                 RESUME_ID -> sequence
                 USERID 1 -> input type hidden  RESUME_TITLE 1
