@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.human.java.domain.PagingVO;
 import com.human.java.domain.RecruitVO;
+import com.human.java.domain.ResumeVO;
 import com.human.java.service.CompanyInfoService;
 import com.human.java.service.RecruitService;
+import com.human.java.service.ResumeService;
 
 @Controller
 @RequestMapping("/recruit/")
@@ -24,6 +27,8 @@ public class RecruitController {
 	private RecruitService recruitService;
 	@Autowired
 	private CompanyInfoService companyInfoService;
+	@Autowired
+	private ResumeService resumeService;
 	
 	//기본 mapping
 	@RequestMapping("{url}.do")
@@ -43,12 +48,22 @@ public class RecruitController {
 	
 	//공고 상세페이지 조회하기
 	@RequestMapping("getRecruit.do")
-	public String gerRecruit(RecruitVO vo, Model model, HttpSession session) {
+	public String gerRecruit(RecruitVO vo, PagingVO pVO, Model model, HttpSession session) {
 		System.out.println("## getRecruit.do - controller ##");
 		System.err.println("## Recruit Number: "+vo.getAd_id()+" ##");
 		vo = recruitService.getRecruit(vo);
 		model.addAttribute("recruit", recruitService.getRecruit(vo));
 		System.out.println("recruit vo: "+vo);
+		
+		System.out.println("## Recruit Number: "+vo.getUserId()+" ##");
+		pVO.setUserId((String)session.getAttribute("userId"));
+		
+		List<ResumeVO> resumeList = resumeService.getResumeList(pVO);
+		
+		System.out.println("resumeList 조회~!! : " + resumeList);
+		
+		model.addAttribute("resumeList", resumeList);
+		
 		return "/recruit/recruitInDetail";
 	}
 	

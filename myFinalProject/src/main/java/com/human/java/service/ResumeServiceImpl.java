@@ -26,6 +26,7 @@ public class ResumeServiceImpl implements ResumeService{
 		vo.setStartPage(startPage);
 		vo.setEndPage(endPage);
 		
+		System.out.println("get resume List : " + vo.getUserId());
 		return resumeDAO.getResumeList(vo);
 	}
 
