@@ -439,36 +439,16 @@ System.out.println("loginFG : " + loginFG);
 								<div class="jsx-485996613 select-wrap talk fix-position">	
 								<a href="/resume/resumeAdding.do">
 								<button type="button" class="jsx-3066370919 write_resume">이력서 작성</button></a>
-									<button type="button" class="jsx-3066370919 del_resume" data-bs-toggle="modal" data-bs-target="#staticBackdrop" type="submit" style="margin-left: 10px; padding: 0px 10px;">스크랩 삭제</button>
+									<button type="button" class="jsx-3066370919 del_resume" type="submit" onclick="deleteThings()" style="margin-left: 10px; padding: 0px 10px;">스크랩 삭제</button>
 								</div>
 							</div>
-							<form action="deleteResume.do" method="post">
-								<!-- Modal -->
-								<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-								  <div class="modal-dialog">
-								    <div class="modal-content">
-								      <div class="modal-header">
-								        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
-								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-								      </div>
-								      <div class="modal-body">
-								        	선택한 이력서를 삭제하시겠습니까?
-								      </div>
-								      <input type="hidden" name="resume_id" value="${resume.resume_id }">
-								      <div class="modal-footer">
-								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-								        <button type="submit" class="btn btn-primary">삭제</button>
-								      </div>
-								    </div>
-								  </div>
-								</div>
-							</form>
+
 							
 							<div class="jsx-1779968077 board-list-box">
 								<ul class="jsx-1779968077 list-header" style="padding-left: 0px; margin-bottom: 0px;">
 									<li class="jsx-1779968077">
 										<div class="jsx-1779968077" style="max-width: 60px;">
-											<input type="checkbox" name="allCheck"/>
+											<input type="checkbox" name="allCheck" class="all-check" onclick="checkAll()"/>
 										</div>
 										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 										<div class="jsx-1779968077" style="max-width: 100%;">이력서 제목</div>
@@ -477,37 +457,69 @@ System.out.println("loginFG : " + loginFG);
 								</ul>
 								
 								<script type="text/javascript">
-								//all check name: allCheck
-								//rowCheck name: rowCheck
-								//value: scrap_id
 								
-								$(function(){
-									//변수 선언 -> rowcheck
-									var chkObj = document.getElementsByName("rowCheck");
-									var rowCnt = chkObj.length;
-									//전체 선택
-									$("input[name='allCheck']").on("click", function(){
-										var chkList = $("[input[name='rowCheck']");
-										for(var i=0; i<chkList.length; i++) {
-											chkList[i].checked = this.checked;
-										}
+								//All check checkbox
+								//name: allCheck
+								//class: all-check
+
+								//row check checkbox
+								//name: rowCheck
+								//class: row-check
+
+								function checkAll(){
+									//all check
+									if($(".all-check").is(":checked")){
+										$("input[name=rowCheck]").prop("checked", true);
+										alert("active: all check!");
+									}
+									//cancel all check
+									else {
+										$("input[name=rowCheck]").prop("checked", false);
+										alert(" deactivation: cancel all check!");
+									}
+								}
+
+								//delete
+								function deleteThings(){
+									//values
+									var checkRow = "";
+									$("input[name=rowCheck]:checked").each(function(){
+										checkRow = checkRow + $(this).val()+",";
 									});
-									
-								//선택 해제
-								$("input[name='rowCheck']").on("click",function(){
-								if($("input[name='rowCheck']:checked").length == rowCnt){
-									$("input[name='allCheck']")[0].checked = true;
+									checkRow = checkRow.substring(0,checkRow.lastIndexOf(","));
+
+									if(checkRow == '') {
+										alert("Please check the thing!");
+										event.preventDefault();
+										return false;
+									}
+									console.log("checkRow => {}"+checkRow);
+
+									if(confirm("Do you want to delete?")){
+										let resumeId = checkRow;
+										let userId = '<%=userId%>';
+										let data2 = {
+												"userId":userId,
+												"resume_id": resumeId
+										};
+										console.log(data2);
+										
+										$.ajax({
+											url: "/resume/deleteResume.do?reusme_id="+resumeId,
+											type: "POST",
+											data: data2,
+											dataType:"text",
+											success: function(json){
+												alert("delete result: "+json);
+												location.reload();
+											},
+											error: function(){
+												alert("delete failed");
+											}
+											
+										});
+									}
 								}
-								else {
-									$("input[name='allcheck']")[0].checked = false;
-								}
-								
-								});
-								
-								});
-								
-								
-								//delete data
 								
 								</script>
 							
@@ -516,7 +528,7 @@ System.out.println("loginFG : " + loginFG);
 								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
 										<li tabindex="0" class="jsx-989812570 ">
 											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
-												<input type="checkbox" name="rowCheck" value="${resume.resume_id }">
+												<input type="checkbox" name="rowCheck" class="row-check" value="${resume.resume_id }">
 											</div>
 <%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${loop.index + 1}</div> --%>
 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div>

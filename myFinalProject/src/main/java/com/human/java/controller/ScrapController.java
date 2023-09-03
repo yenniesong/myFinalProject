@@ -85,7 +85,7 @@ public class ScrapController {
 		System.out.println("## deleteScrap.do - controller ##");
 		System.out.println("##scrap id: "+vo.getScrap_id());
 		scrapService.deleteScrap(vo);
-		return "redirect:/scrap/scrapList?userId=${userId}";
+		return "redirect:/scrap/getScrapList.do";
 		
 	}
 	
