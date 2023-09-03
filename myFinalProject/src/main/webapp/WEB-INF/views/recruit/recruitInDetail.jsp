@@ -989,26 +989,25 @@ button:focus {
 	line-height: 2.1;
 }
 
-.popup {
-	display: none;
-	position: absolute; /* 팝업 창을 절대 위치로 설정합니다. */
-  	z-index: 9999; /* 원하는 레이어 순서에 따라 적절한 값을 설정하세요. */
-}
+/* .popup { */
+/* /* 	display: none; */ */
+/* /* 	position: absolute; /* 팝업 창을 절대 위치로 설정합니다. */ */ */
+/* /*   	z-index: 9999; /* 원하는 레이어 순서에 따라 적절한 값을 설정하세요. */ */ */
+/* } */
 
-.resumeList {
-    border: 1px solid;
-    width: 50%;
-    display: flow-root;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: center;
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-}
+/* .resumeList { */
+/*     border: 1px solid; */
+/* 	position: relative; */
+/*     display: flex; */
+/*     flex-direction: column; */
+/*     -webkit-box-pack: center; */
+/*     justify-content: center; */
+/*     -webkit-box-align: center; */
+/*     align-items: center; */
+/*     background-color: rgba(255, 255, 255, 0.98); */
+/*     width : 50%; */
+/*     height: 50%; */
+/* } */
 
 .list-header.jsx-1779968077 li.jsx-1779968077 {
     display: -webkit-box;
@@ -1036,6 +1035,145 @@ li.jsx-989812570 div.jsx-989812570 {
     width: 100%;
     font-size: 14px;
     color: rgb(102, 102, 102);
+}
+
+
+/* modal for my resume List */
+.on {
+	display: none;
+}
+.resumeModal.jsx-2594281658 {
+    position: fixed;
+    inset: 0px;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.modal--full.jsx-2594281658 .container.jsx-2594281658 {
+    width: 100%;
+}
+.container.jsx-2594281658 {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    overflow-y: auto;
+    height: 100%;
+}
+.layout.jsx-2594281658 {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+.modal--full.jsx-2594281658 .btn-close.jsx-2594281658 {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+}
+.btn-close.jsx-2594281658 {
+    position: relative;
+    z-index: 10;
+    margin-bottom: 16px;
+    text-align: right;
+}
+.modal--full.jsx-2594281658 .btn-close.jsx-2594281658 button.jsx-2594281658 {
+    width: 80px;
+    height: 80px;
+    background-color: transparent;
+}
+.btn-close.jsx-2594281658 button.jsx-2594281658 {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.6);
+    vertical-align: top;
+}
+button.jsx-265774403 {
+    display: none;
+}
+button {
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+.alt-text {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: 1px;
+    height: 1px;
+}
+.search-page.jsx-3924694827 {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.98);
+    height: 100%;
+}
+.title.jsx-3924694827 {
+    margin-bottom: 52px;
+}
+.board-list-box.jsx-1702879176 {
+    width: 100%;
+    text-align: center;
+}
+ul {
+    list-style: none;
+}
+.list-header.jsx-1702879176 li.jsx-1702879176 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 42px;
+    font-size: 15px;
+    font-weight: normal;
+    border-top: 1px solid rgb(33, 33, 33);
+    border-bottom: 1px solid rgb(236, 236, 236);
+}
+.list-header.jsx-1702879176 li.jsx-1702879176 > div.jsx-1702879176 {
+    width: 100%;
+}
+li.jsx-3042790088 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 42px;
+    border-bottom: 1px solid rgb(236, 236, 236);
+}
+li.jsx-3042790088 div.jsx-3042790088 {
+    width: 100%;
+    font-size: 14px;
+    color: rgb(102, 102, 102);
+}
+.board-list-footer.jsx-1407906967 {
+    position: relative;
+}
+.btn-write.jsx-1407906967 {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn-write.jsx-1407906967 button.jsx-1407906967 {
+    font-size: 14px;
+    text-align: center;
+    width: 120px;
+    min-width: 120px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 26px;
+    background-color: rgb(63, 96, 204);
+    color: rgb(255, 255, 255);
+    transition: background-color 0.3s ease 0s;
 }
 </style>
 
@@ -1075,28 +1213,29 @@ li.jsx-989812570 div.jsx-989812570 {
 							<button type="button" class="delete-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
 								<i class="bi bi-trash3"></i>삭제
 							</button>
-			<!-- modal for delete -->
-			<form action="deleteRecruit.do" method="post">
-			<!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">DELETE RECRUIT</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-       공고를 삭제하시겠습니까?
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <input type="hidden" name="ad_id" value="${recruit.ad_id }">
-        <button type="submit" class="btn btn-primary">삭제</button>
-      </div>
-    </div>
-  </div>
-</div>
-			</form>
+							
+							<!-- modal for delete -->
+							<form action="deleteRecruit.do" method="post">
+							<!-- Modal -->
+								<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+								  <div class="modal-dialog">
+								    <div class="modal-content">
+								      <div class="modal-header">
+								        <h1 class="modal-title fs-5" id="staticBackdropLabel">DELETE RECRUIT</h1>
+								        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+								      </div>
+								      <div class="modal-body">
+								       공고를 삭제하시겠습니까?
+								      </div>
+								      <div class="modal-footer">
+								        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								        <input type="hidden" name="ad_id" value="${recruit.ad_id }">
+								        <button type="submit" class="btn btn-primary">삭제</button>
+								      </div>
+								    </div>
+								  </div>
+								</div>
+							</form>
 						</c:if>
 					</c:when>
 				</c:choose>
@@ -1364,82 +1503,129 @@ li.jsx-989812570 div.jsx-989812570 {
 			</div>
 
 		</section>
-		
-		<div class="popup resumeList">
-						<div class="rContent">
-							<h5 class="jsx-133251687">이력서 리스트임ㅋ</h5>
-							<div class="jsx-1779968077 board-list-box">
-								<ul class="jsx-1779968077 list-header" style="padding-left: 0px; margin-bottom: 0px;">
-									<li class="jsx-1779968077">
-										<div class="jsx-1779968077" style="max-width: 60px;">
+
+
+		<div class="jsx-2594281658 resumeModal modal--search-mobile modal--full">
+			<div class="jsx-2594281658 container">
+				<div class="jsx-2594281658 layout">
+					<div class="jsx-2594281658 btn-close">
+						<button type="button" aria-label="닫기" class="jsx-2594281658">
+							<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; margin: auto; left: 0px; top: 0px;">
+								<line x1="18" y1="6" x2="6" y2="18"></line>
+								<line x1="6" y1="6" x2="18" y2="18"></line>
+							</svg>
+						</button>
+					</div>
+					<div class="jsx-2594281658 content">
+						<button type="button" class="jsx-265774403">
+							<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; vertical-align: top;">
+								<line x1="18" y1="6" x2="6" y2="18"></line>
+								<line x1="6" y1="6" x2="18" y2="18"></line>
+							</svg>
+							<span class="jsx-265774403 alt-text">닫기</span>
+						</button>
+						<div class="jsx-3924694827 search-page">
+							<div class="jsx-3924694827 title resumeTitle">
+								<h6 class="jsx-3924694827">지원할 이력서를 골라주새요ㅋ</h6>
+							</div>
+							<div class="jsx-1702879176 board-list-box">
+								<ul class="jsx-1702879176 list-header">
+									<li class="jsx-1702879176">
+										<div class="jsx-1702879176" style="max-width: 10%;">
 											<input type="checkbox" name="allCheck"/>
 										</div>
-										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
-										<div class="jsx-1779968077" style="max-width: 100%;">이력서 제목</div>
-										<div class="jsx-1779968077" style="max-width: 100px;">작성일</div>
+										<div class="jsx-1702879176" style="max-width: 10%;">번호</div>
+										<div class="jsx-1702879176" style="max-width: 80%;">이력서 제목</div>
+										<div class="jsx-1702879176" style="max-width: 20%;">등록일</div>
 									</li>
 								</ul>
-								
-								<script type="text/javascript">
-								//all check name: allCheck
-								//rowCheck name: rowCheck
-								//value: scrap_id
-								
-								$(function(){
-									//변수 선언 -> rowcheck
-									var chkObj = document.getElementsByName("rowCheck");
-									var rowCnt = chkObj.length;
-									//전체 선택
-									$("input[name='allCheck']").on("click", function(){
-										var chkList = $("[input[name='rowCheck']");
-										for(var i=0; i<chkList.length; i++) {
-											chkList[i].checked = this.checked;
-										}
-									});
-									
-								//선택 해제
-								$("input[name='rowCheck']").on("click",function(){
-								if($("input[name='rowCheck']:checked").length == rowCnt){
-									$("input[name='allCheck']")[0].checked = true;
-								}
-								else {
-									$("input[name='allcheck']")[0].checked = false;
-								}
-								
-								});
-								
-								});
-								
-								
-								//delete data
-								
-								</script>
-							
-							
-									<c:forEach items="${resumeList}" var="resume" varStatus="loop">
-								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
-										<li tabindex="0" class="jsx-989812570 ">
-											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
-												<input type="checkbox" name="rowCheck" value="${resume.resume_id }">
+								<c:forEach items="${resumeList}" var="resume" varStatus="loop">
+									<ul class="jsx-1702879176 list-body" style="padding-top: 0px">
+										<li tabindex="0" class="jsx-3042790088 ">
+											<div class="jsx-3042790088 col-notice" style="max-width: 10%;">
+												<input type="checkbox" name="allCheck" value="${resume.resume_id }"/>
 											</div>
-<%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${loop.index + 1}</div> --%>
-											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div>
-											<!-- 거꾸로 하고싶을때 ${resumeList.size() - loop.index} 사용 -->
-											<div class="jsx-989812570 col-title" style="max-width:  100%;">
+											<div class="jsx-3042790088 col-category" style="max-width: 10%;">${loop.index + 1}</div>
+											<input type="hidden" name="resume_id" value="${resume.resume_id }"> 
+											<div class="jsx-3042790088 col-title" style="max-width: 80%;">
 												<a class="jsx-989812570" href="getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a>
 											</div>
-											<div class="jsx-989812570 col-created" style="max-width: 100px;">${resume.regdate}</div>
-											<div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;">
-												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;">
-													<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-													<circle cx="12" cy="12" r="3"></circle>
-												</svg>
-											</div>
+											<div class="jsx-3042790088 col-created" style="max-width: 20%;">${resume.regdate}</div>
 										</li>
-								</ul>
-									</c:forEach>
+									</ul>
+								</c:forEach>
+							</div>
+							<div class="jsx-1407906967 board-list-footer">
+								<div class="jsx-1407906967 btn-write fix-position">
+									<button class="jsx-1407906967">지원하기</button>
+								</div>
 							</div>
 						</div>
+					</div>
+				</div>
+			</div>
+								
+								<script type="text/javascript">
+// 								//all check name: allCheck
+// 								//rowCheck name: rowCheck
+// 								//value: scrap_id
+								
+// 								$(function(){
+// 									//변수 선언 -> rowcheck
+// 									var chkObj = document.getElementsByName("rowCheck");
+// 									var rowCnt = chkObj.length;
+// 									//전체 선택
+// 									$("input[name='allCheck']").on("click", function(){
+// 										var chkList = $("[input[name='rowCheck']");
+// 										for(var i=0; i<chkList.length; i++) {
+// 											chkList[i].checked = this.checked;
+// 										}
+// 									});
+									
+// 								//선택 해제
+// 								$("input[name='rowCheck']").on("click",function(){
+// 								if($("input[name='rowCheck']:checked").length == rowCnt){
+// 									$("input[name='allCheck']")[0].checked = true;
+// 								}
+// 								else {
+// 									$("input[name='allcheck']")[0].checked = false;
+// 								}
+								
+// 								});
+								
+// 								});
+								
+								
+// 								//delete data
+								
+								</script> 
+							
+							
+<%-- 									<c:forEach items="${resumeList}" var="resume" varStatus="loop"> --%>
+<!-- 								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;"> -->
+<!-- 										<li tabindex="0" class="jsx-989812570 "> -->
+<!-- 											<div class="jsx-989812570 col-notice" style="max-width: 60px;"> -->
+<%-- 												<input type="checkbox" name="rowCheck" value="${resume.resume_id }"> --%>
+<!-- 											</div> -->
+<%-- <%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${loop.index + 1}</div> --%> 
+<%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div> --%>
+<!-- 											거꾸로 하고싶을때 ${resumeList.size() - loop.index} 사용 -->
+<!-- 											<div class="jsx-989812570 col-title" style="max-width:  100%;"> -->
+<%-- 												<a class="jsx-989812570" href="getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a> --%>
+<!-- 											</div> -->
+<%-- 											<div class="jsx-989812570 col-created" style="max-width: 100px;">${resume.regdate}</div> --%>
+<!-- 											<div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;"> -->
+<!-- 												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;"> -->
+<!-- 													<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path> -->
+<%-- 													<circle cx="12" cy="12" r="3"></circle> --%>
+<!-- 												</svg> -->
+<!-- 											</div> -->
+<!-- 										</li> -->
+<!-- 								</ul> -->
+<%-- 									</c:forEach> --%>
+<!-- 							</div> -->
+<!-- 						</div> -->
+					
 					</div>
 
 		<!-- End Breadcrumbs -->

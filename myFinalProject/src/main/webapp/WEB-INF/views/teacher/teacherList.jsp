@@ -640,10 +640,22 @@ v
       .card.jsx-445560552:hover .content.jsx-445560552{border:1px solid transparent;}
       .card.jsx-445560552:hover .btn-unfollow.jsx-445560552{border-color:#ffffff;color:#ffffff;}
       .btn-unfollow.jsx-445560552:hover{background-color:rgba(255,255,255,0.2);}
-      .card.jsx-445560552:hover .stars .star-0{background-image:url(https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_hover01_off.png);}
+      .card.jsx-445560552:hover .stars .star-0{background-image:url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_off.png);}
       .card.jsx-445560552:hover .stars .star-1{background-image:url(https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_hover01_half.png);}
-      .card.jsx-445560552:hover .stars .star-2{background-image:url(https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_hover01_on.png);}
+      .card.jsx-445560552:hover .stars .star-2{background-image:url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png);} 
     }
+    
+/*     @media (hover: hover) {} */
+/* .card.jsx-826816820:hover .stars .star-2 { */
+/*     background-image: url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_search/icon_card_star01_hover01_on.png); */
+/* } */
+
+/* .star-2.jsx-1550652944 { */
+/*     background-image: url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png); */
+/* } */
+/* .star-0.jsx-1550652944 { */
+/*     background-image: url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_off.png); */
+/* } */
     
     @media (max-width:1199px) {
       .card.jsx-445560552{height:146px;}
@@ -657,8 +669,12 @@ v
     }
   </style>
 <style id="__jsx-2704879397">
+	.star-0.jsx-2704879397 {
+    	background-image: url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_off.png);
+	}
+
     .star-2.jsx-2704879397 {
-        background-image: url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png");
+        background-image:url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_search/icon_card_star01_normal01_on.png);
     }
 
     .star.jsx-2704879397 {
@@ -1731,8 +1747,8 @@ li.jsx-3824006232 button.jsx-3824006232 {
 
 						let profileImageSpan = document.createElement("span");
 						profileImageSpan.classList.add("jsx-445560552");
-						profileImageSpan.style.backgroundImage = 'url("https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_teacher01_03@2x.png?w=280&f=webp")';
-
+						profileImageSpan.style.backgroundImage = 'url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_page/icon_page_star01_on.png)';
+// 					    background-image: url(https://d27b8p6cm1t9cq.cloudfront.net/static/images/teacher_page/icon_page_star01_on.png);
 						profileImageDiv.appendChild(profileImageSpan);
 
 						divContent.appendChild(starBox);
