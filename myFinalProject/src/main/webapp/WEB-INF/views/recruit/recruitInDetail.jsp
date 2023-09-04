@@ -989,26 +989,6 @@ button:focus {
 	line-height: 2.1;
 }
 
-/* .popup { */
-/* /* 	display: none; */ */
-/* /* 	position: absolute; /* 팝업 창을 절대 위치로 설정합니다. */ */ */
-/* /*   	z-index: 9999; /* 원하는 레이어 순서에 따라 적절한 값을 설정하세요. */ */ */
-/* } */
-
-/* .resumeList { */
-/*     border: 1px solid; */
-/* 	position: relative; */
-/*     display: flex; */
-/*     flex-direction: column; */
-/*     -webkit-box-pack: center; */
-/*     justify-content: center; */
-/*     -webkit-box-align: center; */
-/*     align-items: center; */
-/*     background-color: rgba(255, 255, 255, 0.98); */
-/*     width : 50%; */
-/*     height: 50%; */
-/* } */
-
 .list-header.jsx-1779968077 li.jsx-1779968077 {
     display: -webkit-box;
     display: -webkit-flex;
@@ -1039,7 +1019,7 @@ li.jsx-989812570 div.jsx-989812570 {
 
 
 /* modal for my resume List */
-.on {
+section .on {
 	display: none;
 }
 .resumeModal.jsx-2594281658 {
@@ -1065,18 +1045,19 @@ li.jsx-989812570 div.jsx-989812570 {
     position: relative;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 100%;
-    max-height: 100%;
+    height: 70%;
+/*     max-width: 100%; */
+/*     max-height: 100%; */
 }
 .modal--full.jsx-2594281658 .btn-close.jsx-2594281658 {
     position: absolute;
-    top: 40px;
-    right: 40px;
+    top: 50px;
+    right: 50px;
 }
 .btn-close.jsx-2594281658 {
     position: relative;
     z-index: 10;
-    margin-bottom: 16px;
+/*     margin-bottom: 16px; */
     text-align: right;
 }
 .modal--full.jsx-2594281658 .btn-close.jsx-2594281658 button.jsx-2594281658 {
@@ -1113,18 +1094,20 @@ button {
     display: flex;
     flex-direction: column;
     -webkit-box-pack: center;
-    justify-content: center;
+    justify-content: space-between;
     -webkit-box-align: center;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.98);
     height: 100%;
 }
 .title.jsx-3924694827 {
-    margin-bottom: 52px;
+/*     margin-bottom: 52px; */
 }
-.board-list-box.jsx-1702879176 {
+.board-list-box.jsx-3924694827 {
     width: 100%;
     text-align: center;
+    border: 1px solid #1dc078;
+    border-radius: 5px;
 }
 ul {
     list-style: none;
@@ -1154,16 +1137,21 @@ li.jsx-3042790088 div.jsx-3042790088 {
     font-size: 14px;
     color: rgb(102, 102, 102);
 }
-.board-list-footer.jsx-1407906967 {
-    position: relative;
+.board-list-footer.jsx-3924694827 {
+/*     position: relative; */
+/*     padding: 0 0 0 0; */
+/*     /* right: 106px; */ */
+/*     display: flex; */
+/*     justify-content: center; */
+/*     bottom: 0; */
 }
-.btn-write.jsx-1407906967 {
-    position: absolute;
-    right: 0px;
-    top: 50%;
-    transform: translateY(-50%);
+.btn-write.jsx-3924694827 {
+/*     position: absolute; */
+/*     right: 0px; */
+/*     top: 50%; */
+/*     transform: translateY(-50%); */
 }
-.btn-write.jsx-1407906967 button.jsx-1407906967 {
+.btn-write.jsx-3924694827 button.jsx-1407906967 {
     font-size: 14px;
     text-align: center;
     width: 120px;
@@ -1171,9 +1159,19 @@ li.jsx-3042790088 div.jsx-3042790088 {
     height: 42px;
     line-height: 42px;
     border-radius: 26px;
-    background-color: rgb(63, 96, 204);
+    background-color: #1dc078;
     color: rgb(255, 255, 255);
     transition: background-color 0.3s ease 0s;
+    padding: 0;
+}
+.content-box.jsx-2786454813 {
+    position: relative;
+    padding: 32px 40px 40px;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 5px;
 }
 </style>
 
@@ -1355,21 +1353,21 @@ li.jsx-3042790088 div.jsx-3042790088 {
 					</button>
 					<c:if test="${empty rList}">
 					<script type="text/javascript">
-					$(".apply-btn").on("click",function(){
-						let confirmed = confirm("You don't have any resume. do you want to get it?");
-						let myResumeList = "${resumeList}";
-						
-						console.log("myResumeList : " + myResumeList);
-
-						if (myResumeList == null) {
-							alert ("Let's go to the write page!");
-							location.href = "/resume/resumeAdding.do";
-						}
-						else {
-							alert ("choose your resume!");
-							$(".resumeList").removeClass("popup");
-						}
-					});
+						$(".apply-btn").on("click",function(){
+							let confirmed = confirm("You don't have any resume. do you want to get it?");
+							let myResumeList = "${resumeList}";
+							
+							console.log("myResumeList : " + myResumeList);
+	
+							if (myResumeList.length === 0 || myResumeList.lenghth == null) {
+								alert ("you don't have any resume! Let's go to the write page!");
+								location.href = "/resume/resumeAdding.do";
+							}
+							else {
+								alert ("choose your resume!");
+								$(".resumeModal").removeClass("on");
+							}
+						});
 					</script>
 					</c:if>
 					
@@ -1502,22 +1500,20 @@ li.jsx-3042790088 div.jsx-3042790088 {
 				</div>
 			</div>
 
-		</section>
-
-
-		<div class="jsx-2594281658 resumeModal modal--search-mobile modal--full">
+		<div class="jsx-2594281658 resumeModal modal--search-mobile modal--full on" id="#apply-modal" aria-hidden="true">
 			<div class="jsx-2594281658 container">
 				<div class="jsx-2594281658 layout">
 					<div class="jsx-2594281658 btn-close">
-						<button type="button" aria-label="닫기" class="jsx-2594281658">
-							<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; margin: auto; left: 0px; top: 0px;">
+						<button type="button" class="jsx-2594281658" data-bs-dismiss="modal" aria-label="Close">
+							<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: absolute; margin: auto; left: -32px; top: -32px;">
 								<line x1="18" y1="6" x2="6" y2="18"></line>
 								<line x1="6" y1="6" x2="18" y2="18"></line>
 							</svg>
 						</button>
 					</div>
-					<div class="jsx-2594281658 content">
-						<button type="button" class="jsx-265774403">
+<!-- 					<div class="jsx-2594281658 content"> -->
+					<div class="jsx-2786454813 content-box">
+						<button type="button" class="jsx-265774403" data-bs-dismiss="modal" aria-label="Close">
 							<svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="#dfdfdf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; vertical-align: top;">
 								<line x1="18" y1="6" x2="6" y2="18"></line>
 								<line x1="6" y1="6" x2="18" y2="18"></line>
@@ -1526,9 +1522,9 @@ li.jsx-3042790088 div.jsx-3042790088 {
 						</button>
 						<div class="jsx-3924694827 search-page">
 							<div class="jsx-3924694827 title resumeTitle">
-								<h6 class="jsx-3924694827">지원할 이력서를 골라주새요ㅋ</h6>
+								<h6 class="jsx-3924694827" style="font-weight: 600;">지원할 이력서를 골라주새요ㅋ</h6>
 							</div>
-							<div class="jsx-1702879176 board-list-box">
+							<div class="jsx-3924694827 board-list-box">
 								<ul class="jsx-1702879176 list-header">
 									<li class="jsx-1702879176">
 										<div class="jsx-1702879176" style="max-width: 10%;">
@@ -1555,8 +1551,8 @@ li.jsx-3042790088 div.jsx-3042790088 {
 									</ul>
 								</c:forEach>
 							</div>
-							<div class="jsx-1407906967 board-list-footer">
-								<div class="jsx-1407906967 btn-write fix-position">
+							<div class="jsx-3924694827 board-list-footer">
+								<div class="jsx-3924694827 btn-write fix-position">
 									<button class="jsx-1407906967">지원하기</button>
 								</div>
 							</div>
@@ -1566,6 +1562,22 @@ li.jsx-3042790088 div.jsx-3042790088 {
 			</div>
 								
 								<script type="text/javascript">
+								
+									var modal = document.querySelector(".resumeModal");
+									var closeButton = document.querySelector(".btn-close");
+	
+									// 닫기 버튼을 클릭하면 모달 창을 삭제합니다.
+									closeButton.addEventListener("click", function () {
+									    modal.remove();
+									});
+									
+									$(function () {
+										$(".btn-write").on("click", function() {
+											alert("지원할랍니다ㅋ");
+										});
+									})
+								
+								
 // 								//all check name: allCheck
 // 								//rowCheck name: rowCheck
 // 								//value: scrap_id
@@ -1599,34 +1611,13 @@ li.jsx-3042790088 div.jsx-3042790088 {
 // 								//delete data
 								
 								</script> 
-							
-							
-<%-- 									<c:forEach items="${resumeList}" var="resume" varStatus="loop"> --%>
-<!-- 								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;"> -->
-<!-- 										<li tabindex="0" class="jsx-989812570 "> -->
-<!-- 											<div class="jsx-989812570 col-notice" style="max-width: 60px;"> -->
-<%-- 												<input type="checkbox" name="rowCheck" value="${resume.resume_id }"> --%>
-<!-- 											</div> -->
-<%-- <%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${loop.index + 1}</div> --%> 
-<%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div> --%>
-<!-- 											거꾸로 하고싶을때 ${resumeList.size() - loop.index} 사용 -->
-<!-- 											<div class="jsx-989812570 col-title" style="max-width:  100%;"> -->
-<%-- 												<a class="jsx-989812570" href="getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a> --%>
-<!-- 											</div> -->
-<%-- 											<div class="jsx-989812570 col-created" style="max-width: 100px;">${resume.regdate}</div> --%>
-<!-- 											<div class="jsx-989812570 read_count hide-on-desktop" style="max-width: 60px;"> -->
-<!-- 												<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c1c1c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="position: relative; margin-right: 2px; vertical-align: -2px;"> -->
-<!-- 													<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path> -->
-<%-- 													<circle cx="12" cy="12" r="3"></circle> --%>
-<!-- 												</svg> -->
-<!-- 											</div> -->
-<!-- 										</li> -->
-<!-- 								</ul> -->
-<%-- 									</c:forEach> --%>
-<!-- 							</div> -->
-<!-- 						</div> -->
 					
 					</div>
+		
+		</section>
+
+
+	
 
 		<!-- End Breadcrumbs -->
 	</main>
