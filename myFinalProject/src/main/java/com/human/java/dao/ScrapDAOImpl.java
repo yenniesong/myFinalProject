@@ -62,6 +62,16 @@ public class ScrapDAOImpl implements ScrapDAO {
 		
 	}
 
+	@Override
+	public void deleteScrapList(String scrapId) {
+		// TODO Auto-generated method stub
+		System.out.println("## deleteScrapList dao ##");
+		mybatis.delete("ScrapDAO.deleteScrapList",scrapId);
+		
+	}
+
+
+
 	
 	
 

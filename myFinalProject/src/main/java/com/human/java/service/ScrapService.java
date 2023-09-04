@@ -16,5 +16,6 @@ public interface ScrapService {
 	//delete scrap
 	void deleteScrap(ScrapVO vo);
 	PagingVO getScrapListCount(int groupNum, String userId);
-
+	//delete scrap list
+	void deleteScrapList(String scrapId);
 }

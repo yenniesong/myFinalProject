@@ -2,11 +2,13 @@ package com.human.java.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -88,6 +90,19 @@ public class ScrapController {
 		return "redirect:/scrap/getScrapList.do";
 		
 	}
+	
+    //게시물 선택삭제
+    @RequestMapping("deleteScrapList.do")
+    public String ajaxTest(HttpServletRequest request) throws Exception {
+    	
+    	System.out.println("## deleteScrapList.do - controller ##");
+        String[] ajaxMsg = request.getParameterValues("valueArr");
+        int size = ajaxMsg.length;
+        for(int i=0; i<size; i++) {
+        	scrapService.deleteScrapList(ajaxMsg[i]);
+        }
+        return "redirect:/scrap/getScrapList.do";
+    }
 	
 
 }

@@ -46,7 +46,12 @@ SELECT rn, scrap_id, userId, name, company_id, company_name, ad_id, ad_title, sc
 
 	<!-- delete -->
 	<select id="deleteScrap" parameterType="scrap">
-		DELETE FROM SCRAP WHERE scrap_id = #{scrap_id}
+		DELETE FROM SCRAP WHERE userId = #{userId} AND scrap_id = #{scrap_id}
+	</select>
+	
+	<!-- delete list -->
+	<select id="deleteScrapList" parameterType="String">
+	DELETE FROM SCRAP WHERE SCRAP_ID = #{scrap_id}
 	</select>
 
 </mapper>

@@ -18,5 +18,7 @@ public interface ScrapDAO {
 	ScrapVO chkScrap(ScrapVO vo);
 	//delete scrap
 	void deleteScrap(ScrapVO vo);
+	//delete scrap list
+	void deleteScrapList(String scrapId);
 
 }

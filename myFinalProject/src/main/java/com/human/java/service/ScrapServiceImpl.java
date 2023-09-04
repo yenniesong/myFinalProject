@@ -113,6 +113,14 @@ public class ScrapServiceImpl implements ScrapService {
 		
 	}
 
+	@Override
+	public void deleteScrapList(String scrapId) {
+		// TODO Auto-generated method stub
+		System.out.println("## deleteScrapList service ##");
+		scrapDAO.deleteScrapList(scrapId);
+		
+	}
+
 
 
 	
