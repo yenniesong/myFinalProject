@@ -21,6 +21,9 @@ public interface ResumeService {
 	void updateResume(ResumeVO vo);
 	//이력서 삭제
 	void deleteResume(ResumeVO vo);
+	//이력서 선택 삭제
+	//delete scrap list
+	void deleteResumeList(String resumeId);
 	//userId session
 	void selectUser_id(String attribute);
 

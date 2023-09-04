@@ -27,5 +27,7 @@ public interface ResumeDAO {
 	
 	//이력서 삭제
 	void deleteResume(ResumeVO vo);
-
+	
+	//이력서 선택 삭제
+	void deleteResumeList(String resumeId);
 }

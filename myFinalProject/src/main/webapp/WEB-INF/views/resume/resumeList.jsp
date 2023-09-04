@@ -439,7 +439,7 @@ System.out.println("loginFG : " + loginFG);
 								<div class="jsx-485996613 select-wrap talk fix-position">	
 								<a href="/resume/resumeAdding.do">
 								<button type="button" class="jsx-3066370919 write_resume">이력서 작성</button></a>
-									<button type="button" class="jsx-3066370919 del_resume" type="submit" onclick="deleteThings()" style="margin-left: 10px; padding: 0px 10px;">스크랩 삭제</button>
+									<button type="button" class="jsx-3066370919 del_resume" type="submit" style="margin-left: 10px; padding: 0px 10px;" onclick="deleteValue()">이력서 삭제</button>
 								</div>
 							</div>
 
@@ -448,7 +448,7 @@ System.out.println("loginFG : " + loginFG);
 								<ul class="jsx-1779968077 list-header" style="padding-left: 0px; margin-bottom: 0px;">
 									<li class="jsx-1779968077">
 										<div class="jsx-1779968077" style="max-width: 60px;">
-											<input type="checkbox" name="allCheck" class="all-check" onclick="checkAll()"/>
+											<input type="checkbox" name="allCheck" class="all-check"/>
 										</div>
 										<div class="jsx-1779968077" style="max-width: 60px;">번호</div>
 										<div class="jsx-1779968077" style="max-width: 100%;">이력서 제목</div>
@@ -456,79 +456,67 @@ System.out.println("loginFG : " + loginFG);
 									</li>
 								</ul>
 								
-								<script type="text/javascript">
-								
-								//All check checkbox
-								//name: allCheck
-								//class: all-check
-
-								//row check checkbox
-								//name: rowCheck
-								//class: row-check
-
-								function checkAll(){
-									//all check
-									if($(".all-check").is(":checked")){
-										$("input[name=rowCheck]").prop("checked", true);
-										alert("active: all check!");
-									}
-									//cancel all check
-									else {
-										$("input[name=rowCheck]").prop("checked", false);
-										alert(" deactivation: cancel all check!");
-									}
-								}
-
-								//delete
-								function deleteThings(){
-									//values
-									var checkRow = "";
-									$("input[name=rowCheck]:checked").each(function(){
-										checkRow = checkRow + $(this).val()+",";
-									});
-									checkRow = checkRow.substring(0,checkRow.lastIndexOf(","));
-
-									if(checkRow == '') {
-										alert("Please check the thing!");
-										event.preventDefault();
-										return false;
-									}
-									console.log("checkRow => {}"+checkRow);
-
-									if(confirm("Do you want to delete?")){
-										let resumeId = checkRow;
-										let userId = '<%=userId%>';
-										let data2 = {
-												"userId":userId,
-												"resume_id": resumeId
-										};
-										console.log(data2);
-										
-										$.ajax({
-											url: "/resume/deleteResume.do?reusme_id="+resumeId,
-											type: "POST",
-											data: data2,
-											dataType:"text",
-											success: function(json){
-												alert("delete result: "+json);
-												location.reload();
-											},
-											error: function(){
-												alert("delete failed");
-											}
-											
-										});
-									}
-								}
-								
-								</script>
+<script type="text/javascript">
+		$(function(){
+			var chkObj = document.getElementsByName("RowCheck");
+			var rowCnt = chkObj.length;
+			
+			$("input[name='allCheck']").click(function(){
+				var chk_listArr = $("input[name='RowCheck']");
+				for (var i=0; i<chk_listArr.length; i++){
+					chk_listArr[i].checked = this.checked;
+				}
+			});
+			$("input[name='RowCheck']").click(function(){
+				if($("input[name='RowCheck']:checked").length == rowCnt){
+					$("input[name='allCheck']")[0].checked = true;
+				}
+				else{
+					$("input[name='allCheck']")[0].checked = false;
+				}
+			});
+		});
+		function deleteValue(){
+			var url = "/resume/deleteResumeList.do";    // Controller로 보내고자 하는 URL (.dh부분은 자신이 설정한 값으로 변경해야됨)
+			var valueArr = new Array();
+		    var list = $("input[name='RowCheck']");
+		    for(var i = 0; i < list.length; i++){
+		        if(list[i].checked){ //선택되어 있으면 배열에 값을 저장함
+		            valueArr.push(list[i].value);
+		        }
+		    }
+		    if (valueArr.length == 0){
+		    	alert("선택된 글이 없습니다.");
+		    }
+		    else{
+				var chk = confirm("정말 삭제하시겠습니까?");				 
+				$.ajax({
+				    url : url,                    // 전송 URL
+				    type : 'POST',                // GET or POST 방식
+				    traditional : true,
+				    data : {
+				    	valueArr : valueArr        // 보내고자 하는 data 변수 설정
+				    },
+	                success: function(jdata){
+	                    if(jdata = 1) {
+	                        alert("삭제 성공");
+	                        location.reload();
+	                    }
+	                    else{
+	                        alert("삭제 실패");
+	                    }
+	                }
+				});
+			}
+		}
+	</script>
 							
 							
 									<c:forEach items="${resumeList}" var="resume" varStatus="loop">
 								<ul class="jsx-1779968077 list-body" style="padding-left: 0px;">
 										<li tabindex="0" class="jsx-989812570 ">
 											<div class="jsx-989812570 col-notice" style="max-width: 60px;">
-												<input type="checkbox" name="rowCheck" class="row-check" value="${resume.resume_id }">
+												<input type="checkbox" name="RowCheck" class="row-check" value="${resume.resume_id }">
 											</div>
 <%-- 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${loop.index + 1}</div> --%>
 											<div class="jsx-989812570 col-notice" style="max-width:  60px;">${resume.resume_id }</div>

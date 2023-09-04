@@ -2,8 +2,11 @@ package com.human.java.service;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.human.java.dao.ResumeDAO;
 import com.human.java.domain.PagingVO;
@@ -98,15 +101,26 @@ public class ResumeServiceImpl implements ResumeService{
 	@Override
 	public void deleteResume(ResumeVO vo) {
 		// TODO Auto-generated method stub
-				System.out.println("## deleteRecruit service 진입 ##");
+				System.out.println("## deleteResume service 진입 ##");
 				resumeDAO.deleteResume(vo);
 		
 	}
+	
+	@Override
+	public void deleteResumeList(String resumeId) {
+		// TODO Auto-generated method stub
+		System.out.println("## deleteResumeList service 진입 ##");
+		resumeDAO.deleteResumeList(resumeId);
+		
+	}
+
 
 	@Override
 	public void selectUser_id(String attribute) {
 		// TODO Auto-generated method stub
 		
 	}
+
+
 
 }

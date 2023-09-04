@@ -70,5 +70,13 @@ public class ResumeDAOImpl implements ResumeDAO {
 		
 	}
 
+	@Override
+	public void deleteResumeList(String resumeId) {
+		// TODO Auto-generated method stub
+		System.out.println("## deleteResumeList - DAOImpl ##");
+		mybatis.delete("ResumeDAO.deleteResumeList", resumeId);
+		
+	}
+
 
 }

@@ -455,7 +455,6 @@
 									</li>
 								</ul>
 								
-								<script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
 			var chkObj = document.getElementsByName("RowCheck");

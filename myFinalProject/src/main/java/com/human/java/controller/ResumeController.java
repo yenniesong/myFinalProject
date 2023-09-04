@@ -2,6 +2,7 @@ package com.human.java.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -103,5 +104,18 @@ public class ResumeController {
 			resumeService.deleteResume(vo);
 			return "redirect:/resume/getResumeList.do";
 		}
+		
+	    //게시물 선택삭제
+	    @RequestMapping("deleteResumeList.do")
+	    public String ajaxTest(HttpServletRequest request) throws Exception {
+	    	
+	    	System.out.println("## deleteResumeList.do - controller ##");
+	        String[] ajaxMsg = request.getParameterValues("valueArr");
+	        int size = ajaxMsg.length;
+	        for(int i=0; i<size; i++) {
+	        	resumeService.deleteResumeList(ajaxMsg[i]);
+	        }
+	        return "redirect:/resume/getResumeList.do";
+	    }
 	
 }

@@ -101,6 +101,11 @@ SELECT rn, resume_id, userId, regdate, resume_title
 	WHERE resume_id = #{resume_id}
 	</delete>
 	
+	<!-- delete list -->
+	<select id="deleteResumeList" parameterType="String">
+	DELETE FROM USER_RESUME WHERE RESUME_ID = #{resume_id}
+	</select>
+	
 </mapper>
   
 
