@@ -1173,6 +1173,29 @@ li.jsx-3042790088 div.jsx-3042790088 {
     border: 1px solid rgb(223, 223, 223);
     border-radius: 5px;
 }
+
+.scroll {
+width: 300px; /* 원하는 가로 너비 지정 */
+  height: 200px; /* 원하는 세로 높이 지정 */
+  overflow: auto; /* 스크롤을 표시하기 위한 설정 */
+  border: 1px solid #ccc; /* 원하는 테두리 스타일 지정 */
+}
+
+/* 리스트 아이템 스타일 (선택적으로 사용) */
+.scroll ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd; /* 리스트 아이템 사이의 구분선 스타일 지정 */
+}
+
+/* 스크롤바 스타일 (선택적으로 사용) */
+.scroll::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 지정 */
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: #1dc078; /* 스크롤바의 색상 지정 */
+}
+
 </style>
 
 </head>
@@ -1354,23 +1377,21 @@ li.jsx-3042790088 div.jsx-3042790088 {
 					<c:if test="${empty rList}">
 					<script type="text/javascript">
 						$(".apply-btn").on("click",function(){
-							let confirmed = confirm("You don't have any resume. do you want to get it?");
 							let myResumeList = "${resumeList}";
 							
 							console.log("myResumeList : " + myResumeList);
 	
-							if (myResumeList.length === 0 || myResumeList.lenghth == null) {
-								alert ("you don't have any resume! Let's go to the write page!");
-								location.href = "/resume/resumeAdding.do";
-							}
-							else {
+							if (Array.isArray(myResumeList) && myResumeList.length > 0 || myResumeList != null) {
 								alert ("choose your resume!");
 								$(".resumeModal").removeClass("on");
+							}
+							else {
+								alert ("you don't have any resume! Let's go to the write page!");
+								location.href = "/resume/resumeAdding.do";
 							}
 						});
 					</script>
 					</c:if>
-					
 					
 
 					<!--toast for scrap btn-->
@@ -1524,24 +1545,22 @@ li.jsx-3042790088 div.jsx-3042790088 {
 							<div class="jsx-3924694827 title resumeTitle">
 								<h6 class="jsx-3924694827" style="font-weight: 600;">지원할 이력서를 골라주새요ㅋ</h6>
 							</div>
-							<div class="jsx-3924694827 board-list-box">
-								<ul class="jsx-1702879176 list-header">
-									<li class="jsx-1702879176">
-										<div class="jsx-1702879176" style="max-width: 10%;">
-											<input type="checkbox" name="allCheck"/>
-										</div>
+							<div class="jsx-3924694827 board-list-box scroll">
+								<ul class="jsx-1702879176 list-header" style="padding: 0px;">
+									<li class="jsx-1702879176" style="padding: 0px;">
+										<div class="jsx-1702879176" style="max-width: 10%;">선택</div>
 										<div class="jsx-1702879176" style="max-width: 10%;">번호</div>
 										<div class="jsx-1702879176" style="max-width: 80%;">이력서 제목</div>
 										<div class="jsx-1702879176" style="max-width: 20%;">등록일</div>
 									</li>
 								</ul>
 								<c:forEach items="${resumeList}" var="resume" varStatus="loop">
-									<ul class="jsx-1702879176 list-body" style="padding-top: 0px">
-										<li tabindex="0" class="jsx-3042790088 ">
+									<ul class="jsx-1702879176 list-body" style="padding: 0px">
+										<li tabindex="0" class="jsx-3042790088 " style="padding: 0px;">
 											<div class="jsx-3042790088 col-notice" style="max-width: 10%;">
 												<input type="checkbox" name="allCheck" value="${resume.resume_id }"/>
 											</div>
-											<div class="jsx-3042790088 col-category" style="max-width: 10%;">${loop.index + 1}</div>
+											<div class="jsx-3042790088 col-category" style="max-width: 10%;">${resumeList.size() - loop.index}</div>
 											<input type="hidden" name="resume_id" value="${resume.resume_id }"> 
 											<div class="jsx-3042790088 col-title" style="max-width: 80%;">
 												<a class="jsx-989812570" href="getResume.do?resume_id=${resume.resume_id }" style="color: rgb(102, 102, 102);">${resume.resume_title }</a>
@@ -1571,45 +1590,71 @@ li.jsx-3042790088 div.jsx-3042790088 {
 									    modal.remove();
 									});
 									
+									//all check name: allCheck
+									//rowCheck name: rowCheck
+									//value: scrap_id
+								
+									$(function(){
+										//변수 선언 -> rowcheck
+										//전체 선택
+										
+										$("input[name='allCheck']").on("click", function(){
+											var chkList = $("[input[name='rowCheck']");
+											for(var i=0; i<chkList.length; i++) {
+// 												var resume_id = $(this).val();
+												// 해당되는 필요한 이력서 정보 출력
+
+											}
+										});
+										
+									});
+									
 									$(function () {
 										$(".btn-write").on("click", function() {
 											alert("지원할랍니다ㅋ");
+											// ajax로 필요한 회사 정보(ex. 공고 id, 회사명 등)와 이력서 번호 및 필요한 정보 넘기기
+
+<%-- 												let mySessionId = "<%=userId%>"; --%>
+// 												let enteredPwd = $(".password").val();
+// 												let selectedQuestionId = window.question_id;
+// 												let userAcademy = window.selecteBootcampName;
+									
+// 												alert("이 사람의 학원 : " + userAcademy);
+												
+// 												let data = {
+// 														'userId' : mySessionId
+// 														, 'password' : enteredPwd
+// 														, 'question_id' : selectedQuestionId
+// 												};
+											
+// 												// AJAX 요청
+// 												 $.ajax({
+// 												 	url : "chkPwd.do"
+// 												 	, type: "POST"
+// 												 	, data: data
+// 												 	, dataType: "text"
+// 												   	, success: function(resp) {
+// 												     	// 서버 응답 처리
+// 												//      	alert("서버 응답: " + resp);
+// 												     	console.log("서버 응답: " + resp);
+// 												     	// 필요한 동작 수행
+// 												     	if (resp == "null") {
+// 												     		alert('비밀번호가 일치하지 않습니다.');
+// 												     		location.href='/qnaBoard/getQnAList.do';
+// 														} else {
+// 															location.href='/qnaBoard/getQnABoard.do?question_id=' + selectedQuestionId + '&academy=' + userAcademy;
+// 												   		}
+// 												   	}
+// 												   	, error: function() {
+// 												     	// 에러 처리
+// 												     	console.log("에러 발생: " + error);
+// 												   	}
+// 												 });
 										});
 									})
 								
 								
-// 								//all check name: allCheck
-// 								//rowCheck name: rowCheck
-// 								//value: scrap_id
-								
-// 								$(function(){
-// 									//변수 선언 -> rowcheck
-// 									var chkObj = document.getElementsByName("rowCheck");
-// 									var rowCnt = chkObj.length;
-// 									//전체 선택
-// 									$("input[name='allCheck']").on("click", function(){
-// 										var chkList = $("[input[name='rowCheck']");
-// 										for(var i=0; i<chkList.length; i++) {
-// 											chkList[i].checked = this.checked;
-// 										}
-// 									});
-									
-// 								//선택 해제
-// 								$("input[name='rowCheck']").on("click",function(){
-// 								if($("input[name='rowCheck']:checked").length == rowCnt){
-// 									$("input[name='allCheck']")[0].checked = true;
-// 								}
-// 								else {
-// 									$("input[name='allcheck']")[0].checked = false;
-// 								}
-								
-// 								});
-								
-// 								});
-								
-								
-// 								//delete data
-								
+										
 								</script> 
 					
 					</div>
