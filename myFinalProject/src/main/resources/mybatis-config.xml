@@ -25,6 +25,7 @@
 		<typeAlias type="com.human.java.domain.RecruitVO" alias="recruit"/>
 		<typeAlias type="com.human.java.domain.ResumeVO" alias="resume"/>
 		<typeAlias type="com.human.java.domain.ScrapVO" alias="scrap"/>
+		<typeAlias type="com.human.java.domain.ApplicantVO" alias="applicant"/>
 		
 
 
