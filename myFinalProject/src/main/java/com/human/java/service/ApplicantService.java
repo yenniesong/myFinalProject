@@ -10,6 +10,8 @@ public interface ApplicantService {
 	//applicant list
 	List<ApplicantVO> getApplicantList(PagingVO vo);
 	//applicant list count
-PagingVO getApplicantListCount(int groupNum, String userId);
+	PagingVO getApplicantListCount(int groupNum, String userId);
+	
+	void applyFor(ApplicantVO vo);
 
 }

@@ -11,5 +11,7 @@ public interface ApplicantDAO {
 	List<ApplicantVO> getApplicantList(PagingVO vo);
 	//count
 	PagingVO getApplicantListCount(String userId);
+	
+	void applyFor(ApplicantVO vo);
 
 }

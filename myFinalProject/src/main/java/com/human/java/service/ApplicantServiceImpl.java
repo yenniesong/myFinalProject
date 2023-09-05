@@ -67,4 +67,11 @@ public class ApplicantServiceImpl implements ApplicantService {
 		return vo;
 	}
 
+	@Override
+	public void applyFor(ApplicantVO vo) {
+		System.out.println("## applyFor.do - service ##");
+		System.out.println("applicant vo ==> " + vo);
+		applicantDAO.applyFor(vo);		
+	}
+
 }

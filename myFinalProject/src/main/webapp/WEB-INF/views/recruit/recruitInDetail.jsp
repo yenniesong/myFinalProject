@@ -1196,6 +1196,7 @@ width: 300px; /* 원하는 가로 너비 지정 */
   background-color: #1dc078; /* 스크롤바의 색상 지정 */
 }
 
+
 </style>
 
 </head>
@@ -1558,7 +1559,7 @@ width: 300px; /* 원하는 가로 너비 지정 */
 									<ul class="jsx-1702879176 list-body" style="padding: 0px">
 										<li tabindex="0" class="jsx-3042790088 " style="padding: 0px;">
 											<div class="jsx-3042790088 col-notice" style="max-width: 10%;">
-												<input type="checkbox" name="allCheck" value="${resume.resume_id }"/>
+												<input type="checkbox" name="rowCheck" value="${resume.resume_id }" onclick="checkOnlyOne(this)"/>
 											</div>
 											<div class="jsx-3042790088 col-category" style="max-width: 10%;">${resumeList.size() - loop.index}</div>
 											<input type="hidden" name="resume_id" value="${resume.resume_id }"> 
@@ -1590,68 +1591,94 @@ width: 300px; /* 원하는 가로 너비 지정 */
 									    modal.remove();
 									});
 									
-									//all check name: allCheck
-									//rowCheck name: rowCheck
-									//value: scrap_id
-								
-									$(function(){
-										//변수 선언 -> rowcheck
-										//전체 선택
-										
-										$("input[name='allCheck']").on("click", function(){
-											var chkList = $("[input[name='rowCheck']");
-											for(var i=0; i<chkList.length; i++) {
-// 												var resume_id = $(this).val();
-												// 해당되는 필요한 이력서 정보 출력
+									function checkOnlyOne(element) {
+										  
+									  const checkboxes = document.getElementsByName("rowCheck");
+									  
+									  checkboxes.forEach((cb) => {
+									    cb.checked = false;
+									  })
+									  
+									  element.checked = true;
+									}
 
+									$(function(){
+										let selectedResume = null; // 클릭한 체크박스 정보를 저장할 변수
+
+										$("input[name='rowCheck']").on("click", function(){
+											if ($(this).is(":checked")) {
+									            alert("체크!");
+// 												// 해당되는 필요한 이력서 정보 출력
+// 												// 필요한 정보 : resume_id, resume_title, applicant_name(= user_name)
+												selectedResume = {
+													resume_id : $(this).val()
+													, resume_title : $(this).parent().next().next().next().text().replace(/\n/g, "").trim()
+													// resume_title은 코드를 간단하게 바꿀 수 있으면 바꿔도 됨
+												};
+												console.log("선택된 이력서 정보 =>", selectedResume);
+									            
+									            
+									        } else {
+									        	selectedResume = null; // 체크를 해제하면 선택된 정보 초기화
+									        }
+										});
+										
+										$(".btn-write").on("click", function() {
+											if (selectedResume) {
+												alert("지원할랍니다ㅋ");
+												// 필요한 정보 : userId, ad_id, ad_title, resume_id, resume_title, applicant_name
+												// ajax로 필요한 회사 정보(ex. 공고 id, 회사명 등)와 이력서 번호 및 필요한 정보 넘기기
+												let userId = "<%=userId%>";
+												let applicant_name = "<%=userName%>"; 
+												let ad_id = "${recruit.ad_id}";
+												let ad_title = "${recruit.ad_title}";
+												let resume_id = selectedResume.resume_id;
+												let resume_title = selectedResume.resume_title;
+												
+												console.log("userId => " + userId);
+												console.log("applicant_name => " + applicant_name);
+												console.log("ad_id => " + ad_id);
+												console.log("ad_title => " + ad_title);
+												console.log("resume_id => " + resume_id);
+												console.log("resume_title => " + resume_title);
+
+												let data = {
+														'userId' : userId
+														, 'applicant_name' : applicant_name
+														, 'ad_id' : ad_id
+														, 'ad_title' : ad_title
+														, 'resume_id' : resume_id
+														, 'resume_title' : resume_title
+												};
+												
+												// AJAX 요청
+												$.ajax({
+													url : "/applicant/applyFor.do"
+													, type: "POST"
+													, data: data
+													, dataType: "text"
+													, success: function(resp) {
+														// 서버 응답 처리
+														console.log("서버 응답: " + resp);
+														// 필요한 동작 수행
+														alert('지원 완료');
+														location.href='getRecruit.do?ad_id=' + ad_id;
+														// 불필요시 location.href 삭제 (controller 에서 이미 return 해주기때문에)
+														// 추가하면 좋을 것 => 지원을 이미 했을 경우, "이미 지원하였습니다 alert"
+													}
+													, error: function() {
+														// 에러 처리
+														alert('지원 실패');
+														console.log("에러 발생: " + error);
+													}
+												});
+												
+											} else {
+												alert("이력서를 선택하시조ㅋ?");
 											}
 										});
-										
 									});
 									
-									$(function () {
-										$(".btn-write").on("click", function() {
-											alert("지원할랍니다ㅋ");
-											// ajax로 필요한 회사 정보(ex. 공고 id, 회사명 등)와 이력서 번호 및 필요한 정보 넘기기
-
-<%-- 												let mySessionId = "<%=userId%>"; --%>
-// 												let enteredPwd = $(".password").val();
-// 												let selectedQuestionId = window.question_id;
-// 												let userAcademy = window.selecteBootcampName;
-									
-// 												alert("이 사람의 학원 : " + userAcademy);
-												
-// 												let data = {
-// 														'userId' : mySessionId
-// 														, 'password' : enteredPwd
-// 														, 'question_id' : selectedQuestionId
-// 												};
-											
-// 												// AJAX 요청
-// 												 $.ajax({
-// 												 	url : "chkPwd.do"
-// 												 	, type: "POST"
-// 												 	, data: data
-// 												 	, dataType: "text"
-// 												   	, success: function(resp) {
-// 												     	// 서버 응답 처리
-// 												//      	alert("서버 응답: " + resp);
-// 												     	console.log("서버 응답: " + resp);
-// 												     	// 필요한 동작 수행
-// 												     	if (resp == "null") {
-// 												     		alert('비밀번호가 일치하지 않습니다.');
-// 												     		location.href='/qnaBoard/getQnAList.do';
-// 														} else {
-// 															location.href='/qnaBoard/getQnABoard.do?question_id=' + selectedQuestionId + '&academy=' + userAcademy;
-// 												   		}
-// 												   	}
-// 												   	, error: function() {
-// 												     	// 에러 처리
-// 												     	console.log("에러 발생: " + error);
-// 												   	}
-// 												 });
-										});
-									})
 								
 								
 										

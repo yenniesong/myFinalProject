@@ -29,4 +29,11 @@ public class ApplicantDAOImpl implements ApplicantDAO {
 		return mybatis.selectOne("ApplicantDAO.getApplicantListCount", userId);
 	}
 
+	@Override
+	public void applyFor(ApplicantVO vo) {
+		System.out.println("## applyFor - DAOImpl ##");		
+		System.out.println("applicant vo ==> " + vo);
+		mybatis.insert("ApplicantDAO.applyFor", vo);
+	}
+
 }

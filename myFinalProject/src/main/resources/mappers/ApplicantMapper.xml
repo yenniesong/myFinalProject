@@ -9,6 +9,12 @@
 
 </select>
 
+<insert id="applyFor" parameterType="applicant">
+	INSERT INTO applicant (APPLICANT_ID, USERID, AD_ID, AD_TITLE, RESUME_ID, RESUME_TITLE, APPLICANT_NAME, REGDATE)
+		 VALUES (seq_applicant_applicant_id.NEXTVAL, #{USERID}, #{AD_ID}, #{AD_TITLE}, #{RESUME_ID}, #{RESUME_TITLE}, #{APPLICANT_NAME}, SYSDATE);
+ 
+</insert>
+
 </mapper>
   
 

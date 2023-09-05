@@ -45,5 +45,24 @@ public class ApplicantController {
 		System.out.println("pInfoVo : " + pInfoVo);
 		return "/applicant/applicantList";
 	}
+	
+	// 지원하기
+	@RequestMapping("applyFor.do")
+	public String applyFor(ApplicantVO vo) {
+		System.out.println("## applyFor.do - Controller ##");
+		
+		System.out.println("====> userId : " + vo.getUserId());
+		System.out.println("====> applicant_name : " + vo.getApplicant_name()); 
+		System.out.println("====> ad_id : " + vo.getAd_id());
+		System.out.println("====> ad_title : " + vo.getAd_title());
+		System.out.println("====> resume_id : " + vo.getResume_id());
+		System.out.println("====> resume_title : " + vo.getResume_title());
+
+		System.out.println("applicant vo ==> " + vo);
+		applicantService.applyFor(vo);
+		
+		return "redirect:/recruit/getRecruit.do?ad_id=" + vo.getAd_id();
+
+	}
 
 }
