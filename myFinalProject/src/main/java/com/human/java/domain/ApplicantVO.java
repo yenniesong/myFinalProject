@@ -12,4 +12,5 @@ public class ApplicantVO {
 	private int resume_id;
 	private String resume_title;
 	private String applicant_name;
+	private String regdate;
 }
