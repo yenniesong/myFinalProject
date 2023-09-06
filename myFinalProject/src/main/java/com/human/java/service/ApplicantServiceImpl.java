@@ -74,9 +74,6 @@ public class ApplicantServiceImpl implements ApplicantService {
 		System.out.println("## applyFor.do - service ##");
 		System.out.println("applicant vo ==> " + vo);
 		
-		vo.setApplicant_name(vo.getApplicant_name());
-		vo.setAd_id(vo.getAd_id());
-		
 		ApplicantVO chkApply = applicantDAO.chkApply(vo);
 		System.out.println("====> chkApply : " + chkApply);
 		
@@ -89,22 +86,25 @@ public class ApplicantServiceImpl implements ApplicantService {
 			System.out.println("===> chkApply.getAd_id() 값 : " + chkApply.getAd_id());
 			result = 0;
 		}
-		
 		return result;
+		
 	}
 
-	@Override
-	public ApplicantVO chkApply(String applicant_name, int ad_id) {
-		System.out.println("## applyFor service - chkapply ##");
-		System.out.println("applicant_name: "+applicant_name);
-		System.out.println("ad_id: "+ad_id);
-		
-		ApplicantVO vo = new ApplicantVO();
-		vo.setApplicant_name(applicant_name);
-		vo.setAd_id(ad_id);
-		
-		return applicantDAO.chkApply(vo);
-	}
+
+//	@Override
+//	public ApplicantVO chkApply(String applicant_name, int ad_id) {
+//		System.out.println("## applyFor service - chkapply ##");
+//		System.out.println("applicant_name: "+applicant_name);
+//		System.out.println("ad_id: "+ad_id);
+//		
+//		ApplicantVO vo = new ApplicantVO();
+//		vo.setApplicant_name(applicant_name);
+//		vo.setAd_id(ad_id);
+//		
+//		System.out.println("## applyFor service - vo ==> " + vo);
+//		
+//		return applicantDAO.chkApply(vo);
+//	}
 	
 	
 	

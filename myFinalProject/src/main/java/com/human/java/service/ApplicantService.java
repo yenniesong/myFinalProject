@@ -14,6 +14,5 @@ public interface ApplicantService {
 	PagingVO getApplicantListCount(int groupNum, String userId);
 	
 	int applyFor(ApplicantVO vo);
-	ApplicantVO chkApply(String applicant_name, int ad_id);
 
 }

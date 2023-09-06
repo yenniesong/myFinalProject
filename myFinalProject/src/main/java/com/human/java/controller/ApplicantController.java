@@ -52,8 +52,9 @@ public class ApplicantController {
 	// 지원하기
 	@ResponseBody
 	@RequestMapping("applyFor.do")
-	public ApplicantVO applyFor(ApplicantVO vo, HttpSession session, HttpServletResponse response) {
+	public int applyFor(ApplicantVO vo, HttpSession session, HttpServletResponse response) {
 		System.out.println("## applyFor.do - Controller ##");
+		System.out.println("====> ApplicantVO vo : " + vo);
 		
 		System.out.println("====> userId : " + vo.getUserId());
 		System.out.println("====> applicant_name : " + vo.getApplicant_name()); 
@@ -62,14 +63,8 @@ public class ApplicantController {
 		System.out.println("====> resume_id : " + vo.getResume_id());
 		System.out.println("====> resume_title : " + vo.getResume_title());
 
-		ApplicantVO insertResult = applicantService.chkApply(vo.getApplicant_name(), vo.getAd_id());
-		
-		if(insertResult==null) {
-			applicantService.applyFor(vo);
-		}
-		else if(insertResult != null) {
-			System.out.println("already apply");
-		}
+		int insertResult = applicantService.applyFor(vo);
+		System.out.println("insertResult : " + insertResult);
 		
 		return insertResult;
 

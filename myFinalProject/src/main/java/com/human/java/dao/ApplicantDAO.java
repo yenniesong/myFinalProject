@@ -15,6 +15,6 @@ public interface ApplicantDAO {
 	
 	void applyFor(ApplicantVO vo);
 	
-	ApplicantVO chkApply (ApplicantVO vo);
+	ApplicantVO chkApply(ApplicantVO vo);
 
 }

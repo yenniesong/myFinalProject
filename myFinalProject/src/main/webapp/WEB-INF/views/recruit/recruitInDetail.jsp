@@ -1638,15 +1638,18 @@ width: 300px; /* 원하는 가로 너비 지정 */
 												let resume_id = Number(resumeId);
 												let resume_title = selectedResume.resume_title;
 												
-												//console.log("recruit => " + recruit);
 												console.log("userId => " + userId);
 												console.log("applicant_name => " + applicant_name);
-												console.log("adId => " + ad_id);
+												console.log("ad_id => " + ad_id);
 												console.log("ad_title => " + ad_title);
 												console.log("resume_id => " + resume_id);
 												console.log("resume_title => " + resume_title);
+												
 												console.log("resume id type => "+typeof resume_id);
 												console.log("ad id type => "+typeof ad_id);
+												console.log("applicant_name type => "+typeof applicant_name);
+												console.log("resume_title type => "+typeof resume_title);
+												console.log("ad_title type => "+typeof ad_title);
 
 												let data2 = {
 														'userId' : userId
@@ -1659,7 +1662,7 @@ width: 300px; /* 원하는 가로 너비 지정 */
 												
 												// AJAX 요청
 												$.ajax({
-													url : '/applicant/applyFor.do'
+													url : "/applicant/applyFor.do"
 													, type: "POST"
 													, data: data2
 													, dataType: "text"
