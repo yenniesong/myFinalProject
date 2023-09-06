@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.human.java.domain.ApplicantVO;
 import com.human.java.domain.PagingVO;
+import com.human.java.domain.ScrapVO;
 
 public interface ApplicantDAO {
 	
@@ -13,5 +14,7 @@ public interface ApplicantDAO {
 	PagingVO getApplicantListCount(String userId);
 	
 	void applyFor(ApplicantVO vo);
+	
+	ApplicantVO chkApply (ApplicantVO vo);
 
 }

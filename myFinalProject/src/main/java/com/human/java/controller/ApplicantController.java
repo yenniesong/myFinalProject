@@ -2,12 +2,14 @@ package com.human.java.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.human.java.domain.ApplicantVO;
 import com.human.java.domain.PagingVO;
@@ -35,6 +37,7 @@ public class ApplicantController {
 		System.out.println("pVO.setUserId((String)session.getAttribute 값 : " + pVO.getUserId());
 		// 총 페이지에 대한 개념
 		PagingVO pInfoVo = applicantService.getApplicantListCount(pVO.getGroupNum(), pVO.getUserId()); // 얘는 조회만 하면 되서 넘겨주는게 없음
+		System.out.println("pInfoVo 값 : " + pInfoVo);
 
 		// pVo : startPageNum / endPage
 		List<ApplicantVO> ApplicantList = applicantService.getApplicantList(pVO);
@@ -47,8 +50,9 @@ public class ApplicantController {
 	}
 	
 	// 지원하기
+	@ResponseBody
 	@RequestMapping("applyFor.do")
-	public String applyFor(ApplicantVO vo) {
+	public ApplicantVO applyFor(ApplicantVO vo, HttpSession session, HttpServletResponse response) {
 		System.out.println("## applyFor.do - Controller ##");
 		
 		System.out.println("====> userId : " + vo.getUserId());
@@ -58,10 +62,16 @@ public class ApplicantController {
 		System.out.println("====> resume_id : " + vo.getResume_id());
 		System.out.println("====> resume_title : " + vo.getResume_title());
 
-		System.out.println("applicant vo ==> " + vo);
-		applicantService.applyFor(vo);
+		ApplicantVO insertResult = applicantService.chkApply(vo.getApplicant_name(), vo.getAd_id());
 		
-		return "redirect:/recruit/getRecruit.do?ad_id=" + vo.getAd_id();
+		if(insertResult==null) {
+			applicantService.applyFor(vo);
+		}
+		else if(insertResult != null) {
+			System.out.println("already apply");
+		}
+		
+		return insertResult;
 
 	}
 

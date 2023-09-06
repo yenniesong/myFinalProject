@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.human.java.domain.ApplicantVO;
 import com.human.java.domain.PagingVO;
+import com.human.java.domain.ScrapVO;
 
 public interface ApplicantService {
 	
@@ -12,6 +13,7 @@ public interface ApplicantService {
 	//applicant list count
 	PagingVO getApplicantListCount(int groupNum, String userId);
 	
-	void applyFor(ApplicantVO vo);
+	int applyFor(ApplicantVO vo);
+	ApplicantVO chkApply(String applicant_name, int ad_id);
 
 }

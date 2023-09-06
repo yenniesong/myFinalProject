@@ -36,4 +36,10 @@ public class ApplicantDAOImpl implements ApplicantDAO {
 		mybatis.insert("ApplicantDAO.applyFor", vo);
 	}
 
+	@Override
+	public ApplicantVO chkApply(ApplicantVO vo) {
+		System.out.println("## chkApply - DAOImpl ##");		
+		return mybatis.selectOne("ApplicantDAO.chkApply", vo);
+	}
+
 }

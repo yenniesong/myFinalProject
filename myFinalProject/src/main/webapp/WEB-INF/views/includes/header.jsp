@@ -107,8 +107,7 @@
 								<c:if test="${loginFG == 'c'}">
 									<!-- 기업 -->
 									<li><a href="CompanymyPage">내 정보</a></li>
-									<li><a href="mylist">내 글 목록</a></li>
-									<li><a href="myComment">지원자 목록</a></li>
+									<li><a href="/applicant/getApplicantList.do">지원자 목록</a></li>
 								</c:if>
 								<c:if test="${loginFG == 'a'}">
 									<!-- 관리자-->

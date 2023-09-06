@@ -75,6 +75,7 @@ System.out.println("loginFG : " + loginFG);
 
 <!-- Template Main CSS File -->
 <link href="${path}/resources/css/style.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <style>
 /*페이지 마진 / 패딩*/
@@ -1409,6 +1410,7 @@ width: 300px; /* 원하는 가로 너비 지정 */
 						alert("scrap button action");
 						alert("loginUser: "+loginUser);
 						
+						
 						let userId = '<%=userId%>';
 						let name = '<%=userName%>';
 						let companyId = '${recruit.company_id}';
@@ -1628,21 +1630,25 @@ width: 300px; /* 원하는 가로 너비 지정 */
 												alert("지원할랍니다ㅋ");
 												// 필요한 정보 : userId, ad_id, ad_title, resume_id, resume_title, applicant_name
 												// ajax로 필요한 회사 정보(ex. 공고 id, 회사명 등)와 이력서 번호 및 필요한 정보 넘기기
-												let userId = "<%=userId%>";
-												let applicant_name = "<%=userName%>"; 
-												let ad_id = "${recruit.ad_id}";
-												let ad_title = "${recruit.ad_title}";
-												let resume_id = selectedResume.resume_id;
+												let userId = '${recruit.userId}';
+												let applicant_name = '<%=userName%>'; 
+												let ad_id = ${recruit.ad_id};
+												let ad_title = '${recruit.ad_title}';
+												let resumeId = selectedResume.resume_id;
+												let resume_id = Number(resumeId);
 												let resume_title = selectedResume.resume_title;
 												
+												//console.log("recruit => " + recruit);
 												console.log("userId => " + userId);
 												console.log("applicant_name => " + applicant_name);
-												console.log("ad_id => " + ad_id);
+												console.log("adId => " + ad_id);
 												console.log("ad_title => " + ad_title);
 												console.log("resume_id => " + resume_id);
 												console.log("resume_title => " + resume_title);
+												console.log("resume id type => "+typeof resume_id);
+												console.log("ad id type => "+typeof ad_id);
 
-												let data = {
+												let data2 = {
 														'userId' : userId
 														, 'applicant_name' : applicant_name
 														, 'ad_id' : ad_id
@@ -1653,23 +1659,23 @@ width: 300px; /* 원하는 가로 너비 지정 */
 												
 												// AJAX 요청
 												$.ajax({
-													url : "/applicant/applyFor.do"
+													url : '/applicant/applyFor.do'
 													, type: "POST"
-													, data: data
+													, data: data2
 													, dataType: "text"
-													, success: function(resp) {
+													, success: function(json) {
 														// 서버 응답 처리
-														console.log("서버 응답: " + resp);
+														console.log("서버 응답: " + json);
 														// 필요한 동작 수행
-														alert('지원 완료');
-														location.href='getRecruit.do?ad_id=' + ad_id;
-														// 불필요시 location.href 삭제 (controller 에서 이미 return 해주기때문에)
-														// 추가하면 좋을 것 => 지원을 이미 했을 경우, "이미 지원하였습니다 alert"
+														if (json == 0) {
+															alert('이미 신청되었어요!');
+														} else {
+															alert('지원 완료');
+														}
 													}
 													, error: function() {
 														// 에러 처리
 														alert('지원 실패');
-														console.log("에러 발생: " + error);
 													}
 												});
 												

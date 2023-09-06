@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.human.java.dao.ApplicantDAO;
 import com.human.java.domain.ApplicantVO;
 import com.human.java.domain.PagingVO;
+import com.human.java.domain.ScrapVO;
 
 @Service("ApplicantService")
 public class ApplicantServiceImpl implements ApplicantService {
@@ -35,6 +36,7 @@ public class ApplicantServiceImpl implements ApplicantService {
 		System.out.println("## userId ==> ## " + userId);
 		
 		PagingVO vo = applicantDAO.getApplicantListCount(userId);
+		System.out.println("vo : " + vo);
 		vo.setGroupNum(groupNum);
 		
 		System.out.println("vo.getTotalCount : " + vo.getTotalCount());
@@ -68,10 +70,46 @@ public class ApplicantServiceImpl implements ApplicantService {
 	}
 
 	@Override
-	public void applyFor(ApplicantVO vo) {
+	public int applyFor(ApplicantVO vo) {
 		System.out.println("## applyFor.do - service ##");
 		System.out.println("applicant vo ==> " + vo);
-		applicantDAO.applyFor(vo);		
+		
+		vo.setApplicant_name(vo.getApplicant_name());
+		vo.setAd_id(vo.getAd_id());
+		
+		ApplicantVO chkApply = applicantDAO.chkApply(vo);
+		System.out.println("====> chkApply : " + chkApply);
+		
+		int result = 0;
+		if (chkApply == null) {
+			applicantDAO.applyFor(vo);		
+			result = 1;
+			
+		} else {
+			System.out.println("===> chkApply.getAd_id() 값 : " + chkApply.getAd_id());
+			result = 0;
+		}
+		
+		return result;
 	}
+
+	@Override
+	public ApplicantVO chkApply(String applicant_name, int ad_id) {
+		System.out.println("## applyFor service - chkapply ##");
+		System.out.println("applicant_name: "+applicant_name);
+		System.out.println("ad_id: "+ad_id);
+		
+		ApplicantVO vo = new ApplicantVO();
+		vo.setApplicant_name(applicant_name);
+		vo.setAd_id(ad_id);
+		
+		return applicantDAO.chkApply(vo);
+	}
+	
+	
+	
+	
+	
+	
 
 }
