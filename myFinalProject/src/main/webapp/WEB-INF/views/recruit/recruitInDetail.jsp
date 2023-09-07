@@ -1634,9 +1634,11 @@ width: 300px; /* 원하는 가로 너비 지정 */
 												let applicant_name = '<%=userName%>'; 
 												let ad_id = ${recruit.ad_id};
 												let ad_title = '${recruit.ad_title}';
-												let resumeId = selectedResume.resume_id;
-												let resume_id = Number(resumeId);
+												let resume_id = $("input[name='rowCheck']").val();
+// 												let resumeId = selectedResume.resume_id;
+// 												let resume_id = Number(resumeId);
 												let resume_title = selectedResume.resume_title;
+// 												let resume_title = $("input[name='rowCheck']").parent().next().next().next().text();
 												
 												console.log("userId => " + userId);
 												console.log("applicant_name => " + applicant_name);
