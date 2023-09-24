@@ -17,30 +17,16 @@ public class QnAServiceImpl implements QnAService {
 	
 	@Override
 	public void insertQnABoard(QnAVO vo) {
-		System.out.println("## insertQnABoard service 진입 ##");
 		qnaDAO.insertQnABoard(vo);
-		
 	}
 
 	@Override
 	public QnAVO getQnABoard(QnAVO vo) {
-		System.out.println("## getQnABoard service 진입 ##");
-		System.out.println("게시글 번호 in service : " + vo.getQuestion_id());
-		
 		return qnaDAO.getQnABoard(vo);
 	}
 
 	@Override
 	public List<QnAVO> getQnAList(PagingVO vo) {
-		System.out.println("## getQnAList service 진입 ##");
-
-		// 서비스에서 하면 return이 하나만 되고 게시글에 대한 정보만 리턴!
-		// 게시글에 대한 정보와 총 페이지수에 대한 정보는 섞이기 어려운 정보
-		// => 별도의 서비스를 진행하는 게 더 좋음
-			
-		
-		//int pageNum = vo.getPageNum();
-//		int pageNum = 1; // 나중에 지울코드
 		
 		int startPage = (vo.getPageNum() - 1 ) * vo.getCountPerPage() + 1;
 		int endPage = vo.getPageNum() * vo.getCountPerPage();
@@ -53,26 +39,20 @@ public class QnAServiceImpl implements QnAService {
 	
 	@Override
 	public PagingVO getQnAListCount(int groupNum, String userId) {
-		System.out.println("## getQnAListCount service 진입 ##");
 		
 		PagingVO vo = qnaDAO.getQnAListCount(userId);
 		vo.setGroupNum(groupNum);
-		
-		System.out.println("vo : " + vo);
 		
 		int totalPageCount = vo.getTotalCount() / vo.getCountPerPage();
 		if ( vo.getTotalCount() % vo.getCountPerPage() != 0 ) totalPageCount++;
 		
 		vo.setTotalPageCount(totalPageCount);
-		System.out.println("totalPageCount : " + vo);
 		
 		int totalGroupCount = totalPageCount / vo.getCountPerGroup();
 		if ( totalPageCount % vo.getCountPerGroup() != 0 ) totalGroupCount++;
 
 		vo.setTotalGroupCount(totalGroupCount);
-		System.out.println("totalPageCount : " + vo);
 		
-		// group작업
 		int groupStartPage = (vo.getGroupNum() - 1) * vo.getCountPerGroup() + 1;
 		int groupEndPage = vo.getGroupNum() * vo.getCountPerGroup();
 		
@@ -88,19 +68,16 @@ public class QnAServiceImpl implements QnAService {
 
 	@Override
 	public QnAVO chkPwd(QnAVO vo) {
-		System.out.println("## chkPwd service 진입 ##");
 		return qnaDAO.chkPwd(vo);
 	}
 
 	@Override
 	public List<QnAVO> findMyQuestion(QnAVO vo) {
-		System.out.println("## findMyQuestion service 진입 ##");
 		return qnaDAO.findMyQuestion(vo);
 	}
 
 	@Override
 	public QnAVO goingToWriting(QnAVO vo) {
-		System.out.println("## goingToWriting service 진입 ##");
 		return qnaDAO.goingToWriting(vo);
 	}
 

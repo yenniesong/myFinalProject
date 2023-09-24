@@ -5,20 +5,14 @@
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <%
 	HttpSession bootSession = request.getSession();
-// 	String bootcamp_id = (String)bootSession.getAttribute("bootcamp_id");
-	System.out.println("come in qna" );
 
 	String userId = (String)bootSession.getAttribute("userId");
 	String loginFG = (String)bootSession.getAttribute("loginFG");
-	
-	System.out.println("userId : " + userId);
-	System.out.println("loginFG : " + loginFG);
-	
+
 	String bootcamp_name = "";
 	
-	if(loginFG != null && loginFG.equals("b")) {	// 문자열을 비교할때에는 == 보다는 equals()를 쓰는게 더 좋음
+	if(loginFG != null && loginFG.equals("b")) {	
 		bootcamp_name = (String)bootSession.getAttribute("name");
-		System.out.println("bootcamp_name : " + bootcamp_name);
 	}
 %>
 <!DOCTYPE html>
@@ -321,13 +315,9 @@
 </head>
 <body>
 
-	<!-- ======= Header ======= -->
 	<%@include file="../includes/header.jsp" %>
-	<!-- End Header -->
 
 	<main id="main">
-
-        <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
             <div class="container">
 
@@ -338,7 +328,7 @@
                 <h2>Q & A</h2>
 
             </div>
-        </section><!-- End Breadcrumbs -->
+        </section>
 
         <section class="inner-page">
             <div class="container">
@@ -409,12 +399,8 @@
                                         </button>
                                     </div>
                                     
-                                    <!-- 댓글!!!! -->
-                                    <!-- 답변이 없으면! -->
-<!--                                     <form action="writingAnswer.do" method="post"> -->
                                     <c:choose>
                                         <c:when test="${empty aList}">
-	                                    <!-- 답글이 없을 경우 -->
 	                                    <div class="jsx-4129687755 write-comment-box">
 	                                        <div class="jsx-394409708 write-comment-wrap noAnswer">
 	                                            <div class="jsx-394409708 write-comment" style="height: 130px;">
@@ -422,7 +408,6 @@
 	                                                    <div class="jsx-394409708 profile" style="display: inline-block;">
 	                                                        
 	                                                        <h5>아직 답글이 없어요</h5>
-	                                                       	<!-- <c:if test="loginFg eq '학원플래그'"></c:if> loginFg가 학원 이라면 아래 버튼 살리기 -->
 	                                                       	<c:if test="${loginFG eq 'b'}">
 	                                                        	<span class="jsx-394409708 btnWritingAnswer" style="color: #719a60; cursor: pointer;">답글 작성하기</span><!-- 여기도 나중에 디비에서 불러오는 걸로 -->
 	                                                   		</c:if>
@@ -431,7 +416,6 @@
 	                                            </div>
 	                                        </div>
 	                                        
-	                                        <!-- 작성하기 버튼이 활성화 될때 켜지는 부분 -->
 	                                        <div class="jsx-394409708 write-comment-wrap writingArea on">
 	                                        	<form action="writingAnswer.do" method="post" style="margin: 0; padding: 0;">
 	                                        		<input type="hidden" name="question_id" value="${qna.question_id }">
@@ -463,7 +447,6 @@
                                         </c:when>
                                     
                                     	<c:otherwise>
-	                                    <!-- 답글이 있을 경우 -->
 											<c:forEach items="${aList }" var="answerList"> 
 	                                        <div class="jsx-394409708 write-comment-wrap">
 	                                            <div class="jsx-394409708 write-comment" style="height: 130px;">
@@ -488,7 +471,6 @@
                                        	</c:otherwise>
                                        	
                                     </c:choose>
-<!--                                     </form> -->
                                     
                                 </div>
                             </div>
@@ -497,11 +479,9 @@
                 </div>
             </div>
         </section>
-    </main><!-- End #main -->
+    </main>
 
-	<!-- ======= Footer ======= -->
 	<%@include file="../includes/footer.jsp" %>
-	<!-- End Footer -->
 	
 </body>
 
@@ -523,16 +503,10 @@
     
     let btn_writing_answer = document.querySelector('.btnWritingAnswer');
     
-    
-    // 목록으로 가는 버튼
     btnBackToList.addEventListener("click", function () {
-       
-        // 모달로 사용할지 아예 없앨지 고민
-//         history.back();  - 비밀번호 창으로 돌아감 
     	location.href='/qnaBoard/getQnAList.do';
     });
     
-    // 답글 없을 경우 버튼 누르고 활성화
     btn_writing_answer.addEventListener("click", function() {
 		let writing_answer = document.querySelector('.writingArea');
 		let btn_writing_ok = document.querySelector('.writing_ok');

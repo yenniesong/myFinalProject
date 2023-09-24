@@ -5,12 +5,9 @@
 <%
 	HttpSession mySession = request.getSession();
 
-	System.out.println("come in writing");
-
 	String userId = (String)mySession.getAttribute("userId");
 	String loginFG = (String)mySession.getAttribute("loginFG");
 	String name = (String)mySession.getAttribute("name");
-// 	String academy = (String)mySession.getAttribute("academy");
 %>
 <!DOCTYPE html>
 <html>
@@ -318,13 +315,9 @@
 
 </head>
 <body>
-	<!-- ======= Header ======= -->
 	<%@include file="../includes/header.jsp" %>
-	<!-- End Header -->
 
 	<main id="main">
-
-        <!-- ======= Breadcrumbs ======= -->
         <section id="breadcrumbs" class="breadcrumbs">
             <div class="container">
 
@@ -335,7 +328,7 @@
                 <h2>Q & A</h2>
 
             </div>
-        </section><!-- End Breadcrumbs -->
+        </section>
 
         <section class="inner-page">
             <div class="container">
@@ -369,7 +362,6 @@
 	                                    </div>
 	                                    
 	                                    <div class="jsx-401750031 header-info">
-<%-- 	                                    	<c:forEach items="${userInfo }" var="userInfo"> --%>
 		                                        <div class="jsx-401750031 avatar-box">
 		                                            <div class="jsx-3763643514 avatar">
 		                                                <div class="jsx-3763643514 circle" style="background-image: url(&quot;https://d1ta1myjmiqbpz.cloudfront.net/static/images/default_image/default_user01_08@2x.png&quot;);">
@@ -383,7 +375,6 @@
 		                                            <span class="jsx-401750031 division-line"></span>
 		                                            <span class="jsx-401750031 bootcamp-name" style="margin: 0px; color: #90d487;">${userInfo.academy }</span>
 		                                        </div>
-<%-- 	                                        </c:forEach> --%>
 	                                        <div class="jsx-401750031 info-box">
 	                                            <div class="col input-group">
 	                                                <input type="password" title="비밀번호 입력" id="password" name="password" placeholder="비밀번호" class="jsx-599077571 password" value="">
@@ -429,11 +420,9 @@
             </div>
         </section>
 
-    </main><!-- End #main -->
+    </main>
 
-	<!-- ======= Footer ======= -->
 	<%@include file="../includes/footer.jsp" %>
-	<!-- End Footer -->    
 	
 </body>
 
@@ -457,18 +446,13 @@
     let btnPost = document.querySelector('.button--post');
 
     btnBackToList.addEventListener("click", function () {
-        // 목록으로 가는 버튼
-       
-        // 모달로 사용할지 아예 없앨지 고민
         alert('뒤로 돌아가시겠습니까? 작성중인 글은 저장되지 않습니다.'); 
-       
+       // 모달 혹은 팝업으로 띄어도 좋을 듯
         history.back();   
     });
 
     btnPost.addEventListener("click", function () {
-       // 등록 버튼
-       alert('등록'); 
-//        location.href = 'qnaList.html';
+       alert('등록이 되었어요'); 
     });
 
 </script>

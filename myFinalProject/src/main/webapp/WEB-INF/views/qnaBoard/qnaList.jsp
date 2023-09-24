@@ -7,19 +7,13 @@
 <%
 	HttpSession tSession = request.getSession();
 
-	System.out.println("come in" );
-
 	String userId = (String)tSession.getAttribute("userId");
 	String loginFG = (String)tSession.getAttribute("loginFG");
 	
-	System.out.println("userId : " + userId);
-	System.out.println("loginFG : " + loginFG);
-	
 	String bootcamp_name = "";
 	
-	if(loginFG != null && loginFG.equals("b")) {	// 문자열을 비교할때에는 == 보다는 equals()를 쓰는게 더 좋음
+	if(loginFG != null && loginFG.equals("b")) {	
 		bootcamp_name = (String)tSession.getAttribute("name");
-		System.out.println("bootcamp_name : " + bootcamp_name);
 	}
 %>
 <!DOCTYPE html>
@@ -388,13 +382,9 @@
     </style>
 </head>
 <body>
-	<!-- ======= Header ======= -->
 	<%@include file="../includes/header.jsp" %>
-	<!-- End Header -->
 
 	<main id="main">
-
-	    <!-- ======= Breadcrumbs ======= -->
 	    <section id="breadcrumbs" class="breadcrumbs">
 	      <div class="container">
 	
@@ -405,7 +395,7 @@
 	        <h2>Q & A</h2>
 	
 	      </div>
-	    </section><!-- End Breadcrumbs -->
+	    </section>
 	
 	    <section class="inner-page">
 	      <div class="container">
@@ -426,12 +416,6 @@
 	                <div class="jsx-485996613 select-wrap talk fix-position">
                   		<button type="button" class="jsx-3066370919 myQna">내가 쓴 글 보기</button>
                 	</div>
-<%-- 	                <% if(se) %> 세선이 있다면 ! --%>
-<%-- 	                <c:if test="${loginFg eq 's'}"> --%>
-<!-- 		                <div class="jsx-485996613 select-wrap talk fix-position"> -->
-<!-- 			                  <button type="button" class="jsx-3066370919 btn-writing">글쓰기</button> -->
-<!-- 		                </div> -->
-<%-- 		            </c:if> --%>
 		            
 	              </div>
 	              <div class="jsx-1779968077 board-list-box">
@@ -453,7 +437,6 @@
 		                    <div class="jsx-989812570 col-notice" style="max-width: 60px;">${qna.question_id }</div>
 		                    <div class="jsx-989812570 col-category" style="max-width: 120px;">${qna.category_name }</div>
 		                    <div class="jsx-989812570 col-title">
-	<%-- 	                      <a class="jsx-989812570" href="getQnABoard.do?question_id=${qna.question_id }" style="max-width: 328px; color: rgb(102, 102, 102);">${qna.title }</a> --%>
 		                      <a class="jsx-989812570" href="#" style="color: rgb(102, 102, 102);">${qna.title }</a>
 		                      <span class="jsx-989812570 comment-number hide-on-desktop">0
 		                        <span class="jsx-989812570">댓글</span>
@@ -542,7 +525,6 @@
 	                  
 	                </ul>
 	                
-	                <%-- 	                <% if(se) %> 세선이 있다면 ! --%>
 	                <c:if test="${loginFG eq 'm'}">
 		                <div class="jsx-4203269740 btn-write fix-position">
 		                  <button class="jsx-4203269740 writeQna">글쓰기</button>
@@ -555,9 +537,8 @@
 	        </div>
 	      </div>
 	    </section>
-  	</main><!-- End #main -->  
+  	</main>
 
-	<!-- modal -->	<!-- ajax로 하기 -->
 		<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 		  <div class="modal-dialog">
 		    <div class="modal-content">
@@ -568,7 +549,6 @@
 		        <p style="text-align: center;">비밀번호 입력</p>
 		        <input type="password" name="password" title="비밀번호 입력" placeholder="비밀번호를 입력해 주세요." class="jsx-599077571 password" value="" style="width: 300px;">
 		        <input type="hidden" name="question_id" id='hidden_question_id'>
-<%-- 		        <input type="hidden" name="userId" value="<%=userId %>" id='hidden_userId'> --%>
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-primary btnChkPwd">확인</button>
@@ -577,9 +557,7 @@
 		  </div>
 		</div>
 	
-	<!-- ======= Footer ======= -->
 	<%@include file="../includes/footer.jsp" %>
-	<!-- End Footer -->
 	
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -602,29 +580,18 @@
 		
 		$('div.jsx-989812570.col-title > a').click(function() {
 			let question_id = $(this).parent().prev().prev().text();
-			// 게시글의 학원명
 			let selecteBootcampName = $(this).parent().prev().prev().prev().val();
-			// 게시글의 작성자
 			let selecteWriter = $(this).parent().next().text();
 			
 			if ("<%=loginFG%>" == 'm' ) {
-				console.log("난 학생이어요");
-				console.log("이 글의 작성자는 : " + selecteWriter);
 				
 				if (selecteWriter === "<%=userId%>") {
-					console.log("내 글");
 	 				$("#staticBackdrop").modal("show");
 				} else {
-					console.log("넘의 글");
 					alert("내 글이 아니에요");
 				}
 				
 			} else if ("<%=loginFG%>" == 'b') {
-				
-				// 선택된 글을 쓴 학생의 학원명
-				console.log("선택된 글을 쓴 학생의 학원명 : " + selecteBootcampName);
-				
-				// 세션의 값과 게시글의 학원명에서 공통된 글자 개수를 구하는 함수
 				function countCommonCharacters(str1, str2) {
 					var count = 0;
 					var minLength = Math.min(str1.length, str2.length);
@@ -632,33 +599,23 @@
 					    if (str1[i] === str2[i]) {
 					      count++;
 					    } else {
-					      break; // 앞에서부터 비교하므로 글자가 다르면 루프 종료
+					      break; 
 					    }
 					}
 				  	return count;
 				}
-				
-				console.log("세션의 학원 명 : " + "<%=bootcamp_name%>");
-				// 세션의 값
+
 				var sessionBootcampName = "<%=bootcamp_name%>";
-				// countCommonCharacters 함수 호출 및 결과 확인
 		        var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
-		        console.log("공통 글자 개수 : " + commonCharacterCount);
-				// 일부 글자가 겹치는지 확인
 				var commonCharacterCount = countCommonCharacters(sessionBootcampName, selecteBootcampName);
 			
-				// 특정 기준 이상의 글자가 겹치는지 여부 확인 (예: 2개 이상의 글자가 겹치면 참)
 				var threshold = 4;
 				var isOverlap = commonCharacterCount >= threshold;
 				
-				console.log(isOverlap); // true or false (일부 글자가 겹치면 true, 아니면 false)
-				
 				if (isOverlap) {
-					alert("우리 학원");
-					
 					location.href = '/qnaBoard/getQnABoard.do?question_id=' + question_id;
 				} else {
-					alert("남의 학원");
+					alert("내가 쓴 글이 아니에요");
 				}
 			} 
 
@@ -669,32 +626,24 @@
 
 		$('li.jsx-2507860227.disabled a').removeAttr('href');
 
-		// 비밀번호 입력시 ajax로 넘기기
 		$(".btnChkPwd").click(function() {
 			let mySessionId = "<%=userId%>";
 			let enteredPwd = $(".password").val();
 			let selectedQuestionId = window.question_id;
 			let userAcademy = window.selecteBootcampName;
 
-			alert("이 사람의 학원 : " + userAcademy);
-			
 			let data = {
 					'userId' : mySessionId
 					, 'password' : enteredPwd
 					, 'question_id' : selectedQuestionId
 			};
 			
-			// AJAX 요청
 	 	    $.ajax({
 	 	    	url : "chkPwd.do"
 	 	    	, type: "POST"
 	 	    	, data: data
 	 	    	, dataType: "text"
 	 	      	, success: function(resp) {
-	 	        	// 서버 응답 처리
-// 	 	        	alert("서버 응답: " + resp);
-	 	        	console.log("서버 응답: " + resp);
-	 	        	// 필요한 동작 수행
 	 	        	if (resp == "null") {
 	 	        		alert('비밀번호가 일치하지 않습니다.');
 	 	        		location.href='/qnaBoard/getQnAList.do';
@@ -703,7 +652,6 @@
 	 	      		}
 	 	      	}
 	 	      	, error: function() {
-	 	        	// 에러 처리
 	 	        	console.log("에러 발생: " + error);
 	 	      	}
 	 	    });
@@ -732,7 +680,6 @@
 		let btn_myQna = document.querySelector('div.jsx-485996613.select-wrap.talk.fix-position > button');
 		let goBackToList = '<button type="button" class="jsx-3066370919 myQna">전체 글 보기</button>'
 		
-		// myQuestion 0이 아닐 때 버튼은 목록으로 or 전체 보기 버튼 바꿔주기 
 		if (myQuestion != "null") {
 			btn_myQna.innerHTML = '전체 글 보기';
 			
